@@ -1,0 +1,1892 @@
+<!doctype html>
+<html lang="tr" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fora Sailing · Kalabalıktan uzak, maviye yakın</title>
+<meta name="description" content="Gulet ile 8 gün 7 gece Mavi Yolculuk. Kabin ya da tüm tekne. 2009'dan beri 11.000'den fazla aile. Hafta sonu Anadolu Yakası'nda yüz yüze tanışalım.">
+<meta name="theme-color" content="#06121C">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" type="image/png" href="assets/logo/favicon.png">
+<script>
+/* Açılış kararı: oturumda ilk ziyaret (cihazın hareket azaltma ayarı yok sayılır, animasyonlar her zaman tam çalışır). Modül yüklenemezse 4 sn sonra içerik görünür kalır. */
+(function(){
+  var d=document.documentElement; d.classList.remove('no-js'); d.classList.add('js');
+  var seen=false; try{ seen=sessionStorage.getItem('fora-intro')==='1'; sessionStorage.setItem('fora-intro','1'); }catch(e){ seen=false; }
+  if(!seen) d.classList.add('intro');
+  setTimeout(function(){ if(!window.__fora){ d.classList.remove('js','intro'); d.classList.add('no-js'); } }, 4000);
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Onest:wght@300..700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: { abyss:'#06121C', deep:'#0A2233', navy:'#1B4F78', sky:'#5899CD', foam:'#F6F2EA', paper:'#EFE7D8', sand:'#E6D8BF', brass:'#C09A5B', brassink:'#735629', ink:'#0E1C27', mist:'#93A9BA' },
+    fontFamily: { display:['Fraunces','Georgia','serif'], sans:['Onest','system-ui','sans-serif'] }
+  } }
+};
+</script>
+<style>
+:root{
+  --abyss:#06121C; --deep:#0A2233; --navy:#1B4F78; --sky:#5899CD; --foam:#F6F2EA; --paper:#EFE7D8; --sand:#E6D8BF;
+  --brass:#C09A5B; --brass-ink:#735629; --ink:#0E1C27; --mist:#93A9BA; --wa:#25D366;
+  --ease-out:cubic-bezier(.23,1,.32,1); --ease-io:cubic-bezier(.77,0,.175,1); --ease-std:cubic-bezier(.4,0,.2,1); --ease-in:cubic-bezier(.4,0,1,1);
+  --dur-fast:200ms; --dur-normal:300ms; --dur-slow:400ms;
+  --r-sm:10px; --r-md:16px; --r-lg:28px;
+  --gutter:clamp(20px,4vw,56px);
+}
+html{ -webkit-text-size-adjust:100%; scroll-padding-top:84px; }
+html{ scroll-behavior:smooth; }
+body{ background:var(--foam); color:var(--ink); font-family:Onest,system-ui,sans-serif; font-size:17px; line-height:1.6; overflow-x:clip; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+.font-display,.h2,.hero-title,.cr-big,.cr-title{ font-family:Fraunces,Georgia,serif; font-optical-sizing:auto; }
+::selection{ background:var(--brass); color:var(--abyss); }
+:focus-visible{ outline:2px solid var(--brass); outline-offset:3px; border-radius:6px; }
+img{ max-width:100%; }
+.container-x{ width:100%; max-width:1320px; margin-inline:auto; padding-inline:var(--gutter); }
+.skip-link{ position:fixed; left:16px; top:-60px; z-index:200; background:var(--brass); color:var(--abyss); padding:10px 16px; border-radius:10px; font-weight:600; transition:transform var(--dur-fast) var(--ease-out); }
+.skip-link:focus{ transform:translateY(76px); }
+
+/* Tipografi */
+.h2{ font-weight:320; font-size:clamp(2.1rem,4.4vw,4rem); line-height:1.03; letter-spacing:-.025em; }
+.h2 em,.hero-title em,.cr-title em{ font-style:italic; font-weight:300; }
+.lead{ font-size:clamp(1.02rem,1.2vw,1.14rem); line-height:1.65; max-width:58ch; }
+
+/* Butonlar */
+.btn-primary{ position:relative; isolation:isolate; overflow:hidden; display:inline-flex; align-items:center; gap:14px; min-height:56px; padding:0 26px 0 28px; border-radius:999px; background:var(--brass); color:var(--abyss); font-weight:600; font-size:16px; letter-spacing:.005em; box-shadow:0 14px 30px -14px rgba(3,10,16,.55), inset 0 1px 0 rgba(255,255,255,.35); transition:transform 160ms var(--ease-out), background-color var(--dur-fast) ease; will-change:transform; }
+.btn-primary:hover{ background:#CBA76A; }
+.btn-primary:active{ transform:scale(.97); }
+.btn-primary .btn-arrow{ width:30px; height:30px; border-radius:999px; background:var(--abyss); color:var(--foam); display:grid; place-items:center; transition:transform var(--dur-normal) var(--ease-out); }
+.btn-primary:hover .btn-arrow{ transform:translateX(3px); }
+.btn-shine{ position:absolute; inset:0; z-index:-1; pointer-events:none; background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.55) 48%,transparent 66%); transform:translateX(-120%); animation:shine 4.2s var(--ease-std) 2.2s 3; }
+.btn-primary:hover .btn-shine{ animation:shine 1.4s var(--ease-std) 1; }
+@keyframes shine{ 0%{transform:translateX(-120%)} 38%,100%{transform:translateX(120%)} }
+.btn-ghost{ display:inline-flex; align-items:center; gap:10px; min-height:56px; padding:0 8px; font-weight:500; color:inherit; }
+.btn-ghost span{ background:linear-gradient(currentColor,currentColor) 0 100%/100% 1px no-repeat; padding-bottom:2px; transition:background-size var(--dur-normal) var(--ease-out); }
+.btn-ghost:hover span{ background-size:0 1px; background-position:100% 100%; }
+.magnet{ display:inline-block; padding:14px; margin:-14px; }
+.magnet-inner{ display:inline-block; will-change:transform; }
+
+/* 1. Açılış */
+#intro{ display:none; }
+.intro #intro{ display:grid; position:fixed; inset:0; z-index:150; place-items:center; background:radial-gradient(120% 90% at 50% 40%,#0C2A40 0%,var(--abyss) 70%); color:var(--foam); clip-path:inset(0 0 0 0); animation:intro-failsafe 0s linear 3.2s forwards; }
+@keyframes intro-failsafe{ to{ visibility:hidden; } }
+.intro body{ overflow:hidden; }
+.intro-inner{ display:grid; justify-items:center; gap:18px; }
+.intro-compass{ width:min(34vw,168px); height:auto; overflow:visible; }
+.intro-compass .draw{ fill:none; stroke:var(--brass); stroke-width:1.1; stroke-dasharray:1; stroke-dashoffset:1; animation:draw 1s var(--ease-out) forwards; }
+.intro-compass .draw.thin{ stroke-width:.6; stroke:rgba(246,242,234,.45); }
+.intro-compass .d2{ animation-delay:.08s } .intro-compass .d3{ animation-delay:.16s } .intro-compass .d4{ animation-delay:.26s } .intro-compass .d5{ animation-delay:.34s }
+.intro-rope{ fill:none; stroke:rgba(192,154,91,.55); stroke-width:3; stroke-dasharray:1.6 2.2; transform-origin:100px 100px; opacity:0; animation:rope 1.1s var(--ease-out) .1s forwards; }
+.intro-k{ fill:var(--foam); font:600 11px Onest,sans-serif; letter-spacing:.1em; opacity:0; animation:fadein .5s var(--ease-out) .55s forwards; }
+@keyframes draw{ to{ stroke-dashoffset:0; } }
+@keyframes rope{ from{ opacity:0; transform:rotate(-40deg); } to{ opacity:1; transform:rotate(0); } }
+@keyframes fadein{ to{ opacity:1; } }
+.intro-word{ opacity:0; transform:translateY(8px); animation:rise .6s var(--ease-out) forwards; }
+.intro-brand{ font:600 13px Onest,sans-serif; letter-spacing:.42em; margin-right:-.42em; animation-delay:.42s; }
+.intro-sub{ font:italic 300 15px Fraunces,serif; color:var(--mist); animation-delay:.56s; }
+@keyframes rise{ to{ opacity:1; transform:none; } }
+
+/* 3. Özel imleç */
+.c-dot,.c-ring{ position:fixed; left:0; top:0; z-index:180; pointer-events:none; opacity:0; transition:opacity var(--dur-fast) ease; }
+.cursor-on .c-dot,.cursor-on .c-ring{ opacity:1; }
+.c-dot{ width:6px; height:6px; margin:-3px 0 0 -3px; border-radius:50%; background:var(--foam); mix-blend-mode:difference; }
+.c-ring{ width:0; height:0; }
+.c-ring-inner{ position:absolute; left:-42px; top:-42px; width:84px; height:84px; border-radius:50%; border:2.4px solid rgba(246,242,234,.9); mix-blend-mode:difference; transform:scale(.42); transition:transform 380ms var(--ease-out), background-color 240ms ease, border-color 240ms ease; display:grid; place-items:center; }
+.c-label{ font:600 11px Onest,sans-serif; letter-spacing:.16em; text-transform:uppercase; color:var(--abyss); opacity:0; transform:scale(.8); transition:opacity 200ms ease, transform 300ms var(--ease-out); }
+.c-link .c-ring-inner{ transform:scale(.62); }
+.c-explore .c-ring-inner{ transform:scale(1); background:var(--foam); border-color:var(--foam); mix-blend-mode:normal; }
+.c-explore .c-label{ opacity:1; transform:none; }
+.c-explore .c-dot{ opacity:0; }
+.c-down .c-ring-inner{ transform:scale(.36); }
+.c-explore.c-down .c-ring-inner{ transform:scale(.9); }
+.has-cursor, .has-cursor a, .has-cursor button, .has-cursor [role="tab"]{ cursor:none; }
+.has-cursor input, .has-cursor textarea{ cursor:text; }
+
+/* 4. Akıllı navigasyon */
+.read-bar{ position:fixed; left:0; top:0; right:0; height:2px; z-index:120; background:linear-gradient(90deg,var(--brass),#E4C991); transform-origin:0 50%; transform:scaleX(0); pointer-events:none; }
+.nav{ position:fixed; left:0; right:0; top:0; z-index:110; color:var(--foam); transition:transform 420ms var(--ease-out), background-color 300ms ease, border-color 300ms ease, backdrop-filter 300ms ease; border-bottom:1px solid transparent; }
+.nav.is-glass{ background:rgba(6,18,28,.72); -webkit-backdrop-filter:blur(18px) saturate(160%); backdrop-filter:blur(18px) saturate(160%); border-bottom-color:rgba(246,242,234,.08); box-shadow:inset 0 1px 0 rgba(255,255,255,.06); }
+.nav.is-hidden{ transform:translateY(-105%); }
+.nav-inner{ display:flex; align-items:center; gap:28px; height:76px; max-width:1320px; margin-inline:auto; padding-inline:var(--gutter); }
+.nav-logo img{ height:40px; width:auto; }
+.nav-links{ display:none; gap:30px; margin-left:auto; font-size:14.5px; }
+.nav-links a{ position:relative; padding:8px 0; opacity:.86; transition:opacity var(--dur-fast) ease; }
+.nav-links a::after{ content:""; position:absolute; left:0; right:0; bottom:2px; height:1px; background:var(--brass); transform:scaleX(0); transform-origin:right; transition:transform var(--dur-normal) var(--ease-out); }
+.nav-links a:hover{ opacity:1; }
+.nav-links a:hover::after{ transform:scaleX(1); transform-origin:left; }
+.nav-cta{ display:none; align-items:center; min-height:42px; padding:0 18px; border-radius:999px; border:1px solid rgba(246,242,234,.35); font-size:14px; font-weight:600; transition:background-color var(--dur-fast) ease, color var(--dur-fast) ease, border-color var(--dur-fast) ease; }
+.nav-cta:hover{ background:var(--brass); color:var(--abyss); border-color:var(--brass); }
+.nav-burger{ margin-left:auto; width:46px; height:46px; display:grid; place-content:center; gap:7px; border-radius:999px; border:1px solid rgba(246,242,234,.3); }
+.nav-burger span{ display:block; width:18px; height:1.5px; background:currentColor; transition:transform var(--dur-normal) var(--ease-out); }
+.nav-burger[aria-expanded="true"] span:first-child{ transform:translateY(4.25px) rotate(45deg); }
+.nav-burger[aria-expanded="true"] span:last-child{ transform:translateY(-4.25px) rotate(-45deg); }
+@media (min-width:1024px){ .nav-links{ display:flex; } .nav-cta{ display:inline-flex; } .nav-burger{ display:none; } }
+.mnav{ position:fixed; inset:0; z-index:105; background:rgba(6,18,28,.97); color:var(--foam); display:flex; flex-direction:column; justify-content:flex-end; padding:110px var(--gutter) 40px; }
+.mnav[hidden]{ display:none; }
+.mnav a.ml{ display:block; font:300 clamp(2rem,9vw,3rem)/1.15 Fraunces,serif; padding:6px 0; border-bottom:1px solid rgba(246,242,234,.08); }
+.mnav .ml-foot{ margin-top:28px; font-size:14px; color:var(--mist); }
+
+/* 2. Hero */
+.hero{ position:relative; min-height:100vh; min-height:100dvh; background:var(--deep); color:var(--foam); overflow:hidden; display:flex; flex-direction:column; justify-content:flex-end; isolation:isolate; }
+.hero-media{ position:absolute; inset:0; z-index:-2; overflow:hidden; }
+.hero-scale{ position:absolute; inset:0; will-change:transform; }
+.hero-kb{ position:absolute; inset:-2%; will-change:transform; animation:kenburns 32s ease-in-out infinite alternate; }
+.hero-kb img{ width:100%; height:100%; object-fit:cover; object-position:42% 50%; }
+@keyframes kenburns{ from{ transform:scale(1.04) translate3d(0,0,0); } to{ transform:scale(1.15) translate3d(-2.2%,-1.6%,0); } }
+.hero-shade{ position:absolute; inset:0; z-index:-1; background:
+  linear-gradient(90deg,rgba(6,18,28,.82) 0%,rgba(6,18,28,.5) 38%,rgba(6,18,28,.08) 70%),
+  linear-gradient(0deg,rgba(6,18,28,.85) 0%,rgba(6,18,28,0) 46%),
+  linear-gradient(180deg,rgba(6,18,28,.55) 0%,rgba(6,18,28,0) 22%); }
+@media (max-width:767px){ .hero-shade{ background:linear-gradient(0deg,rgba(6,18,28,.92) 0%,rgba(6,18,28,.72) 48%,rgba(6,18,28,.2) 78%,rgba(6,18,28,.45) 100%); } }
+.hero-content{ position:relative; padding-bottom:clamp(120px,19vh,190px); padding-top:120px; }
+.hero-title{ font-weight:300; font-size:clamp(3.05rem,6.6vw,6.25rem); line-height:.95; letter-spacing:-.035em; margin:0 0 26px; }
+.hero-title .line{ display:block; }
+.hero-title em{ color:#CFE3F4; }
+.mask{ display:inline-block; overflow:hidden; vertical-align:top; padding:.14em .06em .2em; margin:-.14em -.06em -.2em; }
+.hero-word{ display:inline-block; will-change:transform; }
+.js:not(.rm) .hero-word{ transform:translateY(112%); }
+.js:not(.rm) .hero-fade{ opacity:0; }
+.hero-sub{ max-width:46ch; font-size:clamp(1.02rem,1.25vw,1.16rem); color:rgba(246,242,234,.86); }
+.hero-ctas{ display:flex; flex-wrap:wrap; align-items:center; gap:10px 22px; margin-top:32px; }
+.hero-proof{ margin-top:26px; font-size:13px; letter-spacing:.08em; color:rgba(246,242,234,.7); display:flex; flex-wrap:wrap; gap:6px 16px; }
+.hero-proof b{ color:var(--foam); font-weight:600; }
+.hero-badge{ position:absolute; right:var(--gutter); bottom:clamp(120px,19vh,190px); width:132px; height:132px; display:none; }
+.hero-badge svg{ width:100%; height:100%; }
+.hero-badge .ring-text{ transform-origin:66px 66px; animation:spin 38s linear infinite; }
+@keyframes spin{ to{ transform:rotate(360deg); } }
+.hero-caption{ position:absolute; right:var(--gutter); top:112px; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:rgba(246,242,234,.72); writing-mode:vertical-rl; display:none; }
+.hero-badge,.hero-caption{ display:block; }
+@media (max-width:899px){
+  .hero-badge{ width:78px; height:78px; top:92px; bottom:auto; }
+  .hero-caption{ top:186px; font-size:10.5px; }
+}
+.scroll-cue{ position:absolute; left:50%; bottom:74px; transform:translateX(-50%); display:none; flex-direction:column; align-items:center; gap:10px; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:rgba(246,242,234,.7); z-index:2; }
+.scroll-cue i{ position:relative; width:1px; height:46px; background:rgba(246,242,234,.25); overflow:hidden; }
+.scroll-cue i::after{ content:""; position:absolute; left:-1px; top:0; width:3px; height:14px; border-radius:3px; background:var(--foam); animation:cue 2.4s var(--ease-io) infinite; }
+@keyframes cue{ 0%{ transform:translateY(-16px); } 70%,100%{ transform:translateY(48px); } }
+@media (min-width:768px){ .scroll-cue{ display:flex; } }
+@media (max-width:767px){ .scroll-cue{ display:flex; bottom:16px; gap:6px; font-size:10px; } .scroll-cue i{ height:34px; } }
+.waves{ position:absolute; left:0; right:0; bottom:0; height:120px; overflow:hidden; pointer-events:none; }
+.wave-svg{ position:absolute; left:0; bottom:0; width:200%; height:100%; will-change:transform; animation:waveX 26s linear infinite; }
+.wave-svg.w2{ animation-duration:34s; animation-direction:reverse; }
+.wave-svg.w3{ animation-duration:48s; }
+.wave-svg.fill{ animation-duration:60s; }
+@keyframes waveX{ to{ transform:translate3d(-50%,0,0); } }
+.wave-svg path{ fill:none; stroke:rgba(246,242,234,.5); stroke-width:1; }
+.wave-svg.w2 path{ stroke:rgba(207,227,244,.34); }
+.wave-svg.w3 path{ stroke:rgba(192,154,91,.45); }
+.wave-svg.fill path{ fill:var(--sand); stroke:none; }
+
+/* 5. Marquee */
+.mq-sec{ position:relative; background:var(--sand); color:var(--deep); padding:34px 0 40px; overflow:hidden; }
+.mq{ overflow:hidden; white-space:nowrap; }
+.mq-track{ display:inline-flex; align-items:center; will-change:transform; }
+.mq-big .mq-item{ font:300 clamp(2.6rem,6.4vw,6rem)/1.08 Fraunces,serif; letter-spacing:-.02em; padding-inline:.32em; }
+.mq-big .mq-item:nth-child(4n+3){ font-style:italic; color:var(--navy); }
+.mq-big .mq-item.o{ color:transparent; -webkit-text-stroke:1px var(--deep); }
+.mq-star{ width:clamp(18px,2vw,28px); height:auto; color:var(--brass-ink); flex:none; }
+.mq-small{ margin-top:14px; }
+.mq-small .mq-item{ font-size:13px; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:var(--brass-ink); padding-inline:22px; }
+.mq-small .dot{ width:4px; height:4px; border-radius:50%; background:var(--brass-ink); opacity:.6; flex:none; }
+
+/* 6. Kalabalıktan uzak */
+.crowd-sec{ position:relative; height:380vh; background:#DCD6CB; }
+.crowd-sticky{ position:sticky; top:0; height:100vh; height:100svh; overflow:hidden; }
+.cr-haze{ position:absolute; inset:0; background:#DCD6CB; }
+/* Kalabalık dağıldıkça ortadan açılan mavi pencere: dış daire büyür, iç katman ters ölçekle sabit kalır (yalnız transform) */
+.cr-portal{ position:absolute; left:0; top:0; transform:scale(0); visibility:hidden; will-change:transform; }
+.cr-clip{ position:absolute; inset:3px; border-radius:50%; overflow:hidden; }
+.cr-portal-in{ position:absolute; will-change:transform; }
+.cr-feather{ position:absolute; inset:0; pointer-events:none; background:radial-gradient(closest-side,rgba(220,214,203,0) 82%,#DCD6CB 97%); }
+.cr-sea{ position:absolute; inset:0; background:linear-gradient(180deg,#0B2B45 0%,#16456B 44%,#5D8FB8 61.6%,#1B4F78 62%,#0C3150 78%,#06121C 100%); }
+.cr-glow{ position:absolute; left:50%; top:62%; width:120vmax; height:40vmax; transform:translate(-50%,-50%); background:radial-gradient(50% 50% at 50% 50%,rgba(233,204,150,.34),rgba(233,204,150,0) 70%); }
+.cr-horizon{ position:absolute; left:0; right:0; top:62%; height:38%; opacity:0; will-change:opacity,transform; }
+.cr-horizon .hz-lines{ position:absolute; inset:0; width:100%; height:100%; }
+.cr-boat{ position:absolute; top:0; left:50%; width:clamp(84px,9vw,130px); height:auto; color:#081826; transform:translate(-50%,-86%); }
+.cr-boat g{ transform-box:fill-box; transform-origin:50% 100%; animation:bob 5.5s ease-in-out infinite; }
+@keyframes bob{ 0%,100%{ transform:rotate(-1.4deg) translateY(0); } 50%{ transform:rotate(1.2deg) translateY(1.5px); } }
+#crowd-canvas{ position:absolute; inset:0; width:100%; height:100%; }
+.cr-text{ position:absolute; inset:0; display:grid; place-content:center; justify-items:center; text-align:center; padding:0 var(--gutter); will-change:opacity,transform; }
+.cr-t1{ color:var(--ink); }
+.cr-t2,.cr-t3{ color:var(--foam); opacity:0; }
+.cr-big em{ font-style:italic; color:var(--brass-ink); }
+.cr-big{ font-weight:300; font-size:clamp(2.1rem,5vw,4.6rem); line-height:1.05; letter-spacing:-.025em; max-width:18ch; margin-top:18px; }
+.cr-t1 .cr-big{ text-shadow:0 0 40px rgba(238,233,224,.95), 0 0 12px rgba(238,233,224,.9); }
+.cr-title{ font-weight:300; font-size:clamp(2.6rem,6.2vw,6rem); line-height:.98; letter-spacing:-.035em; max-width:13ch; }
+.cr-title em{ color:#CFE3F4; }
+.cr-sub{ margin-top:22px; font-size:clamp(1rem,1.3vw,1.2rem); color:rgba(246,242,234,.82); }
+.cr-t3{ place-content:start center; padding-top:18vh; }
+
+/* 7. Rotalar */
+.routes-sec{ position:relative; background:var(--foam); color:var(--ink); }
+.routes-sticky{ padding:96px 0 72px; }
+.routes-grid{ display:grid; grid-template-columns:minmax(0,1fr); gap:28px; }
+.rtabs{ position:relative; display:flex; gap:0; overflow-x:auto; scrollbar-width:none; margin:22px calc(var(--gutter) * -1) 0; padding:4px var(--gutter); scroll-snap-type:x proximity; }
+.rtabs::-webkit-scrollbar{ display:none; }
+.rtab{ position:relative; z-index:1; flex:none; width:168px; min-height:52px; text-align:left; padding:8px 14px; border-radius:14px; display:flex; align-items:center; gap:10px; font-size:14.5px; font-weight:500; color:rgba(14,28,39,.72); transition:color var(--dur-fast) ease; scroll-snap-align:start; }
+.rtab[aria-selected="true"]{ color:var(--foam); }
+.rtab:not([aria-selected="true"]):hover{ color:var(--ink); }
+.rtab-ind{ position:absolute; left:0; top:0; z-index:0; border-radius:14px; background:var(--deep); box-shadow:0 10px 24px -14px rgba(10,34,51,.8); pointer-events:none; will-change:transform; }
+.rinfo{ margin-top:18px; }
+.rinfo-meta{ display:flex; flex-wrap:wrap; gap:8px 18px; font-size:14px; color:rgba(14,28,39,.7); }
+.rinfo-meta b{ color:var(--ink); font-weight:600; }
+.rnote{ margin-top:8px; font-size:14px; color:var(--brass-ink); min-height:1.5em; }
+.rstops{ display:flex; flex-wrap:wrap; gap:6px; margin-top:14px; counter-reset:s; }
+.rstops li{ display:inline-flex; align-items:center; gap:6px; font-size:13px; padding:5px 10px 5px 6px; border-radius:999px; border:1px solid rgba(14,28,39,.12); color:rgba(14,28,39,.62); transition:color 300ms ease, border-color 300ms ease, background-color 300ms ease; }
+.rstops li i{ font-style:normal; width:20px; height:20px; border-radius:50%; display:grid; place-items:center; font-size:10.5px; font-weight:600; background:rgba(14,28,39,.07); transition:background-color 300ms ease, color 300ms ease; }
+.rstops li.on{ color:var(--ink); border-color:rgba(27,79,120,.35); background:rgba(255,255,255,.6); }
+.rstops li.on i{ background:var(--navy); color:var(--foam); }
+.rstops li.start i{ background:var(--brass); color:var(--abyss); }
+.rstops li.start i::before{ content:""; width:7px; height:7px; background:var(--abyss); transform:rotate(45deg); }
+.map-card{ position:relative; border-radius:18px; overflow:hidden; background:radial-gradient(120% 120% at 30% 20%,#F3EDE2 0%,var(--paper) 55%,#E6DCC8 100%); box-shadow:0 30px 60px -36px rgba(10,34,51,.55); height:min(62vw,420px); }
+#map-svg{ position:absolute; inset:0; width:100%; height:100%; display:block; }
+#map-world{ transform-origin:0 0; transform-box:view-box; transition:transform 1.25s var(--ease-io); }
+.m-land{ fill:#DCCCAD; }
+.m-coast{ fill:none; stroke:rgba(27,79,120,.55); stroke-width:1; vector-effect:non-scaling-stroke; }
+.m-depth{ fill:none; stroke:var(--sky); vector-effect:non-scaling-stroke; stroke-linejoin:round; }
+.m-grid line{ stroke:rgba(27,79,120,.12); stroke-width:1; vector-effect:non-scaling-stroke; }
+.route{ opacity:0; transition:opacity 500ms ease; }
+.route.is-on{ opacity:1; }
+.r-ghost{ fill:none; stroke:rgba(27,79,120,.28); stroke-linecap:round; }
+.r-line{ fill:none; stroke:var(--navy); stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:1 1; }
+.stop-in{ transform-box:fill-box; transform-origin:50% 50%; opacity:0; transform:scale(.3); transition:opacity 300ms ease, transform 560ms var(--ease-out); }
+.stop.on .stop-in{ opacity:1; transform:scale(1); }
+.stop circle{ fill:var(--foam); stroke:var(--navy); }
+.stop.on circle{ fill:var(--navy); }
+.stop text{ fill:var(--navy); font-family:Onest,sans-serif; font-weight:600; text-anchor:middle; dominant-baseline:central; }
+.stop.on text{ fill:var(--foam); }
+.stop.port rect{ fill:var(--brass); stroke:var(--deep); }
+.r-label{ font-family:Onest,sans-serif; font-weight:600; fill:var(--deep); paint-order:stroke; stroke:var(--paper); stroke-linejoin:round; transition:opacity 250ms ease; }
+.m-boat path.hull{ fill:var(--brass); stroke:var(--deep); vector-effect:non-scaling-stroke; stroke-width:1.2; }
+.m-boat path.wake{ fill:none; stroke:rgba(27,79,120,.5); vector-effect:non-scaling-stroke; stroke-width:1; }
+.map-compass{ position:absolute; left:16px; bottom:14px; width:62px; height:62px; color:var(--navy); opacity:.75; }
+.map-note{ position:absolute; right:16px; bottom:12px; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:rgba(14,28,39,.64); }
+.map-now{ position:absolute; left:16px; top:14px; display:flex; align-items:center; gap:8px; padding:6px 12px 6px 8px; border-radius:999px; background:rgba(246,242,234,.82); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); box-shadow:inset 0 0 0 1px rgba(14,28,39,.08); font-size:13px; }
+.map-now span{ font-size:10.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--brass-ink); }
+.map-now b{ font-weight:600; }
+.postcard{ position:absolute; right:18px; top:18px; width:clamp(150px,17vw,230px); aspect-ratio:4/3; padding:7px 7px 26px; background:#FBF8F2; border-radius:4px; box-shadow:0 20px 40px -18px rgba(10,34,51,.55); transform:rotate(3.5deg); display:none; }
+.postcard img{ width:100%; height:100%; object-fit:cover; border-radius:2px; }
+.postcard figcaption{ position:absolute; left:10px; right:10px; bottom:5px; font:italic 400 12px Fraunces,serif; color:var(--deep); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+@media (max-width:767px){ .postcard{ display:block; width:118px; right:12px; top:12px; padding:5px 5px 20px; } .postcard figcaption{ font-size:10.5px; left:6px; right:6px; bottom:3px; } }
+@media (min-width:768px){ .postcard{ display:block; } .map-card{ height:min(56vw,520px); } }
+@media (min-width:1024px){
+  .routes-sec{ height:270vh; }
+  .routes-sticky{ position:sticky; top:0; height:100vh; height:100svh; padding:0; display:flex; align-items:center; }
+  .routes-grid{ grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:56px; align-items:center; }
+  .rtabs{ flex-direction:column; overflow:visible; margin:28px 0 0; padding:0; max-width:380px; }
+  .rtab{ width:100%; min-height:48px; }
+  .map-card{ height:min(74vh,640px); }
+}
+@media (min-width:1024px) and (max-height:760px){ .routes-side .lead{ display:none; } .rtab{ min-height:42px; } }
+
+/* 8. Filo */
+.fleet-sec{ position:relative; background:var(--deep); color:var(--foam); }
+.fleet-sticky{ position:sticky; top:0; height:100vh; height:100svh; overflow:hidden; display:flex; flex-direction:column; justify-content:center; }
+.fleet-head{ position:absolute; left:0; right:0; top:92px; display:flex; align-items:center; gap:18px; }
+.fleet-count{ margin-left:auto; font:italic 400 15px Fraunces,serif; color:var(--mist); font-variant-numeric:tabular-nums; }
+.fleet-count b{ color:var(--foam); font-weight:400; }
+.fleet-bar{ width:clamp(80px,14vw,200px); height:1px; background:rgba(246,242,234,.18); overflow:hidden; }
+.fleet-bar i{ display:block; height:100%; background:var(--brass); transform-origin:0 50%; transform:scaleX(0); }
+.fleet-track{ display:flex; align-items:stretch; gap:clamp(16px,2.2vw,32px); padding-inline:var(--gutter); margin-top:48px; will-change:transform; }
+.fleet-intro,.fleet-end{ flex:none; width:min(84vw,440px); display:flex; flex-direction:column; justify-content:center; }
+.fleet-intro p{ margin-top:18px; color:rgba(246,242,234,.78); max-width:40ch; }
+.fleet-end{ width:min(80vw,380px); padding-left:clamp(0px,2vw,24px); }
+.boat{ flex:none; width:min(78vw,430px); height:min(64svh,600px); perspective:1100px; }
+.boat-tilt{ position:relative; width:100%; height:100%; border-radius:16px; overflow:hidden; background:#0E2C42; box-shadow:0 40px 70px -40px rgba(0,0,0,.8); transform-style:preserve-3d; will-change:transform; }
+.boat-media{ position:absolute; inset:0; overflow:hidden; }
+.boat-img{ position:absolute; top:0; left:-10%; width:120%; height:100%; max-width:none; object-fit:cover; will-change:transform; transition:filter 400ms ease; }
+.boat-tilt::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(6,18,28,0) 34%,rgba(6,18,28,.35) 56%,rgba(6,18,28,.92) 100%); pointer-events:none; }
+.boat-shine{ position:absolute; inset:-30%; z-index:2; pointer-events:none; background:radial-gradient(34% 34% at var(--sx,50%) var(--sy,30%),rgba(255,255,255,.18),rgba(255,255,255,0) 70%); opacity:0; transition:opacity 300ms ease; }
+.boat:hover .boat-shine{ opacity:1; }
+.boat-body{ position:absolute; left:0; right:0; bottom:0; z-index:3; padding:clamp(20px,2.4vw,30px); }
+.boat-name{ font:300 clamp(2.4rem,4vw,3.6rem)/1 Fraunces,serif; letter-spacing:-.03em; }
+.boat-body p{ margin-top:10px; font-size:15px; line-height:1.55; color:rgba(246,242,234,.84); max-width:36ch; }
+.boat-facts{ display:flex; flex-wrap:wrap; gap:6px; margin-top:16px; }
+.boat-facts li{ font-size:12.5px; padding:5px 11px; border-radius:999px; background:rgba(6,18,28,.42); color:var(--foam); }
+
+/* 9. Kabin / tüm tekne */
+.seg-sec{ padding-block:clamp(88px,12vw,150px); }
+.seg{ position:relative; display:inline-grid; grid-template-columns:1fr 1fr; padding:5px; border-radius:999px; background:rgba(14,28,39,.06); box-shadow:inset 0 0 0 1px rgba(14,28,39,.08); margin-top:30px; width:min(100%,460px); }
+.seg button{ position:relative; z-index:1; min-height:50px; padding:0 18px; border-radius:999px; font-weight:600; font-size:15px; color:rgba(14,28,39,.65); transition:color var(--dur-fast) ease; }
+.seg button[aria-selected="true"]{ color:var(--foam); }
+.seg-ind{ position:absolute; z-index:0; top:5px; bottom:5px; left:5px; width:calc(50% - 5px); border-radius:999px; background:var(--deep); box-shadow:0 8px 20px -10px rgba(10,34,51,.7); will-change:transform; }
+.seg-panels{ display:grid; margin-top:44px; }
+.seg-panel{ grid-area:1/1; display:grid; grid-template-columns:minmax(0,1fr); gap:28px; align-items:center; visibility:hidden; opacity:0; }
+.seg-panel.is-active,.seg-panel.is-leaving{ visibility:visible; }
+.seg-panel.is-active{ opacity:1; }
+.seg-media{ position:relative; border-radius:16px; overflow:hidden; aspect-ratio:4/3; box-shadow:0 30px 60px -40px rgba(10,34,51,.6); }
+.seg-media img{ width:100%; height:100%; object-fit:cover; }
+.seg-panel h3{ font:300 clamp(1.9rem,3.2vw,2.9rem)/1.05 Fraunces,serif; letter-spacing:-.02em; }
+.seg-panel p{ margin-top:14px; max-width:48ch; color:rgba(14,28,39,.78); }
+.ticks{ margin-top:22px; display:grid; gap:10px; }
+.ticks li{ display:flex; gap:12px; align-items:flex-start; font-size:15.5px; }
+.ticks svg{ flex:none; margin-top:3px; color:var(--brass-ink); }
+.seg-note{ margin-top:44px; display:flex; flex-wrap:wrap; align-items:center; gap:10px 14px; font-size:15px; color:rgba(14,28,39,.72); }
+.chip-brass{ display:inline-flex; align-items:center; gap:8px; padding:7px 14px; border-radius:999px; background:rgba(192,154,91,.16); color:var(--brass-ink); font-weight:600; font-size:13.5px; box-shadow:inset 0 0 0 1px rgba(192,154,91,.4); }
+@media (min-width:900px){ .seg-panel{ grid-template-columns:1.15fr 1fr; gap:64px; } }
+
+/* 10. Teknede bir gün */
+.day-sec{ position:relative; height:520vh; background:var(--abyss); color:var(--foam); }
+.day-sticky{ position:sticky; top:0; height:100vh; height:100svh; overflow:hidden; }
+.sky, .sky-l{ position:absolute; inset:0; }
+.sky-l{ opacity:0; will-change:opacity; }
+.sky-l.k0{ opacity:1; background:linear-gradient(180deg,#27355F 0%,#8E6A8E 34%,#E8AE93 60%,#F4CFA6 64.4%,#7E86A6 64.6%,#34456A 82%,#1A2544 100%); }
+.sky-l.k1{ background:linear-gradient(180deg,#4F8FC9 0%,#8FC0E6 40%,#D8EAF6 64.4%,#3F8EC2 64.6%,#1B5B8A 82%,#0E3A5C 100%); }
+.sky-l.k2{ background:linear-gradient(180deg,#2F7FC8 0%,#6FB0E3 40%,#C4E2F6 64.4%,#1C86BE 64.6%,#0E5E8D 80%,#08385A 100%); }
+.sky-l.k3{ background:linear-gradient(180deg,#1E2552 0%,#6B3E6E 30%,#D0677A 50%,#F59B5E 64.4%,#6E4A6C 64.6%,#2A2A52 82%,#141A36 100%); }
+.sky-l.k4{ background:linear-gradient(180deg,#02060D 0%,#07142A 45%,#132B4A 64.4%,#0A1A30 64.6%,#050E1C 82%,#02060D 100%); }
+.stars{ position:absolute; left:0; right:0; top:0; height:64%; opacity:0; will-change:opacity; }
+.stars i{ position:absolute; width:2px; height:2px; border-radius:50%; background:#fff; }
+.stars i:nth-child(3n){ animation:twinkle 3.6s ease-in-out infinite alternate; }
+.stars i:nth-child(5n){ animation:twinkle 5.2s ease-in-out infinite alternate-reverse; }
+@keyframes twinkle{ from{ opacity:1; } to{ opacity:.25; } }
+.sun,.moon{ position:absolute; left:0; top:0; border-radius:50%; will-change:transform,opacity; }
+.sun{ width:84px; height:84px; margin:-42px 0 0 -42px; background:radial-gradient(circle,#FFF8E6 0%,#FFE3AE 45%,rgba(255,214,150,0) 72%); }
+.moon{ width:46px; height:46px; margin:-23px 0 0 -23px; background:radial-gradient(circle at 38% 38%,#FDFBF3 0%,#E8E4D6 60%,#CFCABA 100%); box-shadow:0 0 40px 8px rgba(233,228,210,.22); opacity:0; }
+.day-waves{ position:absolute; left:0; right:0; top:64.5%; height:90px; overflow:hidden; opacity:.55; }
+.day-ui{ position:relative; z-index:3; height:100%; display:grid; grid-template-rows:auto 1fr; gap:14px; padding-top:92px; padding-bottom:26px; }
+.day-left{ display:flex; align-items:center; gap:16px; }
+.clock{ position:relative; display:flex; align-items:center; gap:16px; padding:10px 18px 10px 10px; border-radius:999px; background:rgba(6,18,28,.38); -webkit-backdrop-filter:blur(14px) saturate(140%); backdrop-filter:blur(14px) saturate(140%); box-shadow:inset 0 0 0 1px rgba(246,242,234,.14); }
+.dial{ width:54px; height:54px; flex:none; }
+.dial .hand{ transform-origin:50px 50px; will-change:transform; }
+.clock-time{ font:300 clamp(2.2rem,4.2vw,3.6rem)/1 Fraunces,serif; letter-spacing:-.02em; font-variant-numeric:lining-nums tabular-nums; display:flex; }
+.clock-time span{ display:inline-block; width:.62em; text-align:center; }
+.clock-time span.c{ width:.3em; }
+.day-title{ font:300 clamp(1.45rem,2.3vw,2.2rem)/1.08 Fraunces,serif; letter-spacing:-.015em; color:var(--foam); text-shadow:0 1px 18px rgba(6,18,28,.55); max-width:9ch; }
+.day-left{ flex-wrap:wrap; }
+.day-steps{ display:flex; flex-basis:100%; gap:8px; align-items:center; padding:2px 4px; }
+.day-steps li{ display:flex; align-items:center; gap:6px; font-size:12px; color:rgba(246,242,234,.6); }
+.day-steps li::before{ content:""; width:8px; height:8px; border-radius:50%; box-shadow:inset 0 0 0 1px rgba(246,242,234,.55); transition:background-color 300ms ease, box-shadow 300ms ease; }
+.day-steps li:not(.on) span{ display:none; }
+.day-steps li.on{ color:var(--foam); }
+.day-steps li.on::before{ background:#E4C991; box-shadow:none; }
+.day-right{ position:relative; align-self:end; min-height:380px; }
+.scene{ position:absolute; left:0; right:0; bottom:0; display:grid; gap:0; border-radius:16px; overflow:hidden; background:rgba(6,18,28,.55); -webkit-backdrop-filter:blur(16px) saturate(140%); backdrop-filter:blur(16px) saturate(140%); box-shadow:0 30px 60px -30px rgba(0,0,0,.6); opacity:0; transform:translateY(26px) scale(.985); transition:opacity 450ms var(--ease-out), transform 650ms var(--ease-out); pointer-events:none; }
+.scene.is-on{ opacity:1; transform:none; pointer-events:auto; }
+.scene.is-past{ transform:translateY(-22px) scale(.985); }
+.scene figure{ aspect-ratio:16/8; overflow:hidden; }
+.scene img{ width:100%; height:100%; object-fit:cover; }
+.scene-body{ padding:18px 20px 20px; }
+.scene-when{ font-size:11.5px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:#E4C991; }
+.scene h3{ font:300 clamp(1.6rem,2.6vw,2.3rem)/1.08 Fraunces,serif; letter-spacing:-.02em; margin-top:6px; }
+.scene p{ margin-top:8px; font-size:15px; color:rgba(246,242,234,.84); max-width:44ch; }
+@media (min-width:1024px){
+  .day-ui{ grid-template-rows:none; grid-template-columns:1fr 1fr; align-items:center; padding-top:0; padding-bottom:0; }
+  .day-left{ flex-direction:column; align-items:flex-start; gap:26px; }
+  .clock{ padding:16px 28px 16px 16px; }
+  .dial{ width:84px; height:84px; }
+  .day-steps{ display:grid; flex-basis:auto; align-items:stretch; gap:6px; padding:16px 22px; border-radius:18px; background:rgba(6,18,28,.34); -webkit-backdrop-filter:blur(14px) saturate(140%); backdrop-filter:blur(14px) saturate(140%); box-shadow:inset 0 0 0 1px rgba(246,242,234,.12); }
+  .day-steps li{ display:flex; align-items:center; gap:12px; font-size:14px; color:rgba(246,242,234,.62); transition:color 300ms ease; }
+  .day-steps li::before{ content:""; width:8px; height:8px; border-radius:50%; box-shadow:inset 0 0 0 1px rgba(246,242,234,.5); transition:background-color 300ms ease, box-shadow 300ms ease; }
+  .day-steps li:not(.on) span{ display:inline; }
+  .day-steps li.on{ color:var(--foam); }
+  .day-steps li.on::before{ background:#E4C991; box-shadow:none; }
+  .day-right{ align-self:center; min-height:520px; }
+  .scene{ top:50%; bottom:auto; transform:translateY(calc(-50% + 30px)) scale(.985); }
+  .scene.is-on{ transform:translateY(-50%); }
+  .scene.is-past{ transform:translateY(calc(-50% - 26px)) scale(.985); }
+  .scene figure{ aspect-ratio:16/10; }
+  .scene-body{ padding:24px 28px 28px; }
+}
+
+/* 11. Rakamlar */
+.num-sec{ position:relative; background:var(--paper); overflow:hidden; padding-block:clamp(88px,11vw,140px); }
+.num-grid{ display:grid; grid-template-columns:1fr 1fr; gap:40px 20px; margin-top:52px; }
+.num{ border-top:1px solid rgba(14,28,39,.16); padding-top:18px; }
+.num-v{ font:300 clamp(2.35rem,4.6vw,4.7rem)/1 Fraunces,serif; white-space:nowrap; letter-spacing:-.03em; color:var(--deep); display:flex; align-items:flex-start; font-variant-numeric:lining-nums tabular-nums; }
+.num-l{ margin-top:10px; font-size:14.5px; color:rgba(14,28,39,.72); max-width:22ch; }
+.odo-col{ display:inline-block; height:1.02em; overflow:hidden; }
+.odo-strip{ display:block; will-change:transform; }
+.odo-strip span{ display:block; height:1.02em; line-height:1.02em; }
+.odo{ display:inline-flex; white-space:nowrap; }
+.odo-sym{ display:inline-block; }
+.odo-sym.plus{ color:var(--brass-ink); margin-left:.03em; }
+.num-rose{ position:absolute; right:-120px; top:-80px; width:520px; height:520px; color:rgba(27,79,120,.07); pointer-events:none; }
+@media (min-width:900px){ .num-grid{ grid-template-columns:repeat(4,1fr); } }
+
+/* 13. Yorumlar */
+.rev-sec{ background:var(--foam); padding-block:clamp(88px,11vw,140px); overflow:hidden; }
+.rev-row{ display:flex; width:max-content; gap:18px; margin-top:18px; will-change:transform; }
+.rev-row.a{ animation:revX 70s linear infinite; }
+.rev-row.b{ animation:revX 84s linear infinite reverse; }
+.rev-wrap:hover .rev-row,.rev-wrap:focus-within .rev-row,.rev-wrap.paused .rev-row{ animation-play-state:paused; }
+.rev-toggle{ display:inline-flex; align-items:center; gap:8px; min-height:44px; margin-top:10px; padding:0 14px 0 10px; border-radius:999px; font-size:13.5px; font-weight:500; color:rgba(14,28,39,.72); box-shadow:inset 0 0 0 1px rgba(14,28,39,.16); transition:background-color var(--dur-fast) ease; }
+.rev-toggle:hover{ background:rgba(14,28,39,.05); }
+.rm .rev-toggle{ display:none; }
+@keyframes revX{ to{ transform:translate3d(-50%,0,0); } }
+.rev{ flex:none; width:min(82vw,440px); padding:26px 26px 22px; border-radius:16px; background:#FFFDF8; box-shadow:0 18px 40px -26px rgba(10,34,51,.45); display:flex; flex-direction:column; justify-content:space-between; gap:18px; }
+.rev q{ font:300 clamp(1.2rem,1.7vw,1.45rem)/1.35 Fraunces,serif; letter-spacing:-.01em; quotes:"“" "”"; }
+.rev q::before{ color:var(--brass); }
+.rev cite{ font-style:normal; font-size:14px; font-weight:600; display:flex; align-items:center; gap:10px; }
+.rev cite span{ width:32px; height:32px; border-radius:50%; display:grid; place-items:center; background:var(--deep); color:#E4C991; font:italic 400 14px Fraunces,serif; }
+
+/* 12. Tanışma */
+.meet-sec{ position:relative; background:var(--deep); color:var(--foam); padding-block:clamp(96px,12vw,150px); overflow:hidden; isolation:isolate; }
+.meet-sec::before{ content:""; position:absolute; inset:0; z-index:-1; background:radial-gradient(70% 60% at 85% 10%,rgba(88,153,205,.22),rgba(88,153,205,0) 70%), radial-gradient(60% 50% at 0% 100%,rgba(192,154,91,.14),rgba(192,154,91,0) 70%); }
+.meet-grid{ display:grid; grid-template-columns:minmax(0,1fr); gap:48px; }
+.meet-h{ font-weight:300; font-size:clamp(2.1rem,4.2vw,3.9rem); line-height:1.04; letter-spacing:-.025em; }
+.meet-family{ margin-top:24px; font:italic 300 clamp(1.25rem,1.8vw,1.55rem)/1.35 Fraunces,serif; color:#CFE3F4; max-width:30ch; }
+.meet-points{ margin-top:30px; display:grid; gap:14px; }
+.meet-points li{ display:flex; gap:14px; align-items:center; font-size:15.5px; }
+.meet-points .ic{ width:42px; height:42px; flex:none; border-radius:12px; display:grid; place-items:center; background:rgba(246,242,234,.07); box-shadow:inset 0 0 0 1px rgba(246,242,234,.12); color:#E4C991; }
+@media (min-width:1024px){ .meet-grid{ grid-template-columns:1fr 1.05fr; gap:72px; align-items:start; } .meet-copy{ position:sticky; top:120px; } }
+.rdv{ position:relative; border-radius:20px; background:var(--foam); color:var(--ink); padding:clamp(20px,3vw,34px); box-shadow:0 50px 90px -50px rgba(0,0,0,.8), inset 0 1px 0 rgba(255,255,255,.7); }
+.rdv-top{ display:flex; align-items:center; justify-content:space-between; gap:12px; font-size:12.5px; color:rgba(14,28,39,.6); }
+.rdv-demo{ font-size:11px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; padding:4px 9px; border-radius:999px; background:rgba(14,28,39,.06); }
+.rdv-bar{ margin-top:12px; height:4px; border-radius:4px; background:rgba(14,28,39,.08); overflow:hidden; }
+.rdv-bar i{ display:block; height:100%; border-radius:4px; background:linear-gradient(90deg,var(--navy),var(--sky)); transform-origin:0 50%; transform:scaleX(.2); transition:transform 600ms var(--ease-out); }
+.rdv-steps{ display:grid; margin-top:22px; }
+.rdv-step{ grid-area:1/1; visibility:hidden; opacity:0; }
+.rdv-step.is-active,.rdv-step.is-leaving{ visibility:visible; }
+.rdv-step.is-active{ opacity:1; }
+.rdv-step[data-step="5"],.rdv-step[data-step="away"]{ align-self:center; }
+.rdv-q{ font:400 clamp(1.5rem,2.4vw,2rem)/1.15 Fraunces,serif; letter-spacing:-.015em; outline:none; }
+.rdv-hint{ margin-top:6px; font-size:14px; color:rgba(14,28,39,.62); }
+.chips{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; margin-top:18px; }
+@media (min-width:560px){ .chips{ grid-template-columns:repeat(4,minmax(0,1fr)); } }
+.chip{ min-height:46px; padding:0 8px; border-radius:12px; font-size:14px; font-weight:500; background:#fff; box-shadow:inset 0 0 0 1px rgba(14,28,39,.12); transition:transform 140ms var(--ease-out), background-color var(--dur-fast) ease, color var(--dur-fast) ease, box-shadow var(--dur-fast) ease; }
+.chip:hover{ box-shadow:inset 0 0 0 1px rgba(27,79,120,.55); }
+.chip:active{ transform:scale(.97); }
+.chip[aria-pressed="true"]{ background:var(--deep); color:var(--foam); box-shadow:none; }
+.chip.away{ grid-column:1/-1; background:transparent; box-shadow:inset 0 0 0 1px rgba(14,28,39,.18); color:rgba(14,28,39,.72); border-style:dashed; }
+.opts{ display:grid; gap:10px; margin-top:18px; }
+.opt{ display:flex; align-items:center; gap:16px; min-height:72px; padding:12px 18px; border-radius:16px; text-align:left; background:#fff; box-shadow:inset 0 0 0 1px rgba(14,28,39,.12); transition:transform 140ms var(--ease-out), background-color var(--dur-fast) ease, color var(--dur-fast) ease; }
+.opt:hover{ box-shadow:inset 0 0 0 1px rgba(27,79,120,.55); }
+.opt:active{ transform:scale(.985); }
+.opt[aria-pressed="true"]{ background:var(--deep); color:var(--foam); }
+.opt .oi{ width:44px; height:44px; flex:none; border-radius:12px; display:grid; place-items:center; background:rgba(27,79,120,.08); color:var(--navy); }
+.opt[aria-pressed="true"] .oi{ background:rgba(246,242,234,.12); color:#E4C991; }
+.opt b{ display:block; font-weight:600; font-size:16px; }
+.opt small{ display:block; font-size:13.5px; opacity:.7; }
+.dates{ display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:16px; }
+.date{ min-height:64px; border-radius:14px; background:#fff; box-shadow:inset 0 0 0 1px rgba(14,28,39,.12); text-align:left; padding:10px 14px; transition:transform 140ms var(--ease-out), background-color var(--dur-fast) ease, color var(--dur-fast) ease; }
+.date small{ display:block; font-size:12px; letter-spacing:.08em; text-transform:uppercase; opacity:.65; }
+.date b{ display:block; font:400 19px Fraunces,serif; }
+.date[aria-pressed="true"]{ background:var(--deep); color:var(--foam); box-shadow:none; }
+.date:active{ transform:scale(.97); }
+.slots{ display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:10px; }
+.lbl{ display:block; margin-top:18px; font-size:12.5px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:rgba(14,28,39,.6); }
+.solo-note{ margin-top:12px; padding:10px 14px; border-radius:12px; background:rgba(88,153,205,.12); font-size:14px; color:var(--deep); }
+.field{ display:grid; gap:6px; margin-top:16px; }
+.field label{ font-size:14px; font-weight:600; }
+.field input{ min-height:52px; border-radius:12px; padding:0 16px; font-size:16px; background:#fff; box-shadow:inset 0 0 0 1px rgba(14,28,39,.16); transition:box-shadow var(--dur-fast) ease; }
+.field input:focus{ outline:none; box-shadow:inset 0 0 0 2px var(--navy); }
+.field .help{ font-size:12.5px; color:rgba(14,28,39,.64); }
+.field .err{ font-size:13px; color:#A23B2E; min-height:0; }
+.field.bad input{ box-shadow:inset 0 0 0 2px #A23B2E; }
+.tel-wrap{ display:flex; align-items:center; border-radius:12px; background:#fff; box-shadow:inset 0 0 0 1px rgba(14,28,39,.16); }
+.tel-wrap:focus-within{ box-shadow:inset 0 0 0 2px var(--navy); }
+.field.bad .tel-wrap{ box-shadow:inset 0 0 0 2px #A23B2E; }
+.tel-wrap span{ padding-left:16px; font-weight:600; color:rgba(14,28,39,.6); }
+.tel-wrap input{ box-shadow:none !important; flex:1; min-width:0; background:transparent; }
+.rdv-actions{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:22px; }
+.btn-dark{ display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:52px; padding:0 24px; border-radius:999px; background:var(--deep); color:var(--foam); font-weight:600; transition:transform 140ms var(--ease-out), opacity var(--dur-fast) ease, background-color var(--dur-fast) ease; }
+.btn-dark:hover{ background:var(--navy); }
+.btn-dark:active{ transform:scale(.97); }
+.btn-dark:disabled{ opacity:.35; pointer-events:none; }
+.btn-back{ display:inline-flex; align-items:center; gap:8px; min-height:44px; padding:0 6px; font-size:14px; font-weight:500; color:rgba(14,28,39,.65); }
+.btn-back:hover{ color:var(--ink); }
+.ok{ display:grid; justify-items:center; text-align:center; padding-top:6px; }
+.ok-svg{ width:118px; height:118px; }
+.ok-ring{ fill:#fff; stroke:rgba(27,79,120,.22); stroke-width:1.5; }
+.ok-water{ transform:translateY(96px); transition:transform 1.6s var(--ease-out) .1s; }
+.ok-wave{ animation:okWave 2.6s linear infinite; }
+.ok-wave.b{ animation-duration:3.8s; animation-direction:reverse; opacity:.55; }
+@keyframes okWave{ to{ transform:translateX(-60px); } }
+.ok-check{ fill:none; stroke:var(--foam); stroke-width:6; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:1; stroke-dashoffset:1; transition:stroke-dashoffset 600ms var(--ease-out) 1.2s; }
+.ok.is-done .ok-water{ transform:translateY(22px); }
+.ok.is-done .ok-check{ stroke-dashoffset:0; }
+.ok-sum{ display:flex; flex-wrap:wrap; justify-content:center; gap:6px; margin-top:16px; }
+.ok-sum span{ font-size:13px; padding:5px 11px; border-radius:999px; background:rgba(27,79,120,.08); }
+.wa-inline{ display:inline-flex; align-items:center; gap:10px; min-height:52px; padding:0 22px; border-radius:999px; background:var(--wa); color:#063B1D; font-weight:700; margin-top:20px; transition:transform 140ms var(--ease-out); }
+.wa-inline:active{ transform:scale(.97); }
+
+/* 14. SSS */
+.faq-sec{ background:var(--foam); padding-block:clamp(80px,10vw,130px); }
+.faq-grid{ display:grid; grid-template-columns:minmax(0,1fr); gap:36px; }
+@media (min-width:1024px){ .faq-grid{ grid-template-columns:1fr 1.5fr; gap:80px; } }
+.faq-item{ border-top:1px solid rgba(14,28,39,.14); }
+.faq-item:last-child{ border-bottom:1px solid rgba(14,28,39,.14); }
+.faq-q{ width:100%; display:flex; align-items:center; justify-content:space-between; gap:18px; text-align:left; padding:22px 0; font:400 clamp(1.15rem,1.6vw,1.4rem)/1.3 Fraunces,serif; letter-spacing:-.01em; }
+.faq-q .pm{ position:relative; width:34px; height:34px; flex:none; border-radius:50%; box-shadow:inset 0 0 0 1px rgba(14,28,39,.2); transition:background-color var(--dur-fast) ease, box-shadow var(--dur-fast) ease; }
+.faq-q .pm::before,.faq-q .pm::after{ content:""; position:absolute; left:50%; top:50%; width:12px; height:1.5px; margin:-.75px 0 0 -6px; background:currentColor; transition:transform var(--dur-normal) var(--ease-out); }
+.faq-q .pm::after{ transform:rotate(90deg); }
+.faq-q[aria-expanded="true"] .pm{ background:var(--deep); color:var(--foam); box-shadow:none; }
+.faq-q[aria-expanded="true"] .pm::after{ transform:rotate(0deg); }
+.faq-a{ display:grid; grid-template-rows:0fr; transition:grid-template-rows 420ms var(--ease-out); }
+.faq-a > div{ overflow:hidden; }
+.faq-a p{ padding:0 48px 24px 0; color:rgba(14,28,39,.76); opacity:0; transform:translateY(-6px); transition:opacity 300ms ease, transform 400ms var(--ease-out); }
+.faq-item.open .faq-a{ grid-template-rows:1fr; }
+.faq-item.open .faq-a p{ opacity:1; transform:none; transition-delay:80ms; }
+
+/* 15. Footer */
+.foot{ position:relative; background:var(--abyss); color:var(--foam); overflow:hidden; padding-top:clamp(72px,9vw,120px); }
+.big-word{ position:relative; display:block; font:italic 300 clamp(3.4rem,20.5vw,21rem)/.9 Fraunces,serif; letter-spacing:-.04em; white-space:nowrap; margin-top:40px; }
+.big-word .o{ color:transparent; -webkit-text-stroke:1px rgba(207,227,244,.55); }
+.big-word .f{ position:absolute; left:0; top:0; color:#CFE3F4; clip-path:inset(100% 0 0 0); transition:clip-path 1.1s var(--ease-io); pointer-events:none; }
+.big-word:hover .f,.big-word.filled .f{ clip-path:inset(0 0 0 0); }
+.foot-grid{ display:grid; grid-template-columns:minmax(0,1fr); gap:36px; }
+@media (min-width:900px){ .foot-grid{ grid-template-columns:1.2fr 1fr 1fr; } }
+.foot h4{ font-size:12px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--mist); margin-bottom:14px; }
+.foot a.fl{ display:inline-block; padding:4px 0; opacity:.86; transition:opacity var(--dur-fast) ease; }
+.foot a.fl:hover{ opacity:1; }
+.foot-bottom{ position:relative; z-index:2; display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; padding:22px 0 30px; font-size:12.5px; color:rgba(246,242,234,.55); border-top:1px solid rgba(246,242,234,.08); margin-top:26px; }
+.foot-waves{ position:relative; height:90px; margin-top:-30px; overflow:hidden; pointer-events:none; }
+.foot-waves .wave-svg path{ stroke:rgba(88,153,205,.35); }
+
+/* WhatsApp sabit buton */
+.wa-fab{ position:fixed; right:18px; bottom:18px; z-index:100; width:60px; height:60px; border-radius:50%; background:var(--wa); color:#fff; display:grid; place-items:center; box-shadow:0 14px 30px -10px rgba(10,60,30,.6); transition:transform 160ms var(--ease-out); }
+.wa-fab:active{ transform:scale(.94); }
+@media (max-width:767px){ .wa-fab{ width:54px; height:54px; right:14px; bottom:calc(14px + env(safe-area-inset-bottom)); } }
+.wa-fab::before,.wa-fab::after{ content:""; position:absolute; inset:0; border-radius:50%; background:var(--wa); z-index:-1; animation:breathe 4s cubic-bezier(.4,0,.2,1) infinite; }
+.wa-fab::after{ animation-delay:2s; }
+@keyframes breathe{ 0%{ transform:scale(1); opacity:.5; } 60%,100%{ transform:scale(1.6); opacity:0; } }
+
+/* Kaydırmayla beliren öğeler */
+.js:not(.rm) [data-reveal]:not([data-reveal="rise"]){ opacity:0; }
+.js:not(.rm) [data-reveal="rise"]{ clip-path:inset(-20% -5% 120% -5%); }
+
+.rm .crowd-sec,.rm .routes-sec,.rm .day-sec,.rm .fleet-sec{ height:auto !important; }
+.rm .crowd-sticky{ position:relative; height:auto; min-height:100svh; }
+.rm .cr-haze,.rm .cr-t1,.rm .cr-t2{ display:none; }
+.rm .cr-portal{ transform:none; visibility:visible; inset:0; width:auto; height:auto; border-radius:0; }
+.rm .cr-portal-in,.rm .cr-clip{ inset:0; border-radius:0; }
+.rm .cr-feather{ display:none; }
+.rm .cr-horizon{ opacity:1; }
+.rm .cr-t3{ position:relative; opacity:1; min-height:100svh; place-content:start center; padding:18vh var(--gutter) 120px; }
+.rm .routes-sticky{ position:relative; height:auto; padding:96px 0 72px; }
+.rm .fleet-sticky{ position:relative; height:auto; padding:140px 0 80px; }
+.rm .fleet-track{ overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:18px; }
+.rm .fleet-track > *{ scroll-snap-align:start; }
+.rm .fleet-head{ top:72px; }
+.rm .day-sticky{ position:relative; height:auto; }
+.rm .day-ui{ padding-top:120px; padding-bottom:80px; grid-template-columns:1fr !important; }
+.rm .day-right{ min-height:0; display:grid; gap:18px; grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr)); }
+.rm .day-steps{ display:none !important; }
+.rm .scene{ position:relative; top:auto; bottom:auto; opacity:1; transform:none !important; }
+.rm .clock{ display:none; }
+.rm .rev-row{ flex-wrap:wrap; width:auto; padding-inline:var(--gutter); animation:none !important; }
+.rm .rev-row.b{ display:none; }
+.rm .rev-row [aria-hidden="true"]{ display:none; }
+</style>
+</head>
+<body>
+<noscript><style>.ns-band{position:sticky;top:0;z-index:99999;background:#0A2233;color:#F6F2EA;font:500 15px/1.5 system-ui,sans-serif;text-align:center;padding:12px 16px}</style><div class="ns-band">Bu tasarım hareketli bir sayfadır. En iyi görünüm için bağlantıyı Chrome ya da Safari'de açın.</div></noscript>
+<a href="#main" class="skip-link">İçeriğe geç</a>
+
+<div id="intro" aria-hidden="true">
+  <div class="intro-inner">
+    <svg class="intro-compass" viewBox="0 0 200 200">
+      <circle class="intro-rope" cx="100" cy="100" r="93"/>
+      <circle class="draw" cx="100" cy="100" r="86" pathLength="1"/>
+      <circle class="draw thin d2" cx="100" cy="100" r="66" pathLength="1"/>
+      <path class="draw thin d3" d="M39 39 L161 161 M161 39 L39 161" pathLength="1"/>
+      <path class="draw d4" d="M100 22 L111 100 L100 178 L89 100 Z" pathLength="1"/>
+      <path class="draw d5" d="M22 100 L100 89 L178 100 L100 111 Z" pathLength="1"/>
+      <circle class="draw d5" cx="100" cy="100" r="4" pathLength="1"/>
+      <text class="intro-k" x="100" y="14" text-anchor="middle">K</text>
+    </svg>
+    <p class="intro-word intro-brand">FORA SAILING</p>
+    <p class="intro-word intro-sub">Mavi Yolculuk · 2009'dan beri</p>
+  </div>
+</div>
+
+<div class="c-dot" aria-hidden="true"></div>
+<div class="c-ring" aria-hidden="true"><div class="c-ring-inner"><span class="c-label">Keşfet</span></div></div>
+
+<div class="read-bar" aria-hidden="true"></div>
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo" aria-label="Fora Sailing, sayfa başı">
+      <img src="assets/logo/logo_fora_beyaz.png" width="364" height="184" alt="Fora Sailing">
+    </a>
+    <nav class="nav-links" aria-label="Ana menü">
+      <a href="#rotalar">Rotalar</a>
+      <a href="#filo">Filo</a>
+      <a href="#secenekler">Kabin ya da tekne</a>
+      <a href="#bir-gun">Teknede bir gün</a>
+      <a href="#sss">Sorular</a>
+    </nav>
+    <a href="#tanisma" class="nav-cta">Tanışalım</a>
+    <button class="nav-burger" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Menüyü aç"><span></span><span></span></button>
+  </div>
+</header>
+<div class="mnav" id="mnav" hidden>
+  <a class="ml" href="#rotalar">Rotalar</a>
+  <a class="ml" href="#filo">Filo</a>
+  <a class="ml" href="#secenekler">Kabin ya da tekne</a>
+  <a class="ml" href="#bir-gun">Teknede bir gün</a>
+  <a class="ml" href="#sss">Sorular</a>
+  <a class="btn-primary" href="#tanisma" style="margin-top:28px;align-self:flex-start"><span>Tanışma randevusu al</span><span class="btn-arrow" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+  <p class="ml-foot">Cumartesi ya da pazar · Anadolu Yakası</p>
+</div>
+
+<main id="main">
+
+<section id="top" class="hero" aria-labelledby="hero-title">
+  <div class="hero-media">
+    <div class="hero-scale">
+      <div class="hero-kb">
+                <img src="assets/img/hero_bodrum_koy.jpg" sizes="100vw" width="1920" height="1440" fetchpriority="high" decoding="async"
+             alt="Turkuaz bir koyda demirli tekneler, yukarıdan görünüm">
+      </div>
+    </div>
+  </div>
+  <div class="hero-shade" aria-hidden="true"></div>
+
+  <div class="hero-content container-x">
+    <div class="hero-par">
+      <h1 id="hero-title" class="hero-title">
+        <span class="line"><span class="mask"><span class="hero-word">Kalabalıktan</span></span> <span class="mask"><span class="hero-word">uzak,</span></span></span>
+        <span class="line"><em><span class="mask"><span class="hero-word">maviye</span></span> <span class="mask"><span class="hero-word">yakın.</span></span></em></span>
+      </h1>
+      <p class="hero-sub hero-fade">Gulet ile 8 gün 7 gece Mavi Yolculuk, koy koy Ege ve Akdeniz. Bir kabin ayırın ya da tekneyi tümüyle sizin yapın. Önce hafta sonu İstanbul'da yüz yüze tanışalım.</p>
+      <div class="hero-ctas hero-fade">
+        <div class="magnet" data-magnet>
+          <span class="magnet-inner">
+            <a class="btn-primary" href="#tanisma">
+              <span class="btn-label">Tanışma randevusu al</span>
+              <span class="btn-arrow" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="btn-shine" aria-hidden="true"></span>
+            </a>
+          </span>
+        </div>
+        <a class="btn-ghost" href="#rotalar"><span>Rotaları keşfet</span></a>
+      </div>
+      <p class="hero-proof hero-fade"><span><b>2009</b>'dan beri</span><span><b>11.000+</b> aile</span><span><b>5</b> gulet</span><span><b>6</b> rota</span></p>
+    </div>
+  </div>
+
+  <div class="hero-badge" aria-hidden="true">
+    <svg viewBox="0 0 132 132">
+      <defs><path id="ringPath" d="M66 66 m-52 0 a52 52 0 1 1 104 0 a52 52 0 1 1 -104 0"/></defs>
+      <g class="ring-text"><text font-family="Onest" font-size="10.4" font-weight="600" letter-spacing="3.2" fill="rgba(246,242,234,.85)"><textPath href="#ringPath">MAVİ YOLCULUK · 2009'DAN BERİ · FORA ·</textPath></text></g>
+      <circle cx="66" cy="66" r="30" fill="rgba(6,18,28,.35)" stroke="rgba(246,242,234,.25)"/>
+      <path d="M66 44 L70 66 L66 88 L62 66 Z" fill="#C09A5B"/><path d="M44 66 L66 62 L88 66 L66 70 Z" fill="rgba(246,242,234,.7)"/>
+    </svg>
+  </div>
+  <p class="hero-caption" aria-hidden="true">Kısebükü Koyu · Bodrum</p>
+  <a class="scroll-cue" href="#kalabalik" aria-label="Aşağı kaydırın"><span>Kaydırın</span><i></i></a>
+
+  <div class="waves" aria-hidden="true">
+    <svg class="wave-svg w3" viewBox="0 0 2880 120" preserveAspectRatio="none"><path data-wave="720,9,40"/></svg>
+    <svg class="wave-svg w2" viewBox="0 0 2880 120" preserveAspectRatio="none"><path data-wave="480,7,58"/></svg>
+    <svg class="wave-svg" viewBox="0 0 2880 120" preserveAspectRatio="none"><path data-wave="360,6,74"/></svg>
+    <svg class="wave-svg fill" viewBox="0 0 2880 120" preserveAspectRatio="none"><path data-wave="1440,10,100,fill"/></svg>
+  </div>
+</section>
+
+<section class="mq-sec" aria-label="Rotalarımızdaki koylar ve adalar">
+  <div class="mq mq-big" aria-hidden="true">
+    <div class="mq-track" data-speed="46" data-dir="1">
+      <span class="mq-item">Gökova</span><svg class="mq-star" viewBox="0 0 24 24"><path d="M12 1l2.2 8.8L23 12l-8.8 2.2L12 23l-2.2-8.8L1 12l8.8-2.2z" fill="currentColor"/></svg>
+      <span class="mq-item o">Datça</span><svg class="mq-star" viewBox="0 0 24 24"><path d="M12 1l2.2 8.8L23 12l-8.8 2.2L12 23l-2.2-8.8L1 12l8.8-2.2z" fill="currentColor"/></svg>
+      <span class="mq-item">Kekova</span><svg class="mq-star" viewBox="0 0 24 24"><path d="M12 1l2.2 8.8L23 12l-8.8 2.2L12 23l-2.2-8.8L1 12l8.8-2.2z" fill="currentColor"/></svg>
+      <span class="mq-item o">Göcek</span><svg class="mq-star" viewBox="0 0 24 24"><path d="M12 1l2.2 8.8L23 12l-8.8 2.2L12 23l-2.2-8.8L1 12l8.8-2.2z" fill="currentColor"/></svg>
+      <span class="mq-item">Fethiye</span><svg class="mq-star" viewBox="0 0 24 24"><path d="M12 1l2.2 8.8L23 12l-8.8 2.2L12 23l-2.2-8.8L1 12l8.8-2.2z" fill="currentColor"/></svg>
+      <span class="mq-item o">Yunan Adaları</span><svg class="mq-star" viewBox="0 0 24 24"><path d="M12 1l2.2 8.8L23 12l-8.8 2.2L12 23l-2.2-8.8L1 12l8.8-2.2z" fill="currentColor"/></svg>
+    </div>
+  </div>
+  <p class="sr-only">Gökova, Datça, Kekova, Göcek, Fethiye ve Yunan Adaları</p>
+  <div class="mq mq-small" aria-hidden="true">
+    <div class="mq-track" data-speed="34" data-dir="-1">
+      <span class="mq-item">Orak Adası</span><i class="dot"></i><span class="mq-item">Kleopatra Adası</span><i class="dot"></i><span class="mq-item">Selimiye</span><i class="dot"></i><span class="mq-item">Bozburun</span><i class="dot"></i><span class="mq-item">Yassıca Adalar</span><i class="dot"></i><span class="mq-item">Ölüdeniz</span><i class="dot"></i><span class="mq-item">Kelebekler Vadisi</span><i class="dot"></i><span class="mq-item">Simena</span><i class="dot"></i><span class="mq-item">Adrasan</span><i class="dot"></i><span class="mq-item">Patmos</span><i class="dot"></i><span class="mq-item">Lipsi</span><i class="dot"></i><span class="mq-item">Cennet Adası</span><i class="dot"></i>
+    </div>
+  </div>
+</section>
+
+<section id="kalabalik" class="crowd-sec" aria-labelledby="crowd-title">
+  <div class="crowd-sticky">
+    <div class="cr-haze" aria-hidden="true"></div>
+    <div class="cr-portal" aria-hidden="true">
+     <div class="cr-clip"><div class="cr-portal-in">
+    <div class="cr-sea">
+      <div class="cr-glow"></div>
+    </div>
+    <div class="cr-horizon">
+      <svg class="hz-lines" viewBox="0 0 1440 300" preserveAspectRatio="none">
+        <line x1="0" y1="0.5" x2="1440" y2="0.5" stroke="rgba(246,242,234,.55)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+        <path d="M0 40 Q180 30 360 40 T720 40 T1080 40 T1440 40" fill="none" stroke="rgba(207,227,244,.22)" vector-effect="non-scaling-stroke"/>
+        <path d="M0 90 Q240 76 480 90 T960 90 T1440 90" fill="none" stroke="rgba(207,227,244,.16)" vector-effect="non-scaling-stroke"/>
+        <path d="M0 160 Q360 140 720 160 T1440 160" fill="none" stroke="rgba(207,227,244,.1)" vector-effect="non-scaling-stroke"/>
+      </svg>
+      <svg class="cr-boat" viewBox="0 0 80 30" fill="currentColor"><g>
+        <path d="M4 22 L76 22 L67 29 L13 29 Z"/>
+        <path d="M31 21 L31 2 L51 20 Z" opacity=".92"/><path d="M29 21 L29 5 L15 20 Z" opacity=".78"/><path d="M53 21 L53 8 L65 20 Z" opacity=".78"/>
+      </g></svg>
+    </div>
+     </div></div>
+     <div class="cr-feather"></div>
+    </div>
+    <canvas id="crowd-canvas" aria-hidden="true"></canvas>
+    <div class="cr-text cr-t1">
+      <p class="cr-big"><em>Hafta içi.</em> Trafik, kuyruk, bitmeyen kalabalık.</p>
+    </div>
+    <div class="cr-text cr-t2" aria-hidden="true">
+      <p class="cr-big">Tekne limandan ayrıldığında hepsi geride kalır.</p>
+    </div>
+    <div class="cr-text cr-t3">
+      <h2 id="crowd-title" class="cr-title">Kalabalıktan uzak, <em>maviye yakın.</em></h2>
+      <p class="cr-sub">Geriye siz, sevdikleriniz ve ufuk kalır.</p>
+    </div>
+  </div>
+</section>
+
+<section id="rotalar" class="routes-sec" aria-labelledby="routes-title">
+  <div class="routes-sticky">
+    <div class="routes-grid container-x">
+      <div class="routes-side">
+        <h2 id="routes-title" class="h2" data-reveal="rise">Altı rota. Koydan koya <em>bir hafta.</em></h2>
+        <p class="lead" style="margin-top:16px;color:rgba(14,28,39,.72)">Hepsi 8 gün 7 gece. Biniş saat 15.30'da; misafirlerimizi bir saat önce bekliyoruz.</p>
+        <div class="rtabs" role="tablist" aria-label="Rota seçin" id="rtabs">
+          <span class="rtab-ind" aria-hidden="true"></span>
+        </div>
+        <div class="rinfo" id="rpanel" role="tabpanel" aria-live="polite">
+          <p class="rinfo-meta"><span>Kalkış <b id="r-from">Bodrum Limanı</b></span><span>Süre <b>8 gün 7 gece</b></span></p>
+          <p class="rnote" id="r-note"></p>
+          <ol class="rstops" id="r-stops"></ol>
+        </div>
+      </div>
+      <div class="routes-map">
+        <div class="map-card" id="map-card">
+          <svg id="map-svg" role="img" aria-label="Seçili rotanın temsilî haritası"><g id="map-world"></g></svg>
+          <div class="map-now" aria-hidden="true"><span>Şimdi</span><b id="r-now">Bodrum</b></div>
+          <figure class="postcard" data-cursor="explore">
+            <img id="r-img" src="assets/img/koy_kleopatra_sedir_adasi_05.jpg" width="1200" height="800" loading="lazy" decoding="async" alt="Kleopatra Adası ve çevresi, havadan">
+            <figcaption id="r-cap">Kleopatra Adası</figcaption>
+          </figure>
+          <svg class="map-compass" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="26" fill="none" stroke="currentColor" stroke-width=".8"/><path d="M32 6 L36 32 L32 58 L28 32 Z" fill="currentColor" opacity=".85"/><path d="M6 32 L32 28 L58 32 L32 36 Z" fill="currentColor" opacity=".35"/><text x="32" y="4" font-size="7" text-anchor="middle" fill="currentColor" font-family="Onest" font-weight="700">K</text></svg>
+          <p class="map-note">Harita temsilîdir</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="filo" class="fleet-sec" aria-labelledby="fleet-title">
+  <div class="fleet-sticky">
+    <div class="fleet-head container-x" aria-hidden="true">
+      <div class="fleet-bar"><i></i></div>
+      <p class="fleet-count"><b id="fleet-i">01</b> / 05</p>
+    </div>
+    <div class="fleet-track" id="fleet-track">
+      <div class="fleet-intro">
+        <h2 id="fleet-title" class="h2">Beş gulet, beş ayrı <em>karakter.</em></h2>
+        <p>Her kabinde duş, WC ve klima. Tam donanımlı mutfak, güvertede bar ve güneşlenme minderleri. Ayrıntıları tanışmada, teknenin güncel haliyle anlatıyoruz.</p>
+      </div>
+
+      <article class="boat" data-cursor="explore">
+        <div class="boat-tilt">
+          <div class="boat-media"><img class="boat-img" src="assets/img/tekne_gulet_zel_06.webp" width="640" height="425" loading="lazy" decoding="async" alt="Zel guleti yelkenleri açık, denizde"></div>
+          <div class="boat-shine" aria-hidden="true"></div>
+          <div class="boat-body">
+            <h3 class="boat-name">Zel</h3>
+            <p>2021'de baştan yenilendi. Kano isteğe bağlı olarak teknede.</p>
+            <ul class="boat-facts"><li>26 metre</li><li>9 kabin</li><li>2021 yenileme</li></ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="boat" data-cursor="explore">
+        <div class="boat-tilt">
+          <div class="boat-media"><img class="boat-img" src="assets/img/tekne_gulet_ata_havadan_04.jpg" width="796" height="535" loading="lazy" decoding="async" alt="Ata guleti, havadan görünüm"></div>
+          <div class="boat-shine" aria-hidden="true"></div>
+          <div class="boat-body">
+            <h3 class="boat-name">Ata</h3>
+            <p>Kalabalık aileler için geniş. Ringo, rüzgar sörfü ve kano seçenekleri.</p>
+            <ul class="boat-facts"><li>33 metre</li><li>11 kabin</li><li>Su sporları</li></ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="boat" data-cursor="explore">
+        <div class="boat-tilt">
+                    <div class="boat-media"><img class="boat-img" src="assets/img/tekne_gulet_yelkenli_01.jpg" width="1024" height="682" loading="lazy" decoding="async" alt="Krem yelkenli çift direkli gulet, açık denizde"></div>
+          <div class="boat-shine" aria-hidden="true"></div>
+          <div class="boat-body">
+            <h3 class="boat-name">Eylül</h3>
+            <p>Filonun en uzun teknesi. Teknede Wi-Fi var.</p>
+            <ul class="boat-facts"><li>2013 yapımı</li><li>Wi-Fi</li><li>Filonun en uzunu</li></ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="boat" data-cursor="explore">
+        <div class="boat-tilt">
+          <div class="boat-media"><img class="boat-img" src="assets/img/tekne_gulet_miss2_07.webp" width="800" height="519" loading="lazy" decoding="async" alt="Miss 2, ahşap gulet, yelkenleri açık"></div>
+          <div class="boat-shine" aria-hidden="true"></div>
+          <div class="boat-body">
+            <h3 class="boat-name">Miss 2</h3>
+            <p>Suyu sevenlerin teknesi. Wake board, su kayağı, su simidi ve kano.</p>
+            <ul class="boat-facts"><li>26 metre</li><li>Wake board</li><li>Su kayağı</li></ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="boat" data-cursor="explore">
+        <div class="boat-tilt">
+          <div class="boat-media"><img class="boat-img" src="assets/img/tekne_gulet_getaway_05.webp" width="800" height="585" loading="lazy" decoding="async" alt="Getaway yatı, balon yelkeni açık"></div>
+          <div class="boat-shine" aria-hidden="true"></div>
+          <div class="boat-body">
+            <h3 class="boat-name">Getaway</h3>
+            <p>Delüks bir yat arayanlar için. Biri master, yedi kabin.</p>
+            <ul class="boat-facts"><li>35 metre</li><li>7 kabin</li><li>2013 yenileme</li></ul>
+          </div>
+        </div>
+      </article>
+
+      <div class="fleet-end">
+        <h3 class="h2" style="font-size:clamp(1.9rem,3vw,2.8rem)">Hangisi size göre? <em>Tanışmada birlikte seçelim.</em></h3>
+        <p style="margin-top:14px;color:rgba(246,242,234,.78)">Kişi sayınıza, zevkinize ve rotanıza uygun tekneyi masada birlikte buluruz.</p>
+        <div style="margin-top:26px"><a class="btn-primary" href="#tanisma"><span>Tanışma randevusu al</span><span class="btn-arrow" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="secenekler" class="seg-sec container-x" aria-labelledby="seg-title">
+  <h2 id="seg-title" class="h2" data-reveal="rise">Kabin mi, <em>tüm tekne mi?</em></h2>
+  <div class="seg" role="tablist" aria-label="Kiralama biçimi" data-reveal>
+    <span class="seg-ind" aria-hidden="true"></span>
+    <button type="button" role="tab" id="seg-t0" aria-selected="true" aria-controls="seg-p0" data-seg="0">Kabin kirala</button>
+    <button type="button" role="tab" id="seg-t1" aria-selected="false" aria-controls="seg-p1" data-seg="1" tabindex="-1">Tüm tekneyi kirala</button>
+  </div>
+  <div class="seg-panels">
+    <div class="seg-panel is-active" id="seg-p0" role="tabpanel" aria-labelledby="seg-t0">
+      <div class="seg-media" data-cursor="explore"><img src="assets/img/tekne_ic_salon_01.jpg" width="1400" height="929" loading="lazy" decoding="async" alt="Yatın iç salonu ve güverteye açılan kapısı"></div>
+      <div>
+        <h3>Kabininizi ayırın, gerisi hazır.</h3>
+        <p>Rota, program ve ekip belli. Kabininize yerleşir, tekneyi diğer misafirlerle paylaşırsınız. Çiftler ve küçük aileler için rahat bir başlangıç.</p>
+        <ul class="ticks">
+          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.5 9.5l3.5 3.5 7.5-8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Her kabinde duş, WC ve klima</li>
+          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.5 9.5l3.5 3.5 7.5-8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Tam pansiyon yemek</li>
+          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.5 9.5l3.5 3.5 7.5-8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Nevresim ve banyo havlusu</li>
+          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.5 9.5l3.5 3.5 7.5-8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Mürettebat servisi</li>
+        </ul>
+      </div>
+    </div>
+    <div class="seg-panel" id="seg-p1" role="tabpanel" aria-labelledby="seg-t1" inert>
+      <div class="seg-media" data-cursor="explore"><img src="assets/img/tekne_uc_direkli_08.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Açık denizde tek başına üç direkli beyaz yelkenli"></div>
+      <div>
+        <h3>Tekne yalnızca sizin.</h3>
+        <p>Teknenin tamamını kiralayın, rotayı kendinize göre çizin. Kalabalık bir aile, bir arkadaş grubu ya da bir balayı için.</p>
+        <ul class="ticks">
+          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.5 9.5l3.5 3.5 7.5-8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Rotayı siz belirlersiniz</li>
+          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.5 9.5l3.5 3.5 7.5-8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Hizmetinizde bir ekip</li>
+          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.5 9.5l3.5 3.5 7.5-8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Güvertede bar ve güneşlenme minderleri</li>
+          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.5 9.5l3.5 3.5 7.5-8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Maske, palet, şnorkel ve olta</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <p class="seg-note" data-reveal><span class="chip-brass"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 1l2.2 8.8L23 12l-8.8 2.2L12 23l-2.2-8.8L1 12l8.8-2.2z" fill="currentColor"/></svg>Erken rezervasyon avantajları</span>Ayrıntılarını tanışmada anlatıyoruz.</p>
+</section>
+
+<section id="bir-gun" class="day-sec" aria-labelledby="day-title">
+  <div class="day-sticky">
+    <div class="sky" aria-hidden="true"><div class="sky-l k0"></div><div class="sky-l k1"></div><div class="sky-l k2"></div><div class="sky-l k3"></div><div class="sky-l k4"></div></div>
+    <div class="stars" aria-hidden="true"></div>
+    <div class="sun" aria-hidden="true"></div>
+    <div class="moon" aria-hidden="true"></div>
+    <div class="day-waves waves" aria-hidden="true">
+      <svg class="wave-svg w2" viewBox="0 0 2880 120" preserveAspectRatio="none"><path data-wave="480,5,30"/></svg>
+      <svg class="wave-svg" viewBox="0 0 2880 120" preserveAspectRatio="none"><path data-wave="360,4,62"/></svg>
+    </div>
+    <div class="day-ui container-x">
+      <div class="day-left">
+        <h2 id="day-title" class="day-title">Teknede bir gün</h2>
+        <div class="clock" aria-hidden="true">
+          <svg class="dial" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="46" fill="none" stroke="rgba(246,242,234,.25)" stroke-width="1.5"/>
+            <circle class="dial-prog" cx="50" cy="50" r="46" fill="none" stroke="#E4C991" stroke-width="2.5" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" transform="rotate(-90 50 50)"/>
+            <g stroke="rgba(246,242,234,.55)" stroke-width="1.5"><line x1="50" y1="8" x2="50" y2="14"/><line x1="92" y1="50" x2="86" y2="50"/><line x1="50" y1="92" x2="50" y2="86"/><line x1="8" y1="50" x2="14" y2="50"/></g>
+            <line class="hand" x1="50" y1="50" x2="50" y2="18" stroke="#F6F2EA" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="50" cy="50" r="3.5" fill="#F6F2EA"/>
+          </svg>
+          <p class="clock-time" id="clock"><span>0</span><span>7</span><span class="c">:</span><span>0</span><span>0</span></p>
+        </div>
+        <ol class="day-steps" aria-hidden="true">
+          <li class="on"><span>Sabah</span></li><li><span>Koyda yüzme</span></li><li><span>Öğleden sonra</span></li><li><span>Gün batımı</span></li><li><span>Gece</span></li>
+        </ol>
+      </div>
+      <div class="day-right">
+        <article class="scene is-on" data-cursor="explore">
+          <figure><img src="assets/img/tekne_guverte_yemek_01.jpg" width="1024" height="683" loading="lazy" decoding="async" alt="Güvertede kurulmuş yemek masası, arkada deniz"></figure>
+          <div class="scene-body"><p class="scene-when">Sabah</p><h3>Kahvaltı güvertede</h3><p>Güne denizin sesiyle başlarsınız. Kahvaltı açık havada, güvertede.</p></div>
+        </article>
+        <article class="scene" data-cursor="explore">
+          <figure><img src="assets/img/koy_orak_adasi_06.jpg" width="1400" height="933" loading="lazy" decoding="async" alt="Orak Adası koyunda turkuaz suda demirli guletler"></figure>
+          <div class="scene-body"><p class="scene-when">Öğleden önce</p><h3>Koyda ilk yüzme</h3><p>Tekne bir koya demir atar. Maske, palet ve şnorkel teknede hazır.</p></div>
+        </article>
+        <article class="scene" data-cursor="explore">
+          <figure><img src="assets/img/koy_kumlubuk_10.jpg" width="1400" height="933" loading="lazy" decoding="async" alt="Kumlubük koyunda sakin kıyı ve berrak su"></figure>
+          <div class="scene-body"><p class="scene-when">Öğleden sonra</p><h3>Koydan koya</h3><p>Tekne yeni bir koya geçer. Güneşlenme minderleri, kitabınız ve bol gölge.</p></div>
+        </article>
+        <article class="scene" data-cursor="explore">
+          <figure><img src="assets/img/tekne_guverte_yatak_01.jpg" width="800" height="536" loading="lazy" decoding="async" alt="Akşam ışığında güvertedeki güneşlenme yatağı"></figure>
+          <div class="scene-body"><p class="scene-when">Gün batımı</p><h3>Günün en sakin saati</h3><p>Güvertede bar açılır, gökyüzü turuncuya döner.</p></div>
+        </article>
+        <article class="scene" data-cursor="explore">
+          <figure><img src="assets/img/liman_bodrum_kale_gece_02.jpg" width="1276" height="849" loading="lazy" decoding="async" alt="Dolunay altında Bodrum Kalesi ve marina"></figure>
+          <div class="scene-body"><p class="scene-when">Gece</p><h3>Yıldızların altında</h3><p>Gün biter, sohbet uzar. Başınızın üstünde açık bir gökyüzü.</p></div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="num-sec" aria-labelledby="num-title">
+  <svg class="num-rose" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="96" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="1"/><path d="M100 4 L112 100 L100 196 L88 100 Z M4 100 L100 88 L196 100 L100 112 Z" fill="currentColor"/></svg>
+  <div class="container-x">
+    <h2 id="num-title" class="h2" data-reveal="rise">Aile sıcaklığı, <em>kurumsal özen.</em></h2>
+    <div class="num-grid">
+      <div class="num" data-reveal><p class="num-v"><span class="odo" data-value="2009" aria-label="2009">2009</span></p><p class="num-l">yılından beri ailelerle denizdeyiz</p></div>
+      <div class="num" data-reveal><p class="num-v"><span class="odo" data-value="11.000+" aria-label="11.000'den fazla">11.000+</span></p><p class="num-l">aileyi teknelerimizde ağırladık</p></div>
+      <div class="num" data-reveal><p class="num-v"><span class="odo" data-value="5" aria-label="5">5</span></p><p class="num-l">gulet, her biri ayrı karakterde</p></div>
+      <div class="num" data-reveal><p class="num-v"><span class="odo" data-value="6" aria-label="6">6</span></p><p class="num-l">rota, hepsi 8 gün 7 gece</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="rev-sec" aria-labelledby="rev-title">
+  <div class="container-x">
+    <h2 id="rev-title" class="h2" data-reveal="rise">Denizden dönenler <em>anlatıyor.</em></h2>
+    <p data-reveal style="margin-top:14px;font-size:14px;color:rgba(14,28,39,.64)">Yorumlar sitemizdeki misafir yorumları sayfasından alındı.</p>
+    <button type="button" class="rev-toggle" aria-pressed="false" id="rev-toggle"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><rect x="3.5" y="3" width="3" height="10" rx="1" fill="currentColor"/><rect x="9.5" y="3" width="3" height="10" rx="1" fill="currentColor"/></svg><span>Kaydırmayı durdur</span></button>
+  </div>
+  <div class="rev-wrap" style="margin-top:34px">
+    <div class="rev-row a">
+      <figure class="rev"><q>Gecenin bir yarısı çocuğumuz için yataklarından kalkıp tatlı yaptılar … Seneye tüm aile birlikte geleceğiz</q><cite><span>E</span>Emrah Gürsoy</cite></figure>
+      <figure class="rev"><q>Fazla söze gerek yok yüzen otel yapmışlar, yemekler ve hizmet harika</q><cite><span>S</span>Z. Sedat Elmas</cite></figure>
+      <figure class="rev"><q>Bu sene üçüncü kez katılıyorum … karada tatil yapamaz olduk</q><cite><span>İ</span>İlhan Çorum</cite></figure>
+      <figure class="rev"><q>Balayı için bir yat kapattık düğünümde bu kadar özel hissetmemiştim</q><cite><span>B</span>Başak Esmat</cite></figure>
+    </div>
+    <div class="rev-row b" aria-hidden="true">
+      <figure class="rev"><q>Balayı için bir yat kapattık düğünümde bu kadar özel hissetmemiştim</q><cite><span>B</span>Başak Esmat</cite></figure>
+      <figure class="rev"><q>Bu sene üçüncü kez katılıyorum … karada tatil yapamaz olduk</q><cite><span>İ</span>İlhan Çorum</cite></figure>
+      <figure class="rev"><q>Gecenin bir yarısı çocuğumuz için yataklarından kalkıp tatlı yaptılar … Seneye tüm aile birlikte geleceğiz</q><cite><span>E</span>Emrah Gürsoy</cite></figure>
+      <figure class="rev"><q>Fazla söze gerek yok yüzen otel yapmışlar, yemekler ve hizmet harika</q><cite><span>S</span>Z. Sedat Elmas</cite></figure>
+    </div>
+  </div>
+</section>
+
+<section id="tanisma" class="meet-sec" aria-labelledby="meet-title">
+  <div class="container-x meet-grid">
+    <div class="meet-copy">
+      <h2 id="meet-title" class="meet-h font-display" data-reveal="rise">Cumartesi ya da pazar, Anadolu Yakası'nda bir otelde <em style="color:#CFE3F4">yüz yüze tanışalım.</em></h2>
+      <p class="meet-family">Mavi yolculuk ailece yaşanır. Tanışmaya da birlikte gelin, kararı birlikte verin.</p>
+      <p style="margin-top:18px;color:rgba(246,242,234,.8);max-width:48ch">Rotaları, tekneleri ve kabinleri masada birlikte inceleriz. Aklınızdaki her soruyu yüz yüze sorarsınız.</p>
+      <ul class="meet-points">
+        <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="9.5" r="2.5" stroke="currentColor" stroke-width="1.5"/></svg></span>Anadolu Yakası'nda bir otel</li>
+        <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="5" width="17" height="15" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M3.5 10h17M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>Cumartesi ya da pazar</li>
+        <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="16.5" cy="9" r="2.5" stroke="currentColor" stroke-width="1.5"/><path d="M2.5 20c.6-3.4 2.8-5.5 5.5-5.5s4.9 2.1 5.5 5.5M13.5 15.2c.9-.8 1.9-1.2 3-1.2 2.3 0 4.2 1.8 4.8 4.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>Ailenizle birlikte</li>
+      </ul>
+    </div>
+
+        <div class="rdv" id="rdv" data-reveal>
+      <div class="rdv-top"><span class="rdv-count" id="rdv-count">Adım 1 / 4</span><span class="rdv-demo">Demo · gönderim yok</span></div>
+      <div class="rdv-bar" aria-hidden="true"><i id="rdv-bar"></i></div>
+      <div class="rdv-steps">
+
+        <div class="rdv-step is-active" data-step="1">
+          <h3 class="rdv-q" tabindex="-1">Hangi ilçeden geleceksiniz?</h3>
+          <p class="rdv-hint">Size en yakın oteli buna göre seçeriz.</p>
+          <div class="chips" id="ilceler" role="group" aria-label="Anadolu Yakası ilçeleri"></div>
+        </div>
+
+        <div class="rdv-step" data-step="away" inert>
+          <h3 class="rdv-q" tabindex="-1">Şimdilik tanışmalar Anadolu Yakası'nda.</h3>
+          <p class="rdv-hint" style="font-size:15px">Başka bir yerdeyseniz WhatsApp'tan yazın; size en uygun yolu birlikte bulalım.</p>
+          <a class="wa-inline" href="https://wa.me/905496523538?text=Merhaba%2C%20Mavi%20Yolculuk%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.4-.3z"/></svg>WhatsApp'tan yaz</a>
+          <div class="rdv-actions"><button type="button" class="btn-back" data-go="1" data-dir="-1"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Geri dön</button></div>
+        </div>
+
+        <div class="rdv-step" data-step="2" inert>
+          <h3 class="rdv-q" tabindex="-1">Tanışmaya kimlerle geleceksiniz?</h3>
+          <p class="rdv-hint">Masayı ve süreyi buna göre hazırlarız.</p>
+          <div class="opts" role="group" aria-label="Kimlerle geleceksiniz">
+            <button type="button" class="opt" data-kim="Eşimle" aria-pressed="false"><span class="oi"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="8.5" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="15.5" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M3 19c.6-3.2 2.7-5.2 5.5-5.2 1.4 0 2.6.5 3.5 1.4.9-.9 2.1-1.4 3.5-1.4 2.8 0 4.9 2 5.5 5.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span><span><b>Eşimle</b><small>İki kişi, birlikte karar</small></span></button>
+            <button type="button" class="opt" data-kim="Ailemle" aria-pressed="false"><span class="oi"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="7" cy="7" r="2.6" stroke="currentColor" stroke-width="1.5"/><circle cx="17" cy="7" r="2.6" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12.5" r="2" stroke="currentColor" stroke-width="1.5"/><path d="M2.5 18c.5-3 2.2-4.8 4.5-4.8M21.5 18c-.5-3-2.2-4.8-4.5-4.8M8.5 20c.4-2.2 1.8-3.6 3.5-3.6s3.1 1.4 3.5 3.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span><span><b>Ailemle</b><small>Çocuklarımız da gelecek</small></span></button>
+            <button type="button" class="opt" data-kim="Tek başıma" aria-pressed="false"><span class="oi"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.2" stroke="currentColor" stroke-width="1.5"/><path d="M5.5 20c.7-3.6 3.2-5.8 6.5-5.8s5.8 2.2 6.5 5.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span><span><b>Tek başıma</b><small>Önce ben dinlemek istiyorum</small></span></button>
+          </div>
+          <div class="rdv-actions"><button type="button" class="btn-back" data-go="1" data-dir="-1"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Geri</button></div>
+        </div>
+
+        <div class="rdv-step" data-step="3" inert>
+          <h3 class="rdv-q" tabindex="-1">Hangi gün, hangi saat?</h3>
+          <p class="solo-note" id="solo-note" hidden>Dilerseniz eşinizi ya da ailenizi de getirin; kararı birlikte vermek hep daha kolay.</p>
+          <span class="lbl">Önümüzdeki hafta sonları</span>
+          <div class="dates" id="dates" role="group" aria-label="Tarih seçin"></div>
+          <span class="lbl">Saat aralığı</span>
+          <div class="slots" id="slots" role="group" aria-label="Saat aralığı seçin"></div>
+          <div class="rdv-actions"><button type="button" class="btn-back" data-go="2" data-dir="-1"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Geri</button><button type="button" class="btn-dark" id="to4" disabled>Devam</button></div>
+        </div>
+
+        <div class="rdv-step" data-step="4" inert>
+          <h3 class="rdv-q" tabindex="-1">Size nasıl ulaşalım?</h3>
+          <p class="rdv-hint">Buluşacağımız oteli ve saati teyit etmek için arayacağız.</p>
+          <form id="rdv-form" novalidate>
+            <div class="field" id="f-ad">
+              <label for="ad">Adınız soyadınız</label>
+              <input id="ad" name="ad" type="text" autocomplete="name" placeholder="Örn. Ayşe Demir">
+              <span class="err" id="ad-err" aria-live="polite"></span>
+            </div>
+            <div class="field" id="f-tel">
+              <label for="tel">Telefon</label>
+              <div class="tel-wrap"><span>+90</span><input id="tel" name="tel" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="5XX XXX XX XX"></div>
+              <span class="help">Yalnız teyit araması için.</span>
+              <span class="err" id="tel-err" aria-live="polite"></span>
+            </div>
+            <div class="rdv-actions"><button type="button" class="btn-back" data-go="3" data-dir="-1"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Geri</button><button type="submit" class="btn-dark">Randevumu ayır</button></div>
+          </form>
+        </div>
+
+        <div class="rdv-step" data-step="5" inert>
+          <div class="ok" id="ok">
+            <svg class="ok-svg" viewBox="0 0 120 120" aria-hidden="true">
+              <defs><clipPath id="okc"><circle cx="60" cy="60" r="52"/></clipPath></defs>
+              <circle class="ok-ring" cx="60" cy="60" r="52"/>
+              <g clip-path="url(#okc)"><g class="ok-water">
+                <path class="ok-wave b" d="M0 10 Q15 2 30 10 T60 10 T90 10 T120 10 T150 10 T180 10 L180 130 L0 130 Z" fill="#5899CD"/>
+                <path class="ok-wave" d="M0 14 Q15 6 30 14 T60 14 T90 14 T120 14 T150 14 T180 14 L180 130 L0 130 Z" fill="#1B4F78"/>
+              </g></g>
+              <path class="ok-check" d="M38 62 L53 76 L83 46" pathLength="1"/>
+            </svg>
+            <h3 class="rdv-q" tabindex="-1" id="ok-title" style="margin-top:14px">Teşekkürler.</h3>
+            <p class="rdv-hint" style="max-width:36ch" id="ok-text">Tanışma talebinizi aldık. Sizi arayıp oteli ve saati teyit edeceğiz.</p>
+            <div class="ok-sum" id="ok-sum"></div>
+            <div class="rdv-actions" style="justify-content:center"><button type="button" class="btn-back" id="rdv-reset">Yeni bir tarih seç</button></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sss" class="faq-sec" aria-labelledby="faq-title">
+  <div class="container-x faq-grid">
+    <div>
+      <h2 id="faq-title" class="h2" data-reveal="rise">Merak <em>edilenler.</em></h2>
+      <p style="margin-top:16px;color:rgba(14,28,39,.7);max-width:36ch">Aklınızda başka bir soru varsa tanışmada ya da WhatsApp'tan sorabilirsiniz.</p>
+    </div>
+    <div class="faq-list" data-reveal>
+      <div class="faq-item open">
+        <button class="faq-q" type="button" aria-expanded="true" aria-controls="fa1" id="fq1">Mavi yolculuk kaç gün sürüyor?<span class="pm" aria-hidden="true"></span></button>
+        <div class="faq-a" id="fa1" role="region" aria-labelledby="fq1"><div><p>Rotalarımızın hepsi 8 gün 7 gece. Biniş saat 15.30'da; misafirlerimizi bir saat önce bekliyoruz.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="fa2" id="fq2">Kabin mi kiralamalıyım, tüm tekneyi mi?<span class="pm" aria-hidden="true"></span></button>
+        <div class="faq-a" id="fa2" role="region" aria-labelledby="fq2"><div><p>İkisi de mümkün. Kabin kiralayıp tekneyi diğer misafirlerle paylaşabilir ya da teknenin tamamını kiralayıp rotanızı kendinize göre çizebilirsiniz.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="fa3" id="fq3">Neler dahil?<span class="pm" aria-hidden="true"></span></button>
+        <div class="faq-a" id="fa3" role="region" aria-labelledby="fq3"><div><p>Tam pansiyon yemek, nevresim ve banyo havlusu, mürettebat servisi, klima, ses sistemi, Wi-Fi ve deniz eğlence takımları (maske, palet, şnorkel, olta). Teknede can salı, can yeleği, yangın söndürücü ve sağlık personeli bulunur. Su sporları ve kara turlarının ayrıntısını tanışmada netleştiriyoruz.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="fa4" id="fq4">Fiyatlar ne kadar?<span class="pm" aria-hidden="true"></span></button>
+        <div class="faq-a" id="fa4" role="region" aria-labelledby="fq4"><div><p>Fiyat; tekneye, rotaya, tarihe ve kişi sayısına göre değişiyor. Tanışmada size özel anlatıyoruz. Erken rezervasyon avantajlarını da o gün konuşuruz.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="fa5" id="fq5">Çocuklarla gelmeye uygun mu?<span class="pm" aria-hidden="true"></span></button>
+        <div class="faq-a" id="fa5" role="region" aria-labelledby="fq5"><div><p>Evet. Tatillerimizi aile konseptiyle planlıyoruz. Bodrum · Gökova rotasında çocuk aktiviteleri ve tur rehberi dahil.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="fa6" id="fq6">Tanışma görüşmesi nasıl oluyor?<span class="pm" aria-hidden="true"></span></button>
+        <div class="faq-a" id="fa6" role="region" aria-labelledby="fq6"><div><p>Cumartesi ya da pazar, Anadolu Yakası'ndaki bir otelde buluşuyoruz. Rotaları ve tekneleri birlikte inceliyoruz; kararı acele etmeden, ailenizle birlikte verirsiniz.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="container-x">
+    <div class="foot-grid">
+      <div>
+        <img src="assets/logo/logo_fora_beyaz.png" width="364" height="184" alt="Fora Sailing" loading="lazy" style="height:52px;width:auto">
+        <p style="margin-top:18px;color:rgba(246,242,234,.72);max-width:36ch">2009'dan beri gulet ile Mavi Yolculuk. Kabin ya da tüm tekne; 6 rota, 8 gün 7 gece.</p>
+        <div style="margin-top:24px"><a class="btn-primary" href="#tanisma"><span>Tanışma randevusu al</span><span class="btn-arrow" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></div>
+      </div>
+      <div>
+        <h4>İletişim</h4>
+        <a class="fl" href="https://wa.me/905496523538" target="_blank" rel="noopener">WhatsApp · +90 549 652 35 38</a><br>
+        <a class="fl" href="tel:+908503033056">Telefon · +90 (850) 303 3056</a>
+        <p style="margin-top:12px;color:rgba(246,242,234,.72);font-size:15px">Kurtköy Mah. Ankara Cad. Yelken Plaza<br>No: 289/21, Pendik / İstanbul</p>
+      </div>
+      <div>
+        <h4>Keşfet</h4>
+        <a class="fl" href="#rotalar">Rotalar</a><br>
+        <a class="fl" href="#filo">Filo</a><br>
+        <a class="fl" href="#secenekler">Kabin ya da tekne</a><br>
+        <a class="fl" href="#bir-gun">Teknede bir gün</a><br>
+        <a class="fl" href="#sss">Sorular</a>
+      </div>
+    </div>
+    <p class="big-word" aria-label="maviye yakın"><span class="o" aria-hidden="true">maviye yakın</span><span class="f" aria-hidden="true">maviye yakın</span></p>
+  </div>
+  <div class="foot-waves waves" aria-hidden="true">
+    <svg class="wave-svg w2" viewBox="0 0 2880 120" preserveAspectRatio="none"><path data-wave="480,8,40"/></svg>
+    <svg class="wave-svg" viewBox="0 0 2880 120" preserveAspectRatio="none"><path data-wave="360,6,66"/></svg>
+    <svg class="wave-svg w3" viewBox="0 0 2880 120" preserveAspectRatio="none"><path data-wave="720,9,92"/></svg>
+  </div>
+  <div class="container-x">
+    <div class="foot-bottom">
+      <span>© 2026 Fora Sailing · MBD Deniz Araçları Yatçılık Turizm ve Organizasyon Ltd. Şti.</span>
+      <span>Kalabalıktan uzak, maviye yakın.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-fab" href="https://wa.me/905496523538?text=Merhaba%2C%20hafta%20sonu%20tan%C4%B1%C5%9Fma%20g%C3%B6r%C3%BC%C5%9Fmesi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener" aria-label="WhatsApp ile yazın">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.4-.3z"/></svg>
+</a>
+
+<script type="module">
+import { animate, inView, scroll, stagger } from "https://cdn.jsdelivr.net/npm/motion@11.13.5/+esm";
+window.__fora = true;
+
+const html = document.documentElement;
+const RM = html.classList.contains('rm');
+const FINE = matchMedia('(hover: hover) and (pointer: fine)').matches;
+const DESK = matchMedia('(min-width: 1024px)');
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const lerp = (a, b, t) => a + (b - a) * t;
+const sstep = (a, b, v) => { const t = clamp((v - a) / (b - a)); return t * t * (3 - 2 * t); };
+const OUT = [0.23, 1, 0.32, 1], IO = [0.77, 0, 0.175, 1], IN = [0.4, 0, 1, 1];
+const safe = (name, fn) => { try { fn(); } catch (e) { console.error('[fora] ' + name, e); } };
+const debounce = (fn, ms) => { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); }; };
+
+/* Sabit görünür yükseklik (mobil adres çubuğunda zıplamaz) */
+const probe = document.createElement('div');
+probe.style.cssText = 'position:fixed;top:0;left:0;width:0;height:100vh;height:100svh;visibility:hidden;pointer-events:none';
+document.body.appendChild(probe);
+const VH = () => probe.offsetHeight || innerHeight;
+
+/* Dalga çizgileri: kusursuz döngü için periyodik yol üretimi */
+safe('waves', () => {
+  $$('path[data-wave]').forEach(p => {
+    const [per, amp, y0, fill] = p.dataset.wave.split(',');
+    const P = +per, A = +amp, Y = +y0, half = P / 2;
+    let d = `M0 ${Y}`;
+    for (let x = 0, k = 0; x < 2880; x += half, k++) {
+      const up = k % 2 === 0 ? -A : A;
+      d += ` Q${x + half / 2} ${Y + up * 2} ${x + half} ${Y}`;
+    }
+    if (fill) d += ' L2880 120 L0 120 Z';
+    p.setAttribute('d', d);
+    if (!fill) p.setAttribute('vector-effect', 'non-scaling-stroke');
+  });
+});
+
+/* ---------------- 2. Hero giriş ---------------- */
+let heroDone = false;
+function heroIn(delay = 0) {
+  if (heroDone || RM) return; heroDone = true;
+  animate('.hero-word', { y: ['112%', '0%'] }, { duration: 1.05, delay: stagger(0.08, { startDelay: delay }), ease: OUT });
+  animate('.hero-fade', { opacity: [0, 1], y: [18, 0] }, { duration: 0.8, delay: stagger(0.09, { startDelay: delay + 0.35 }), ease: OUT });
+  animate('.hero-scale', { scale: [1.12, 1] }, { duration: 1.9, ease: OUT });
+}
+
+/* ---------------- 1. Açılış perdesi ---------------- */
+safe('intro', () => {
+  const el = $('#intro');
+  if (!html.classList.contains('intro') || !el) { heroIn(0.05); return; }
+  setTimeout(() => {
+    heroIn(0.18);
+    animate(el, { clipPath: ['inset(0% 0% 0% 0%)', 'inset(0% 0% 100% 0%)'] }, { duration: 0.62, ease: IO })
+      .then(() => { el.remove(); html.classList.remove('intro'); });
+  }, 1120);
+});
+
+/* ---------------- 2b. Hero kaydırma paralaksı + manyetik CTA ---------------- */
+safe('hero-scroll', () => {
+  if (RM) return;
+  scroll(animate('.hero-par', { y: [0, 110], opacity: [1, 0.15] }, { ease: 'linear' }), { target: $('#top'), offset: ['start start', 'end start'] });
+  scroll(animate('.hero-badge svg', { rotate: [0, 140] }, { ease: 'linear' }), { target: $('#top'), offset: ['start start', 'end start'] });
+});
+safe('magnet', () => {
+  if (!FINE || RM) return;
+  $$('[data-magnet]').forEach(m => {
+    const inner = $('.magnet-inner', m), label = $('.btn-label', m);
+    let raf = 0, ev = null;
+    m.addEventListener('pointermove', e => {
+      ev = e; if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0; const r = m.getBoundingClientRect();
+        const dx = ev.clientX - (r.left + r.width / 2), dy = ev.clientY - (r.top + r.height / 2);
+        animate(inner, { x: dx * 0.28, y: dy * 0.34 }, { type: 'spring', stiffness: 240, damping: 18, mass: 0.6 });
+        animate(label, { x: dx * 0.08, y: dy * 0.08 }, { type: 'spring', stiffness: 240, damping: 18 });
+      });
+    });
+    m.addEventListener('pointerleave', () => {
+      animate(inner, { x: 0, y: 0 }, { type: 'spring', stiffness: 180, damping: 14 });
+      animate(label, { x: 0, y: 0 }, { type: 'spring', stiffness: 180, damping: 14 });
+    });
+  });
+});
+
+/* ---------------- 3. Özel imleç ---------------- */
+safe('cursor', () => {
+  if (!FINE || RM) return;
+  html.classList.add('has-cursor');
+  const dot = $('.c-dot'), ring = $('.c-ring');
+  let mx = -100, my = -100, rx = -100, ry = -100, on = false, loop = 0;
+  const tick = () => {
+    rx += (mx - rx) * 0.18; ry += (my - ry) * 0.18;
+    ring.style.transform = `translate3d(${rx}px,${ry}px,0)`;
+    loop = (Math.abs(mx - rx) + Math.abs(my - ry) > 0.1) ? requestAnimationFrame(tick) : 0;
+  };
+  addEventListener('pointermove', e => {
+    if (e.pointerType !== 'mouse') return;
+    mx = e.clientX; my = e.clientY;
+    if (!on) { on = true; rx = mx; ry = my; html.classList.add('cursor-on'); }
+    dot.style.transform = `translate3d(${mx}px,${my}px,0)`;
+    if (!loop) loop = requestAnimationFrame(tick);
+  }, { passive: true });
+  document.addEventListener('mouseleave', () => { on = false; html.classList.remove('cursor-on'); });
+  addEventListener('pointerdown', () => html.classList.add('c-down'));
+  addEventListener('pointerup', () => html.classList.remove('c-down'));
+  document.addEventListener('pointerover', e => {
+    const ex = e.target.closest('[data-cursor="explore"]');
+    const lk = !ex && e.target.closest('a,button,[role="tab"],label');
+    html.classList.toggle('c-explore', !!ex);
+    html.classList.toggle('c-link', !!lk);
+  });
+});
+
+/* ---------------- 4. Akıllı nav + okuma çubuğu ---------------- */
+safe('nav', () => {
+  const nav = $('#nav');
+  scroll(animate('.read-bar', { scaleX: [0, 1] }, { ease: 'linear' }));
+  let last = 0;
+  scroll((p, info) => {
+    const y = info.y.current;
+    if (y < 60) { nav.classList.remove('is-hidden', 'is-glass'); }
+    else if (y > last + 6 && y > 180) { nav.classList.add('is-hidden'); }
+    else if (y < last - 6) { nav.classList.remove('is-hidden'); nav.classList.add('is-glass'); }
+    last = y;
+  });
+  const burger = $('.nav-burger'), mnav = $('#mnav');
+  const setMenu = open => {
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Menüyü kapat' : 'Menüyü aç');
+    mnav.hidden = !open; document.body.style.overflow = open ? 'hidden' : '';
+    if (open) { nav.classList.remove('is-hidden'); if (!RM) animate($$('#mnav > *'), { opacity: [0, 1], y: [24, 0] }, { duration: 0.5, delay: stagger(0.05), ease: OUT }); }
+  };
+  burger.addEventListener('click', () => setMenu(mnav.hidden));
+  $$('#mnav a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  addEventListener('keydown', e => { if (e.key === 'Escape' && !mnav.hidden) setMenu(false); });
+});
+
+/* ---------------- 5. Marquee: kaydırma hızına göre hızlanır ---------------- */
+safe('marquee', () => {
+  const tracks = $$('.mq-track');
+  tracks.forEach(t => { const html0 = t.innerHTML; t.innerHTML = html0 + html0 + html0; });
+  if (RM) return;
+  let vel = 0, sv = 0, running = false, lastT = 0;
+  const st = tracks.map(t => ({ el: t, x: 0, w: t.scrollWidth / 3, speed: +t.dataset.speed, dir: +t.dataset.dir }));
+  addEventListener('resize', debounce(() => st.forEach(s => s.w = s.el.scrollWidth / 3), 200));
+  scroll((p, info) => { vel = info.y.velocity; });
+  const frame = now => {
+    if (!running) return;
+    const dt = Math.min(0.05, (now - (lastT || now)) / 1000); lastT = now;
+    sv += (vel - sv) * 0.08; vel *= 0.9;
+    const boost = clamp(Math.abs(sv) / 450, 0, 7);
+    const skew = clamp(sv / 260, -6, 6);
+    st.forEach(s => {
+      s.x -= s.speed * (1 + boost) * dt * s.dir * (sv < -20 ? -1 : 1);
+      if (s.x <= -s.w) s.x += s.w; if (s.x > 0) s.x -= s.w;
+      s.el.style.transform = `translate3d(${s.x}px,0,0) skewX(${-skew * s.dir}deg)`;
+    });
+    requestAnimationFrame(frame);
+  };
+  inView('.mq-sec', () => { running = true; lastT = 0; requestAnimationFrame(frame); return () => { running = false; }; });
+});
+
+/* ---------------- 6. Kalabalıktan uzak: parçacık bulutu dağılır ---------------- */
+safe('crowd', () => {
+  const sec = $('#kalabalik'), cv = $('#crowd-canvas'), ctx = cv.getContext('2d');
+  const portal = $('.cr-portal'), pin = $('.cr-portal-in'), hor = $('.cr-horizon');
+  const t1 = $('.cr-t1'), t2 = $('.cr-t2'), t3 = $('.cr-t3');
+  let W = 0, H = 0, N = 0, P = null, FAM = [], prog = RM ? 1 : 0, running = false;
+  const gauss = () => { let u = 0, v = 0; while (!u) u = Math.random(); while (!v) v = Math.random(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); };
+  const mix = (a, b, t) => `rgb(${a.map((c, i) => Math.round(lerp(c, b[i], t))).join(',')})`;
+  const INK = [22, 33, 45], MIST = [150, 170, 188], BRASS = [236, 206, 146];
+  function build() {
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    W = cv.clientWidth; H = cv.clientHeight; if (!W || !H) return;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    // Mavi pencere geometrisi: merkez (%50, %55)
+    const cx = W / 2, cy = H * 0.55, D = 2.45 * Math.hypot(W / 2, H * 0.55);
+    if (!RM) {
+      Object.assign(portal.style, { width: D + 'px', height: D + 'px', left: (cx - D / 2) + 'px', top: (cy - D / 2) + 'px' });
+      Object.assign(pin.style, { width: W + 'px', height: H + 'px', left: (D / 2 - cx - 3) + 'px', top: (D / 2 - cy - 3) + 'px', transformOrigin: `${cx}px ${cy}px` });
+    }
+    // Kalabalık: yoğun kümeler + dağınık kalabalık
+    N = W < 768 ? 3800 : 5200; P = new Float32Array(N * 7);
+    const k = W < 768 ? 10 : 12, cl = [];
+    for (let i = 0; i < k; i++) cl.push([W * (0.08 + Math.random() * 0.84), H * (0.14 + Math.random() * 0.72), (0.05 + Math.random() * 0.08) * Math.min(W, H) * (W < 768 ? 1.4 : 1)]);
+    const diag = Math.hypot(W, H);
+    for (let i = 0; i < N; i++) {
+      let x, y;
+      if (Math.random() < 0.3) { x = Math.random() * W; y = H * (0.04 + Math.random() * 0.92); }
+      else { const c = cl[i % k]; x = c[0] + gauss() * c[2] * 1.6; y = c[1] + gauss() * c[2]; }
+      const o = i * 7;
+      P[o] = x; P[o + 1] = y; P[o + 2] = Math.atan2(y - cy, x - cx) + (Math.random() - 0.5) * 0.9;
+      P[o + 3] = (0.5 + Math.random() * 0.75) * diag; P[o + 4] = Math.random() < 0.18 ? 2.9 : (Math.random() < 0.5 ? 2.1 : 1.6);
+      P[o + 5] = Math.random() * 6.283; P[o + 6] = (Math.random() * 4) | 0;
+    }
+    // "Siz ve sevdikleriniz": dört ışık kalabalıktan ayrılıp teknenin güvertesine yerleşir
+    const bw = clamp(W * 0.09, 84, 130), bh = bw * 30 / 80, hy = H * 0.62, top = hy - bh * 0.86;
+    FAM = [0, 1, 2, 3].map(j => ({ hx: cx + (Math.random() - 0.5) * W * 0.25, hy: cy + (Math.random() - 0.5) * H * 0.2, tx: cx + (j - 1.5) * bw * 0.14, ty: top + bh * (21 / 30) - 1 }));
+  }
+  function draw(time) {
+    if (!P) return;
+    const p = prog, t = time / 1000;
+    ctx.clearRect(0, 0, W, H);
+    const disp = sstep(0.06, 0.6, p), agit = (1 - sstep(0.02, 0.34, p)) * 2.6, fade = 1 - sstep(0.34, 0.66, p);
+    if (fade > 0.01) {
+      ctx.fillStyle = mix(INK, MIST, sstep(0.3, 0.6, p));
+      const alphas = [0.34, 0.55, 0.76, 0.94];
+      for (let b = 0; b < 4; b++) {
+        ctx.globalAlpha = fade * alphas[b]; ctx.beginPath();
+        for (let i = 0; i < N; i++) {
+          const o = i * 7; if (P[o + 6] !== b) continue;
+          const ph = P[o + 5], d = P[o + 3] * disp * disp;
+          const x = P[o] + Math.cos(P[o + 2]) * d + Math.sin(t * 2.3 + ph) * agit;
+          const y = P[o + 1] + Math.sin(P[o + 2]) * d + Math.cos(t * 1.9 + ph * 1.3) * agit;
+          if (x < -4 || y < -4 || x > W + 4 || y > H + 4) continue;
+          const sz = P[o + 4]; ctx.rect(x - sz / 2, y - sz / 2, sz, sz);
+        }
+        ctx.fill();
+      }
+    }
+    const fp = sstep(0.3, 0.84, p);
+    ctx.fillStyle = mix(INK, BRASS, sstep(0.16, 0.44, p));
+    FAM.forEach((f, j) => {
+      const x = lerp(f.hx, f.tx, fp), y = lerp(f.hy, f.ty, fp) + Math.sin(t * 1.3 + j * 0.9) * 0.8 * fp;
+      const r = 2;
+      ctx.globalAlpha = 0.28 * sstep(0.2, 0.6, p); ctx.beginPath(); ctx.arc(x, y, r * 4, 0, 6.283); ctx.fill();
+      ctx.globalAlpha = 1; ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.fill();
+    });
+    ctx.globalAlpha = 1;
+  }
+  function layers(p) {
+    const s = sstep(0.1, 0.56, p);
+    if (s < 0.02) { portal.style.visibility = 'hidden'; }
+    else {
+      portal.style.visibility = 'visible';
+      portal.style.transform = `scale(${s})`; pin.style.transform = `scale(${1 / s})`;
+    }
+    hor.style.opacity = String(sstep(0.44, 0.74, p));
+    const a1 = 1 - sstep(0.1, 0.19, p);
+    t1.style.opacity = String(a1); t1.style.transform = `translate3d(0,${-24 * (1 - a1)}px,0)`;
+    const a2 = sstep(0.38, 0.46, p) * (1 - sstep(0.56, 0.63, p));
+    t2.style.opacity = String(a2); t2.style.transform = `translate3d(0,${(1 - sstep(0.38, 0.46, p)) * 20 - sstep(0.56, 0.63, p) * 20}px,0)`;
+    const a3 = sstep(0.68, 0.8, p);
+    t3.style.opacity = String(a3); t3.style.transform = `translate3d(0,${(1 - a3) * 26}px,0)`;
+  }
+  build();
+  let lastW = W;
+  addEventListener('resize', debounce(() => { if (Math.abs(cv.clientWidth - lastW) > 2 || !P) { build(); lastW = W; if (!RM) layers(prog); } if (!running) draw(performance.now()); }, 200));
+  if (RM) { prog = 1; draw(0); return; }
+  layers(0);
+  scroll(p => { prog = p; layers(p); if (!running) draw(performance.now()); }, { target: sec, offset: ['start start', 'end end'] });
+  const loop = now => { if (!running) return; draw(now); requestAnimationFrame(loop); };
+  inView(sec, () => { running = true; requestAnimationFrame(loop); return () => { running = false; }; });
+});
+
+/* ---------------- 7. Rota haritası ---------------- */
+safe('routes', () => {
+  const SVGNS = 'http://www.w3.org/2000/svg';
+  const C = Math.cos(36.7 * Math.PI / 180), K = 1000 / (4.45 * C);
+  const pr = (lon, lat) => [(lon - 26.35) * C * K, (37.5 - lat) * K];
+  const f = v => v.toFixed(2);
+  const cr = (pts, closed, k = 1) => {
+    const n = pts.length, g = i => closed ? pts[(i + n) % n] : pts[Math.max(0, Math.min(n - 1, i))];
+    let d = `M${f(pts[0][0])} ${f(pts[0][1])}`;
+    const segs = closed ? n : n - 1;
+    for (let i = 0; i < segs; i++) {
+      const p0 = g(i - 1), p1 = g(i), p2 = g(i + 1), p3 = g(i + 2);
+      d += `C${f(p1[0] + (p2[0] - p0[0]) * k / 6)} ${f(p1[1] + (p2[1] - p0[1]) * k / 6)} ${f(p2[0] - (p3[0] - p1[0]) * k / 6)} ${f(p2[1] - (p3[1] - p1[1]) * k / 6)} ${f(p2[0])} ${f(p2[1])}`;
+    }
+    return closed ? d + 'Z' : d;
+  };
+  const COAST = [[27.23,37.50],[27.22,37.40],[27.35,37.33],[27.55,37.30],[27.50,37.20],[27.40,37.12],[27.24,37.10],[27.22,37.02],[27.30,37.00],[27.43,37.03],[27.55,37.005],[27.65,37.005],[27.82,37.025],[28.00,37.045],[28.20,37.055],[28.36,37.045],[28.30,36.985],[28.18,36.955],[28.05,36.93],[27.90,36.87],[27.72,36.80],[27.52,36.745],[27.37,36.69],[27.45,36.665],[27.62,36.70],[27.72,36.715],[27.85,36.73],[27.95,36.77],[28.05,36.795],[28.13,36.775],[28.10,36.725],[28.05,36.685],[27.98,36.62],[28.02,36.56],[28.10,36.58],[28.18,36.66],[28.22,36.74],[28.27,36.82],[28.28,36.855],[28.40,36.81],[28.55,36.80],[28.65,36.78],[28.72,36.74],[28.80,36.665],[28.84,36.70],[28.90,36.74],[28.94,36.765],[28.99,36.72],[29.04,36.665],[29.11,36.635],[29.02,36.61],[28.98,36.57],[29.06,36.55],[29.11,36.545],[29.12,36.49],[29.25,36.30],[29.42,36.25],[29.64,36.19],[29.80,36.20],[29.86,36.215],[29.92,36.215],[30.00,36.235],[30.15,36.27],[30.30,36.27],[30.43,36.22],[30.47,36.30],[30.49,36.40],[30.52,36.50],[30.56,36.60],[30.62,36.78],[30.70,36.88],[31.00,36.85],[31.70,36.75],[31.70,38.40],[26.90,38.40],[26.95,38.00],[27.10,37.70]];
+  const ISL = [
+    [[26.97,36.80],[27.10,36.85],[27.30,36.90],[27.36,36.88],[27.20,36.80],[27.05,36.74],[26.95,36.73]],
+    [[26.93,36.95],[27.02,37.02],[27.07,36.98],[27.00,36.92],[26.95,36.90]],
+    [[26.80,37.12],[26.86,37.20],[26.90,37.16],[26.85,37.08]],
+    [[26.52,37.28],[26.56,37.36],[26.60,37.33],[26.57,37.28]],
+    [[26.72,37.28],[26.78,37.31],[26.79,37.28],[26.74,37.26]],
+    [[26.57,37.72],[26.75,37.80],[27.05,37.72],[26.95,37.66],[26.70,37.66]],
+    [[27.80,36.62],[27.87,36.63],[27.87,36.56],[27.80,36.56]],
+    [[27.95,36.30],[28.10,36.38],[28.24,36.45],[28.23,36.35],[28.10,36.15],[27.95,35.90],[27.70,35.85],[27.72,36.10]],
+    [[29.57,36.155],[29.61,36.16],[29.60,36.14],[29.56,36.14]],
+    [[29.80,36.175],[29.86,36.185],[29.92,36.19],[29.88,36.17],[29.82,36.165]],
+    [[28.205,36.985],[28.22,36.99],[28.225,36.978],[28.21,36.974]],
+    [[27.655,36.998],[27.675,37.0],[27.68,36.99],[27.66,36.986]],
+    [[28.93,36.70],[28.95,36.71],[28.96,36.698],[28.94,36.692]]
+  ];
+  const ROUTES = [
+    { name:'Bodrum · Gökova', from:'Bodrum Limanı', note:'Çocuk aktiviteleri ve tur rehberi dahil. İniş 10.30.', img:'koy_kleopatra_sedir_adasi_05.jpg', w:1200, h:800, cap:'Kleopatra Adası', alt:'Kleopatra Adası ve çevresi, havadan',
+      pts:[['Bodrum',27.43,37.018],['Orak Adası',27.665,36.978],['Çökertme',27.81,37.012],['Yedi Adalar',28.10,36.952],['Kleopatra Adası',28.21,36.968],['Löngöz',28.02,36.94],['Tuzla',28.00,37.03],['Kargılı',27.90,37.022],['Kısebükü',27.60,36.995],[null,27.43,37.018]] },
+    { name:'Marmaris · Datça', from:'Marmaris', note:'Datça ve Bozburun yarımadalarının koyları.', img:'liman_marmaris_gece_01.jpg', w:1200, h:800, cap:'Marmaris', alt:'Akşam ışıklarında Marmaris koyu',
+      pts:[['Marmaris',28.29,36.838],[null,28.31,36.78],['Arap Adası',28.24,36.64],[null,28.14,36.55],['Bozukkale',28.03,36.545],[null,27.88,36.63],['Datça',27.72,36.70],[null,27.85,36.715],['Bencik',27.95,36.755],['Orhaniye · Kızkumu',28.11,36.765],['Selimiye',28.075,36.715],['Bozburun',28.025,36.685],[null,27.95,36.60],[null,28.03,36.53],[null,28.15,36.56],[null,28.25,36.70],['Cennet Adası',28.29,36.80],[null,28.29,36.838]] },
+    { name:'Marmaris · Fethiye', from:'Marmaris', note:'Dalyan, Göcek koyları ve Fethiye.', img:'koy_yassica_adalar_02.jpg', w:1200, h:675, cap:'Yassıca Adalar', alt:'Yassıca Adalar ve çevresindeki koylar',
+      pts:[['Marmaris',28.29,36.838],[null,28.34,36.79],['Ekincik · Dalyan',28.55,36.785],[null,28.78,36.70],['Batık Hamam',28.91,36.725],[null,28.99,36.66],['Kızılada',29.05,36.635],['Fethiye',29.08,36.642],['Yassıca Adalar',28.95,36.705],['Bedri Rahmi',28.89,36.705],['Sarsala',28.86,36.69],['Ağa Limanı',28.83,36.65],[null,28.62,36.745],['Kumlubük',28.28,36.765],[null,28.29,36.838]] },
+    { name:'Göcek · Fethiye', from:'Göcek', note:'Ölüdeniz, Gemiler ve Kelebekler Vadisi.', img:'koy_gemiler_adalar_04.jpg', w:1200, h:675, cap:'Gemiler Adası', alt:'Fethiye açıklarındaki adalar, havadan',
+      pts:[['Göcek',28.935,36.752],['Taşkaya',28.97,36.72],['Kapıdağ',28.83,36.68],[null,28.92,36.60],['Karacaören',28.98,36.555],['Ölüdeniz',29.11,36.535],['Gemiler',29.05,36.54],['Kelebekler Vadisi',29.105,36.495],[null,28.95,36.55],[null,28.78,36.64],[null,28.62,36.745],['Ekincik',28.55,36.785],['Baba Adası',28.76,36.69],['Batık Koyu',28.88,36.705],['Dip Koyu',28.915,36.735],[null,28.935,36.752]] },
+    { name:'Kemer · Kekova', from:'Kemer', note:'Olimpos, Myra ve Kekova\'nın batık kenti.', img:'koy_batik_koyu_sualti_07.jpg', w:1200, h:681, cap:'Su altı kalıntıları', alt:'Berrak suyun altında antik kalıntılar',
+      pts:[['Kemer',30.575,36.598],['Olimpos',30.505,36.40],['Adrasan',30.49,36.30],[null,30.44,36.20],['Demre · Myra',30.00,36.22],['Üçağız',29.865,36.205],['Simena',29.885,36.207],['Kekova',29.85,36.158],[null,30.00,36.19],[null,30.44,36.19],[null,30.52,36.35],['Phaselis',30.54,36.52],['Ayışığı Koyu',30.58,36.57],[null,30.575,36.598]] },
+    { name:'Bodrum · Yunan Adaları', from:'Bodrum', note:'Adalara geçişte gümrük işlemi yapılır.', img:'yunan_ada_patmos_01.jpg', w:994, h:634, cap:'Patmos', alt:'Patmos kasabası ve tepedeki manastır',
+      pts:[['Bodrum',27.43,37.018],[null,27.40,36.96],['Kos',27.30,36.915],['Leros',26.91,37.13],['Patmos',26.61,37.30],['Lipsi',26.81,37.295],['Kalimnos',27.07,36.94],[null,27.25,36.97],[null,27.43,37.018]] }
+  ];
+
+  const svg = $('#map-svg'), world = $('#map-world'), card = $('#map-card');
+  const el = (tag, attrs = {}, parent) => { const n = document.createElementNS(SVGNS, tag); for (const k in attrs) n.setAttribute(k, attrs[k]); if (parent) parent.appendChild(n); return n; };
+  // Izgara + derinlik halkaları + kara
+  const grid = el('g', { class: 'm-grid' }, world);
+  for (let lon = 26.5; lon <= 31; lon += 0.5) { const a = pr(lon, 38.4), b = pr(lon, 35.8); el('line', { x1: a[0], y1: a[1], x2: b[0], y2: b[1] }, grid); }
+  for (let lat = 36; lat <= 38.25; lat += 0.25) { const a = pr(26, lat), b = pr(31.8, lat); el('line', { x1: a[0], y1: a[1], x2: b[0], y2: b[1] }, grid); }
+  const landD = [cr(COAST.map(p => pr(...p)), true, 0.9), ...ISL.map(i => cr(i.map(p => pr(...p)), true, 0.9))].join(' ');
+  [[38, 0.035], [20, 0.06], [8, 0.1]].forEach(([w, o]) => el('path', { d: landD, class: 'm-depth', 'stroke-width': w, 'stroke-opacity': o }, world));
+  el('path', { d: landD, class: 'm-land' }, world);
+  el('path', { d: landD, class: 'm-coast' }, world);
+  const routesG = el('g', {}, world);
+  const boat = el('g', { class: 'm-boat' }, world);
+  el('path', { class: 'wake', d: 'M-10 0 L-24 -6 M-10 0 L-24 6' }, boat);
+  el('path', { class: 'hull', d: 'M-10 0 C-8 -4.4 5 -4.6 11 0 C5 4.6 -8 4.4 -10 0 Z' }, boat);
+
+  const R = ROUTES.map((r, i) => {
+    const pts = r.pts.map(([n, lon, lat]) => ({ n, xy: pr(lon, lat) }));
+    const xs = pts.map(p => p.xy[0]), ys = pts.map(p => p.xy[1]);
+    const g = el('g', { class: 'route', 'data-i': i }, routesG);
+    const d = cr(pts.map(p => p.xy), false, 1);
+    const ghost = el('path', { d, class: 'r-ghost' }, g);
+    const line = el('path', { d, class: 'r-line', pathLength: 1 }, g);
+    line.style.strokeDashoffset = '1';
+    const stopsG = el('g', {}, g);
+    const named = pts.filter(p => p.n);
+    const seen = new Set();
+    const stops = named.filter(p => { const k = p.n; if (seen.has(k)) return false; seen.add(k); return true; }).map((p, j) => {
+      const sg = el('g', { class: 'stop' + (j === 0 ? ' port' : ''), transform: `translate(${f(p.xy[0])} ${f(p.xy[1])})` }, stopsG);
+      const inner = el('g', { class: 'stop-in' }, sg);
+      if (j === 0) { el('rect', { x: -5, y: -5, width: 10, height: 10, transform: 'rotate(45)' }, inner); }
+      else { el('circle', { cx: 0, cy: 0, r: 8 }, inner); const t = el('text', { x: 0, y: 0.5 }, inner); t.textContent = j; }
+      return { name: p.n, xy: p.xy, g: sg, inner, len: 0 };
+    });
+    const label = el('text', { class: 'r-label' }, g);
+    return { ...r, i, g, ghost, line, stops, label, xy: pts.map(p => p.xy), bbox: [Math.min(...xs), Math.min(...ys), Math.max(...xs), Math.max(...ys)], len: 0, ready: false, s: 1 };
+  });
+
+  // Sekmeler
+  const tabs = $('#rtabs'), ind = $('.rtab-ind', tabs);
+  R.forEach((r, i) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'rtab'; b.setAttribute('role', 'tab'); b.id = 'rt' + i;
+    b.setAttribute('aria-controls', 'rpanel'); b.setAttribute('aria-selected', String(i === 0)); b.tabIndex = i === 0 ? 0 : -1;
+    b.innerHTML = `<span>${r.name}</span>`;
+    tabs.appendChild(b); r.tab = b;
+  });
+
+  let cw = 0, ch = 0;
+  // Kamera: rotayı kadraja sığdırır; "Şimdi" etiketi, kartpostal, pusula ve not ile çakışmayan ilk kadrajı seçer
+  const overlayRects = () => {
+    const c = card.getBoundingClientRect();
+    return ['.map-now', '.postcard', '.map-compass', '.map-note'].map(q => $(q, card)).filter(e => e && e.offsetParent !== null)
+      .map(e => { const r = e.getBoundingClientRect(); return [r.left - c.left - 12, r.top - c.top - 12, r.right - c.left + 12, r.bottom - c.top + 12]; });
+  };
+  const camFor = r => {
+    const [x0, y0, x1, y1] = r.bbox, mx = (x0 + x1) / 2, my = (y0 + y1) / 2;
+    const bw = Math.max(x1 - x0, 30), bh = Math.max(y1 - y0, 20), base = cw < 500 ? 0.1 : 0.13;
+    const fit = (pad, dx, dy) => { const s = Math.min(cw * (1 - pad * 2) / bw, ch * (1 - pad * 2) / bh, 9); return { s, tx: cw / 2 - s * mx + dx * cw, ty: ch / 2 - s * my + dy * ch }; };
+    if (!r.xy) return fit(base, 0, 0);
+    const ov = overlayRects();
+    const ok = c => r.xy.every(([x, y]) => {
+      const sx = c.tx + c.s * x, sy = c.ty + c.s * y;
+      if (sx < 16 || sy < 16 || sx > cw - 16 || sy > ch - 16) return false;
+      return !ov.some(o => sx > o[0] && sx < o[2] && sy > o[1] && sy < o[3]);
+    });
+    const shifts = [[0, 0], [-0.06, 0], [0, 0.06], [-0.06, 0.06], [0.06, 0], [0, -0.06], [0.06, 0.06], [-0.06, -0.06], [0.06, -0.06], [-0.12, 0.06], [0, 0.12]];
+    for (let k = 0; k < 8; k++) { const pad = base + k * 0.035; for (const [dx, dy] of shifts) { const c = fit(pad, dx, dy); if (ok(c)) return c; } }
+    return fit(base + 0.12, 0, 0);
+  };
+  const setCam = (c, instant) => {
+    world.style.transition = (instant || RM) ? 'none' : '';
+    world.style.transform = `translate(${c.tx}px,${c.ty}px) scale(${c.s})`;
+    if (instant) { world.getBoundingClientRect(); world.style.transition = ''; }
+  };
+  const sizeRoute = r => {
+    const s = camFor(r).s; r.s = s;
+    r.line.setAttribute('stroke-width', f(2.4 / s));
+    r.ghost.setAttribute('stroke-width', f(1.3 / s)); r.ghost.setAttribute('stroke-dasharray', `${f(4 / s)} ${f(5 / s)}`);
+    r.stops.forEach(st => {
+      const c = st.inner.querySelector('circle'), t = st.inner.querySelector('text'), q = st.inner.querySelector('rect');
+      if (c) { c.setAttribute('r', f(9 / s)); c.setAttribute('stroke-width', f(1.4 / s)); }
+      if (t) t.setAttribute('font-size', f(10 / s));
+      if (q) { q.setAttribute('x', f(-6 / s)); q.setAttribute('y', f(-6 / s)); q.setAttribute('width', f(12 / s)); q.setAttribute('height', f(12 / s)); q.setAttribute('stroke-width', f(1.4 / s)); }
+    });
+    r.label.setAttribute('font-size', f(12.5 / s)); r.label.setAttribute('stroke-width', f(4 / s));
+  };
+  const prep = r => {
+    if (r.ready) return; r.ready = true;
+    const L = r.line.getTotalLength(); r.len = L;
+    const Nn = 700, sm = [];
+    for (let i = 0; i <= Nn; i++) { const q = r.line.getPointAtLength(L * i / Nn); sm.push([q.x, q.y]); }
+    let from = 0;
+    r.stops.forEach(st => {
+      let best = -1, bd = 1e9;
+      for (let i = from; i <= Nn; i++) {
+        const dd = Math.hypot(sm[i][0] - st.xy[0], sm[i][1] - st.xy[1]);
+        if (dd < bd) { bd = dd; best = i; }
+        if (bd < 0.6 && dd > bd + 3) break;
+      }
+      st.len = L * best / Nn; from = best;
+    });
+  };
+
+  let active = 0, introP = 1, scrollP = 0, introAnim = null, firstView = true;
+  const listEl = $('#r-stops'), nowEl = $('#r-now'), fromEl = $('#r-from'), noteEl = $('#r-note'), img = $('#r-img'), cap = $('#r-cap');
+  const fillPanel = r => {
+    fromEl.textContent = r.from; noteEl.textContent = r.note;
+    listEl.innerHTML = r.stops.map((s, j) => `<li class="${j === 0 ? 'start' : ''}"><i>${j === 0 ? '' : j}</i>${s.name}</li>`).join('');
+    r.li = $$('li', listEl);
+  };
+  let lastReached = -1;
+  const render = () => {
+    const r = R[active]; if (!r.ready) return;
+    const p = RM ? 1 : Math.min(scrollP, introP);
+    r.line.style.strokeDashoffset = String(1 - p);
+    const at = p * r.len;
+    const a = r.line.getPointAtLength(at), b = r.line.getPointAtLength(Math.min(r.len, at + 0.8)), b0 = r.line.getPointAtLength(Math.max(0, at - 0.8));
+    const ang = Math.atan2(b.y - b0.y, b.x - b0.x) * 180 / Math.PI;
+    boat.setAttribute('transform', `translate(${f(a.x)} ${f(a.y)}) rotate(${f(ang)}) scale(${f(1 / r.s)})`);
+    let reached = 0;
+    r.stops.forEach((st, j) => { const on = at >= st.len - 0.5; st.g.classList.toggle('on', on); if (r.li && r.li[j]) r.li[j].classList.toggle('on', on); if (on) reached = j; });
+    if (reached !== lastReached) {
+      lastReached = reached; const st = r.stops[reached];
+      nowEl.textContent = st.name;
+      const right = st.xy[0] < (r.bbox[0] + r.bbox[2]) / 2;
+      r.label.textContent = st.name;
+      r.label.setAttribute('x', f(st.xy[0] + (right ? 14 : -14) / r.s)); r.label.setAttribute('y', f(st.xy[1] - 12 / r.s));
+      r.label.setAttribute('text-anchor', right ? 'start' : 'end');
+    }
+  };
+  const flip = (btn, instant) => {
+    const tr = tabs.getBoundingClientRect(), br = btn.getBoundingClientRect();
+    ind.style.width = br.width + 'px'; ind.style.height = br.height + 'px';
+    const x = br.left - tr.left + tabs.scrollLeft, y = br.top - tr.top + tabs.scrollTop;
+    // FLIP: İlk (mevcut) konumdan Son (yeni sekme) konumuna; ters çevrilmiş fark yay ile oynatılır
+    if (instant || RM) { animate(ind, { x, y }, { duration: 0 }); return; }
+    animate(ind, { x, y }, { type: 'spring', stiffness: 380, damping: 32 });
+  };
+  const select = (i, user) => {
+    const prev = R[active], r = R[i];
+    R.forEach(q => q.tab.setAttribute('aria-selected', String(q === r)));
+    R.forEach(q => q.tab.tabIndex = q === r ? 0 : -1);
+    flip(r.tab, !user);
+    if (user && !DESK.matches) tabs.scrollTo({ left: r.tab.offsetLeft - 20, behavior: RM ? 'auto' : 'smooth' });
+    prev.g.classList.remove('is-on'); r.g.classList.add('is-on');
+    active = i; lastReached = -1; prep(r); sizeRoute(r); fillPanel(r);
+    setCam(camFor(r), !user);
+    if (user) {
+      if (!RM) animate([img.parentElement], { opacity: [1, 0], rotate: [3.5, -2] }, { duration: 0.18, ease: IN }).then(() => {
+        img.src = 'assets/img/' + r.img; img.alt = r.alt; img.width = r.w; img.height = r.h; cap.textContent = r.cap;
+        animate(img.parentElement, { opacity: [0, 1], rotate: [6, 3.5], y: [10, 0] }, { duration: 0.5, ease: OUT });
+      }); else { img.src = 'assets/img/' + r.img; img.alt = r.alt; cap.textContent = r.cap; }
+      if (!RM) {
+        introAnim && introAnim.stop(); introP = 0;
+        introAnim = animate(0, 1, { duration: 1.8, ease: OUT, onUpdate: v => { introP = v; render(); } });
+      }
+    }
+    render();
+  };
+  tabs.addEventListener('click', e => { const b = e.target.closest('.rtab'); if (!b) return; const i = R.findIndex(r => r.tab === b); if (i !== active) select(i, true); });
+  tabs.addEventListener('keydown', e => {
+    const k = e.key; if (!['ArrowRight', 'ArrowLeft', 'ArrowDown', 'ArrowUp', 'Home', 'End'].includes(k)) return;
+    e.preventDefault();
+    let i = active + (k === 'ArrowRight' || k === 'ArrowDown' ? 1 : k === 'ArrowLeft' || k === 'ArrowUp' ? -1 : 0);
+    if (k === 'Home') i = 0; if (k === 'End') i = R.length - 1;
+    i = (i + R.length) % R.length; select(i, true); R[i].tab.focus();
+  });
+  const layout = () => {
+    cw = card.clientWidth; ch = card.clientHeight;
+    svg.setAttribute('viewBox', `0 0 ${cw} ${ch}`);
+    const r = R[active]; sizeRoute(r);
+    if (firstView && !RM) { const c = camFor({ bbox: [40, 20, 960, 420] }); setCam(c, true); }
+    else setCam(camFor(r), true);
+    flip(r.tab, true); lastReached = -1; render();
+  };
+  R[0].g.classList.add('is-on'); prep(R[0]); fillPanel(R[0]);
+  layout();
+  addEventListener('resize', debounce(layout, 150));
+  document.fonts && document.fonts.ready.then(() => flip(R[active].tab, true));
+  inView(card, () => { if (firstView) { firstView = false; setCam(camFor(R[active]), false); } }, { amount: 0.35 });
+  if (RM) { scrollP = 1; render(); return; }
+  scroll(p => { if (!DESK.matches) return; scrollP = clamp(p / 0.72); render(); }, { target: $('#rotalar'), offset: ['start start', 'end end'] });
+  scroll(p => { if (DESK.matches) return; scrollP = clamp(p); render(); }, { target: card, offset: ['start end', 'end 0.55'] });
+});
+
+/* ---------------- 8. Filo: yatay pinned galeri + 3D tilt ---------------- */
+safe('fleet', () => {
+  const sec = $('#filo'), sticky = $('.fleet-sticky'), track = $('#fleet-track');
+  const cards = $$('.boat', track), imgs = cards.map(c => $('.boat-img', c));
+  const counter = $('#fleet-i'), bar = $('.fleet-bar i');
+  if (RM) return;
+  let dist = 0, centers = [], lastW = 0;
+  const measure = () => {
+    lastW = innerWidth;
+    dist = Math.max(0, track.scrollWidth - sticky.clientWidth);
+    sec.style.height = (dist + VH()) + 'px';
+    centers = cards.map(c => c.offsetLeft + c.offsetWidth / 2);
+  };
+  measure();
+  addEventListener('resize', debounce(() => { if (Math.abs(innerWidth - lastW) > 2) measure(); }, 150));
+  addEventListener('load', measure);
+  let lastI = -1;
+  scroll(p => {
+    const x = -p * dist;
+    track.style.transform = `translate3d(${x}px,0,0)`;
+    const vw = sticky.clientWidth;
+    imgs.forEach((im, i) => {
+      const off = (centers[i] + x - vw / 2) / vw; im.style.transform = `translate3d(${clamp(off, -1.2, 1.2) * -7}%,0,0)`;
+      if (!FINE) { const c = cards[i], o = clamp(off, -1, 1); $('.boat-tilt', c).style.transform = `rotateY(${(-o * 14).toFixed(2)}deg) rotateX(${(Math.abs(o) * 3).toFixed(2)}deg)`; $('.boat-shine', c).style.cssText = `opacity:${(1 - Math.abs(o)).toFixed(2)};--sx:${(50 + o * 60).toFixed(1)}%;--sy:30%`; }
+    });
+    bar.style.transform = `scaleX(${p})`;
+    let best = 0, bd = 1e9; centers.forEach((c, i) => { const d = Math.abs(c + x - vw / 2); if (d < bd) { bd = d; best = i; } });
+    if (best !== lastI) { lastI = best; counter.textContent = '0' + (best + 1); }
+  }, { target: sec, offset: ['start start', 'end end'] });
+
+  if (!FINE) return;
+  cards.forEach(card => {
+    const tilt = $('.boat-tilt', card), shine = $('.boat-shine', card);
+    let raf = 0, ev = null;
+    card.addEventListener('pointermove', e => {
+      if (e.pointerType !== 'mouse') return; ev = e; if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0; const r = card.getBoundingClientRect();
+        const px = (ev.clientX - r.left) / r.width - 0.5, py = (ev.clientY - r.top) / r.height - 0.5;
+        animate(tilt, { rotateY: px * 11, rotateX: -py * 9 }, { type: 'spring', stiffness: 220, damping: 22 });
+        shine.style.setProperty('--sx', (px + 0.5) * 100 + '%'); shine.style.setProperty('--sy', (py + 0.5) * 100 + '%');
+      });
+    });
+    card.addEventListener('pointerleave', () => animate(tilt, { rotateY: 0, rotateX: 0 }, { type: 'spring', stiffness: 160, damping: 18 }));
+  });
+});
+
+/* ---------------- 9. Kabin / tüm tekne segment kontrolü ---------------- */
+safe('segment', () => {
+  const btns = $$('.seg [role="tab"]'), ind = $('.seg-ind'), panels = $$('.seg-panel');
+  let cur = 0;
+  const go = i => {
+    if (i === cur) return; const dir = i > cur ? 1 : -1;
+    const a = panels[cur], b = panels[i]; cur = i;
+    btns.forEach((x, j) => { x.setAttribute('aria-selected', String(j === i)); x.tabIndex = j === i ? 0 : -1; });
+    animate(ind, { x: i ? '100%' : '0%' }, RM ? { duration: 0 } : { type: 'spring', stiffness: 380, damping: 32 });
+    a.classList.remove('is-active'); a.classList.add('is-leaving'); a.inert = true; b.inert = false; b.classList.add('is-active');
+    if (RM) { a.style.opacity = 0; b.style.opacity = 1; a.classList.remove('is-leaving'); return; }
+    animate(a, { opacity: [1, 0], x: [0, -24 * dir], filter: ['blur(0px)', 'blur(3px)'] }, { duration: 0.2, ease: IN }).then(() => a.classList.remove('is-leaving'));
+    animate(b, { opacity: [0, 1], x: [24 * dir, 0], filter: ['blur(3px)', 'blur(0px)'] }, { duration: 0.45, delay: 0.12, ease: OUT });
+    animate($$('img', b), { scale: [1.06, 1] }, { duration: 0.9, ease: OUT });
+  };
+  btns.forEach((b, i) => {
+    b.addEventListener('click', () => go(i));
+    b.addEventListener('keydown', e => { if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); const n = i ? 0 : 1; go(n); btns[n].focus(); } });
+  });
+});
+
+/* ---------------- 10. Teknede bir gün: saat + gökyüzü ---------------- */
+safe('day', () => {
+  const sec = $('#bir-gun'), sticky = $('.day-sticky');
+  const layers = $$('.sky-l'), stars = $('.stars'), sun = $('.sun'), moon = $('.moon');
+  const scenes = $$('.scene'), steps = $$('.day-steps li'), clock = $('#clock');
+  const digits = $$('span', clock).filter(s => !s.classList.contains('c'));
+  const hand = $('.dial .hand'), prog = $('.dial-prog');
+  let sh = '';
+  for (let i = 0; i < 90; i++) sh += `<i style="left:${(Math.random() * 100).toFixed(2)}%;top:${(Math.random() * 96).toFixed(2)}%;opacity:${(0.35 + Math.random() * 0.65).toFixed(2)};transform:scale(${(0.5 + Math.random()).toFixed(2)})"></i>`;
+  stars.innerHTML = sh;
+  if (RM) { layers.forEach((l, i) => l.style.opacity = i === 3 ? 1 : 0); stars.style.opacity = 0; sun.style.opacity = 0; return; }
+  const KEYS = [7, 9.5, 13, 18.6, 21.4];
+  const SCN = [7, 9.3, 12.4, 17.4, 20.2];
+  let lastScene = -1, lastTxt = '';
+  const set = p => {
+    const h = 7 + p * 15;
+    let k = 0; while (k < KEYS.length - 2 && h > KEYS[k + 1]) k++;
+    const t = clamp((h - KEYS[k]) / (KEYS[k + 1] - KEYS[k]));
+    layers.forEach((l, i) => { l.style.opacity = i === k ? 1 : i === k + 1 ? t : 0; });
+    const W = sticky.clientWidth, H = sticky.clientHeight, hy = H * 0.644;
+    const sp = clamp((h - 6.4) / 13.4);
+    sun.style.transform = `translate3d(${W * lerp(0.08, 0.92, sp)}px,${hy - Math.sin(sp * Math.PI) * H * 0.5}px,0)`;
+    sun.style.opacity = String((1 - sstep(19, 19.9, h)) * sstep(6.9, 7.4, h) * 0.95);
+    const mp = clamp((h - 19.2) / 5);
+    moon.style.transform = `translate3d(${W * lerp(0.86, 0.7, mp)}px,${hy - Math.sin(mp * Math.PI * 0.5) * H * 0.42}px,0)`;
+    moon.style.opacity = String(sstep(19.4, 20.4, h));
+    stars.style.opacity = String(sstep(19.3, 21, h));
+    const mins = Math.floor((h % 1) * 60 / 5) * 5, hh = Math.floor(h);
+    const txt = String(hh).padStart(2, '0') + String(mins).padStart(2, '0');
+    if (txt !== lastTxt) { lastTxt = txt; digits.forEach((d, i) => d.textContent = txt[i]); }
+    hand.style.transform = `rotate(${(h / 24) * 360}deg)`;
+    prog.style.strokeDashoffset = String(1 - p);
+    let s = 0; SCN.forEach((v, i) => { if (h >= v) s = i; });
+    if (s !== lastScene) {
+      lastScene = s;
+      scenes.forEach((sc, i) => { sc.classList.toggle('is-on', i === s); sc.classList.toggle('is-past', i < s); });
+      steps.forEach((st, i) => st.classList.toggle('on', i <= s));
+    }
+  };
+  set(0);
+  scroll(p => set(p), { target: sec, offset: ['start start', 'end end'] });
+});
+
+/* ---------------- 11. Sayılar: kilometre sayacı gibi dönen rakamlar ---------------- */
+safe('numbers', () => {
+  const odos = $$('.odo');
+  if (RM) return;
+  odos.forEach(o => {
+    const v = o.dataset.value; o.innerHTML = '';
+    [...v].forEach(ch => {
+      if (/\d/.test(ch)) {
+        const col = document.createElement('span'); col.className = 'odo-col'; col.setAttribute('aria-hidden', 'true');
+        const strip = document.createElement('span'); strip.className = 'odo-strip';
+        let s = ''; for (let r = 0; r < 3; r++) for (let d = 0; d < 10; d++) s += `<span>${d}</span>`;
+        strip.innerHTML = s; strip.dataset.d = ch; col.appendChild(strip); o.appendChild(col);
+      } else { const sy = document.createElement('span'); sy.className = 'odo-sym' + (ch === '+' ? ' plus' : ''); sy.setAttribute('aria-hidden', 'true'); sy.textContent = ch; o.appendChild(sy); }
+    });
+  });
+  inView('.num-grid', () => {
+    $$('.num-grid .odo').forEach((o, oi) => {
+      const strips = $$('.odo-strip', o);
+      strips.forEach((s, i) => {
+        const d = +s.dataset.d, target = -((20 + d) / 30) * 100;
+        animate(s, { y: ['0%', target + '%'] }, { duration: 1.9 + (strips.length - i) * 0.12, delay: oi * 0.12 + i * 0.05, ease: [0.16, 1, 0.3, 1] });
+      });
+    });
+  }, { amount: 0.4 });
+});
+
+safe('booking', () => {
+  const root = $('#rdv'); if (!root) return;
+  const bar = $('#rdv-bar'), count = $('#rdv-count');
+  const state = { ilce: '', kim: '', gun: '', saat: '', ad: '', tel: '' };
+  const PROG = { '1': 0.2, away: 0.2, '2': 0.45, '3': 0.7, '4': 0.9, '5': 1 };
+  const LBL = { '1': 'Adım 1 / 4', away: 'Adım 1 / 4', '2': 'Adım 2 / 4', '3': 'Adım 3 / 4', '4': 'Adım 4 / 4', '5': 'Tamamlandı' };
+  let cur = '1';
+  const stepEl = id => root.querySelector(`[data-step="${id}"]`);
+  const show = (id, dir = 1) => {
+    if (id === cur) return;
+    const a = stepEl(cur), b = stepEl(id); cur = id;
+    bar.style.transform = `scaleX(${PROG[id]})`; count.textContent = LBL[id];
+    a.classList.remove('is-active'); a.classList.add('is-leaving'); a.inert = true;
+    b.inert = false; b.classList.add('is-active');
+    const focus = () => { const h = $('.rdv-q', b); h && h.focus({ preventScroll: true }); };
+    if (RM) { a.style.opacity = 0; b.style.opacity = 1; a.classList.remove('is-leaving'); focus(); if (id === '5') done(); return; }
+    animate(a, { opacity: [1, 0], x: [0, -28 * dir], filter: ['blur(0px)', 'blur(3px)'] }, { duration: 0.2, ease: IN }).then(() => a.classList.remove('is-leaving'));
+    animate(b, { opacity: [0, 1], x: [28 * dir, 0], filter: ['blur(3px)', 'blur(0px)'] }, { duration: 0.42, delay: 0.14, ease: OUT }).then(focus);
+    animate($$('.chip,.opt,.date,.field', b).slice(0, 18), { opacity: [0, 1], y: [8, 0] }, { duration: 0.35, delay: stagger(0.025, { startDelay: 0.2 }), ease: OUT });
+    if (id === '5') done();
+  };
+  // Adım 1: Anadolu Yakası ilçeleri
+  const ILCE = ['Adalar', 'Ataşehir', 'Beykoz', 'Çekmeköy', 'Kadıköy', 'Kartal', 'Maltepe', 'Pendik', 'Sancaktepe', 'Sultanbeyli', 'Şile', 'Tuzla', 'Ümraniye', 'Üsküdar'];
+  const box = $('#ilceler');
+  box.innerHTML = ILCE.map(x => `<button type="button" class="chip" aria-pressed="false" data-ilce="${x}">${x}</button>`).join('') + `<button type="button" class="chip away" aria-pressed="false" data-away="1">Başka bir yerdeyim</button>`;
+  box.addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    $$('button', box).forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    if (b.dataset.away) { setTimeout(() => show('away'), 220); return; }
+    state.ilce = b.dataset.ilce; setTimeout(() => show('2'), 260);
+  });
+  // Adım 2: kimlerle
+  $$('[data-kim]', root).forEach(b => b.addEventListener('click', () => {
+    $$('[data-kim]', root).forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    state.kim = b.dataset.kim; $('#solo-note').hidden = state.kim !== 'Tek başıma';
+    setTimeout(() => show('3'), 260);
+  }));
+  // Adım 3: önümüzdeki cumartesi / pazar tarihleri (dinamik) + saat aralıkları
+  const dates = [], d = new Date(); d.setHours(12, 0, 0, 0); d.setDate(d.getDate() + 1);
+  while (dates.length < 4) { const wd = d.getDay(); if (wd === 6 || wd === 0) dates.push(new Date(d)); d.setDate(d.getDate() + 1); }
+  const fWd = new Intl.DateTimeFormat('tr-TR', { weekday: 'long' }), fDm = new Intl.DateTimeFormat('tr-TR', { day: 'numeric', month: 'long' });
+  const cap1 = s => s.charAt(0).toLocaleUpperCase('tr-TR') + s.slice(1);
+  $('#dates').innerHTML = dates.map(x => { const w = cap1(fWd.format(x)), dm = fDm.format(x); return `<button type="button" class="date" aria-pressed="false" data-gun="${w} ${dm}"><small>${w}</small><b>${dm}</b></button>`; }).join('');
+  const SLOTS = ['10.00–12.00', '12.00–14.00', '14.00–16.00', '16.00–18.00'];
+  $('#slots').innerHTML = SLOTS.map(s => `<button type="button" class="chip" aria-pressed="false" data-saat="${s}">${s}</button>`).join('');
+  const to4 = $('#to4');
+  const check3 = () => { to4.disabled = !(state.gun && state.saat); };
+  $('#dates').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; $$('button', $('#dates')).forEach(x => x.setAttribute('aria-pressed', String(x === b))); state.gun = b.dataset.gun; check3(); });
+  $('#slots').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; $$('button', $('#slots')).forEach(x => x.setAttribute('aria-pressed', String(x === b))); state.saat = b.dataset.saat; check3(); });
+  to4.addEventListener('click', () => show('4'));
+  // Adım 4: ad + telefon, anlık doğrulama
+  const ad = $('#ad'), tel = $('#tel');
+  const digitsOf = v => { let x = v.replace(/\D/g, ''); if (x.startsWith('90')) x = x.slice(2); if (x.startsWith('0')) x = x.slice(1); return x.slice(0, 10); };
+  const fmt = x => [x.slice(0, 3), x.slice(3, 6), x.slice(6, 8), x.slice(8, 10)].filter(Boolean).join(' ');
+  const vAd = () => { const ok = ad.value.trim().length >= 3; $('#f-ad').classList.toggle('bad', !ok); $('#ad-err').textContent = ok ? '' : 'Adınızı ve soyadınızı yazın.'; return ok; };
+  const vTel = () => { const x = digitsOf(tel.value), ok = /^[2-5]\d{9}$/.test(x); $('#f-tel').classList.toggle('bad', !ok); $('#tel-err').textContent = ok ? '' : 'Numarayı 10 hane yazın, ör. 5XX XXX XX XX.'; return ok; };
+  tel.addEventListener('input', () => { const x = digitsOf(tel.value); tel.value = fmt(x); if ($('#f-tel').classList.contains('bad')) vTel(); });
+  ad.addEventListener('input', () => { if ($('#f-ad').classList.contains('bad')) vAd(); });
+  ad.addEventListener('blur', () => { if (ad.value) vAd(); });
+  tel.addEventListener('blur', () => { if (tel.value) vTel(); });
+  $('#rdv-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const a = vAd(), t = vTel(); if (!a) { ad.focus(); return; } if (!t) { tel.focus(); return; }
+    state.ad = ad.value.trim(); state.tel = tel.value; show('5');
+  });
+  // Adım 5: başarı (dalga dolan onay)
+  const done = () => {
+    const first = state.ad.split(' ')[0] || '';
+    $('#ok-title').textContent = first ? `Teşekkürler ${first}.` : 'Teşekkürler.';
+    $('#ok-text').textContent = `${state.gun}, ${state.saat} için tanışma talebinizi aldık. Sizi arayıp buluşacağımız oteli teyit edeceğiz.`;
+    $('#ok-sum').innerHTML = [state.ilce, state.kim, state.gun, state.saat].filter(Boolean).map(x => `<span>${x}</span>`).join('');
+    const ok = $('#ok'); ok.classList.remove('is-done'); ok.getBoundingClientRect(); requestAnimationFrame(() => ok.classList.add('is-done'));
+  };
+  $('#rdv-reset').addEventListener('click', () => {
+    Object.keys(state).forEach(k => state[k] = ''); $$('[aria-pressed]', root).forEach(x => x.setAttribute('aria-pressed', 'false'));
+    ad.value = ''; tel.value = ''; to4.disabled = true; $('#solo-note').hidden = true; $('#ok').classList.remove('is-done'); show('1', -1);
+  });
+  root.addEventListener('click', e => { const b = e.target.closest('[data-go]'); if (b) show(b.dataset.go, +b.dataset.dir || -1); });
+});
+
+/* ---------------- 13. Yorumlar: döngü için çoğalt ---------------- */
+safe('reviews', () => {
+  if (RM) return;
+  $$('.rev-row').forEach(r => { $$('.rev', r).forEach(c => { const k = c.cloneNode(true); k.setAttribute('aria-hidden', 'true'); r.appendChild(k); }); });
+  const tg = $('#rev-toggle'), wrap = $('.rev-wrap');
+  tg.addEventListener('click', () => {
+    const on = !wrap.classList.contains('paused'); wrap.classList.toggle('paused', on);
+    tg.setAttribute('aria-pressed', String(on));
+    tg.innerHTML = on ? '<svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 3.2v9.6L12.5 8z" fill="currentColor"/></svg><span>Kaydırmayı sürdür</span>' : '<svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><rect x="3.5" y="3" width="3" height="10" rx="1" fill="currentColor"/><rect x="9.5" y="3" width="3" height="10" rx="1" fill="currentColor"/></svg><span>Kaydırmayı durdur</span>';
+  });
+});
+
+/* ---------------- 14. SSS akordeon ---------------- */
+safe('faq', () => {
+  $$('.faq-q').forEach(q => q.addEventListener('click', () => {
+    const it = q.closest('.faq-item'), open = !it.classList.contains('open');
+    it.classList.toggle('open', open); q.setAttribute('aria-expanded', String(open));
+  }));
+});
+
+/* ---------------- 15. Footer: dokunmatikte görününce dolar ---------------- */
+safe('footer', () => {
+  if (FINE) return;
+  inView('.big-word', ({ target }) => { target.classList.add('filled'); return () => target.classList.remove('filled'); }, { amount: 0.6 });
+});
+
+/* ---------------- Kaydırmayla beliren öğeler ---------------- */
+safe('reveal', () => {
+  if (RM) return;
+  // Not: Motion 11.13'te inView geri çağrısı IntersectionObserverEntry alır
+  inView('[data-reveal]', ({ target }) => {
+    if (target.dataset.reveal === 'rise') animate(target, { clipPath: ['inset(-20% -5% 120% -5%)', 'inset(-20% -5% -20% -5%)'], y: [34, 0] }, { duration: 1.15, ease: OUT });
+    else animate(target, { opacity: [0, 1], y: [16, 0] }, { duration: 0.8, ease: OUT });
+  }, { margin: '0px 0px -12% 0px' });
+});
+</script>
+</body>
+</html>
