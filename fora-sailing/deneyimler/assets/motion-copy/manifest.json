@@ -1,0 +1,301 @@
+{
+  "pageId": "deneyimler",
+  "pagePath": "/deneyimler/",
+  "source": "Fora_Sailing_Gorsel_Paketi/00-tam-sayfa-tasarimlar/06-deneyimler.png",
+  "sourceDimensions": [
+    1024,
+    1536
+  ],
+  "assetBase": "../",
+  "layers": [
+    {
+      "id": "hero-eyebrow",
+      "semantic": "eyebrow",
+      "sourceText": "MAVİ YOLCULUKTA",
+      "sourceBBox": null,
+      "canvasRect": null,
+      "binding": "deneyimler.hero.eyebrow",
+      "sampleText": null,
+      "glyph": "assets/hero-eyebrow.png",
+      "cleanPatch": null,
+      "assetNote": "Existing original transparent source glyph image; no generated replacement."
+    },
+    {
+      "id": "hero-title-1",
+      "semantic": "heading",
+      "sourceText": "Bir Tatilden",
+      "sourceBBox": null,
+      "canvasRect": null,
+      "binding": "deneyimler.hero.title",
+      "sampleText": "Bir Tatilden Daha Fazlası",
+      "glyph": "assets/hero-title-line-1.png",
+      "cleanPatch": null,
+      "assetNote": "Existing original transparent source glyph image; no generated replacement."
+    },
+    {
+      "id": "hero-title-2",
+      "semantic": "heading",
+      "sourceText": "Daha Fazlası",
+      "sourceBBox": null,
+      "canvasRect": null,
+      "binding": "deneyimler.hero.title",
+      "sampleText": "Bir Tatilden Daha Fazlası",
+      "glyph": "assets/hero-title-line-2.png",
+      "cleanPatch": null,
+      "assetNote": "Existing original transparent source glyph image; no generated replacement."
+    },
+    {
+      "id": "hero-copy-1",
+      "semantic": "paragraph",
+      "sourceText": "Her rota, yeni bir hikâye.",
+      "sourceBBox": null,
+      "canvasRect": null,
+      "binding": "deneyimler.hero.description",
+      "sampleText": "Her rota, yeni bir hikâye. Ege ve Akdeniz’in büyüleyici koylarında, doğayla iç içe, kendinize daha yakın anlar yaşayın.",
+      "glyph": "assets/hero-copy-line-1.png",
+      "cleanPatch": null,
+      "assetNote": "Existing original transparent source glyph image; no generated replacement."
+    },
+    {
+      "id": "hero-copy-2",
+      "semantic": "paragraph",
+      "sourceText": "Ege ve Akdeniz’in büyüleyici koylarında,",
+      "sourceBBox": null,
+      "canvasRect": null,
+      "binding": "deneyimler.hero.description",
+      "sampleText": "Her rota, yeni bir hikâye. Ege ve Akdeniz’in büyüleyici koylarında, doğayla iç içe, kendinize daha yakın anlar yaşayın.",
+      "glyph": "assets/hero-copy-line-2.png",
+      "cleanPatch": null,
+      "assetNote": "Existing original transparent source glyph image; no generated replacement."
+    },
+    {
+      "id": "hero-copy-3",
+      "semantic": "paragraph",
+      "sourceText": "anlar yaşayın.",
+      "sourceBBox": null,
+      "canvasRect": null,
+      "binding": "deneyimler.hero.description",
+      "sampleText": "Her rota, yeni bir hikâye. Ege ve Akdeniz’in büyüleyici koylarında, doğayla iç içe, kendinize daha yakın anlar yaşayın.",
+      "glyph": "assets/hero-copy-line-3.png",
+      "cleanPatch": null,
+      "assetNote": "Existing original transparent source glyph image; no generated replacement."
+    },
+    {
+      "id": "video-word-1",
+      "semantic": "decorative-script",
+      "sourceText": "Keşfet.",
+      "sourceBBox": null,
+      "canvasRect": null,
+      "binding": "deneyimler.video.title",
+      "sampleText": "Keşfet. Hisset. Yaşa.",
+      "glyph": "assets/video-word-1.png",
+      "cleanPatch": null,
+      "assetNote": "Existing original transparent source glyph image; no generated replacement."
+    },
+    {
+      "id": "video-word-2",
+      "semantic": "decorative-script",
+      "sourceText": "Hisset.",
+      "sourceBBox": null,
+      "canvasRect": null,
+      "binding": "deneyimler.video.title",
+      "sampleText": "Keşfet. Hisset. Yaşa.",
+      "glyph": "assets/video-word-2.png",
+      "cleanPatch": null,
+      "assetNote": "Existing original transparent source glyph image; no generated replacement."
+    },
+    {
+      "id": "video-word-3",
+      "semantic": "decorative-script",
+      "sourceText": "Yaşa.",
+      "sourceBBox": null,
+      "canvasRect": null,
+      "binding": "deneyimler.video.title",
+      "sampleText": "Keşfet. Hisset. Yaşa.",
+      "glyph": "assets/video-word-3.png",
+      "cleanPatch": null,
+      "assetNote": "Existing original transparent source glyph image; no generated replacement."
+    },
+    {
+      "id": "footer-nav",
+      "semantic": "footer-navigation",
+      "sourceText": "Rotalar · Gulet Filosu · Deneyimler · Hakkımızda · İletişim",
+      "sourceBBox": null,
+      "canvasRect": null,
+      "binding": "deneyimler.footer.copyright",
+      "sampleText": "© 2026 Fora Sailing. Tüm hakları saklıdır.",
+      "glyph": "assets/footer-nav-layer.png",
+      "cleanPatch": null,
+      "assetNote": "Existing original transparent source glyph image; no generated replacement."
+    },
+    {
+      "id": "footer-social",
+      "semantic": "social-links",
+      "sourceText": "Sosyal medya bağlantıları",
+      "sourceBBox": null,
+      "canvasRect": null,
+      "binding": null,
+      "sampleText": null,
+      "glyph": "assets/footer-social-layer.png",
+      "cleanPatch": null,
+      "assetNote": "Existing original transparent source glyph image; no generated replacement."
+    },
+    {
+      "id": "deneyimler-content-title",
+      "semantic": "heading",
+      "sourceBBox": [
+        52,
+        437,
+        495,
+        541
+      ],
+      "canvasRect": {
+        "left": 0.05078125,
+        "top": 0.2845052083333333,
+        "width": 0.4326171875,
+        "height": 0.06770833333333333
+      },
+      "binding": "deneyimler.content.title",
+      "sampleText": null,
+      "glyph": "deneyimler-content-title-glyph.png",
+      "cleanPatch": "deneyimler-content-title-clean.png",
+      "ink": "dark",
+      "sourceDimensions": [
+        1024,
+        1536
+      ],
+      "cleanup": "2px dilated glyph/antialias mask; source RGB outside that mask is byte-identical",
+      "referenceRect": {
+        "left": 0,
+        "top": 0,
+        "width": 1,
+        "height": 1
+      },
+      "anchor": "[data-copy-id=\"deneyimler-content-title\"]",
+      "hideSelector": "[data-copy-id=\"deneyimler-content-title\"] .copy-glyph",
+      "sourceText": null,
+      "patchDimensions": [
+        443,
+        104
+      ]
+    },
+    {
+      "id": "deneyimler-content-description",
+      "semantic": "paragraph",
+      "sourceBBox": [
+        52,
+        547,
+        491,
+        610
+      ],
+      "canvasRect": {
+        "left": 0.05078125,
+        "top": 0.3561197916666667,
+        "width": 0.4287109375,
+        "height": 0.041015625
+      },
+      "binding": "deneyimler.content.description",
+      "sampleText": null,
+      "glyph": "deneyimler-content-description-glyph.png",
+      "cleanPatch": "deneyimler-content-description-clean.png",
+      "ink": "dark",
+      "sourceDimensions": [
+        1024,
+        1536
+      ],
+      "cleanup": "2px dilated glyph/antialias mask; source RGB outside that mask is byte-identical",
+      "referenceRect": {
+        "left": 0,
+        "top": 0,
+        "width": 1,
+        "height": 1
+      },
+      "anchor": "[data-copy-id=\"deneyimler-content-description\"]",
+      "hideSelector": "[data-copy-id=\"deneyimler-content-description\"] .copy-glyph",
+      "sourceText": null,
+      "patchDimensions": [
+        439,
+        63
+      ]
+    },
+    {
+      "id": "deneyimler-plan-title",
+      "semantic": "heading",
+      "sourceBBox": [
+        52,
+        1264,
+        528,
+        1320
+      ],
+      "canvasRect": {
+        "left": 0.05078125,
+        "top": 0.8229166666666666,
+        "width": 0.46484375,
+        "height": 0.036458333333333336
+      },
+      "binding": "deneyimler.plan.title",
+      "sampleText": null,
+      "glyph": "deneyimler-plan-title-glyph.png",
+      "cleanPatch": "deneyimler-plan-title-clean.png",
+      "ink": "dark",
+      "sourceDimensions": [
+        1024,
+        1536
+      ],
+      "cleanup": "2px dilated glyph/antialias mask; source RGB outside that mask is byte-identical",
+      "referenceRect": {
+        "left": 0,
+        "top": 0,
+        "width": 1,
+        "height": 1
+      },
+      "anchor": "[data-copy-id=\"deneyimler-plan-title\"]",
+      "hideSelector": "[data-copy-id=\"deneyimler-plan-title\"] .copy-glyph",
+      "sourceText": null,
+      "patchDimensions": [
+        476,
+        56
+      ]
+    },
+    {
+      "id": "deneyimler-plan-description",
+      "semantic": "paragraph",
+      "sourceBBox": [
+        54,
+        1321,
+        510,
+        1359
+      ],
+      "canvasRect": {
+        "left": 0.052734375,
+        "top": 0.8600260416666666,
+        "width": 0.4453125,
+        "height": 0.024739583333333332
+      },
+      "binding": "deneyimler.plan.description",
+      "sampleText": null,
+      "glyph": "deneyimler-plan-description-glyph.png",
+      "cleanPatch": "deneyimler-plan-description-clean.png",
+      "ink": "dark",
+      "sourceDimensions": [
+        1024,
+        1536
+      ],
+      "cleanup": "2px dilated glyph/antialias mask; source RGB outside that mask is byte-identical",
+      "referenceRect": {
+        "left": 0,
+        "top": 0,
+        "width": 1,
+        "height": 1
+      },
+      "anchor": "[data-copy-id=\"deneyimler-plan-description\"]",
+      "hideSelector": "[data-copy-id=\"deneyimler-plan-description\"] .copy-glyph",
+      "sourceText": null,
+      "patchDimensions": [
+        456,
+        38
+      ]
+    }
+  ],
+  "notes": "Clean patches were derived from the original source and alter only the dilated glyph/antialias mask. Anchors match the patch box exactly."
+}

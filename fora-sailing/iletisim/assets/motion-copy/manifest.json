@@ -1,0 +1,187 @@
+{
+  "pageId": "iletisim",
+  "pagePath": "/iletisim/",
+  "source": "Fora_Sailing_Gorsel_Paketi/00-tam-sayfa-tasarimlar/08-iletisim.png",
+  "sourceDimensions": [
+    1024,
+    1536
+  ],
+  "assetBase": "../",
+  "layers": [
+    {
+      "id": "hero-title-1",
+      "semantic": "heading",
+      "sourceText": "Hayalinizdeki Tatili",
+      "sourceBBox": null,
+      "canvasRect": null,
+      "binding": "iletisim.hero.title",
+      "sampleText": "Hayalinizdeki Tatili Birlikte Planlayalım",
+      "glyph": "assets/hero-title-line-1.png",
+      "cleanPatch": null,
+      "assetNote": "Existing original transparent source glyph image; no generated replacement."
+    },
+    {
+      "id": "hero-title-2",
+      "semantic": "heading",
+      "sourceText": "Birlikte",
+      "sourceBBox": null,
+      "canvasRect": null,
+      "binding": "iletisim.hero.title",
+      "sampleText": "Hayalinizdeki Tatili Birlikte Planlayalım",
+      "glyph": "assets/hero-title-line-2.png",
+      "cleanPatch": null,
+      "assetNote": "Existing original transparent source glyph image; no generated replacement."
+    },
+    {
+      "id": "hero-title-3",
+      "semantic": "heading",
+      "sourceText": "Planlayalım",
+      "sourceBBox": null,
+      "canvasRect": null,
+      "binding": "iletisim.hero.title",
+      "sampleText": "Hayalinizdeki Tatili Birlikte Planlayalım",
+      "glyph": "assets/hero-title-line-3.png",
+      "cleanPatch": null,
+      "assetNote": "Existing original transparent source glyph image; no generated replacement."
+    },
+    {
+      "id": "hero-copy-1",
+      "semantic": "paragraph",
+      "sourceText": "Ege ve Akdeniz’in en özel koylarında,",
+      "sourceBBox": null,
+      "canvasRect": null,
+      "binding": "iletisim.hero.description",
+      "sampleText": "Ege ve Akdeniz’in en özel koylarında, sizin için unutulmaz bir mavi yolculuk deneyimi tasarlayalım.",
+      "glyph": "assets/hero-copy-line-1.png",
+      "cleanPatch": null,
+      "assetNote": "Existing original transparent source glyph image; no generated replacement."
+    },
+    {
+      "id": "hero-copy-2",
+      "semantic": "paragraph",
+      "sourceText": "sizin için unutulmaz bir mavi yolculuk",
+      "sourceBBox": null,
+      "canvasRect": null,
+      "binding": "iletisim.hero.description",
+      "sampleText": "Ege ve Akdeniz’in en özel koylarında, sizin için unutulmaz bir mavi yolculuk deneyimi tasarlayalım.",
+      "glyph": "assets/hero-copy-line-2.png",
+      "cleanPatch": null,
+      "assetNote": "Existing original transparent source glyph image; no generated replacement."
+    },
+    {
+      "id": "hero-copy-3",
+      "semantic": "paragraph",
+      "sourceText": "deneyimi tasarlayalım.",
+      "sourceBBox": null,
+      "canvasRect": null,
+      "binding": "iletisim.hero.description",
+      "sampleText": "Ege ve Akdeniz’in en özel koylarında, sizin için unutulmaz bir mavi yolculuk deneyimi tasarlayalım.",
+      "glyph": "assets/hero-copy-line-3.png",
+      "cleanPatch": null,
+      "assetNote": "Existing original transparent source glyph image; no generated replacement."
+    },
+    {
+      "id": "footer-nav",
+      "semantic": "footer-navigation",
+      "sourceText": "Rotalar · Gulet Filosu · Deneyimler · Hakkımızda · İletişim",
+      "sourceBBox": null,
+      "canvasRect": null,
+      "binding": "iletisim.footer.copyright",
+      "sampleText": "© 2026 Fora Sailing. Tüm hakları saklıdır.",
+      "glyph": "assets/footer-nav-layer.png",
+      "cleanPatch": null,
+      "assetNote": "Existing original transparent source glyph image; no generated replacement."
+    },
+    {
+      "id": "footer-social",
+      "semantic": "social-links",
+      "sourceText": "Sosyal medya bağlantıları",
+      "sourceBBox": null,
+      "canvasRect": null,
+      "binding": null,
+      "sampleText": null,
+      "glyph": "assets/footer-social-layer.png",
+      "cleanPatch": null,
+      "assetNote": "Existing original transparent source glyph image; no generated replacement."
+    },
+    {
+      "id": "iletisim-content-title",
+      "semantic": "heading",
+      "sourceBBox": [
+        54,
+        491,
+        588,
+        584
+      ],
+      "canvasRect": {
+        "left": 0.052734375,
+        "top": 0.3196614583333333,
+        "width": 0.521484375,
+        "height": 0.060546875
+      },
+      "binding": "iletisim.content.title",
+      "sampleText": null,
+      "glyph": "iletisim-content-title-glyph.png",
+      "cleanPatch": "iletisim-content-title-clean.png",
+      "ink": "dark",
+      "sourceDimensions": [
+        1024,
+        1536
+      ],
+      "cleanup": "2px dilated glyph/antialias mask; source RGB outside that mask is byte-identical",
+      "referenceRect": {
+        "left": 0,
+        "top": 0,
+        "width": 1,
+        "height": 1
+      },
+      "anchor": "[data-copy-id=\"iletisim-content-title\"]",
+      "hideSelector": "[data-copy-id=\"iletisim-content-title\"] .copy-glyph",
+      "sourceText": null,
+      "patchDimensions": [
+        534,
+        93
+      ]
+    },
+    {
+      "id": "iletisim-content-description",
+      "semantic": "paragraph",
+      "sourceBBox": [
+        54,
+        601,
+        590,
+        646
+      ],
+      "canvasRect": {
+        "left": 0.052734375,
+        "top": 0.3912760416666667,
+        "width": 0.5234375,
+        "height": 0.029296875
+      },
+      "binding": "iletisim.content.description",
+      "sampleText": null,
+      "glyph": "iletisim-content-description-glyph.png",
+      "cleanPatch": "iletisim-content-description-clean.png",
+      "ink": "dark",
+      "sourceDimensions": [
+        1024,
+        1536
+      ],
+      "cleanup": "2px dilated glyph/antialias mask; source RGB outside that mask is byte-identical",
+      "referenceRect": {
+        "left": 0,
+        "top": 0,
+        "width": 1,
+        "height": 1
+      },
+      "anchor": "[data-copy-id=\"iletisim-content-description\"]",
+      "hideSelector": "[data-copy-id=\"iletisim-content-description\"] .copy-glyph",
+      "sourceText": null,
+      "patchDimensions": [
+        536,
+        45
+      ]
+    }
+  ],
+  "notes": "Clean patches were derived from the original source and alter only the dilated glyph/antialias mask. Anchors match the patch box exactly."
+}

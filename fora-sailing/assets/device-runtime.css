@@ -1,0 +1,25 @@
+@font-face{font-family:"Fora Serif";src:url("./device-design-assets/fonts/fora-serif.ttf") format("truetype");font-display:swap}@font-face{font-family:"Fora Sans";src:url("./device-design-assets/fonts/fora-sans.ttf") format("truetype");font-display:swap}
+#fora-device-stage{position:relative;z-index:100;left:auto;top:auto;width:100vw;min-height:100vh;background:#f7f3e9;color:#103b4b}
+#fora-device-stage>svg{display:block;width:100%;height:auto;overflow:visible}
+.fora-device-active body{margin:0!important;width:100vw!important;max-width:none!important;min-height:100vh;background:#f7f3e9}
+.fora-device-active body>:not(#fora-device-stage):not(.cms-overlay-layer){display:none!important}
+.fora-device-active .cms-overlay-layer{display:none!important}
+.fora-device-menu{position:fixed;z-index:102;inset:0;background:#07364c;color:#f7f3e9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;font:16px/1.4 "Fora Sans",sans-serif}
+.fora-device-menu a{color:inherit;text-decoration:none;padding:8px 20px}.fora-device-menu button{position:absolute;top:18px;right:20px;background:transparent;color:inherit;border:1px solid currentColor;border-radius:999px;padding:8px 14px;font:inherit}
+.fora-device-form{position:absolute;z-index:101;inset:0;pointer-events:none;color:#103b4b;font:14px "Fora Sans",sans-serif}
+.fora-device-form input,.fora-device-form textarea,.fora-device-form select{box-sizing:border-box;min-width:0;border:1px solid transparent;border-radius:4px;padding:8px;background:transparent;color:#103b4b;font:inherit;pointer-events:auto}
+.fora-device-form input:focus,.fora-device-form textarea:focus,.fora-device-form select:focus{outline:2px solid #b08b48;outline-offset:1px}
+.fora-device-form .device-form-status{box-sizing:border-box;margin:0;padding:8px 10px;border-radius:4px;background:#f7f3e9;color:#103b4b;font:12px/1.4 "Fora Sans",sans-serif;pointer-events:auto}.fora-device-form .device-form-status[hidden]{display:none}.fora-device-form .device-form-status a{color:#103b4b;text-decoration:underline}.fora-device-form .device-submit-hit{border:0;background:transparent;color:transparent;font:inherit;cursor:pointer;pointer-events:auto}.fora-device-form .device-submit-hit[aria-busy="true"]{cursor:wait}.fora-device-form .device-submit-hit[aria-busy="true"]::after{content:"";position:absolute;left:calc(50% - 8px);top:calc(50% - 8px);width:16px;height:16px;border:2px solid rgba(255,255,255,.45);border-top-color:#fff;border-radius:50%;animation:fora-device-spin .8s linear infinite}@keyframes fora-device-spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){#fora-device-stage *{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+/* Keep empty native form controls visually faithful to the source artwork. */
+.fora-device-form input[type="date"]:invalid{color:transparent}
+.fora-device-form input[type="date"]:invalid::-webkit-calendar-picker-indicator{opacity:0}
+.fora-device-form select:has(option:first-child:checked):not(:focus){color:transparent;appearance:none}
+.fora-device-form textarea{resize:none}
+/* Explicit empty state keeps native date/select controls blank at rest, as in the supplied source. */
+.fora-device-form input[type="date"][data-empty="true"]{color:transparent}
+.fora-device-form input[type="date"][data-empty="true"]::-webkit-datetime-edit{color:transparent}
+.fora-device-form input[type="date"][data-empty="true"]::-webkit-calendar-picker-indicator{opacity:0}
+.fora-device-form select[data-empty="true"]:not(:focus){color:transparent;appearance:none;background-image:none}
+.fora-device-form select[data-empty="true"]:not(:focus) option{color:#103b4b}
+.fora-device-form input[type="date"]:focus,[data-empty="true"]:focus{color:#103b4b}

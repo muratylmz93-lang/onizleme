@@ -1,0 +1,797 @@
+{
+  "schemaVersion": 1,
+  "pagePath": "/rotalar/",
+  "source": "02-rotalar.png",
+  "sourceDimensions": [
+    1024,
+    1536
+  ],
+  "renderMode": "source-art-slots",
+  "collectionKey": "routes",
+  "assetBases": {
+    "sourceArtwork": "page",
+    "textPatches": "page",
+    "maskArtwork": "page",
+    "defaultEntity": "site-root"
+  },
+  "section": {
+    "selector": ".canvas",
+    "sourceRect": [
+      0,
+      0,
+      1024,
+      1536
+    ]
+  },
+  "slotSelector": ".canvas .art-card[data-art-index]",
+  "maskBehavior": "restore the source paper context over the full slot box only when an entity is unpublished or absent",
+  "slots": [
+    {
+      "slotId": "route-1",
+      "entityId": "bodrum-gokova",
+      "selector": ".canvas .art-card[data-art-index=\"1\"]",
+      "artworkSelector": ".canvas .art-card[data-art-index=\"1\"]",
+      "canvasRect": [
+        81,
+        676,
+        370,
+        880
+      ],
+      "cardRect": [
+        81,
+        676,
+        370,
+        880
+      ],
+      "sourceArtwork": "assets/art-card-1.png",
+      "sourceArtworkDimensions": [
+        289,
+        204
+      ],
+      "titleRect": [
+        16,
+        136,
+        197,
+        155
+      ],
+      "titleCleanPatch": "assets/cms-collection-cards/routes-1-title-clean.png",
+      "titleSourceText": "Bodrum – Gökova",
+      "titleFont": "Georgia, 'Times New Roman', serif",
+      "titleColor": "#102c4a",
+      "maskArtwork": "assets/cms-collection-cards/route-1-hidden-mask-v4.png",
+      "maskArtworkPolygon": [
+        [
+          0,
+          0
+        ],
+        [
+          305,
+          0
+        ],
+        [
+          305,
+          220
+        ],
+        [
+          0,
+          220
+        ]
+      ],
+      "maskArtworkRect": [
+        0,
+        0,
+        305,
+        220
+      ],
+      "maskArtworkFillType": "source-context-clean-underlay",
+      "maskArtworkSource": "routes-underlay-no-cards-v1.png",
+      "maskArtworkCanvasRect": [
+        73,
+        668,
+        378,
+        888
+      ],
+      "maskEdgeFeatherPx": 3,
+      "photoRect": [
+        10,
+        0,
+        286,
+        134
+      ],
+      "photoViewportPolygon": [
+        [
+          10,
+          25
+        ],
+        [
+          280,
+          0
+        ],
+        [
+          286,
+          119
+        ],
+        [
+          17,
+          134
+        ]
+      ],
+      "sourceCoordinateFormat": "LTRB-exclusive-canvas; local-pixel photo/text polygons",
+      "defaultEntity": {
+        "id": "bodrum-gokova",
+        "name": "Bodrum – Gökova",
+        "title": "Bodrum – Gökova",
+        "description": "Sakin koylar, berrak sular.",
+        "image": "assets/route-catalog-1.jpg",
+        "artwork": "rotalar/assets/art-card-1.png",
+        "path": "/rotalar/",
+        "inquiryUrl": "/iletisim/?rota=bodrum-gokova",
+        "sortOrder": 1,
+        "featuredHome": true,
+        "homeImage": "assets/route-bodrum-gokova.png",
+        "homeUrl": "/iletisim/?rota=bodrum-gokova"
+      },
+      "sourceLayerOrder": 1,
+      "descriptionRect": [
+        16,
+        161,
+        218,
+        191
+      ],
+      "descriptionCleanPatch": "assets/cms-collection-cards/routes-1-description-clean.png",
+      "descriptionSourceText": "Sakin koylar, berrak sular.",
+      "maskRect": [
+        73,
+        668,
+        378,
+        888
+      ],
+      "maskArtworkDimensions": [
+        305,
+        220
+      ],
+      "maskVersion": 4
+    },
+    {
+      "slotId": "route-2",
+      "entityId": "marmaris-datca",
+      "selector": ".canvas .art-card[data-art-index=\"2\"]",
+      "artworkSelector": ".canvas .art-card[data-art-index=\"2\"]",
+      "canvasRect": [
+        378,
+        630,
+        667,
+        882
+      ],
+      "cardRect": [
+        378,
+        630,
+        667,
+        882
+      ],
+      "sourceArtwork": "assets/art-card-2.png",
+      "sourceArtworkDimensions": [
+        289,
+        252
+      ],
+      "titleRect": [
+        16,
+        182,
+        204,
+        204
+      ],
+      "titleCleanPatch": "assets/cms-collection-cards/routes-2-title-clean.png",
+      "titleSourceText": "Marmaris – Datça",
+      "titleFont": "Georgia, 'Times New Roman', serif",
+      "titleColor": "#102c4a",
+      "maskArtwork": "assets/cms-collection-cards/route-2-hidden-mask-v4.png",
+      "maskArtworkPolygon": [
+        [
+          0,
+          0
+        ],
+        [
+          305,
+          0
+        ],
+        [
+          305,
+          268
+        ],
+        [
+          0,
+          268
+        ]
+      ],
+      "maskArtworkRect": [
+        0,
+        0,
+        305,
+        268
+      ],
+      "maskArtworkFillType": "source-context-clean-underlay",
+      "maskArtworkSource": "routes-underlay-no-cards-v1.png",
+      "maskArtworkCanvasRect": [
+        370,
+        622,
+        675,
+        890
+      ],
+      "maskEdgeFeatherPx": 3,
+      "photoRect": [
+        3,
+        3,
+        282,
+        174
+      ],
+      "photoViewportPolygon": [
+        [
+          3,
+          43
+        ],
+        [
+          272,
+          3
+        ],
+        [
+          282,
+          164
+        ],
+        [
+          4,
+          174
+        ]
+      ],
+      "sourceCoordinateFormat": "LTRB-exclusive-canvas; local-pixel photo/text polygons",
+      "defaultEntity": {
+        "id": "marmaris-datca",
+        "name": "Marmaris – Datça",
+        "title": "Marmaris – Datça",
+        "description": "Doğal güzelliklerin buluşma noktası.",
+        "image": "assets/route-catalog-2.jpg",
+        "artwork": "rotalar/assets/art-card-2.png",
+        "path": "/rotalar/",
+        "inquiryUrl": "/iletisim/?rota=marmaris-datca",
+        "sortOrder": 2,
+        "featuredHome": true,
+        "homeImage": "assets/route-marmaris-datca.png",
+        "homeUrl": "/iletisim/?rota=marmaris-datca"
+      },
+      "sourceLayerOrder": 2,
+      "descriptionRect": [
+        16,
+        208,
+        219,
+        245
+      ],
+      "descriptionCleanPatch": "assets/cms-collection-cards/routes-2-description-clean.png",
+      "descriptionSourceText": "Doğal güzelliklerin buluşma noktası.",
+      "maskRect": [
+        370,
+        622,
+        675,
+        890
+      ],
+      "maskArtworkDimensions": [
+        305,
+        268
+      ],
+      "maskVersion": 4
+    },
+    {
+      "slotId": "route-3",
+      "entityId": "kemer-kekova",
+      "selector": ".canvas .art-card[data-art-index=\"3\"]",
+      "artworkSelector": ".canvas .art-card[data-art-index=\"3\"]",
+      "canvasRect": [
+        672,
+        584,
+        978,
+        880
+      ],
+      "cardRect": [
+        672,
+        584,
+        978,
+        880
+      ],
+      "sourceArtwork": "assets/art-card-3.png",
+      "sourceArtworkDimensions": [
+        306,
+        296
+      ],
+      "titleRect": [
+        20,
+        224,
+        218,
+        247
+      ],
+      "titleCleanPatch": "assets/cms-collection-cards/routes-3-title-clean.png",
+      "titleSourceText": "Kemer – Kekova",
+      "titleFont": "Georgia, 'Times New Roman', serif",
+      "titleColor": "#102c4a",
+      "maskArtwork": "assets/cms-collection-cards/route-3-hidden-mask-v4.png",
+      "maskArtworkPolygon": [
+        [
+          0,
+          0
+        ],
+        [
+          322,
+          0
+        ],
+        [
+          322,
+          312
+        ],
+        [
+          0,
+          312
+        ]
+      ],
+      "maskArtworkRect": [
+        0,
+        0,
+        322,
+        312
+      ],
+      "maskArtworkFillType": "source-context-clean-underlay",
+      "maskArtworkSource": "routes-underlay-no-cards-v1.png",
+      "maskArtworkCanvasRect": [
+        664,
+        576,
+        986,
+        888
+      ],
+      "maskEdgeFeatherPx": 3,
+      "photoRect": [
+        0,
+        2,
+        305,
+        214
+      ],
+      "photoViewportPolygon": [
+        [
+          0,
+          28
+        ],
+        [
+          290,
+          2
+        ],
+        [
+          305,
+          195
+        ],
+        [
+          5,
+          214
+        ]
+      ],
+      "sourceCoordinateFormat": "LTRB-exclusive-canvas; local-pixel photo/text polygons",
+      "defaultEntity": {
+        "id": "kemer-kekova",
+        "name": "Kemer – Kekova",
+        "title": "Kemer – Kekova",
+        "description": "Tarihi dokularla eşsiz bir yolculuk.",
+        "image": "assets/route-catalog-3.jpg",
+        "artwork": "rotalar/assets/art-card-3.png",
+        "path": "/rotalar/",
+        "inquiryUrl": "/iletisim/?rota=kemer-kekova",
+        "sortOrder": 3,
+        "featuredHome": true,
+        "homeImage": "assets/route-kemer-kekova.png",
+        "homeUrl": "/iletisim/?rota=kemer-kekova"
+      },
+      "sourceLayerOrder": 3,
+      "descriptionRect": [
+        20,
+        248,
+        229,
+        285
+      ],
+      "descriptionCleanPatch": "assets/cms-collection-cards/routes-3-description-clean.png",
+      "descriptionSourceText": "Tarihi dokularla eşsiz bir yolculuk.",
+      "maskRect": [
+        664,
+        576,
+        986,
+        888
+      ],
+      "maskArtworkDimensions": [
+        322,
+        312
+      ],
+      "maskVersion": 4
+    },
+    {
+      "slotId": "route-4",
+      "entityId": "marmaris-fethiye",
+      "selector": ".canvas .art-card[data-art-index=\"4\"]",
+      "artworkSelector": ".canvas .art-card[data-art-index=\"4\"]",
+      "canvasRect": [
+        79,
+        884,
+        369,
+        1141
+      ],
+      "cardRect": [
+        79,
+        884,
+        369,
+        1141
+      ],
+      "sourceArtwork": "assets/art-card-4.png",
+      "sourceArtworkDimensions": [
+        290,
+        257
+      ],
+      "titleRect": [
+        12,
+        181,
+        204,
+        206
+      ],
+      "titleCleanPatch": "assets/cms-collection-cards/routes-4-title-clean.png",
+      "titleSourceText": "Marmaris – Fethiye",
+      "titleFont": "Georgia, 'Times New Roman', serif",
+      "titleColor": "#102c4a",
+      "maskArtwork": "assets/cms-collection-cards/route-4-hidden-mask-v4.png",
+      "maskArtworkPolygon": [
+        [
+          0,
+          0
+        ],
+        [
+          306,
+          0
+        ],
+        [
+          306,
+          273
+        ],
+        [
+          0,
+          273
+        ]
+      ],
+      "maskArtworkRect": [
+        0,
+        0,
+        306,
+        273
+      ],
+      "maskArtworkFillType": "source-context-clean-underlay",
+      "maskArtworkSource": "routes-underlay-no-cards-v1.png",
+      "maskArtworkCanvasRect": [
+        71,
+        876,
+        377,
+        1149
+      ],
+      "maskEdgeFeatherPx": 3,
+      "photoRect": [
+        2,
+        4,
+        289,
+        179
+      ],
+      "photoViewportPolygon": [
+        [
+          4,
+          27
+        ],
+        [
+          282,
+          4
+        ],
+        [
+          289,
+          169
+        ],
+        [
+          2,
+          179
+        ]
+      ],
+      "sourceCoordinateFormat": "LTRB-exclusive-canvas; local-pixel photo/text polygons",
+      "defaultEntity": {
+        "id": "marmaris-fethiye",
+        "name": "Marmaris – Fethiye",
+        "title": "Marmaris – Fethiye",
+        "description": "Maviyle yeşilin en güzel tonları.",
+        "image": "assets/route-catalog-4.jpg",
+        "artwork": "rotalar/assets/art-card-4.png",
+        "path": "/rotalar/",
+        "inquiryUrl": "/iletisim/?rota=marmaris-fethiye",
+        "sortOrder": 4,
+        "featuredHome": false
+      },
+      "sourceLayerOrder": 4,
+      "descriptionRect": [
+        12,
+        207,
+        219,
+        246
+      ],
+      "descriptionCleanPatch": "assets/cms-collection-cards/routes-4-description-clean.png",
+      "descriptionSourceText": "Maviyle yeşilin en güzel tonları.",
+      "maskRect": [
+        71,
+        876,
+        377,
+        1149
+      ],
+      "maskArtworkDimensions": [
+        306,
+        273
+      ],
+      "maskVersion": 4
+    },
+    {
+      "slotId": "route-5",
+      "entityId": "gocek-fethiye",
+      "selector": ".canvas .art-card[data-art-index=\"5\"]",
+      "artworkSelector": ".canvas .art-card[data-art-index=\"5\"]",
+      "canvasRect": [
+        377,
+        884,
+        667,
+        1141
+      ],
+      "cardRect": [
+        377,
+        884,
+        667,
+        1141
+      ],
+      "sourceArtwork": "assets/art-card-5.png",
+      "sourceArtworkDimensions": [
+        290,
+        257
+      ],
+      "titleRect": [
+        16,
+        182,
+        204,
+        206
+      ],
+      "titleCleanPatch": "assets/cms-collection-cards/routes-5-title-clean.png",
+      "titleSourceText": "Göcek – Fethiye",
+      "titleFont": "Georgia, 'Times New Roman', serif",
+      "titleColor": "#102c4a",
+      "maskArtwork": "assets/cms-collection-cards/route-5-hidden-mask-v4.png",
+      "maskArtworkPolygon": [
+        [
+          0,
+          0
+        ],
+        [
+          306,
+          0
+        ],
+        [
+          306,
+          273
+        ],
+        [
+          0,
+          273
+        ]
+      ],
+      "maskArtworkRect": [
+        0,
+        0,
+        306,
+        273
+      ],
+      "maskArtworkFillType": "source-context-clean-underlay",
+      "maskArtworkSource": "routes-underlay-no-cards-v1.png",
+      "maskArtworkCanvasRect": [
+        369,
+        876,
+        675,
+        1149
+      ],
+      "maskEdgeFeatherPx": 3,
+      "photoRect": [
+        3,
+        6,
+        287,
+        173
+      ],
+      "photoViewportPolygon": [
+        [
+          5,
+          16
+        ],
+        [
+          282,
+          6
+        ],
+        [
+          287,
+          164
+        ],
+        [
+          3,
+          173
+        ]
+      ],
+      "sourceCoordinateFormat": "LTRB-exclusive-canvas; local-pixel photo/text polygons",
+      "defaultEntity": {
+        "id": "gocek-fethiye",
+        "name": "Göcek – Fethiye",
+        "title": "Göcek – Fethiye",
+        "description": "Turkuazın bin tonu sizi bekliyor.",
+        "image": "assets/route-catalog-5.jpg",
+        "artwork": "rotalar/assets/art-card-5.png",
+        "path": "/rotalar/gocek-fethiye-gocek/",
+        "inquiryUrl": "/rotalar/gocek-fethiye-gocek/",
+        "sortOrder": 5,
+        "featuredHome": true,
+        "homeImage": "assets/route-gocek-fethiye.png",
+        "homeUrl": "/rotalar/gocek-fethiye-gocek/",
+        "stops": [
+          {
+            "name": "Göcek",
+            "description": "Başlangıç ve dönüş noktası."
+          },
+          {
+            "name": "Fethiye",
+            "description": "Koylar ve tarihi liman."
+          },
+          {
+            "name": "Göcek",
+            "description": "Göcek’e dönüş."
+          }
+        ]
+      },
+      "sourceLayerOrder": 5,
+      "descriptionRect": [
+        16,
+        208,
+        220,
+        246
+      ],
+      "descriptionCleanPatch": "assets/cms-collection-cards/routes-5-description-clean.png",
+      "descriptionSourceText": "Turkuazın bin tonu sizi bekliyor.",
+      "maskRect": [
+        369,
+        876,
+        675,
+        1149
+      ],
+      "maskArtworkDimensions": [
+        306,
+        273
+      ],
+      "maskVersion": 4
+    },
+    {
+      "slotId": "route-6",
+      "entityId": "bodrum-yunan-adalari",
+      "selector": ".canvas .art-card[data-art-index=\"6\"]",
+      "artworkSelector": ".canvas .art-card[data-art-index=\"6\"]",
+      "canvasRect": [
+        671,
+        883,
+        978,
+        1139
+      ],
+      "cardRect": [
+        671,
+        883,
+        978,
+        1139
+      ],
+      "sourceArtwork": "assets/art-card-6.png",
+      "sourceArtworkDimensions": [
+        307,
+        256
+      ],
+      "titleRect": [
+        20,
+        205,
+        238,
+        233
+      ],
+      "titleCleanPatch": "assets/cms-collection-cards/routes-6-title-clean.png",
+      "titleSourceText": "Bodrum – Yunan Adaları",
+      "titleFont": "Georgia, 'Times New Roman', serif",
+      "titleColor": "#102c4a",
+      "maskArtwork": "assets/cms-collection-cards/route-6-hidden-mask-v4.png",
+      "maskArtworkPolygon": [
+        [
+          0,
+          0
+        ],
+        [
+          323,
+          0
+        ],
+        [
+          323,
+          272
+        ],
+        [
+          0,
+          272
+        ]
+      ],
+      "maskArtworkRect": [
+        0,
+        0,
+        323,
+        272
+      ],
+      "maskArtworkFillType": "source-context-clean-underlay",
+      "maskArtworkSource": "routes-underlay-no-cards-v1.png",
+      "maskArtworkCanvasRect": [
+        663,
+        875,
+        986,
+        1147
+      ],
+      "maskEdgeFeatherPx": 3,
+      "photoRect": [
+        7,
+        1,
+        296,
+        170
+      ],
+      "photoViewportPolygon": [
+        [
+          7,
+          18
+        ],
+        [
+          286,
+          1
+        ],
+        [
+          296,
+          152
+        ],
+        [
+          10,
+          170
+        ]
+      ],
+      "sourceCoordinateFormat": "LTRB-exclusive-canvas; local-pixel photo/text polygons",
+      "defaultEntity": {
+        "id": "bodrum-yunan-adalari",
+        "name": "Bodrum – Yunan Adaları",
+        "title": "Bodrum – Yunan Adaları",
+        "description": "Farklı kültürler, yeni rotalar.",
+        "image": "assets/route-catalog-6.jpg",
+        "artwork": "rotalar/assets/art-card-6.png",
+        "path": "/rotalar/",
+        "inquiryUrl": "/iletisim/?rota=bodrum-yunan-adalari",
+        "sortOrder": 6,
+        "featuredHome": false
+      },
+      "sourceLayerOrder": 6,
+      "descriptionRect": [
+        20,
+        233,
+        220,
+        255
+      ],
+      "descriptionCleanPatch": "assets/cms-collection-cards/routes-6-description-clean.png",
+      "descriptionSourceText": "Farklı kültürler, yeni rotalar.",
+      "maskRect": [
+        663,
+        875,
+        986,
+        1147
+      ],
+      "maskArtworkDimensions": [
+        323,
+        272
+      ],
+      "maskVersion": 4
+    }
+  ],
+  "coordinateFormat": "LTRB-exclusive for canvasRect/cardRect; local pixels for text/photo polygons"
+}

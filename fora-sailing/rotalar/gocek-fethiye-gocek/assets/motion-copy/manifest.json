@@ -1,0 +1,476 @@
+{
+  "pageId": "rota-gocek-fethiye",
+  "pagePath": "/rotalar/gocek-fethiye-gocek/",
+  "source": "03-rota-detay-gocek-fethiye.png",
+  "sourceDimensions": [
+    1024,
+    1536
+  ],
+  "assetBase": "assets/motion-copy/",
+  "layers": [
+    {
+      "id": "hero-kicker",
+      "semantic": "eyebrow",
+      "sourceText": "MAVİ YOLCULUK ROTALARI",
+      "sourceBBox": [
+        53,
+        100,
+        353,
+        123
+      ],
+      "canvasRect": {
+        "left": 0.0517578125,
+        "top": 0.06510416666666667,
+        "width": 0.29296875,
+        "height": 0.014973958333333334
+      },
+      "binding": null,
+      "sampleText": null,
+      "glyph": "hero-kicker-glyph.png",
+      "cleanPatch": "hero-kicker-clean.png",
+      "ink": "light"
+    },
+    {
+      "id": "hero-copy",
+      "semantic": "paragraph",
+      "sourceText": "Eşsiz koylar, turkuaz sular ve Akdeniz’in büyüleyici doğasında, unutulmaz bir mavi yolculuk rotası.",
+      "sourceBBox": [
+        54,
+        256,
+        376,
+        322
+      ],
+      "canvasRect": {
+        "left": 0.052734375,
+        "top": 0.16666666666666666,
+        "width": 0.314453125,
+        "height": 0.04296875
+      },
+      "binding": "rota-gocek-fethiye.hero.description",
+      "sampleText": "Eşsiz koylar, turkuaz sular ve Akdeniz’in büyüleyici doğasında unutulmaz bir mavi yolculuk rotası.",
+      "glyph": "hero-copy-glyph.png",
+      "cleanPatch": "hero-copy-clean.png",
+      "ink": "light"
+    },
+    {
+      "id": "hero-cta-label",
+      "semantic": "button-label",
+      "sourceText": "Bu Rota İçin Teklif Alın",
+      "sourceBBox": [
+        82,
+        338,
+        243,
+        364
+      ],
+      "canvasRect": {
+        "left": 0.080078125,
+        "top": 0.22005208333333334,
+        "width": 0.1572265625,
+        "height": 0.016927083333333332
+      },
+      "binding": "rota-gocek-fethiye.header.offerLabel",
+      "sampleText": "Teklif Alın",
+      "glyph": "hero-cta-label-glyph.png",
+      "cleanPatch": "hero-cta-label-clean.png",
+      "ink": "dark"
+    },
+    {
+      "id": "hero-whatsapp-label",
+      "semantic": "button-label",
+      "sourceText": "WhatsApp ile iletişim",
+      "sourceBBox": [
+        329,
+        338,
+        458,
+        364
+      ],
+      "canvasRect": {
+        "left": 0.3212890625,
+        "top": 0.22005208333333334,
+        "width": 0.1259765625,
+        "height": 0.016927083333333332
+      },
+      "binding": null,
+      "sampleText": null,
+      "glyph": "hero-whatsapp-label-glyph.png",
+      "cleanPatch": "hero-whatsapp-label-clean.png",
+      "ink": "light"
+    },
+    {
+      "id": "hero-script",
+      "semantic": "decorative-script",
+      "sourceText": "Aynı deniz, Daha güzel bir gelecek...",
+      "sourceBBox": [
+        867,
+        222,
+        1008,
+        357
+      ],
+      "canvasRect": {
+        "left": 0.8466796875,
+        "top": 0.14453125,
+        "width": 0.1376953125,
+        "height": 0.087890625
+      },
+      "binding": null,
+      "sampleText": null,
+      "glyph": "hero-script-glyph.png",
+      "cleanPatch": "hero-script-clean.png",
+      "ink": "light"
+    },
+    {
+      "id": "story-kicker",
+      "semantic": "eyebrow",
+      "sourceText": "GÖCEK — FETHİYE — GÖCEK",
+      "sourceBBox": [
+        52,
+        417,
+        336,
+        436
+      ],
+      "canvasRect": {
+        "left": 0.05078125,
+        "top": 0.271484375,
+        "width": 0.27734375,
+        "height": 0.012369791666666666
+      },
+      "binding": null,
+      "sampleText": null,
+      "glyph": "story-kicker-glyph.png",
+      "cleanPatch": "story-kicker-clean.png",
+      "ink": "dark"
+    },
+    {
+      "id": "story-heading",
+      "semantic": "heading",
+      "sourceText": "Koyların Ritminde Bir Yolculuk",
+      "sourceBBox": [
+        52,
+        446,
+        417,
+        543
+      ],
+      "canvasRect": {
+        "left": 0.05078125,
+        "top": 0.2903645833333333,
+        "width": 0.3564453125,
+        "height": 0.06315104166666667
+      },
+      "binding": "rota-gocek-fethiye.content.title",
+      "sampleText": "Koyların Ritminde Bir Yolculuk",
+      "glyph": "story-heading-glyph.png",
+      "cleanPatch": "story-heading-clean.png",
+      "ink": "dark"
+    },
+    {
+      "id": "story-copy",
+      "semantic": "paragraph",
+      "sourceText": "Göcek’in sakin koylarından Fethiye’nin eşsiz manzaralarına uzanan bu rota, her gün yeni bir koy, yeni bir manzara ve daha derin bir mavi sunar. Doğanın ritmine uyum sağlayarak, denizin, güneşin ve özgürlüğün keyfini yaşayın.",
+      "sourceBBox": [
+        53,
+        556,
+        406,
+        656
+      ],
+      "canvasRect": {
+        "left": 0.0517578125,
+        "top": 0.3619791666666667,
+        "width": 0.3447265625,
+        "height": 0.06510416666666667
+      },
+      "binding": "rota-gocek-fethiye.content.description",
+      "sampleText": "Göcek’in sakin koylarından Fethiye’nin eşsiz manzaralarına uzanan bu rota, her gün yeni bir koy, yeni bir manzara ve daha derin bir mavi sunar.",
+      "glyph": "story-copy-glyph.png",
+      "cleanPatch": "story-copy-clean.png",
+      "ink": "dark"
+    },
+    {
+      "id": "story-link",
+      "semantic": "link-label",
+      "sourceText": "Rota Hakkında Daha Fazla Bilgi",
+      "sourceBBox": [
+        53,
+        670,
+        276,
+        696
+      ],
+      "canvasRect": {
+        "left": 0.0517578125,
+        "top": 0.4361979166666667,
+        "width": 0.2177734375,
+        "height": 0.016927083333333332
+      },
+      "binding": null,
+      "sampleText": null,
+      "glyph": "story-link-glyph.png",
+      "cleanPatch": "story-link-clean.png",
+      "ink": "dark"
+    },
+    {
+      "id": "stops-heading",
+      "semantic": "heading",
+      "sourceText": "Rota Üzerindeki Öne Çıkan Duraklar",
+      "sourceBBox": [
+        53,
+        740,
+        353,
+        805
+      ],
+      "canvasRect": {
+        "left": 0.0517578125,
+        "top": 0.4817708333333333,
+        "width": 0.29296875,
+        "height": 0.042317708333333336
+      },
+      "binding": "rota-gocek-fethiye.stops.title",
+      "sampleText": "Rota Üzerindeki Öne Çıkan Duraklar",
+      "glyph": "stops-heading-glyph.png",
+      "cleanPatch": "stops-heading-clean.png",
+      "ink": "light"
+    },
+    {
+      "id": "stops-copy",
+      "semantic": "paragraph",
+      "sourceText": "Göcek’ten başlayıp Fethiye’ye uzanan bu rotada, birbirinden özel koylar ve büyüleyici manzaralar sizi bekliyor.",
+      "sourceBBox": [
+        53,
+        806,
+        348,
+        861
+      ],
+      "canvasRect": {
+        "left": 0.0517578125,
+        "top": 0.5247395833333334,
+        "width": 0.2880859375,
+        "height": 0.035807291666666664
+      },
+      "binding": "rota-gocek-fethiye.stops.description",
+      "sampleText": "Göcek, Fethiye ve Göcek.",
+      "glyph": "stops-copy-glyph.png",
+      "cleanPatch": "stops-copy-clean.png",
+      "ink": "light"
+    },
+    {
+      "id": "stops-link",
+      "semantic": "link-label",
+      "sourceText": "Rota Detaylarını İncele",
+      "sourceBBox": [
+        53,
+        868,
+        273,
+        895
+      ],
+      "canvasRect": {
+        "left": 0.0517578125,
+        "top": 0.5651041666666666,
+        "width": 0.21484375,
+        "height": 0.017578125
+      },
+      "binding": null,
+      "sampleText": null,
+      "glyph": "stops-link-glyph.png",
+      "cleanPatch": "stops-link-clean.png",
+      "ink": "light"
+    },
+    {
+      "id": "cove-copy",
+      "semantic": "paragraph",
+      "sourceText": "Turkuaz Koylar. Her gün farklı bir koyda yüzmenin, berrak sularda serinlemenin ve doğanın sunduğu huzuru hissetmenin ayrıcalığını yaşayın. Koyları Keşfet",
+      "sourceBBox": [
+        313,
+        966,
+        509,
+        1096
+      ],
+      "canvasRect": {
+        "left": 0.3056640625,
+        "top": 0.62890625,
+        "width": 0.19140625,
+        "height": 0.08463541666666667
+      },
+      "binding": null,
+      "sampleText": null,
+      "glyph": "cove-copy-glyph.png",
+      "cleanPatch": "cove-copy-clean.png",
+      "ink": "dark"
+    },
+    {
+      "id": "sunset-copy",
+      "semantic": "paragraph",
+      "sourceText": "Güvertede Gün Batımı. Günün sonunda, guletinizin güvertesinde Akdeniz’in eşsiz gün batımını izleyin. Her an unutulmaz bir anıya dönüşsün. Deneyimleri Keşfet",
+      "sourceBBox": [
+        840,
+        942,
+        1008,
+        1083
+      ],
+      "canvasRect": {
+        "left": 0.8203125,
+        "top": 0.61328125,
+        "width": 0.1640625,
+        "height": 0.091796875
+      },
+      "binding": null,
+      "sampleText": null,
+      "glyph": "sunset-copy-glyph.png",
+      "cleanPatch": "sunset-copy-clean.png",
+      "ink": "dark"
+    },
+    {
+      "id": "quote-heading",
+      "semantic": "heading",
+      "sourceText": "Bu Rota İçin Teklif Alın",
+      "sourceBBox": [
+        53,
+        1192,
+        277,
+        1272
+      ],
+      "canvasRect": {
+        "left": 0.0517578125,
+        "top": 0.7760416666666666,
+        "width": 0.21875,
+        "height": 0.052083333333333336
+      },
+      "binding": "rota-gocek-fethiye.quote.title",
+      "sampleText": "Turkuaz Koylar ve Güvertede Gün Batımı",
+      "glyph": "quote-heading-glyph.png",
+      "cleanPatch": "quote-heading-clean.png",
+      "ink": "light"
+    },
+    {
+      "id": "quote-copy",
+      "semantic": "paragraph",
+      "sourceText": "Sizin için en uygun tarih ve detaylarla özel bir mavi yolculuk planlayalım.",
+      "sourceBBox": [
+        53,
+        1270,
+        352,
+        1323
+      ],
+      "canvasRect": {
+        "left": 0.0517578125,
+        "top": 0.8268229166666666,
+        "width": 0.2919921875,
+        "height": 0.034505208333333336
+      },
+      "binding": "rota-gocek-fethiye.quote.description",
+      "sampleText": "Sizin için en uygun tarih ve detaylarla özel bir mavi yolculuk planlayalım.",
+      "glyph": "quote-copy-glyph.png",
+      "cleanPatch": "quote-copy-clean.png",
+      "ink": "light"
+    },
+    {
+      "id": "quote-button-label",
+      "semantic": "source-copy",
+      "sourceText": "Bu Rota İçin Teklif Alın",
+      "sourceBBox": [
+        532,
+        1285,
+        733,
+        1317
+      ],
+      "canvasRect": {
+        "left": 0.51953125,
+        "top": 0.8365885416666666,
+        "width": 0.1962890625,
+        "height": 0.020833333333333332
+      },
+      "binding": null,
+      "sampleText": null,
+      "glyph": "quote-button-label-glyph.png",
+      "cleanPatch": "quote-button-label-clean.png",
+      "ink": "dark"
+    },
+    {
+      "id": "footer-nav",
+      "semantic": "footer-navigation",
+      "sourceText": null,
+      "sourceBBox": [
+        246,
+        1419,
+        630,
+        1454
+      ],
+      "canvasRect": {
+        "left": 0.240234375,
+        "top": 0.923828125,
+        "width": 0.375,
+        "height": 0.022786458333333332
+      },
+      "binding": null,
+      "sampleText": null,
+      "glyph": "footer-nav-glyph.png",
+      "cleanPatch": "footer-nav-clean.png",
+      "ink": "light"
+    },
+    {
+      "id": "footer-social",
+      "semantic": "social-links",
+      "sourceText": null,
+      "sourceBBox": [
+        654,
+        1419,
+        794,
+        1454
+      ],
+      "canvasRect": {
+        "left": 0.638671875,
+        "top": 0.923828125,
+        "width": 0.13671875,
+        "height": 0.022786458333333332
+      },
+      "binding": null,
+      "sampleText": null,
+      "glyph": "footer-social-glyph.png",
+      "cleanPatch": "footer-social-clean.png",
+      "ink": "light"
+    },
+    {
+      "id": "footer-note-left",
+      "semantic": "source-copy",
+      "sourceText": null,
+      "sourceBBox": [
+        43,
+        1486,
+        260,
+        1517
+      ],
+      "canvasRect": {
+        "left": 0.0419921875,
+        "top": 0.9674479166666666,
+        "width": 0.2119140625,
+        "height": 0.020182291666666668
+      },
+      "binding": null,
+      "sampleText": null,
+      "glyph": "footer-note-left-glyph.png",
+      "cleanPatch": "footer-note-left-clean.png",
+      "ink": "light"
+    },
+    {
+      "id": "footer-note-right",
+      "semantic": "source-copy",
+      "sourceText": null,
+      "sourceBBox": [
+        640,
+        1486,
+        866,
+        1517
+      ],
+      "canvasRect": {
+        "left": 0.625,
+        "top": 0.9674479166666666,
+        "width": 0.220703125,
+        "height": 0.020182291666666668
+      },
+      "binding": null,
+      "sampleText": null,
+      "glyph": "footer-note-right-glyph.png",
+      "cleanPatch": "footer-note-right-clean.png",
+      "ink": "light"
+    }
+  ],
+  "heroStatic": "hero-static.png",
+  "heroCleanMotion": "../hero-motion-clean.png"
+}

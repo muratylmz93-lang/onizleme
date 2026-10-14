@@ -1,0 +1,599 @@
+{
+  "schemaVersion": 1,
+  "pagePath": "/deneyimler/",
+  "source": "Fora_Sailing_Gorsel_Paketi/00-tam-sayfa-tasarimlar/06-deneyimler.png",
+  "sourceDimensions": [
+    1024,
+    1536
+  ],
+  "section": {
+    "sourceSectionId": "experiences",
+    "sourceRect": [
+      0,
+      412,
+      1024,
+      944
+    ],
+    "backgroundSelector": ".art-section.experiences>img:not(.foreground)",
+    "overlaySection": true,
+    "parentSourceSectionId": "content"
+  },
+  "renderMode": "source-slot-overlays",
+  "collectionKey": "experiences",
+  "slots": [
+    {
+      "slotId": "experience-1",
+      "entityId": "ailece-mavi-yolculuk",
+      "selector": ".experience-card.card-one",
+      "imageSelector": ".exp-card.card-a",
+      "name": "Ailece Mavi Yolculuk",
+      "description": "Sevdiklerinizle birlikte, doğanın kalbinde unutulmaz anlar biriktirin.",
+      "photoRect": [
+        20,
+        622,
+        279,
+        792
+      ],
+      "titleRect": [
+        27,
+        805,
+        211,
+        839
+      ],
+      "descriptionRect": [
+        29,
+        834,
+        233,
+        872
+      ],
+      "titleGlyph": "assets/cms-experience-cards/experience-1-title-glyph.png",
+      "titleCleanPatch": "assets/cms-experience-cards/experience-1-title-clean-v3.png",
+      "descriptionGlyph": "assets/cms-experience-cards/experience-1-description-glyph.png",
+      "descriptionCleanPatch": "assets/cms-experience-cards/experience-1-description-clean-v2.png",
+      "sourceTextTitle": "Ailece Mavi Yolculuk",
+      "sourceTextDescription": "Sevdiklerinizle birlikte, doğanın kalbinde unutulmaz anlar biriktirin.",
+      "defaultEntity": {
+        "id": "ailece-mavi-yolculuk",
+        "title": "Ailece mavi yolculuk",
+        "description": "",
+        "image": "assets/device-design-assets/images/801af00a1f876234ffc4.png",
+        "status": "published",
+        "sortOrder": 1,
+        "path": "/iletisim/?deneyim=ailece-mavi-yolculuk"
+      },
+      "titleCleanPatchMode": "source-ink-matched-context-clean-v3",
+      "descriptionCleanPatchMode": "source-ink-mask-context-fill-v2",
+      "cardRect": [
+        20,
+        622,
+        279,
+        872
+      ],
+      "photoRectSection": [
+        20,
+        210,
+        279,
+        380
+      ],
+      "titleRectSection": [
+        27,
+        393,
+        211,
+        427
+      ],
+      "descriptionRectSection": [
+        29,
+        422,
+        233,
+        460
+      ],
+      "sourceCoordinateFormat": "LTRB-exclusive",
+      "titleSourceCrop": "assets/cms-experience-cards/experience-1-title-source.png",
+      "descriptionSourceCrop": "assets/cms-experience-cards/experience-1-description-source.png",
+      "fullCardMask": "assets/cms-experience-cards/experience-1-full-card-clean.png",
+      "fullCardMaskRect": [
+        20,
+        622,
+        279,
+        872
+      ],
+      "fullCardMaskMode": "generated-context-matched-paper",
+      "sourceLayerOrder": 1,
+      "maskZIndex": "under-foreground-card-images",
+      "photoViewportRect": [
+        0,
+        0,
+        259,
+        169
+      ],
+      "photoFrameOverlay": "assets/card-1-frame-overlay.png",
+      "fullCardMaskRectSection": [
+        20,
+        210,
+        279,
+        460
+      ],
+      "photoViewportPolygon": [
+        [
+          0,
+          36
+        ],
+        [
+          250,
+          0
+        ],
+        [
+          258,
+          136
+        ],
+        [
+          259,
+          169
+        ],
+        [
+          0,
+          169
+        ]
+      ],
+      "photoViewportCoordinateSpace": "card-image-local-px",
+      "photoFrameOverlayDimensions": [
+        259,
+        170
+      ],
+      "photoLayerContract": "replacement-photo clipped to photoViewportPolygon; source frame overlay above replacement; original .exp-card remains default when image equals source",
+      "fullCardMaskPolygon": [
+        [
+          0,
+          36
+        ],
+        [
+          250,
+          0
+        ],
+        [
+          259,
+          250
+        ],
+        [
+          0,
+          250
+        ]
+      ],
+      "fullCardMaskPolygonCoordinateSpace": "fullCardMaskRect-local-px",
+      "fullCardMaskClip": "clip mask pixels to polygon; transparent outside; keep source section artwork outside polygon",
+      "photoFrameOverlayMode": "source-light-edge-ring-alpha",
+      "photoFrameOverlayRingWidthPx": 4,
+      "photoFrameOverlayNote": "Overlay retains only light frame-edge pixels outside the photo polygon; source caption/neighbour pixels remain transparent.",
+      "fullCardMaskCoordinateFormat": "LTRB-exclusive",
+      "fullCardMaskRenderNote": "When source entity is hidden, clip clean patch to fullCardMaskPolygon; do not draw the rectangular clean asset unmasked."
+    },
+    {
+      "slotId": "experience-2",
+      "entityId": "size-ozel-gulet-tatili",
+      "selector": ".experience-card.card-two",
+      "imageSelector": ".exp-card.card-b",
+      "name": "Size Özel Gulet Tatili",
+      "description": "Rotanızı, ritminizi ve deneyiminizi sizin isteklerinize göre şekillendirin.",
+      "photoRect": [
+        289,
+        607,
+        532,
+        822
+      ],
+      "titleRect": [
+        300,
+        800,
+        479,
+        830
+      ],
+      "descriptionRect": [
+        301,
+        829,
+        491,
+        867
+      ],
+      "titleGlyph": "assets/cms-experience-cards/experience-2-title-glyph.png",
+      "titleCleanPatch": "assets/cms-experience-cards/experience-2-title-clean-v2.png",
+      "descriptionGlyph": "assets/cms-experience-cards/experience-2-description-glyph.png",
+      "descriptionCleanPatch": "assets/cms-experience-cards/experience-2-description-clean-v2.png",
+      "sourceTextTitle": "Size Özel Gulet Tatili",
+      "sourceTextDescription": "Rotanızı, ritminizi ve deneyiminizi sizin isteklerinize göre şekillendirin.",
+      "defaultEntity": {
+        "id": "size-ozel-gulet-tatili",
+        "title": "Size özel gulet tatili",
+        "description": "",
+        "image": "assets/device-design-assets/images/f0fab493786f234da45a.png",
+        "status": "published",
+        "sortOrder": 2,
+        "path": "/iletisim/?deneyim=size-ozel-gulet-tatili"
+      },
+      "titleCleanPatchMode": "source-ink-mask-context-fill-v2",
+      "descriptionCleanPatchMode": "source-ink-mask-context-fill-v2",
+      "cardRect": [
+        289,
+        607,
+        532,
+        867
+      ],
+      "photoRectSection": [
+        289,
+        195,
+        532,
+        410
+      ],
+      "titleRectSection": [
+        300,
+        388,
+        479,
+        418
+      ],
+      "descriptionRectSection": [
+        301,
+        417,
+        491,
+        455
+      ],
+      "sourceCoordinateFormat": "LTRB-exclusive",
+      "titleSourceCrop": "assets/cms-experience-cards/experience-2-title-source.png",
+      "descriptionSourceCrop": "assets/cms-experience-cards/experience-2-description-source.png",
+      "fullCardMask": "assets/cms-experience-cards/experience-2-full-card-clean-soft-v3.png",
+      "fullCardMaskRect": [
+        281,
+        599,
+        540,
+        875
+      ],
+      "fullCardMaskMode": "feathered-source-context-paper",
+      "sourceLayerOrder": 2,
+      "maskZIndex": "under-foreground-card-images",
+      "photoViewportRect": [
+        0,
+        4,
+        240,
+        207
+      ],
+      "photoFrameOverlay": "assets/card-2-frame-overlay.png",
+      "fullCardMaskRectSection": [
+        281,
+        187,
+        540,
+        463
+      ],
+      "photoViewportPolygon": [
+        [
+          0,
+          35
+        ],
+        [
+          240,
+          4
+        ],
+        [
+          237,
+          170
+        ],
+        [
+          230,
+          184
+        ],
+        [
+          4,
+          207
+        ]
+      ],
+      "photoViewportCoordinateSpace": "card-image-local-px",
+      "photoFrameOverlayDimensions": [
+        243,
+        215
+      ],
+      "photoLayerContract": "replacement-photo clipped to photoViewportPolygon; source frame overlay above replacement; original .exp-card remains default when image equals source",
+      "fullCardMaskPolygonCoordinateSpace": "fullCardMaskRect-local-px",
+      "fullCardMaskClip": "clip mask pixels to polygon; transparent outside; keep source section artwork outside polygon",
+      "photoFrameOverlayMode": "source-light-edge-ring-alpha",
+      "photoFrameOverlayRingWidthPx": 4,
+      "photoFrameOverlayNote": "Overlay retains only light frame-edge pixels outside the photo polygon; source caption/neighbour pixels remain transparent.",
+      "fullCardMaskCoordinateFormat": "LTRB-exclusive",
+      "fullCardMaskRenderNote": "When source entity is hidden, clip clean patch to fullCardMaskPolygon; do not draw the rectangular clean asset unmasked.",
+      "fullCardMaskAlphaFeatherPx": 8,
+      "fullCardMaskOffsetPx": 8,
+      "fullCardMaskNote": "8px context padding; RGBA alpha blends the card silhouette into adjacent paper; no CSS polygon clip so the feather remains visible."
+    },
+    {
+      "slotId": "experience-3",
+      "entityId": "guvertede-gun-batimi",
+      "selector": ".experience-card.card-three",
+      "imageSelector": ".exp-card.card-c",
+      "name": "Güvertede Gün Batımı",
+      "description": "Denizin üzerinde, gün batımının eşsiz renklerine tanıklık edin.",
+      "photoRect": [
+        525,
+        510,
+        796,
+        757
+      ],
+      "titleRect": [
+        531,
+        784,
+        721,
+        814
+      ],
+      "descriptionRect": [
+        534,
+        814,
+        706,
+        852
+      ],
+      "titleGlyph": "assets/cms-experience-cards/experience-3-title-glyph.png",
+      "titleCleanPatch": "assets/cms-experience-cards/experience-3-title-clean-v2.png",
+      "descriptionGlyph": "assets/cms-experience-cards/experience-3-description-glyph.png",
+      "descriptionCleanPatch": "assets/cms-experience-cards/experience-3-description-clean-v2.png",
+      "sourceTextTitle": "Güvertede Gün Batımı",
+      "sourceTextDescription": "Denizin üzerinde, gün batımının eşsiz renklerine tanıklık edin.",
+      "defaultEntity": {
+        "id": "guvertede-gun-batimi",
+        "title": "Guvertede gün batımı",
+        "description": "",
+        "image": "assets/device-design-assets/images/a1b9d9776943aaa37574.png",
+        "status": "published",
+        "sortOrder": 3,
+        "path": "/iletisim/?deneyim=guvertede-gun-batimi"
+      },
+      "titleCleanPatchMode": "source-ink-mask-context-fill-v2",
+      "descriptionCleanPatchMode": "source-ink-mask-context-fill-v2",
+      "cardRect": [
+        525,
+        510,
+        796,
+        852
+      ],
+      "photoRectSection": [
+        525,
+        98,
+        796,
+        345
+      ],
+      "titleRectSection": [
+        531,
+        372,
+        721,
+        402
+      ],
+      "descriptionRectSection": [
+        534,
+        402,
+        706,
+        440
+      ],
+      "sourceCoordinateFormat": "LTRB-exclusive",
+      "titleSourceCrop": "assets/cms-experience-cards/experience-3-title-source.png",
+      "descriptionSourceCrop": "assets/cms-experience-cards/experience-3-description-source.png",
+      "fullCardMask": "assets/cms-experience-cards/experience-3-full-card-clean.png",
+      "fullCardMaskRect": [
+        525,
+        510,
+        796,
+        852
+      ],
+      "fullCardMaskMode": "generated-context-matched-paper",
+      "sourceLayerOrder": 3,
+      "maskZIndex": "under-foreground-card-images",
+      "photoViewportRect": [
+        15,
+        5,
+        259,
+        241
+      ],
+      "photoFrameOverlay": "assets/card-3-frame-overlay.png",
+      "fullCardMaskRectSection": [
+        525,
+        98,
+        796,
+        440
+      ],
+      "photoViewportPolygon": [
+        [
+          25,
+          5
+        ],
+        [
+          259,
+          6
+        ],
+        [
+          251,
+          229
+        ],
+        [
+          15,
+          241
+        ]
+      ],
+      "photoViewportCoordinateSpace": "card-image-local-px",
+      "photoFrameOverlayDimensions": [
+        271,
+        247
+      ],
+      "photoLayerContract": "replacement-photo clipped to photoViewportPolygon; source frame overlay above replacement; original .exp-card remains default when image equals source",
+      "fullCardMaskPolygon": [
+        [
+          15,
+          5
+        ],
+        [
+          259,
+          5
+        ],
+        [
+          271,
+          342
+        ],
+        [
+          0,
+          342
+        ]
+      ],
+      "fullCardMaskPolygonCoordinateSpace": "fullCardMaskRect-local-px",
+      "fullCardMaskClip": "clip mask pixels to polygon; transparent outside; keep source section artwork outside polygon",
+      "photoFrameOverlayMode": "source-light-edge-ring-alpha",
+      "photoFrameOverlayRingWidthPx": 4,
+      "photoFrameOverlayNote": "Overlay retains only light frame-edge pixels outside the photo polygon; source caption/neighbour pixels remain transparent.",
+      "fullCardMaskCoordinateFormat": "LTRB-exclusive",
+      "fullCardMaskRenderNote": "When source entity is hidden, clip clean patch to fullCardMaskPolygon; do not draw the rectangular clean asset unmasked."
+    },
+    {
+      "slotId": "experience-4",
+      "entityId": "koylarda-yuzme",
+      "selector": ".experience-card.card-four",
+      "imageSelector": ".exp-card.card-d",
+      "name": "Koylarda Yüzme Molası",
+      "description": "Turkuaz sularda yüzün, bakir doğayla buluşun.",
+      "photoRect": [
+        779,
+        450,
+        1016,
+        754
+      ],
+      "titleRect": [
+        782,
+        775,
+        975,
+        810
+      ],
+      "descriptionRect": [
+        784,
+        810,
+        929,
+        854
+      ],
+      "titleGlyph": "assets/cms-experience-cards/experience-4-title-glyph.png",
+      "titleCleanPatch": "assets/cms-experience-cards/experience-4-title-clean-v2.png",
+      "descriptionGlyph": "assets/cms-experience-cards/experience-4-description-glyph.png",
+      "descriptionCleanPatch": "assets/cms-experience-cards/experience-4-description-clean-v2.png",
+      "sourceTextTitle": "Koylarda Yüzme Molası",
+      "sourceTextDescription": "Turkuaz sularda yüzün, bakir doğayla buluşun.",
+      "defaultEntity": {
+        "id": "koylarda-yuzme",
+        "title": "Koylarda yüzme",
+        "description": "",
+        "image": "assets/device-design-assets/images/3ba42991d5da4bc676fb.png",
+        "status": "published",
+        "sortOrder": 4,
+        "path": "/iletisim/?deneyim=koylarda-yuzme"
+      },
+      "titleCleanPatchMode": "source-ink-mask-context-fill-v2",
+      "descriptionCleanPatchMode": "source-ink-mask-context-fill-v2",
+      "cardRect": [
+        779,
+        450,
+        1016,
+        854
+      ],
+      "photoRectSection": [
+        779,
+        38,
+        1016,
+        342
+      ],
+      "titleRectSection": [
+        782,
+        363,
+        975,
+        398
+      ],
+      "descriptionRectSection": [
+        784,
+        398,
+        929,
+        442
+      ],
+      "sourceCoordinateFormat": "LTRB-exclusive",
+      "titleSourceCrop": "assets/cms-experience-cards/experience-4-title-source.png",
+      "descriptionSourceCrop": "assets/cms-experience-cards/experience-4-description-source.png",
+      "fullCardMask": "assets/cms-experience-cards/experience-4-full-card-clean.png",
+      "fullCardMaskRect": [
+        779,
+        450,
+        1016,
+        854
+      ],
+      "fullCardMaskMode": "generated-context-matched-paper",
+      "sourceLayerOrder": 4,
+      "maskZIndex": "under-foreground-card-images",
+      "photoViewportRect": [
+        1,
+        4,
+        230,
+        287
+      ],
+      "photoFrameOverlay": "assets/card-4-frame-overlay.png",
+      "fullCardMaskRectSection": [
+        779,
+        38,
+        1016,
+        442
+      ],
+      "photoViewportPolygon": [
+        [
+          8,
+          45
+        ],
+        [
+          220,
+          4
+        ],
+        [
+          230,
+          260
+        ],
+        [
+          1,
+          287
+        ]
+      ],
+      "photoViewportCoordinateSpace": "card-image-local-px",
+      "photoFrameOverlayDimensions": [
+        237,
+        304
+      ],
+      "photoLayerContract": "replacement-photo clipped to photoViewportPolygon; source frame overlay above replacement; original .exp-card remains default when image equals source",
+      "fullCardMaskPolygon": [
+        [
+          8,
+          45
+        ],
+        [
+          220,
+          4
+        ],
+        [
+          230,
+          350
+        ],
+        [
+          1,
+          350
+        ]
+      ],
+      "fullCardMaskPolygonCoordinateSpace": "fullCardMaskRect-local-px",
+      "fullCardMaskClip": "clip mask pixels to polygon; transparent outside; keep source section artwork outside polygon",
+      "photoFrameOverlayMode": "source-light-edge-ring-alpha",
+      "photoFrameOverlayRingWidthPx": 4,
+      "photoFrameOverlayNote": "Overlay retains only light frame-edge pixels outside the photo polygon; source caption/neighbour pixels remain transparent.",
+      "fullCardMaskCoordinateFormat": "LTRB-exclusive",
+      "fullCardMaskRenderNote": "When source entity is hidden, clip clean patch to fullCardMaskPolygon; do not draw the rectangular clean asset unmasked."
+    }
+  ],
+  "behavior": {
+    "includeStatus": "published",
+    "sortBy": "sortOrder",
+    "sortOrder": "ascending",
+    "hideUnpublished": true,
+    "imageOnlySelectorUpdate": true,
+    "defaultSourceTextRemainsBaked": true,
+    "applyCleanPatchOnlyWhenTextDiffers": true,
+    "changedTextUsesNativeOverlay": true,
+    "addedEntities": "clone-source-slot-template",
+    "deletedEntities": "hide-slot-and-mask-source-visual"
+  },
+  "notes": "Slot rectangles are measured against the canonical 1024x1536 page art; card title/description patches are per-field and should only activate on CMS field changes. Current backgrounds sampled from local paper margins row-by-row; glyph paths are exact source crops for QA, not transparent glyphs. CleanPatch v2 assets use localized generated cleanup context and are used only for changed copy; the original full-page source stays the default. CleanPatch v2 fills only the detected source glyph strokes with context-matched cream-paper cleanup; all pixels outside the expanded source-ink mask remain original. Used only when a CMS copy value differs from the source. Hidden-record patch fields are fullCardMask/fullCardMaskRect in source page coordinates; render below remaining foreground photo cards. Photo replacement uses photoViewportPolygon in card-image-local-px and photoFrameOverlay above it; source .exp-card remains the default. The fullCardMask patch must be clipped to fullCardMaskPolygon in fullCardMaskRect-local-px, leaving alpha transparent outside the card silhouette so surrounding paper, collage, and handwritten artwork remain visible. The card silhouette polygons are source-aligned approximations and should be checked against a live changed-image screenshot before publication. Frame overlay PNGs were regenerated from the exact canonical source page crop; alpha is limited to a 4px light edge ring outside the photo polygon, excluding baked caption/neighbour content. Card polygons are measured against the 1024px source art and require live changed-image verification."
+}

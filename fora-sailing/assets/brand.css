@@ -1,0 +1,41 @@
+body{position:relative}
+.cms-overlay-layer,.cms-brand-patch-layer{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.cms-overlay-layer{z-index:40;overflow:visible}
+.cms-live-group,.cms-live-overlay,.cms-live-patch{position:absolute;display:block}
+.cms-live-overlay{z-index:1;overflow:hidden;color:var(--cms-color,inherit);font-family:var(--cms-font-family,inherit);font-size:var(--cms-font-size,1rem);line-height:var(--cms-line-height,1.2);text-align:var(--cms-align,left);pointer-events:none;white-space:pre-line}
+.cms-live-patch{z-index:0;background-repeat:no-repeat;background-size:100% 100%;pointer-events:none}
+.cms-content-value{white-space:pre-line}
+.cms-form-result{font-size:inherit;line-height:1.5;margin:8px 0 0;animation:cms-form-result-in 250ms ease both}
+.inquiry-form .cms-form-result{position:absolute;top:calc(100% + 8px);left:0;width:100%;margin:0;font-size:12px}
+.cms-form-result[data-state="success"]{color:#087b55}.cms-form-result[data-state="error"]{color:#b42318}.cms-form-result a{text-decoration:underline}
+.cms-form-pending::after{content:"";display:inline-block;width:12px;height:12px;margin-left:8px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;vertical-align:middle;animation:cms-form-spin 800ms linear infinite}
+@keyframes cms-form-spin{to{transform:rotate(360deg)}}@keyframes cms-form-result-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.cms-form-result{animation-duration:150ms}.cms-form-pending::after{animation:none}}
+/* Keep the source canvas width stable in short desktop viewports. */
+html,body{scrollbar-width:none}
+html::-webkit-scrollbar,body::-webkit-scrollbar{width:0;height:0}
+.cms-brand-patch-layer{z-index:60;overflow:visible}
+.cms-brand-background,.cms-brand-image,.cms-brand-position,.cms-brand-signature{position:absolute;display:block;box-sizing:border-box}
+.cms-brand-background{background-color:#07374f;background-repeat:no-repeat;background-size:100% 100%;pointer-events:none}
+.cms-brand-image{display:flex;align-items:center;justify-content:center;pointer-events:auto;overflow:hidden}
+.cms-brand-image img{display:block;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain;object-position:center}
+.cms-brand-signature{display:flex;align-items:center;justify-content:flex-end;pointer-events:auto}
+.cms-brand-signature img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+.cms-inquiry-dialog{width:min(92vw,520px);max-height:88vh;overflow:auto;border:1px solid #d8c8aa;border-radius:12px;padding:24px;background:#f7f1e6;color:#173b4b;font:16px/1.5 Inter,Arial,sans-serif}
+.cms-inquiry-dialog::backdrop{background:rgb(1 22 34 / 72%)}
+.cms-inquiry-dialog h2{margin:0 0 8px;font:500 28px/1.1 "Playfair Display",Georgia,serif}
+.cms-inquiry-dialog p{margin:8px 0 16px}
+.cms-inquiry-dialog label{display:grid;gap:5px;margin:10px 0;font-size:14px}
+.cms-inquiry-dialog input,.cms-inquiry-dialog textarea{width:100%;min-height:42px;border:1px solid #9baab0;border-radius:5px;padding:9px;font:inherit;background:#fff;color:#173b4b}
+.cms-inquiry-dialog textarea{min-height:90px;resize:vertical}
+.cms-inquiry-dialog form>div{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.cms-inquiry-dialog button,.cms-inquiry-dialog a{border:0;border-radius:4px;padding:10px 14px;background:#caa66e;color:#102f3d;font:600 14px Inter,Arial,sans-serif;text-decoration:none;cursor:pointer}
+.cms-inquiry-dialog button[type=button]{background:#dce2e1}
+.cms-inquiry-dialog [hidden]{display:none!important}
+.cms-brand-header,.cms-brand-footer{display:none}
+.cms-live-overlay:focus-visible,.cms-brand-image:focus-visible,.cms-brand-signature:focus-visible{outline:2px solid #efc77d;outline-offset:2px}
+@media(prefers-reduced-motion:reduce){.cms-live-overlay,.cms-live-patch,.cms-brand-image,.cms-brand-signature{transition-duration:150ms!important;animation-duration:150ms!important}}
+.inquiry-form .form-note:empty { display: none; }
+.inquiry-form textarea { resize: none; }
+/* Match the 76 px source header strip without resampling its rows. */
+.page-experiences .source-header,.page-about .source-header,.page-contact .source-header{height:7.421875cqw}

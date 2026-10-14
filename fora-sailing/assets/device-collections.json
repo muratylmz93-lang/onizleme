@@ -1,0 +1,5426 @@
+{
+  "schemaVersion": 1,
+  "sourceFiles": [
+    "assets/device-designs.json",
+    "assets/device-bindings.json",
+    "03_CMS/data/seed-content.json"
+  ],
+  "purpose": "Map editable source device SVG card nodes to CMS route/gulet/experience entities.",
+  "entityFields": {
+    "route": {
+      "id": "id",
+      "name": "name|title",
+      "image": "image; homepage homeImage|image",
+      "link": "path; homepage homeUrl|path",
+      "order": "sortOrder",
+      "homeFilter": "featuredHome",
+      "status": "optional status, no badge node"
+    },
+    "gulet": {
+      "id": "id",
+      "name": "name",
+      "image": "image",
+      "link": "path; homepage homeUrl|path",
+      "order": "sortOrder",
+      "homeFilter": "featuredHome",
+      "status": "optional status, no badge node"
+    },
+    "experience": {
+      "id": "id",
+      "name": "name|title",
+      "image": "image",
+      "link": "path",
+      "order": "sortOrder",
+      "status": "optional status, no badge node"
+    }
+  },
+  "collectionLayouts": [
+    {
+      "pagePath": "/",
+      "pageId": null,
+      "device": "mobile",
+      "designId": "home-mobile",
+      "entityType": "route",
+      "sourceNodeCounts": {
+        "cards": 4,
+        "matchedEntities": 4
+      },
+      "sourceSlotOrder": [
+        "gocek-fethiye",
+        "bodrum-gokova",
+        "marmaris-datca",
+        "kemer-kekova"
+      ],
+      "cmsSortOrderNow": [
+        "bodrum-gokova",
+        "marmaris-datca",
+        "kemer-kekova",
+        "marmaris-fethiye",
+        "gocek-fethiye",
+        "bodrum-yunan-adalari"
+      ],
+      "sourceVsCmsOrderDiffers": true,
+      "homeSelectionField": "featuredHome",
+      "sourceHomeFeaturedIds": [
+        "bodrum-gokova",
+        "marmaris-datca",
+        "kemer-kekova",
+        "gocek-fethiye"
+      ],
+      "cards": [
+        {
+          "slot": 1,
+          "sourceLabel": "Göcek – Fethiye",
+          "entityId": "gocek-fethiye",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 24,
+          "sourceGeometry": {
+            "x": 24.0,
+            "y": 1265.0,
+            "width": 342.0,
+            "height": 198.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "home-mobile-text-16",
+              "sourceId": "home-mobile-text-16",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1478.0,
+                "width": 111.0,
+                "height": 14.0
+              },
+              "currentBinding": "home.device.route1Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "home-mobile-image-02",
+              "sourceId": "home-mobile-image-02",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1265.0,
+                "width": 342.0,
+                "height": 198.0
+              },
+              "currentBinding": "home.device.route1Image",
+              "entityField": "homeImage|image"
+            },
+            "link": {
+              "nodeId": "home-mobile-text-17",
+              "sourceId": "home-mobile-text-17",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1503.0,
+                "width": 52.0,
+                "height": 11.0
+              },
+              "currentBinding": "home.device.route1Cta",
+              "entityField": "homeUrl|path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Göcek – Fethiye",
+            "image": "assets/route-gocek-fethiye.png",
+            "link": "/rotalar/gocek-fethiye-gocek/",
+            "order": 5,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 2,
+          "sourceLabel": "Bodrum – Gökova",
+          "entityId": "bodrum-gokova",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 27,
+          "sourceGeometry": {
+            "x": 24.0,
+            "y": 1555.0,
+            "width": 342.0,
+            "height": 198.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "home-mobile-text-18",
+              "sourceId": "home-mobile-text-18",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1768.0,
+                "width": 122.0,
+                "height": 11.0
+              },
+              "currentBinding": "home.device.route2Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "home-mobile-image-03",
+              "sourceId": "home-mobile-image-03",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1555.0,
+                "width": 342.0,
+                "height": 198.0
+              },
+              "currentBinding": "home.device.route2Image",
+              "entityField": "homeImage|image"
+            },
+            "link": {
+              "nodeId": "home-mobile-text-19",
+              "sourceId": "home-mobile-text-19",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1793.0,
+                "width": 52.0,
+                "height": 11.0
+              },
+              "currentBinding": "home.device.route2Cta",
+              "entityField": "homeUrl|path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Bodrum – Gökova",
+            "image": "assets/route-bodrum-gokova.png",
+            "link": "/iletisim/?rota=bodrum-gokova",
+            "order": 1,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 3,
+          "sourceLabel": "Marmaris – Datça",
+          "entityId": "marmaris-datca",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 30,
+          "sourceGeometry": {
+            "x": 24.0,
+            "y": 1845.0,
+            "width": 342.0,
+            "height": 198.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "home-mobile-text-20",
+              "sourceId": "home-mobile-text-20",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 2058.0,
+                "width": 124.0,
+                "height": 14.0
+              },
+              "currentBinding": "home.device.route3Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "home-mobile-image-04",
+              "sourceId": "home-mobile-image-04",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1845.0,
+                "width": 342.0,
+                "height": 198.0
+              },
+              "currentBinding": "home.device.route3Image",
+              "entityField": "homeImage|image"
+            },
+            "link": {
+              "nodeId": "home-mobile-text-21",
+              "sourceId": "home-mobile-text-21",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 2083.0,
+                "width": 52.0,
+                "height": 11.0
+              },
+              "currentBinding": "home.device.route3Cta",
+              "entityField": "homeUrl|path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Marmaris – Datça",
+            "image": "assets/route-marmaris-datca.png",
+            "link": "/iletisim/?rota=marmaris-datca",
+            "order": 2,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 4,
+          "sourceLabel": "Kemer – Kekova",
+          "entityId": "kemer-kekova",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 33,
+          "sourceGeometry": {
+            "x": 24.0,
+            "y": 2135.0,
+            "width": 342.0,
+            "height": 198.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "home-mobile-text-22",
+              "sourceId": "home-mobile-text-22",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 2348.0,
+                "width": 111.0,
+                "height": 11.0
+              },
+              "currentBinding": "home.device.route4Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "home-mobile-image-05",
+              "sourceId": "home-mobile-image-05",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 2135.0,
+                "width": 342.0,
+                "height": 198.0
+              },
+              "currentBinding": "home.device.route4Image",
+              "entityField": "homeImage|image"
+            },
+            "link": {
+              "nodeId": "home-mobile-text-23",
+              "sourceId": "home-mobile-text-23",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 2373.0,
+                "width": 52.0,
+                "height": 11.0
+              },
+              "currentBinding": "home.device.route4Cta",
+              "entityField": "homeUrl|path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Kemer – Kekova",
+            "image": "assets/route-kemer-kekova.png",
+            "link": "/iletisim/?rota=kemer-kekova",
+            "order": 3,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        }
+      ],
+      "overflowTemplate": {
+        "sourceSlot": 1,
+        "strategy": "clone the full semantic card node group; preserve image/title/link spacing and append by device grid step",
+        "sourceTemplateAvailable": true
+      }
+    },
+    {
+      "pagePath": "/",
+      "pageId": null,
+      "device": "tablet",
+      "designId": "home-tablet",
+      "entityType": "route",
+      "sourceNodeCounts": {
+        "cards": 4,
+        "matchedEntities": 4
+      },
+      "sourceSlotOrder": [
+        "gocek-fethiye",
+        "bodrum-gokova",
+        "marmaris-datca",
+        "kemer-kekova"
+      ],
+      "cmsSortOrderNow": [
+        "bodrum-gokova",
+        "marmaris-datca",
+        "kemer-kekova",
+        "marmaris-fethiye",
+        "gocek-fethiye",
+        "bodrum-yunan-adalari"
+      ],
+      "sourceVsCmsOrderDiffers": true,
+      "homeSelectionField": "featuredHome",
+      "sourceHomeFeaturedIds": [
+        "bodrum-gokova",
+        "marmaris-datca",
+        "kemer-kekova",
+        "gocek-fethiye"
+      ],
+      "cards": [
+        {
+          "slot": 1,
+          "sourceLabel": "Göcek – Fethiye",
+          "entityId": "gocek-fethiye",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 24,
+          "sourceGeometry": {
+            "x": 30.0,
+            "y": 1249.0,
+            "width": 374.0,
+            "height": 216.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "home-tablet-text-16",
+              "sourceId": "home-tablet-text-16",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 1484.0,
+                "width": 138.0,
+                "height": 17.0
+              },
+              "currentBinding": "home.device.route1Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "home-tablet-image-02",
+              "sourceId": "home-tablet-image-02",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 1249.0,
+                "width": 374.0,
+                "height": 216.0
+              },
+              "currentBinding": "home.device.route1Image",
+              "entityField": "homeImage|image"
+            },
+            "link": {
+              "nodeId": "home-tablet-text-17",
+              "sourceId": "home-tablet-text-17",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 1515.5,
+                "width": 64.0,
+                "height": 14.0
+              },
+              "currentBinding": "home.device.route1Cta",
+              "entityField": "homeUrl|path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Göcek – Fethiye",
+            "image": "assets/route-gocek-fethiye.png",
+            "link": "/rotalar/gocek-fethiye-gocek/",
+            "order": 5,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 2,
+          "sourceLabel": "Bodrum – Gökova",
+          "entityId": "bodrum-gokova",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 27,
+          "sourceGeometry": {
+            "x": 429.0,
+            "y": 1249.0,
+            "width": 374.0,
+            "height": 216.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "home-tablet-text-18",
+              "sourceId": "home-tablet-text-18",
+              "sourceGeometry": {
+                "x": 429.0,
+                "y": 1484.0,
+                "width": 152.0,
+                "height": 13.0
+              },
+              "currentBinding": "home.device.route2Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "home-tablet-image-03",
+              "sourceId": "home-tablet-image-03",
+              "sourceGeometry": {
+                "x": 429.0,
+                "y": 1249.0,
+                "width": 374.0,
+                "height": 216.0
+              },
+              "currentBinding": "home.device.route2Image",
+              "entityField": "homeImage|image"
+            },
+            "link": {
+              "nodeId": "home-tablet-text-19",
+              "sourceId": "home-tablet-text-19",
+              "sourceGeometry": {
+                "x": 429.0,
+                "y": 1515.5,
+                "width": 64.0,
+                "height": 14.0
+              },
+              "currentBinding": "home.device.route2Cta",
+              "entityField": "homeUrl|path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Bodrum – Gökova",
+            "image": "assets/route-bodrum-gokova.png",
+            "link": "/iletisim/?rota=bodrum-gokova",
+            "order": 1,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 3,
+          "sourceLabel": "Marmaris – Datça",
+          "entityId": "marmaris-datca",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 30,
+          "sourceGeometry": {
+            "x": 30.0,
+            "y": 1578.0,
+            "width": 374.0,
+            "height": 216.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "home-tablet-text-20",
+              "sourceId": "home-tablet-text-20",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 1813.0,
+                "width": 153.0,
+                "height": 16.0
+              },
+              "currentBinding": "home.device.route3Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "home-tablet-image-04",
+              "sourceId": "home-tablet-image-04",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 1578.0,
+                "width": 374.0,
+                "height": 216.0
+              },
+              "currentBinding": "home.device.route3Image",
+              "entityField": "homeImage|image"
+            },
+            "link": {
+              "nodeId": "home-tablet-text-21",
+              "sourceId": "home-tablet-text-21",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 1844.5,
+                "width": 64.0,
+                "height": 14.0
+              },
+              "currentBinding": "home.device.route3Cta",
+              "entityField": "homeUrl|path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Marmaris – Datça",
+            "image": "assets/route-marmaris-datca.png",
+            "link": "/iletisim/?rota=marmaris-datca",
+            "order": 2,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 4,
+          "sourceLabel": "Kemer – Kekova",
+          "entityId": "kemer-kekova",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 33,
+          "sourceGeometry": {
+            "x": 429.0,
+            "y": 1578.0,
+            "width": 374.0,
+            "height": 216.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "home-tablet-text-22",
+              "sourceId": "home-tablet-text-22",
+              "sourceGeometry": {
+                "x": 429.0,
+                "y": 1813.0,
+                "width": 139.0,
+                "height": 13.0
+              },
+              "currentBinding": "home.device.route4Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "home-tablet-image-05",
+              "sourceId": "home-tablet-image-05",
+              "sourceGeometry": {
+                "x": 429.0,
+                "y": 1578.0,
+                "width": 374.0,
+                "height": 216.0
+              },
+              "currentBinding": "home.device.route4Image",
+              "entityField": "homeImage|image"
+            },
+            "link": {
+              "nodeId": "home-tablet-text-23",
+              "sourceId": "home-tablet-text-23",
+              "sourceGeometry": {
+                "x": 429.0,
+                "y": 1844.5,
+                "width": 64.0,
+                "height": 14.0
+              },
+              "currentBinding": "home.device.route4Cta",
+              "entityField": "homeUrl|path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Kemer – Kekova",
+            "image": "assets/route-kemer-kekova.png",
+            "link": "/iletisim/?rota=kemer-kekova",
+            "order": 3,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        }
+      ],
+      "overflowTemplate": {
+        "sourceSlot": 1,
+        "strategy": "clone the full semantic card node group; preserve image/title/link spacing and append by device grid step",
+        "sourceTemplateAvailable": true
+      }
+    },
+    {
+      "pagePath": "/",
+      "pageId": null,
+      "device": "tv",
+      "designId": "home-tv",
+      "entityType": "route",
+      "sourceNodeCounts": {
+        "cards": 4,
+        "matchedEntities": 4
+      },
+      "sourceSlotOrder": [
+        "gocek-fethiye",
+        "bodrum-gokova",
+        "marmaris-datca",
+        "kemer-kekova"
+      ],
+      "cmsSortOrderNow": [
+        "bodrum-gokova",
+        "marmaris-datca",
+        "kemer-kekova",
+        "marmaris-fethiye",
+        "gocek-fethiye",
+        "bodrum-yunan-adalari"
+      ],
+      "sourceVsCmsOrderDiffers": true,
+      "homeSelectionField": "featuredHome",
+      "sourceHomeFeaturedIds": [
+        "bodrum-gokova",
+        "marmaris-datca",
+        "kemer-kekova",
+        "gocek-fethiye"
+      ],
+      "cards": [
+        {
+          "slot": 1,
+          "sourceLabel": "Göcek – Fethiye",
+          "entityId": "gocek-fethiye",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 23,
+          "sourceGeometry": {
+            "x": 120.0,
+            "y": 2006.0,
+            "width": 533.0,
+            "height": 309.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "home-tv-text-15",
+              "sourceId": "home-tv-text-15",
+              "sourceGeometry": {
+                "x": 120.0,
+                "y": 2346.0,
+                "width": 228.0,
+                "height": 27.0
+              },
+              "currentBinding": "home.device.route1Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "home-tv-image-02",
+              "sourceId": "home-tv-image-02",
+              "sourceGeometry": {
+                "x": 120.0,
+                "y": 2006.0,
+                "width": 533.0,
+                "height": 309.0
+              },
+              "currentBinding": "home.device.route1Image",
+              "entityField": "homeImage|image"
+            },
+            "link": {
+              "nodeId": "home-tv-text-16",
+              "sourceId": "home-tv-text-16",
+              "sourceGeometry": {
+                "x": 120.0,
+                "y": 2397.0,
+                "width": 115.0,
+                "height": 24.0
+              },
+              "currentBinding": "home.device.route1Cta",
+              "entityField": "homeUrl|path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Göcek – Fethiye",
+            "image": "assets/route-gocek-fethiye.png",
+            "link": "/rotalar/gocek-fethiye-gocek/",
+            "order": 5,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 2,
+          "sourceLabel": "Bodrum – Gökova",
+          "entityId": "bodrum-gokova",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 26,
+          "sourceGeometry": {
+            "x": 693.0,
+            "y": 2006.0,
+            "width": 533.0,
+            "height": 309.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "home-tv-text-17",
+              "sourceId": "home-tv-text-17",
+              "sourceGeometry": {
+                "x": 693.0,
+                "y": 2346.0,
+                "width": 252.0,
+                "height": 21.0
+              },
+              "currentBinding": "home.device.route2Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "home-tv-image-03",
+              "sourceId": "home-tv-image-03",
+              "sourceGeometry": {
+                "x": 693.0,
+                "y": 2006.0,
+                "width": 533.0,
+                "height": 309.0
+              },
+              "currentBinding": "home.device.route2Image",
+              "entityField": "homeImage|image"
+            },
+            "link": {
+              "nodeId": "home-tv-text-18",
+              "sourceId": "home-tv-text-18",
+              "sourceGeometry": {
+                "x": 693.0,
+                "y": 2397.0,
+                "width": 115.0,
+                "height": 24.0
+              },
+              "currentBinding": "home.device.route2Cta",
+              "entityField": "homeUrl|path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Bodrum – Gökova",
+            "image": "assets/route-bodrum-gokova.png",
+            "link": "/iletisim/?rota=bodrum-gokova",
+            "order": 1,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 3,
+          "sourceLabel": "Marmaris – Datça",
+          "entityId": "marmaris-datca",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 29,
+          "sourceGeometry": {
+            "x": 1266.0,
+            "y": 2006.0,
+            "width": 533.0,
+            "height": 309.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "home-tv-text-19",
+              "sourceId": "home-tv-text-19",
+              "sourceGeometry": {
+                "x": 1266.0,
+                "y": 2347.0,
+                "width": 254.0,
+                "height": 25.0
+              },
+              "currentBinding": "home.device.route3Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "home-tv-image-04",
+              "sourceId": "home-tv-image-04",
+              "sourceGeometry": {
+                "x": 1266.0,
+                "y": 2006.0,
+                "width": 533.0,
+                "height": 309.0
+              },
+              "currentBinding": "home.device.route3Image",
+              "entityField": "homeImage|image"
+            },
+            "link": {
+              "nodeId": "home-tv-text-20",
+              "sourceId": "home-tv-text-20",
+              "sourceGeometry": {
+                "x": 1266.0,
+                "y": 2397.0,
+                "width": 115.0,
+                "height": 24.0
+              },
+              "currentBinding": "home.device.route3Cta",
+              "entityField": "homeUrl|path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Marmaris – Datça",
+            "image": "assets/route-marmaris-datca.png",
+            "link": "/iletisim/?rota=marmaris-datca",
+            "order": 2,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 4,
+          "sourceLabel": "Kemer – Kekova",
+          "entityId": "kemer-kekova",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 32,
+          "sourceGeometry": {
+            "x": 120.0,
+            "y": 2491.0,
+            "width": 533.0,
+            "height": 309.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "home-tv-text-21",
+              "sourceId": "home-tv-text-21",
+              "sourceGeometry": {
+                "x": 120.0,
+                "y": 2831.0,
+                "width": 232.0,
+                "height": 21.0
+              },
+              "currentBinding": "home.device.route4Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "home-tv-image-05",
+              "sourceId": "home-tv-image-05",
+              "sourceGeometry": {
+                "x": 120.0,
+                "y": 2491.0,
+                "width": 533.0,
+                "height": 309.0
+              },
+              "currentBinding": "home.device.route4Image",
+              "entityField": "homeImage|image"
+            },
+            "link": {
+              "nodeId": "home-tv-text-22",
+              "sourceId": "home-tv-text-22",
+              "sourceGeometry": {
+                "x": 120.0,
+                "y": 2882.0,
+                "width": 115.0,
+                "height": 24.0
+              },
+              "currentBinding": "home.device.route4Cta",
+              "entityField": "homeUrl|path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Kemer – Kekova",
+            "image": "assets/route-kemer-kekova.png",
+            "link": "/iletisim/?rota=kemer-kekova",
+            "order": 3,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        }
+      ],
+      "overflowTemplate": {
+        "sourceSlot": 1,
+        "strategy": "clone the full semantic card node group; preserve image/title/link spacing and append by device grid step",
+        "sourceTemplateAvailable": true
+      }
+    },
+    {
+      "pagePath": "/",
+      "pageId": null,
+      "device": "mobile",
+      "designId": "home-mobile",
+      "entityType": "gulet",
+      "sourceNodeCounts": {
+        "cards": 5,
+        "matchedEntities": 5
+      },
+      "sourceSlotOrder": [
+        "eylul",
+        "ata",
+        "miss-2",
+        "zel",
+        "getaway"
+      ],
+      "cmsSortOrderNow": [
+        "eylul",
+        "ata",
+        "miss-2",
+        "zel",
+        "getaway"
+      ],
+      "sourceVsCmsOrderDiffers": false,
+      "homeSelectionField": "featuredHome",
+      "sourceHomeFeaturedIds": [
+        "eylul",
+        "ata",
+        "miss-2",
+        "zel",
+        "getaway"
+      ],
+      "cards": [
+        {
+          "slot": 1,
+          "sourceLabel": "Eylül",
+          "entityId": "eylul",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 38,
+          "sourceGeometry": {
+            "x": 24.0,
+            "y": 2574.0,
+            "width": 342.0,
+            "height": 198.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "home-mobile-text-26",
+              "sourceId": "home-mobile-text-26",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 2787.0,
+                "width": 36.0,
+                "height": 14.0
+              },
+              "currentBinding": "home.device.gulet1Title",
+              "entityField": "name"
+            },
+            "image": {
+              "nodeId": "home-mobile-image-06",
+              "sourceId": "home-mobile-image-06",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 2574.0,
+                "width": 342.0,
+                "height": 198.0
+              },
+              "currentBinding": "home.device.gulet1Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "home-mobile-text-27",
+              "sourceId": "home-mobile-text-27",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 2812.0,
+                "width": 52.0,
+                "height": 11.0
+              },
+              "currentBinding": "home.device.gulet1Cta",
+              "entityField": "homeUrl|path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Eylül",
+            "image": "assets/fleet-eylul.png",
+            "link": "/filo/eylul/",
+            "order": 1,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 2,
+          "sourceLabel": "Ata",
+          "entityId": "ata",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 41,
+          "sourceGeometry": {
+            "x": 24.0,
+            "y": 2864.0,
+            "width": 342.0,
+            "height": 198.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "home-mobile-text-28",
+              "sourceId": "home-mobile-text-28",
+              "sourceGeometry": {
+                "x": 23.0,
+                "y": 3078.0,
+                "width": 25.0,
+                "height": 10.0
+              },
+              "currentBinding": "home.device.gulet2Title",
+              "entityField": "name"
+            },
+            "image": {
+              "nodeId": "home-mobile-image-07",
+              "sourceId": "home-mobile-image-07",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 2864.0,
+                "width": 342.0,
+                "height": 198.0
+              },
+              "currentBinding": "home.device.gulet2Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "home-mobile-text-29",
+              "sourceId": "home-mobile-text-29",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 3102.0,
+                "width": 52.0,
+                "height": 11.0
+              },
+              "currentBinding": "home.device.gulet2Cta",
+              "entityField": "homeUrl|path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Ata",
+            "image": "assets/fleet-ata.png",
+            "link": "/iletisim/?gulet=ata",
+            "order": 2,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 3,
+          "sourceLabel": "Miss 2",
+          "entityId": "miss-2",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 44,
+          "sourceGeometry": {
+            "x": 24.0,
+            "y": 3154.0,
+            "width": 342.0,
+            "height": 198.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "home-mobile-text-30",
+              "sourceId": "home-mobile-text-30",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 3367.0,
+                "width": 45.0,
+                "height": 11.0
+              },
+              "currentBinding": "home.device.gulet3Title",
+              "entityField": "name"
+            },
+            "image": {
+              "nodeId": "home-mobile-image-08",
+              "sourceId": "home-mobile-image-08",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 3154.0,
+                "width": 342.0,
+                "height": 198.0
+              },
+              "currentBinding": "home.device.gulet3Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "home-mobile-text-31",
+              "sourceId": "home-mobile-text-31",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 3392.0,
+                "width": 52.0,
+                "height": 11.0
+              },
+              "currentBinding": "home.device.gulet3Cta",
+              "entityField": "homeUrl|path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Miss 2",
+            "image": "assets/fleet-miss2.png",
+            "link": "/iletisim/?gulet=miss-2",
+            "order": 3,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 4,
+          "sourceLabel": "Zel",
+          "entityId": "zel",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 47,
+          "sourceGeometry": {
+            "x": 24.0,
+            "y": 3444.0,
+            "width": 342.0,
+            "height": 198.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "home-mobile-text-32",
+              "sourceId": "home-mobile-text-32",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 3657.0,
+                "width": 23.0,
+                "height": 11.0
+              },
+              "currentBinding": "home.device.gulet4Title",
+              "entityField": "name"
+            },
+            "image": {
+              "nodeId": "home-mobile-image-09",
+              "sourceId": "home-mobile-image-09",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 3444.0,
+                "width": 342.0,
+                "height": 198.0
+              },
+              "currentBinding": "home.device.gulet4Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "home-mobile-text-33",
+              "sourceId": "home-mobile-text-33",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 3682.0,
+                "width": 52.0,
+                "height": 11.0
+              },
+              "currentBinding": "home.device.gulet4Cta",
+              "entityField": "homeUrl|path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Zel",
+            "image": "assets/fleet-zel.png",
+            "link": "/iletisim/?gulet=zel",
+            "order": 4,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 5,
+          "sourceLabel": "Getaway",
+          "entityId": "getaway",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 50,
+          "sourceGeometry": {
+            "x": 24.0,
+            "y": 3734.0,
+            "width": 342.0,
+            "height": 198.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "home-mobile-text-34",
+              "sourceId": "home-mobile-text-34",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 3948.0,
+                "width": 61.0,
+                "height": 13.0
+              },
+              "currentBinding": "home.device.gulet5Title",
+              "entityField": "name"
+            },
+            "image": {
+              "nodeId": "home-mobile-image-10",
+              "sourceId": "home-mobile-image-10",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 3734.0,
+                "width": 342.0,
+                "height": 198.0
+              },
+              "currentBinding": "home.device.gulet5Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "home-mobile-text-35",
+              "sourceId": "home-mobile-text-35",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 3972.0,
+                "width": 52.0,
+                "height": 11.0
+              },
+              "currentBinding": "home.device.gulet5Cta",
+              "entityField": "homeUrl|path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Getaway",
+            "image": "assets/fleet-getaway.png",
+            "link": "/iletisim/?gulet=getaway",
+            "order": 5,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        }
+      ],
+      "overflowTemplate": {
+        "sourceSlot": 1,
+        "strategy": "clone the full semantic card node group; preserve image/title/link spacing and append by device grid step",
+        "sourceTemplateAvailable": true
+      }
+    },
+    {
+      "pagePath": "/",
+      "pageId": null,
+      "device": "tablet",
+      "designId": "home-tablet",
+      "entityType": "gulet",
+      "sourceNodeCounts": {
+        "cards": 5,
+        "matchedEntities": 5
+      },
+      "sourceSlotOrder": [
+        "eylul",
+        "ata",
+        "miss-2",
+        "zel",
+        "getaway"
+      ],
+      "cmsSortOrderNow": [
+        "eylul",
+        "ata",
+        "miss-2",
+        "zel",
+        "getaway"
+      ],
+      "sourceVsCmsOrderDiffers": false,
+      "homeSelectionField": "featuredHome",
+      "sourceHomeFeaturedIds": [
+        "eylul",
+        "ata",
+        "miss-2",
+        "zel",
+        "getaway"
+      ],
+      "cards": [
+        {
+          "slot": 1,
+          "sourceLabel": "Eylül",
+          "entityId": "eylul",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 38,
+          "sourceGeometry": {
+            "x": 30.0,
+            "y": 2092.0,
+            "width": 374.0,
+            "height": 216.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "home-tablet-text-26",
+              "sourceId": "home-tablet-text-26",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 2327.0,
+                "width": 43.0,
+                "height": 17.0
+              },
+              "currentBinding": "home.device.gulet1Title",
+              "entityField": "name"
+            },
+            "image": {
+              "nodeId": "home-tablet-image-06",
+              "sourceId": "home-tablet-image-06",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 2092.0,
+                "width": 374.0,
+                "height": 216.0
+              },
+              "currentBinding": "home.device.gulet1Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "home-tablet-text-27",
+              "sourceId": "home-tablet-text-27",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 2358.5,
+                "width": 64.0,
+                "height": 14.0
+              },
+              "currentBinding": "home.device.gulet1Cta",
+              "entityField": "homeUrl|path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Eylül",
+            "image": "assets/fleet-eylul.png",
+            "link": "/filo/eylul/",
+            "order": 1,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 2,
+          "sourceLabel": "Ata",
+          "entityId": "ata",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 41,
+          "sourceGeometry": {
+            "x": 429.0,
+            "y": 2092.0,
+            "width": 374.0,
+            "height": 216.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "home-tablet-text-28",
+              "sourceId": "home-tablet-text-28",
+              "sourceGeometry": {
+                "x": 428.0,
+                "y": 2328.0,
+                "width": 30.0,
+                "height": 12.0
+              },
+              "currentBinding": "home.device.gulet2Title",
+              "entityField": "name"
+            },
+            "image": {
+              "nodeId": "home-tablet-image-07",
+              "sourceId": "home-tablet-image-07",
+              "sourceGeometry": {
+                "x": 429.0,
+                "y": 2092.0,
+                "width": 374.0,
+                "height": 216.0
+              },
+              "currentBinding": "home.device.gulet2Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "home-tablet-text-29",
+              "sourceId": "home-tablet-text-29",
+              "sourceGeometry": {
+                "x": 429.0,
+                "y": 2358.5,
+                "width": 64.0,
+                "height": 14.0
+              },
+              "currentBinding": "home.device.gulet2Cta",
+              "entityField": "homeUrl|path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Ata",
+            "image": "assets/fleet-ata.png",
+            "link": "/iletisim/?gulet=ata",
+            "order": 2,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 3,
+          "sourceLabel": "Miss 2",
+          "entityId": "miss-2",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 44,
+          "sourceGeometry": {
+            "x": 30.0,
+            "y": 2421.0,
+            "width": 374.0,
+            "height": 216.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "home-tablet-text-30",
+              "sourceId": "home-tablet-text-30",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 2656.0,
+                "width": 56.0,
+                "height": 13.0
+              },
+              "currentBinding": "home.device.gulet3Title",
+              "entityField": "name"
+            },
+            "image": {
+              "nodeId": "home-tablet-image-08",
+              "sourceId": "home-tablet-image-08",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 2421.0,
+                "width": 374.0,
+                "height": 216.0
+              },
+              "currentBinding": "home.device.gulet3Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "home-tablet-text-31",
+              "sourceId": "home-tablet-text-31",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 2687.5,
+                "width": 64.0,
+                "height": 14.0
+              },
+              "currentBinding": "home.device.gulet3Cta",
+              "entityField": "homeUrl|path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Miss 2",
+            "image": "assets/fleet-miss2.png",
+            "link": "/iletisim/?gulet=miss-2",
+            "order": 3,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 4,
+          "sourceLabel": "Zel",
+          "entityId": "zel",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 47,
+          "sourceGeometry": {
+            "x": 429.0,
+            "y": 2421.0,
+            "width": 374.0,
+            "height": 216.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "home-tablet-text-32",
+              "sourceId": "home-tablet-text-32",
+              "sourceGeometry": {
+                "x": 429.0,
+                "y": 2656.0,
+                "width": 27.0,
+                "height": 13.0
+              },
+              "currentBinding": "home.device.gulet4Title",
+              "entityField": "name"
+            },
+            "image": {
+              "nodeId": "home-tablet-image-09",
+              "sourceId": "home-tablet-image-09",
+              "sourceGeometry": {
+                "x": 429.0,
+                "y": 2421.0,
+                "width": 374.0,
+                "height": 216.0
+              },
+              "currentBinding": "home.device.gulet4Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "home-tablet-text-33",
+              "sourceId": "home-tablet-text-33",
+              "sourceGeometry": {
+                "x": 429.0,
+                "y": 2687.5,
+                "width": 64.0,
+                "height": 14.0
+              },
+              "currentBinding": "home.device.gulet4Cta",
+              "entityField": "homeUrl|path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Zel",
+            "image": "assets/fleet-zel.png",
+            "link": "/iletisim/?gulet=zel",
+            "order": 4,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 5,
+          "sourceLabel": "Getaway",
+          "entityId": "getaway",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 50,
+          "sourceGeometry": {
+            "x": 30.0,
+            "y": 2750.0,
+            "width": 374.0,
+            "height": 216.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "home-tablet-text-34",
+              "sourceId": "home-tablet-text-34",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 2986.0,
+                "width": 76.0,
+                "height": 16.0
+              },
+              "currentBinding": "home.device.gulet5Title",
+              "entityField": "name"
+            },
+            "image": {
+              "nodeId": "home-tablet-image-10",
+              "sourceId": "home-tablet-image-10",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 2750.0,
+                "width": 374.0,
+                "height": 216.0
+              },
+              "currentBinding": "home.device.gulet5Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "home-tablet-text-35",
+              "sourceId": "home-tablet-text-35",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 3016.5,
+                "width": 64.0,
+                "height": 14.0
+              },
+              "currentBinding": "home.device.gulet5Cta",
+              "entityField": "homeUrl|path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Getaway",
+            "image": "assets/fleet-getaway.png",
+            "link": "/iletisim/?gulet=getaway",
+            "order": 5,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        }
+      ],
+      "overflowTemplate": {
+        "sourceSlot": 1,
+        "strategy": "clone the full semantic card node group; preserve image/title/link spacing and append by device grid step",
+        "sourceTemplateAvailable": true
+      }
+    },
+    {
+      "pagePath": "/",
+      "pageId": null,
+      "device": "tv",
+      "designId": "home-tv",
+      "entityType": "gulet",
+      "sourceNodeCounts": {
+        "cards": 5,
+        "matchedEntities": 5
+      },
+      "sourceSlotOrder": [
+        "eylul",
+        "ata",
+        "miss-2",
+        "zel",
+        "getaway"
+      ],
+      "cmsSortOrderNow": [
+        "eylul",
+        "ata",
+        "miss-2",
+        "zel",
+        "getaway"
+      ],
+      "sourceVsCmsOrderDiffers": false,
+      "homeSelectionField": "featuredHome",
+      "sourceHomeFeaturedIds": [
+        "eylul",
+        "ata",
+        "miss-2",
+        "zel",
+        "getaway"
+      ],
+      "cards": [
+        {
+          "slot": 1,
+          "sourceLabel": "Eylül",
+          "entityId": "eylul",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 37,
+          "sourceGeometry": {
+            "x": 120.0,
+            "y": 3274.0,
+            "width": 533.0,
+            "height": 309.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "home-tv-text-25",
+              "sourceId": "home-tv-text-25",
+              "sourceGeometry": {
+                "x": 120.0,
+                "y": 3614.0,
+                "width": 72.0,
+                "height": 27.0
+              },
+              "currentBinding": "home.device.gulet1Title",
+              "entityField": "name"
+            },
+            "image": {
+              "nodeId": "home-tv-image-06",
+              "sourceId": "home-tv-image-06",
+              "sourceGeometry": {
+                "x": 120.0,
+                "y": 3274.0,
+                "width": 533.0,
+                "height": 309.0
+              },
+              "currentBinding": "home.device.gulet1Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "home-tv-text-26",
+              "sourceId": "home-tv-text-26",
+              "sourceGeometry": {
+                "x": 120.0,
+                "y": 3665.0,
+                "width": 115.0,
+                "height": 24.0
+              },
+              "currentBinding": "home.device.gulet1Cta",
+              "entityField": "homeUrl|path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Eylül",
+            "image": "assets/fleet-eylul.png",
+            "link": "/filo/eylul/",
+            "order": 1,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 2,
+          "sourceLabel": "Ata",
+          "entityId": "ata",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 40,
+          "sourceGeometry": {
+            "x": 693.0,
+            "y": 3274.0,
+            "width": 533.0,
+            "height": 309.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "home-tv-text-27",
+              "sourceId": "home-tv-text-27",
+              "sourceGeometry": {
+                "x": 692.0,
+                "y": 3615.0,
+                "width": 49.0,
+                "height": 20.0
+              },
+              "currentBinding": "home.device.gulet2Title",
+              "entityField": "name"
+            },
+            "image": {
+              "nodeId": "home-tv-image-07",
+              "sourceId": "home-tv-image-07",
+              "sourceGeometry": {
+                "x": 693.0,
+                "y": 3274.0,
+                "width": 533.0,
+                "height": 309.0
+              },
+              "currentBinding": "home.device.gulet2Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "home-tv-text-28",
+              "sourceId": "home-tv-text-28",
+              "sourceGeometry": {
+                "x": 693.0,
+                "y": 3665.0,
+                "width": 115.0,
+                "height": 24.0
+              },
+              "currentBinding": "home.device.gulet2Cta",
+              "entityField": "homeUrl|path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Ata",
+            "image": "assets/fleet-ata.png",
+            "link": "/iletisim/?gulet=ata",
+            "order": 2,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 3,
+          "sourceLabel": "Miss 2",
+          "entityId": "miss-2",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 43,
+          "sourceGeometry": {
+            "x": 1266.0,
+            "y": 3274.0,
+            "width": 533.0,
+            "height": 309.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "home-tv-text-29",
+              "sourceId": "home-tv-text-29",
+              "sourceGeometry": {
+                "x": 1266.0,
+                "y": 3615.0,
+                "width": 93.0,
+                "height": 20.0
+              },
+              "currentBinding": "home.device.gulet3Title",
+              "entityField": "name"
+            },
+            "image": {
+              "nodeId": "home-tv-image-08",
+              "sourceId": "home-tv-image-08",
+              "sourceGeometry": {
+                "x": 1266.0,
+                "y": 3274.0,
+                "width": 533.0,
+                "height": 309.0
+              },
+              "currentBinding": "home.device.gulet3Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "home-tv-text-30",
+              "sourceId": "home-tv-text-30",
+              "sourceGeometry": {
+                "x": 1266.0,
+                "y": 3665.0,
+                "width": 115.0,
+                "height": 24.0
+              },
+              "currentBinding": "home.device.gulet3Cta",
+              "entityField": "homeUrl|path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Miss 2",
+            "image": "assets/fleet-miss2.png",
+            "link": "/iletisim/?gulet=miss-2",
+            "order": 3,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 4,
+          "sourceLabel": "Zel",
+          "entityId": "zel",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 46,
+          "sourceGeometry": {
+            "x": 120.0,
+            "y": 3759.0,
+            "width": 533.0,
+            "height": 309.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "home-tv-text-31",
+              "sourceId": "home-tv-text-31",
+              "sourceGeometry": {
+                "x": 120.0,
+                "y": 4099.0,
+                "width": 45.0,
+                "height": 21.0
+              },
+              "currentBinding": "home.device.gulet4Title",
+              "entityField": "name"
+            },
+            "image": {
+              "nodeId": "home-tv-image-09",
+              "sourceId": "home-tv-image-09",
+              "sourceGeometry": {
+                "x": 120.0,
+                "y": 3759.0,
+                "width": 533.0,
+                "height": 309.0
+              },
+              "currentBinding": "home.device.gulet4Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "home-tv-text-32",
+              "sourceId": "home-tv-text-32",
+              "sourceGeometry": {
+                "x": 120.0,
+                "y": 4150.0,
+                "width": 115.0,
+                "height": 24.0
+              },
+              "currentBinding": "home.device.gulet4Cta",
+              "entityField": "homeUrl|path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Zel",
+            "image": "assets/fleet-zel.png",
+            "link": "/iletisim/?gulet=zel",
+            "order": 4,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 5,
+          "sourceLabel": "Getaway",
+          "entityId": "getaway",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 49,
+          "sourceGeometry": {
+            "x": 693.0,
+            "y": 3759.0,
+            "width": 533.0,
+            "height": 309.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "home-tv-text-33",
+              "sourceId": "home-tv-text-33",
+              "sourceGeometry": {
+                "x": 693.0,
+                "y": 4100.0,
+                "width": 124.0,
+                "height": 26.0
+              },
+              "currentBinding": "home.device.gulet5Title",
+              "entityField": "name"
+            },
+            "image": {
+              "nodeId": "home-tv-image-10",
+              "sourceId": "home-tv-image-10",
+              "sourceGeometry": {
+                "x": 693.0,
+                "y": 3759.0,
+                "width": 533.0,
+                "height": 309.0
+              },
+              "currentBinding": "home.device.gulet5Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "home-tv-text-34",
+              "sourceId": "home-tv-text-34",
+              "sourceGeometry": {
+                "x": 693.0,
+                "y": 4150.0,
+                "width": 115.0,
+                "height": 24.0
+              },
+              "currentBinding": "home.device.gulet5Cta",
+              "entityField": "homeUrl|path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Getaway",
+            "image": "assets/fleet-getaway.png",
+            "link": "/iletisim/?gulet=getaway",
+            "order": 5,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        }
+      ],
+      "overflowTemplate": {
+        "sourceSlot": 1,
+        "strategy": "clone the full semantic card node group; preserve image/title/link spacing and append by device grid step",
+        "sourceTemplateAvailable": true
+      }
+    },
+    {
+      "pagePath": "/rotalar/",
+      "pageId": null,
+      "device": "mobile",
+      "designId": "rotalar-mobile",
+      "entityType": "route",
+      "sourceNodeCounts": {
+        "cards": 6,
+        "matchedEntities": 6
+      },
+      "sourceSlotOrder": [
+        "gocek-fethiye",
+        "bodrum-gokova",
+        "kemer-kekova",
+        "marmaris-datca",
+        "marmaris-fethiye",
+        "bodrum-yunan-adalari"
+      ],
+      "cmsSortOrderNow": [
+        "bodrum-gokova",
+        "marmaris-datca",
+        "kemer-kekova",
+        "marmaris-fethiye",
+        "gocek-fethiye",
+        "bodrum-yunan-adalari"
+      ],
+      "sourceVsCmsOrderDiffers": true,
+      "homeSelectionField": null,
+      "sourceHomeFeaturedIds": null,
+      "cards": [
+        {
+          "slot": 1,
+          "sourceLabel": "Göcek – Fethiye",
+          "entityId": "gocek-fethiye",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 18,
+          "sourceGeometry": {
+            "x": 24.0,
+            "y": 808.0,
+            "width": 342.0,
+            "height": 198.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "rotalar-mobile-text-11",
+              "sourceId": "rotalar-mobile-text-11",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1021.0,
+                "width": 111.0,
+                "height": 14.0
+              },
+              "currentBinding": "rotalar.device.route1Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "rotalar-mobile-image-01",
+              "sourceId": "rotalar-mobile-image-01",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 808.0,
+                "width": 342.0,
+                "height": 198.0
+              },
+              "currentBinding": "rotalar.device.route1Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "rotalar-mobile-text-12",
+              "sourceId": "rotalar-mobile-text-12",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1046.0,
+                "width": 52.0,
+                "height": 11.0
+              },
+              "currentBinding": "rotalar.device.route1Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Göcek – Fethiye",
+            "image": "assets/route-catalog-5.jpg",
+            "link": "/rotalar/gocek-fethiye-gocek/",
+            "order": 5,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 2,
+          "sourceLabel": "Bodrum – Gökova",
+          "entityId": "bodrum-gokova",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 21,
+          "sourceGeometry": {
+            "x": 24.0,
+            "y": 1098.0,
+            "width": 342.0,
+            "height": 198.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "rotalar-mobile-text-13",
+              "sourceId": "rotalar-mobile-text-13",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1311.0,
+                "width": 122.0,
+                "height": 11.0
+              },
+              "currentBinding": "rotalar.device.route2Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "rotalar-mobile-image-02",
+              "sourceId": "rotalar-mobile-image-02",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1098.0,
+                "width": 342.0,
+                "height": 198.0
+              },
+              "currentBinding": "rotalar.device.route2Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "rotalar-mobile-text-14",
+              "sourceId": "rotalar-mobile-text-14",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1336.0,
+                "width": 52.0,
+                "height": 11.0
+              },
+              "currentBinding": "rotalar.device.route2Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Bodrum – Gökova",
+            "image": "assets/route-catalog-1.jpg",
+            "link": "/rotalar/",
+            "order": 1,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 3,
+          "sourceLabel": "Kemer – Kekova",
+          "entityId": "kemer-kekova",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 24,
+          "sourceGeometry": {
+            "x": 24.0,
+            "y": 1388.0,
+            "width": 342.0,
+            "height": 198.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "rotalar-mobile-text-15",
+              "sourceId": "rotalar-mobile-text-15",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1601.0,
+                "width": 111.0,
+                "height": 11.0
+              },
+              "currentBinding": "rotalar.device.route3Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "rotalar-mobile-image-03",
+              "sourceId": "rotalar-mobile-image-03",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1388.0,
+                "width": 342.0,
+                "height": 198.0
+              },
+              "currentBinding": "rotalar.device.route3Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "rotalar-mobile-text-16",
+              "sourceId": "rotalar-mobile-text-16",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1626.0,
+                "width": 52.0,
+                "height": 11.0
+              },
+              "currentBinding": "rotalar.device.route3Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Kemer – Kekova",
+            "image": "assets/route-catalog-3.jpg",
+            "link": "/rotalar/",
+            "order": 3,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 4,
+          "sourceLabel": "Marmaris – Datça",
+          "entityId": "marmaris-datca",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 27,
+          "sourceGeometry": {
+            "x": 24.0,
+            "y": 1678.0,
+            "width": 342.0,
+            "height": 198.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "rotalar-mobile-text-17",
+              "sourceId": "rotalar-mobile-text-17",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1891.0,
+                "width": 124.0,
+                "height": 14.0
+              },
+              "currentBinding": "rotalar.device.route4Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "rotalar-mobile-image-04",
+              "sourceId": "rotalar-mobile-image-04",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1678.0,
+                "width": 342.0,
+                "height": 198.0
+              },
+              "currentBinding": "rotalar.device.route4Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "rotalar-mobile-text-18",
+              "sourceId": "rotalar-mobile-text-18",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1916.0,
+                "width": 52.0,
+                "height": 11.0
+              },
+              "currentBinding": "rotalar.device.route4Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Marmaris – Datça",
+            "image": "assets/route-catalog-2.jpg",
+            "link": "/rotalar/",
+            "order": 2,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 5,
+          "sourceLabel": "Marmaris – Fethiye",
+          "entityId": "marmaris-fethiye",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 30,
+          "sourceGeometry": {
+            "x": 24.0,
+            "y": 1968.0,
+            "width": 342.0,
+            "height": 198.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "rotalar-mobile-text-19",
+              "sourceId": "rotalar-mobile-text-19",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 2181.0,
+                "width": 136.0,
+                "height": 14.0
+              },
+              "currentBinding": "rotalar.device.route5Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "rotalar-mobile-image-05",
+              "sourceId": "rotalar-mobile-image-05",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1968.0,
+                "width": 342.0,
+                "height": 198.0
+              },
+              "currentBinding": "rotalar.device.route5Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "rotalar-mobile-text-20",
+              "sourceId": "rotalar-mobile-text-20",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 2206.0,
+                "width": 52.0,
+                "height": 11.0
+              },
+              "currentBinding": "rotalar.device.route5Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Marmaris – Fethiye",
+            "image": "assets/route-catalog-4.jpg",
+            "link": "/rotalar/",
+            "order": 4,
+            "featuredHome": false,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 6,
+          "sourceLabel": "Bodrum – Yunan Adaları",
+          "entityId": "bodrum-yunan-adalari",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 33,
+          "sourceGeometry": {
+            "x": 24.0,
+            "y": 2258.0,
+            "width": 342.0,
+            "height": 198.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "rotalar-mobile-text-21",
+              "sourceId": "rotalar-mobile-text-21",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 2471.0,
+                "width": 170.0,
+                "height": 11.0
+              },
+              "currentBinding": "rotalar.device.route6Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "rotalar-mobile-image-06",
+              "sourceId": "rotalar-mobile-image-06",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 2258.0,
+                "width": 342.0,
+                "height": 198.0
+              },
+              "currentBinding": "rotalar.device.route6Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "rotalar-mobile-text-22",
+              "sourceId": "rotalar-mobile-text-22",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 2496.0,
+                "width": 52.0,
+                "height": 11.0
+              },
+              "currentBinding": "rotalar.device.route6Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Bodrum – Yunan Adaları",
+            "image": "assets/route-catalog-6.jpg",
+            "link": "/rotalar/",
+            "order": 6,
+            "featuredHome": false,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        }
+      ],
+      "overflowTemplate": {
+        "sourceSlot": 1,
+        "strategy": "clone the full semantic card node group; preserve image/title/link spacing and append by device grid step",
+        "sourceTemplateAvailable": true
+      }
+    },
+    {
+      "pagePath": "/rotalar/",
+      "pageId": null,
+      "device": "tablet",
+      "designId": "rotalar-tablet",
+      "entityType": "route",
+      "sourceNodeCounts": {
+        "cards": 6,
+        "matchedEntities": 6
+      },
+      "sourceSlotOrder": [
+        "gocek-fethiye",
+        "bodrum-gokova",
+        "kemer-kekova",
+        "marmaris-datca",
+        "marmaris-fethiye",
+        "bodrum-yunan-adalari"
+      ],
+      "cmsSortOrderNow": [
+        "bodrum-gokova",
+        "marmaris-datca",
+        "kemer-kekova",
+        "marmaris-fethiye",
+        "gocek-fethiye",
+        "bodrum-yunan-adalari"
+      ],
+      "sourceVsCmsOrderDiffers": true,
+      "homeSelectionField": null,
+      "sourceHomeFeaturedIds": null,
+      "cards": [
+        {
+          "slot": 1,
+          "sourceLabel": "Göcek – Fethiye",
+          "entityId": "gocek-fethiye",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 17,
+          "sourceGeometry": {
+            "x": 30.0,
+            "y": 771.0,
+            "width": 374.0,
+            "height": 216.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "rotalar-tablet-text-10",
+              "sourceId": "rotalar-tablet-text-10",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 1006.0,
+                "width": 138.0,
+                "height": 17.0
+              },
+              "currentBinding": "rotalar.device.route1Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "rotalar-tablet-image-01",
+              "sourceId": "rotalar-tablet-image-01",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 771.0,
+                "width": 374.0,
+                "height": 216.0
+              },
+              "currentBinding": "rotalar.device.route1Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "rotalar-tablet-text-11",
+              "sourceId": "rotalar-tablet-text-11",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 1037.5,
+                "width": 64.0,
+                "height": 14.0
+              },
+              "currentBinding": "rotalar.device.route1Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Göcek – Fethiye",
+            "image": "assets/route-catalog-5.jpg",
+            "link": "/rotalar/gocek-fethiye-gocek/",
+            "order": 5,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 2,
+          "sourceLabel": "Bodrum – Gökova",
+          "entityId": "bodrum-gokova",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 20,
+          "sourceGeometry": {
+            "x": 429.0,
+            "y": 771.0,
+            "width": 374.0,
+            "height": 216.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "rotalar-tablet-text-12",
+              "sourceId": "rotalar-tablet-text-12",
+              "sourceGeometry": {
+                "x": 429.0,
+                "y": 1006.0,
+                "width": 152.0,
+                "height": 13.0
+              },
+              "currentBinding": "rotalar.device.route2Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "rotalar-tablet-image-02",
+              "sourceId": "rotalar-tablet-image-02",
+              "sourceGeometry": {
+                "x": 429.0,
+                "y": 771.0,
+                "width": 374.0,
+                "height": 216.0
+              },
+              "currentBinding": "rotalar.device.route2Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "rotalar-tablet-text-13",
+              "sourceId": "rotalar-tablet-text-13",
+              "sourceGeometry": {
+                "x": 429.0,
+                "y": 1037.5,
+                "width": 64.0,
+                "height": 14.0
+              },
+              "currentBinding": "rotalar.device.route2Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Bodrum – Gökova",
+            "image": "assets/route-catalog-1.jpg",
+            "link": "/rotalar/",
+            "order": 1,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 3,
+          "sourceLabel": "Kemer – Kekova",
+          "entityId": "kemer-kekova",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 23,
+          "sourceGeometry": {
+            "x": 30.0,
+            "y": 1100.0,
+            "width": 374.0,
+            "height": 216.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "rotalar-tablet-text-14",
+              "sourceId": "rotalar-tablet-text-14",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 1335.0,
+                "width": 139.0,
+                "height": 13.0
+              },
+              "currentBinding": "rotalar.device.route3Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "rotalar-tablet-image-03",
+              "sourceId": "rotalar-tablet-image-03",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 1100.0,
+                "width": 374.0,
+                "height": 216.0
+              },
+              "currentBinding": "rotalar.device.route3Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "rotalar-tablet-text-15",
+              "sourceId": "rotalar-tablet-text-15",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 1366.5,
+                "width": 64.0,
+                "height": 14.0
+              },
+              "currentBinding": "rotalar.device.route3Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Kemer – Kekova",
+            "image": "assets/route-catalog-3.jpg",
+            "link": "/rotalar/",
+            "order": 3,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 4,
+          "sourceLabel": "Marmaris – Datça",
+          "entityId": "marmaris-datca",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 26,
+          "sourceGeometry": {
+            "x": 429.0,
+            "y": 1100.0,
+            "width": 374.0,
+            "height": 216.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "rotalar-tablet-text-16",
+              "sourceId": "rotalar-tablet-text-16",
+              "sourceGeometry": {
+                "x": 429.0,
+                "y": 1335.0,
+                "width": 153.0,
+                "height": 16.0
+              },
+              "currentBinding": "rotalar.device.route4Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "rotalar-tablet-image-04",
+              "sourceId": "rotalar-tablet-image-04",
+              "sourceGeometry": {
+                "x": 429.0,
+                "y": 1100.0,
+                "width": 374.0,
+                "height": 216.0
+              },
+              "currentBinding": "rotalar.device.route4Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "rotalar-tablet-text-17",
+              "sourceId": "rotalar-tablet-text-17",
+              "sourceGeometry": {
+                "x": 429.0,
+                "y": 1366.5,
+                "width": 64.0,
+                "height": 14.0
+              },
+              "currentBinding": "rotalar.device.route4Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Marmaris – Datça",
+            "image": "assets/route-catalog-2.jpg",
+            "link": "/rotalar/",
+            "order": 2,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 5,
+          "sourceLabel": "Marmaris – Fethiye",
+          "entityId": "marmaris-fethiye",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 29,
+          "sourceGeometry": {
+            "x": 30.0,
+            "y": 1429.0,
+            "width": 374.0,
+            "height": 216.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "rotalar-tablet-text-18",
+              "sourceId": "rotalar-tablet-text-18",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 1664.0,
+                "width": 167.0,
+                "height": 17.0
+              },
+              "currentBinding": "rotalar.device.route5Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "rotalar-tablet-image-05",
+              "sourceId": "rotalar-tablet-image-05",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 1429.0,
+                "width": 374.0,
+                "height": 216.0
+              },
+              "currentBinding": "rotalar.device.route5Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "rotalar-tablet-text-19",
+              "sourceId": "rotalar-tablet-text-19",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 1695.5,
+                "width": 64.0,
+                "height": 14.0
+              },
+              "currentBinding": "rotalar.device.route5Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Marmaris – Fethiye",
+            "image": "assets/route-catalog-4.jpg",
+            "link": "/rotalar/",
+            "order": 4,
+            "featuredHome": false,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 6,
+          "sourceLabel": "Bodrum – Yunan Adaları",
+          "entityId": "bodrum-yunan-adalari",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 32,
+          "sourceGeometry": {
+            "x": 429.0,
+            "y": 1429.0,
+            "width": 374.0,
+            "height": 216.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "rotalar-tablet-text-20",
+              "sourceId": "rotalar-tablet-text-20",
+              "sourceGeometry": {
+                "x": 429.0,
+                "y": 1664.0,
+                "width": 209.0,
+                "height": 13.0
+              },
+              "currentBinding": "rotalar.device.route6Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "rotalar-tablet-image-06",
+              "sourceId": "rotalar-tablet-image-06",
+              "sourceGeometry": {
+                "x": 429.0,
+                "y": 1429.0,
+                "width": 374.0,
+                "height": 216.0
+              },
+              "currentBinding": "rotalar.device.route6Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "rotalar-tablet-text-21",
+              "sourceId": "rotalar-tablet-text-21",
+              "sourceGeometry": {
+                "x": 429.0,
+                "y": 1695.5,
+                "width": 64.0,
+                "height": 14.0
+              },
+              "currentBinding": "rotalar.device.route6Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Bodrum – Yunan Adaları",
+            "image": "assets/route-catalog-6.jpg",
+            "link": "/rotalar/",
+            "order": 6,
+            "featuredHome": false,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        }
+      ],
+      "overflowTemplate": {
+        "sourceSlot": 1,
+        "strategy": "clone the full semantic card node group; preserve image/title/link spacing and append by device grid step",
+        "sourceTemplateAvailable": true
+      }
+    },
+    {
+      "pagePath": "/rotalar/",
+      "pageId": null,
+      "device": "tv",
+      "designId": "rotalar-tv",
+      "entityType": "route",
+      "sourceNodeCounts": {
+        "cards": 6,
+        "matchedEntities": 6
+      },
+      "sourceSlotOrder": [
+        "gocek-fethiye",
+        "bodrum-gokova",
+        "kemer-kekova",
+        "marmaris-datca",
+        "marmaris-fethiye",
+        "bodrum-yunan-adalari"
+      ],
+      "cmsSortOrderNow": [
+        "bodrum-gokova",
+        "marmaris-datca",
+        "kemer-kekova",
+        "marmaris-fethiye",
+        "gocek-fethiye",
+        "bodrum-yunan-adalari"
+      ],
+      "sourceVsCmsOrderDiffers": true,
+      "homeSelectionField": null,
+      "sourceHomeFeaturedIds": null,
+      "cards": [
+        {
+          "slot": 1,
+          "sourceLabel": "Göcek – Fethiye",
+          "entityId": "gocek-fethiye",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 17,
+          "sourceGeometry": {
+            "x": 120.0,
+            "y": 1238.0,
+            "width": 533.0,
+            "height": 309.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "rotalar-tv-text-10",
+              "sourceId": "rotalar-tv-text-10",
+              "sourceGeometry": {
+                "x": 120.0,
+                "y": 1578.0,
+                "width": 228.0,
+                "height": 27.0
+              },
+              "currentBinding": "rotalar.device.route1Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "rotalar-tv-image-01",
+              "sourceId": "rotalar-tv-image-01",
+              "sourceGeometry": {
+                "x": 120.0,
+                "y": 1238.0,
+                "width": 533.0,
+                "height": 309.0
+              },
+              "currentBinding": "rotalar.device.route1Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "rotalar-tv-text-11",
+              "sourceId": "rotalar-tv-text-11",
+              "sourceGeometry": {
+                "x": 120.0,
+                "y": 1629.0,
+                "width": 115.0,
+                "height": 24.0
+              },
+              "currentBinding": "rotalar.device.route1Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Göcek – Fethiye",
+            "image": "assets/route-catalog-5.jpg",
+            "link": "/rotalar/gocek-fethiye-gocek/",
+            "order": 5,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 2,
+          "sourceLabel": "Bodrum – Gökova",
+          "entityId": "bodrum-gokova",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 20,
+          "sourceGeometry": {
+            "x": 693.0,
+            "y": 1238.0,
+            "width": 533.0,
+            "height": 309.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "rotalar-tv-text-12",
+              "sourceId": "rotalar-tv-text-12",
+              "sourceGeometry": {
+                "x": 693.0,
+                "y": 1578.0,
+                "width": 252.0,
+                "height": 21.0
+              },
+              "currentBinding": "rotalar.device.route2Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "rotalar-tv-image-02",
+              "sourceId": "rotalar-tv-image-02",
+              "sourceGeometry": {
+                "x": 693.0,
+                "y": 1238.0,
+                "width": 533.0,
+                "height": 309.0
+              },
+              "currentBinding": "rotalar.device.route2Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "rotalar-tv-text-13",
+              "sourceId": "rotalar-tv-text-13",
+              "sourceGeometry": {
+                "x": 693.0,
+                "y": 1629.0,
+                "width": 115.0,
+                "height": 24.0
+              },
+              "currentBinding": "rotalar.device.route2Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Bodrum – Gökova",
+            "image": "assets/route-catalog-1.jpg",
+            "link": "/rotalar/",
+            "order": 1,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 3,
+          "sourceLabel": "Kemer – Kekova",
+          "entityId": "kemer-kekova",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 23,
+          "sourceGeometry": {
+            "x": 1266.0,
+            "y": 1238.0,
+            "width": 533.0,
+            "height": 309.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "rotalar-tv-text-14",
+              "sourceId": "rotalar-tv-text-14",
+              "sourceGeometry": {
+                "x": 1266.0,
+                "y": 1578.0,
+                "width": 232.0,
+                "height": 21.0
+              },
+              "currentBinding": "rotalar.device.route3Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "rotalar-tv-image-03",
+              "sourceId": "rotalar-tv-image-03",
+              "sourceGeometry": {
+                "x": 1266.0,
+                "y": 1238.0,
+                "width": 533.0,
+                "height": 309.0
+              },
+              "currentBinding": "rotalar.device.route3Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "rotalar-tv-text-15",
+              "sourceId": "rotalar-tv-text-15",
+              "sourceGeometry": {
+                "x": 1266.0,
+                "y": 1629.0,
+                "width": 115.0,
+                "height": 24.0
+              },
+              "currentBinding": "rotalar.device.route3Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Kemer – Kekova",
+            "image": "assets/route-catalog-3.jpg",
+            "link": "/rotalar/",
+            "order": 3,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 4,
+          "sourceLabel": "Marmaris – Datça",
+          "entityId": "marmaris-datca",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 26,
+          "sourceGeometry": {
+            "x": 120.0,
+            "y": 1723.0,
+            "width": 533.0,
+            "height": 309.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "rotalar-tv-text-16",
+              "sourceId": "rotalar-tv-text-16",
+              "sourceGeometry": {
+                "x": 120.0,
+                "y": 2064.0,
+                "width": 254.0,
+                "height": 25.0
+              },
+              "currentBinding": "rotalar.device.route4Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "rotalar-tv-image-04",
+              "sourceId": "rotalar-tv-image-04",
+              "sourceGeometry": {
+                "x": 120.0,
+                "y": 1723.0,
+                "width": 533.0,
+                "height": 309.0
+              },
+              "currentBinding": "rotalar.device.route4Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "rotalar-tv-text-17",
+              "sourceId": "rotalar-tv-text-17",
+              "sourceGeometry": {
+                "x": 120.0,
+                "y": 2114.0,
+                "width": 115.0,
+                "height": 24.0
+              },
+              "currentBinding": "rotalar.device.route4Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Marmaris – Datça",
+            "image": "assets/route-catalog-2.jpg",
+            "link": "/rotalar/",
+            "order": 2,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 5,
+          "sourceLabel": "Marmaris – Fethiye",
+          "entityId": "marmaris-fethiye",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 29,
+          "sourceGeometry": {
+            "x": 693.0,
+            "y": 1723.0,
+            "width": 533.0,
+            "height": 309.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "rotalar-tv-text-18",
+              "sourceId": "rotalar-tv-text-18",
+              "sourceGeometry": {
+                "x": 693.0,
+                "y": 2063.0,
+                "width": 278.0,
+                "height": 27.0
+              },
+              "currentBinding": "rotalar.device.route5Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "rotalar-tv-image-05",
+              "sourceId": "rotalar-tv-image-05",
+              "sourceGeometry": {
+                "x": 693.0,
+                "y": 1723.0,
+                "width": 533.0,
+                "height": 309.0
+              },
+              "currentBinding": "rotalar.device.route5Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "rotalar-tv-text-19",
+              "sourceId": "rotalar-tv-text-19",
+              "sourceGeometry": {
+                "x": 693.0,
+                "y": 2114.0,
+                "width": 115.0,
+                "height": 24.0
+              },
+              "currentBinding": "rotalar.device.route5Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Marmaris – Fethiye",
+            "image": "assets/route-catalog-4.jpg",
+            "link": "/rotalar/",
+            "order": 4,
+            "featuredHome": false,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 6,
+          "sourceLabel": "Bodrum – Yunan Adaları",
+          "entityId": "bodrum-yunan-adalari",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 32,
+          "sourceGeometry": {
+            "x": 1266.0,
+            "y": 1723.0,
+            "width": 533.0,
+            "height": 309.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "rotalar-tv-text-20",
+              "sourceId": "rotalar-tv-text-20",
+              "sourceGeometry": {
+                "x": 1266.0,
+                "y": 2063.0,
+                "width": 347.0,
+                "height": 21.0
+              },
+              "currentBinding": "rotalar.device.route6Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "rotalar-tv-image-06",
+              "sourceId": "rotalar-tv-image-06",
+              "sourceGeometry": {
+                "x": 1266.0,
+                "y": 1723.0,
+                "width": 533.0,
+                "height": 309.0
+              },
+              "currentBinding": "rotalar.device.route6Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "rotalar-tv-text-21",
+              "sourceId": "rotalar-tv-text-21",
+              "sourceGeometry": {
+                "x": 1266.0,
+                "y": 2114.0,
+                "width": 115.0,
+                "height": 24.0
+              },
+              "currentBinding": "rotalar.device.route6Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Bodrum – Yunan Adaları",
+            "image": "assets/route-catalog-6.jpg",
+            "link": "/rotalar/",
+            "order": 6,
+            "featuredHome": false,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        }
+      ],
+      "overflowTemplate": {
+        "sourceSlot": 1,
+        "strategy": "clone the full semantic card node group; preserve image/title/link spacing and append by device grid step",
+        "sourceTemplateAvailable": true
+      }
+    },
+    {
+      "pagePath": "/filo/",
+      "pageId": null,
+      "device": "mobile",
+      "designId": "filo-mobile",
+      "entityType": "gulet",
+      "sourceNodeCounts": {
+        "cards": 5,
+        "matchedEntities": 5
+      },
+      "sourceSlotOrder": [
+        "eylul",
+        "ata",
+        "miss-2",
+        "zel",
+        "getaway"
+      ],
+      "cmsSortOrderNow": [
+        "eylul",
+        "ata",
+        "miss-2",
+        "zel",
+        "getaway"
+      ],
+      "sourceVsCmsOrderDiffers": false,
+      "homeSelectionField": null,
+      "sourceHomeFeaturedIds": null,
+      "cards": [
+        {
+          "slot": 1,
+          "sourceLabel": "Eylül",
+          "entityId": "eylul",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 19,
+          "sourceGeometry": {
+            "x": 24.0,
+            "y": 826.0,
+            "width": 342.0,
+            "height": 198.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "filo-mobile-text-12",
+              "sourceId": "filo-mobile-text-12",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1039.0,
+                "width": 36.0,
+                "height": 14.0
+              },
+              "currentBinding": "filo.device.gulet1Title",
+              "entityField": "name"
+            },
+            "image": {
+              "nodeId": "filo-mobile-image-01",
+              "sourceId": "filo-mobile-image-01",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 826.0,
+                "width": 342.0,
+                "height": 198.0
+              },
+              "currentBinding": "filo.device.gulet1Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "filo-mobile-text-13",
+              "sourceId": "filo-mobile-text-13",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1064.0,
+                "width": 52.0,
+                "height": 11.0
+              },
+              "currentBinding": "filo.device.gulet1Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Eylül",
+            "image": "assets/fleet-eylul.png",
+            "link": "/filo/eylul/",
+            "order": 1,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 2,
+          "sourceLabel": "Ata",
+          "entityId": "ata",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 22,
+          "sourceGeometry": {
+            "x": 24.0,
+            "y": 1116.0,
+            "width": 342.0,
+            "height": 198.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "filo-mobile-text-14",
+              "sourceId": "filo-mobile-text-14",
+              "sourceGeometry": {
+                "x": 23.0,
+                "y": 1330.0,
+                "width": 25.0,
+                "height": 10.0
+              },
+              "currentBinding": "filo.device.gulet2Title",
+              "entityField": "name"
+            },
+            "image": {
+              "nodeId": "filo-mobile-image-02",
+              "sourceId": "filo-mobile-image-02",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1116.0,
+                "width": 342.0,
+                "height": 198.0
+              },
+              "currentBinding": "filo.device.gulet2Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "filo-mobile-text-15",
+              "sourceId": "filo-mobile-text-15",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1354.0,
+                "width": 52.0,
+                "height": 11.0
+              },
+              "currentBinding": "filo.device.gulet2Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Ata",
+            "image": "assets/fleet-ata.png",
+            "link": "/filo/",
+            "order": 2,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 3,
+          "sourceLabel": "Miss 2",
+          "entityId": "miss-2",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 25,
+          "sourceGeometry": {
+            "x": 24.0,
+            "y": 1406.0,
+            "width": 342.0,
+            "height": 198.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "filo-mobile-text-16",
+              "sourceId": "filo-mobile-text-16",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1619.0,
+                "width": 45.0,
+                "height": 11.0
+              },
+              "currentBinding": "filo.device.gulet3Title",
+              "entityField": "name"
+            },
+            "image": {
+              "nodeId": "filo-mobile-image-03",
+              "sourceId": "filo-mobile-image-03",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1406.0,
+                "width": 342.0,
+                "height": 198.0
+              },
+              "currentBinding": "filo.device.gulet3Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "filo-mobile-text-17",
+              "sourceId": "filo-mobile-text-17",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1644.0,
+                "width": 52.0,
+                "height": 11.0
+              },
+              "currentBinding": "filo.device.gulet3Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Miss 2",
+            "image": "assets/fleet-miss2.png",
+            "link": "/filo/",
+            "order": 3,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 4,
+          "sourceLabel": "Zel",
+          "entityId": "zel",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 28,
+          "sourceGeometry": {
+            "x": 24.0,
+            "y": 1696.0,
+            "width": 342.0,
+            "height": 198.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "filo-mobile-text-18",
+              "sourceId": "filo-mobile-text-18",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1909.0,
+                "width": 23.0,
+                "height": 11.0
+              },
+              "currentBinding": "filo.device.gulet4Title",
+              "entityField": "name"
+            },
+            "image": {
+              "nodeId": "filo-mobile-image-04",
+              "sourceId": "filo-mobile-image-04",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1696.0,
+                "width": 342.0,
+                "height": 198.0
+              },
+              "currentBinding": "filo.device.gulet4Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "filo-mobile-text-19",
+              "sourceId": "filo-mobile-text-19",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1934.0,
+                "width": 52.0,
+                "height": 11.0
+              },
+              "currentBinding": "filo.device.gulet4Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Zel",
+            "image": "assets/fleet-zel.png",
+            "link": "/filo/",
+            "order": 4,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 5,
+          "sourceLabel": "Getaway",
+          "entityId": "getaway",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 31,
+          "sourceGeometry": {
+            "x": 24.0,
+            "y": 1986.0,
+            "width": 342.0,
+            "height": 198.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "filo-mobile-text-20",
+              "sourceId": "filo-mobile-text-20",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 2200.0,
+                "width": 61.0,
+                "height": 13.0
+              },
+              "currentBinding": "filo.device.gulet5Title",
+              "entityField": "name"
+            },
+            "image": {
+              "nodeId": "filo-mobile-image-05",
+              "sourceId": "filo-mobile-image-05",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1986.0,
+                "width": 342.0,
+                "height": 198.0
+              },
+              "currentBinding": "filo.device.gulet5Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "filo-mobile-text-21",
+              "sourceId": "filo-mobile-text-21",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 2224.0,
+                "width": 52.0,
+                "height": 11.0
+              },
+              "currentBinding": "filo.device.gulet5Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Getaway",
+            "image": "assets/fleet-getaway.png",
+            "link": "/filo/",
+            "order": 5,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        }
+      ],
+      "overflowTemplate": {
+        "sourceSlot": 1,
+        "strategy": "clone the full semantic card node group; preserve image/title/link spacing and append by device grid step",
+        "sourceTemplateAvailable": true
+      }
+    },
+    {
+      "pagePath": "/filo/",
+      "pageId": null,
+      "device": "tablet",
+      "designId": "filo-tablet",
+      "entityType": "gulet",
+      "sourceNodeCounts": {
+        "cards": 5,
+        "matchedEntities": 5
+      },
+      "sourceSlotOrder": [
+        "eylul",
+        "ata",
+        "miss-2",
+        "zel",
+        "getaway"
+      ],
+      "cmsSortOrderNow": [
+        "eylul",
+        "ata",
+        "miss-2",
+        "zel",
+        "getaway"
+      ],
+      "sourceVsCmsOrderDiffers": false,
+      "homeSelectionField": null,
+      "sourceHomeFeaturedIds": null,
+      "cards": [
+        {
+          "slot": 1,
+          "sourceLabel": "Eylül",
+          "entityId": "eylul",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 18,
+          "sourceGeometry": {
+            "x": 30.0,
+            "y": 771.0,
+            "width": 374.0,
+            "height": 216.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "filo-tablet-text-11",
+              "sourceId": "filo-tablet-text-11",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 1006.0,
+                "width": 43.0,
+                "height": 17.0
+              },
+              "currentBinding": "filo.device.gulet1Title",
+              "entityField": "name"
+            },
+            "image": {
+              "nodeId": "filo-tablet-image-01",
+              "sourceId": "filo-tablet-image-01",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 771.0,
+                "width": 374.0,
+                "height": 216.0
+              },
+              "currentBinding": "filo.device.gulet1Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "filo-tablet-text-12",
+              "sourceId": "filo-tablet-text-12",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 1037.5,
+                "width": 64.0,
+                "height": 14.0
+              },
+              "currentBinding": "filo.device.gulet1Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Eylül",
+            "image": "assets/fleet-eylul.png",
+            "link": "/filo/eylul/",
+            "order": 1,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 2,
+          "sourceLabel": "Ata",
+          "entityId": "ata",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 21,
+          "sourceGeometry": {
+            "x": 429.0,
+            "y": 771.0,
+            "width": 374.0,
+            "height": 216.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "filo-tablet-text-13",
+              "sourceId": "filo-tablet-text-13",
+              "sourceGeometry": {
+                "x": 428.0,
+                "y": 1007.0,
+                "width": 30.0,
+                "height": 12.0
+              },
+              "currentBinding": "filo.device.gulet2Title",
+              "entityField": "name"
+            },
+            "image": {
+              "nodeId": "filo-tablet-image-02",
+              "sourceId": "filo-tablet-image-02",
+              "sourceGeometry": {
+                "x": 429.0,
+                "y": 771.0,
+                "width": 374.0,
+                "height": 216.0
+              },
+              "currentBinding": "filo.device.gulet2Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "filo-tablet-text-14",
+              "sourceId": "filo-tablet-text-14",
+              "sourceGeometry": {
+                "x": 429.0,
+                "y": 1037.5,
+                "width": 64.0,
+                "height": 14.0
+              },
+              "currentBinding": "filo.device.gulet2Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Ata",
+            "image": "assets/fleet-ata.png",
+            "link": "/filo/",
+            "order": 2,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 3,
+          "sourceLabel": "Miss 2",
+          "entityId": "miss-2",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 24,
+          "sourceGeometry": {
+            "x": 30.0,
+            "y": 1100.0,
+            "width": 374.0,
+            "height": 216.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "filo-tablet-text-15",
+              "sourceId": "filo-tablet-text-15",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 1335.0,
+                "width": 56.0,
+                "height": 13.0
+              },
+              "currentBinding": "filo.device.gulet3Title",
+              "entityField": "name"
+            },
+            "image": {
+              "nodeId": "filo-tablet-image-03",
+              "sourceId": "filo-tablet-image-03",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 1100.0,
+                "width": 374.0,
+                "height": 216.0
+              },
+              "currentBinding": "filo.device.gulet3Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "filo-tablet-text-16",
+              "sourceId": "filo-tablet-text-16",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 1366.5,
+                "width": 64.0,
+                "height": 14.0
+              },
+              "currentBinding": "filo.device.gulet3Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Miss 2",
+            "image": "assets/fleet-miss2.png",
+            "link": "/filo/",
+            "order": 3,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 4,
+          "sourceLabel": "Zel",
+          "entityId": "zel",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 27,
+          "sourceGeometry": {
+            "x": 429.0,
+            "y": 1100.0,
+            "width": 374.0,
+            "height": 216.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "filo-tablet-text-17",
+              "sourceId": "filo-tablet-text-17",
+              "sourceGeometry": {
+                "x": 429.0,
+                "y": 1335.0,
+                "width": 27.0,
+                "height": 13.0
+              },
+              "currentBinding": "filo.device.gulet4Title",
+              "entityField": "name"
+            },
+            "image": {
+              "nodeId": "filo-tablet-image-04",
+              "sourceId": "filo-tablet-image-04",
+              "sourceGeometry": {
+                "x": 429.0,
+                "y": 1100.0,
+                "width": 374.0,
+                "height": 216.0
+              },
+              "currentBinding": "filo.device.gulet4Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "filo-tablet-text-18",
+              "sourceId": "filo-tablet-text-18",
+              "sourceGeometry": {
+                "x": 429.0,
+                "y": 1366.5,
+                "width": 64.0,
+                "height": 14.0
+              },
+              "currentBinding": "filo.device.gulet4Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Zel",
+            "image": "assets/fleet-zel.png",
+            "link": "/filo/",
+            "order": 4,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 5,
+          "sourceLabel": "Getaway",
+          "entityId": "getaway",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 30,
+          "sourceGeometry": {
+            "x": 30.0,
+            "y": 1429.0,
+            "width": 374.0,
+            "height": 216.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "filo-tablet-text-19",
+              "sourceId": "filo-tablet-text-19",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 1665.0,
+                "width": 76.0,
+                "height": 16.0
+              },
+              "currentBinding": "filo.device.gulet5Title",
+              "entityField": "name"
+            },
+            "image": {
+              "nodeId": "filo-tablet-image-05",
+              "sourceId": "filo-tablet-image-05",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 1429.0,
+                "width": 374.0,
+                "height": 216.0
+              },
+              "currentBinding": "filo.device.gulet5Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "filo-tablet-text-20",
+              "sourceId": "filo-tablet-text-20",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 1695.5,
+                "width": 64.0,
+                "height": 14.0
+              },
+              "currentBinding": "filo.device.gulet5Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Getaway",
+            "image": "assets/fleet-getaway.png",
+            "link": "/filo/",
+            "order": 5,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        }
+      ],
+      "overflowTemplate": {
+        "sourceSlot": 1,
+        "strategy": "clone the full semantic card node group; preserve image/title/link spacing and append by device grid step",
+        "sourceTemplateAvailable": true
+      }
+    },
+    {
+      "pagePath": "/filo/",
+      "pageId": null,
+      "device": "tv",
+      "designId": "filo-tv",
+      "entityType": "gulet",
+      "sourceNodeCounts": {
+        "cards": 5,
+        "matchedEntities": 5
+      },
+      "sourceSlotOrder": [
+        "eylul",
+        "ata",
+        "miss-2",
+        "zel",
+        "getaway"
+      ],
+      "cmsSortOrderNow": [
+        "eylul",
+        "ata",
+        "miss-2",
+        "zel",
+        "getaway"
+      ],
+      "sourceVsCmsOrderDiffers": false,
+      "homeSelectionField": null,
+      "sourceHomeFeaturedIds": null,
+      "cards": [
+        {
+          "slot": 1,
+          "sourceLabel": "Eylül",
+          "entityId": "eylul",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 17,
+          "sourceGeometry": {
+            "x": 120.0,
+            "y": 1238.0,
+            "width": 533.0,
+            "height": 309.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "filo-tv-text-10",
+              "sourceId": "filo-tv-text-10",
+              "sourceGeometry": {
+                "x": 120.0,
+                "y": 1578.0,
+                "width": 72.0,
+                "height": 27.0
+              },
+              "currentBinding": "filo.device.gulet1Title",
+              "entityField": "name"
+            },
+            "image": {
+              "nodeId": "filo-tv-image-01",
+              "sourceId": "filo-tv-image-01",
+              "sourceGeometry": {
+                "x": 120.0,
+                "y": 1238.0,
+                "width": 533.0,
+                "height": 309.0
+              },
+              "currentBinding": "filo.device.gulet1Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "filo-tv-text-11",
+              "sourceId": "filo-tv-text-11",
+              "sourceGeometry": {
+                "x": 120.0,
+                "y": 1629.0,
+                "width": 115.0,
+                "height": 24.0
+              },
+              "currentBinding": "filo.device.gulet1Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Eylül",
+            "image": "assets/fleet-eylul.png",
+            "link": "/filo/eylul/",
+            "order": 1,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 2,
+          "sourceLabel": "Ata",
+          "entityId": "ata",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 20,
+          "sourceGeometry": {
+            "x": 693.0,
+            "y": 1238.0,
+            "width": 533.0,
+            "height": 309.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "filo-tv-text-12",
+              "sourceId": "filo-tv-text-12",
+              "sourceGeometry": {
+                "x": 692.0,
+                "y": 1579.0,
+                "width": 49.0,
+                "height": 20.0
+              },
+              "currentBinding": "filo.device.gulet2Title",
+              "entityField": "name"
+            },
+            "image": {
+              "nodeId": "filo-tv-image-02",
+              "sourceId": "filo-tv-image-02",
+              "sourceGeometry": {
+                "x": 693.0,
+                "y": 1238.0,
+                "width": 533.0,
+                "height": 309.0
+              },
+              "currentBinding": "filo.device.gulet2Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "filo-tv-text-13",
+              "sourceId": "filo-tv-text-13",
+              "sourceGeometry": {
+                "x": 693.0,
+                "y": 1629.0,
+                "width": 115.0,
+                "height": 24.0
+              },
+              "currentBinding": "filo.device.gulet2Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Ata",
+            "image": "assets/fleet-ata.png",
+            "link": "/filo/",
+            "order": 2,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 3,
+          "sourceLabel": "Miss 2",
+          "entityId": "miss-2",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 23,
+          "sourceGeometry": {
+            "x": 1266.0,
+            "y": 1238.0,
+            "width": 533.0,
+            "height": 309.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "filo-tv-text-14",
+              "sourceId": "filo-tv-text-14",
+              "sourceGeometry": {
+                "x": 1266.0,
+                "y": 1579.0,
+                "width": 93.0,
+                "height": 20.0
+              },
+              "currentBinding": "filo.device.gulet3Title",
+              "entityField": "name"
+            },
+            "image": {
+              "nodeId": "filo-tv-image-03",
+              "sourceId": "filo-tv-image-03",
+              "sourceGeometry": {
+                "x": 1266.0,
+                "y": 1238.0,
+                "width": 533.0,
+                "height": 309.0
+              },
+              "currentBinding": "filo.device.gulet3Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "filo-tv-text-15",
+              "sourceId": "filo-tv-text-15",
+              "sourceGeometry": {
+                "x": 1266.0,
+                "y": 1629.0,
+                "width": 115.0,
+                "height": 24.0
+              },
+              "currentBinding": "filo.device.gulet3Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Miss 2",
+            "image": "assets/fleet-miss2.png",
+            "link": "/filo/",
+            "order": 3,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 4,
+          "sourceLabel": "Zel",
+          "entityId": "zel",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 26,
+          "sourceGeometry": {
+            "x": 120.0,
+            "y": 1723.0,
+            "width": 533.0,
+            "height": 309.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "filo-tv-text-16",
+              "sourceId": "filo-tv-text-16",
+              "sourceGeometry": {
+                "x": 120.0,
+                "y": 2063.0,
+                "width": 45.0,
+                "height": 21.0
+              },
+              "currentBinding": "filo.device.gulet4Title",
+              "entityField": "name"
+            },
+            "image": {
+              "nodeId": "filo-tv-image-04",
+              "sourceId": "filo-tv-image-04",
+              "sourceGeometry": {
+                "x": 120.0,
+                "y": 1723.0,
+                "width": 533.0,
+                "height": 309.0
+              },
+              "currentBinding": "filo.device.gulet4Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "filo-tv-text-17",
+              "sourceId": "filo-tv-text-17",
+              "sourceGeometry": {
+                "x": 120.0,
+                "y": 2114.0,
+                "width": 115.0,
+                "height": 24.0
+              },
+              "currentBinding": "filo.device.gulet4Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Zel",
+            "image": "assets/fleet-zel.png",
+            "link": "/filo/",
+            "order": 4,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        },
+        {
+          "slot": 5,
+          "sourceLabel": "Getaway",
+          "entityId": "getaway",
+          "entityMatch": "normalized-source-label",
+          "sourceOrder": 29,
+          "sourceGeometry": {
+            "x": 693.0,
+            "y": 1723.0,
+            "width": 533.0,
+            "height": 309.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "filo-tv-text-18",
+              "sourceId": "filo-tv-text-18",
+              "sourceGeometry": {
+                "x": 693.0,
+                "y": 2064.0,
+                "width": 124.0,
+                "height": 26.0
+              },
+              "currentBinding": "filo.device.gulet5Title",
+              "entityField": "name"
+            },
+            "image": {
+              "nodeId": "filo-tv-image-05",
+              "sourceId": "filo-tv-image-05",
+              "sourceGeometry": {
+                "x": 693.0,
+                "y": 1723.0,
+                "width": 533.0,
+                "height": 309.0
+              },
+              "currentBinding": "filo.device.gulet5Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "filo-tv-text-19",
+              "sourceId": "filo-tv-text-19",
+              "sourceGeometry": {
+                "x": 693.0,
+                "y": 2114.0,
+                "width": 115.0,
+                "height": 24.0
+              },
+              "currentBinding": "filo.device.gulet5Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Getaway",
+            "image": "assets/fleet-getaway.png",
+            "link": "/filo/",
+            "order": 5,
+            "featuredHome": true,
+            "status": null
+          },
+          "sourceDefaultsPolicy": "keep source artwork while each corresponding CMS value equals this snapshot; apply changed entity fields only after comparing against this baseline"
+        }
+      ],
+      "overflowTemplate": {
+        "sourceSlot": 1,
+        "strategy": "clone the full semantic card node group; preserve image/title/link spacing and append by device grid step",
+        "sourceTemplateAvailable": true
+      }
+    },
+    {
+      "pagePath": "/deneyimler/",
+      "pageId": null,
+      "device": "mobile",
+      "designId": "deneyimler-mobile",
+      "entityType": "experience",
+      "sourceNodeCounts": {
+        "cards": 4,
+        "matchedEntities": 0
+      },
+      "sourceSlotOrder": [
+        "ailece-mavi-yolculuk",
+        "size-ozel-gulet-tatili",
+        "guvertede-gun-batimi",
+        "koylarda-yuzme"
+      ],
+      "cmsSortOrderNow": [
+        "ailece-mavi-yolculuk",
+        "size-ozel-gulet-tatili",
+        "guvertede-gun-batimi",
+        "koylarda-yuzme"
+      ],
+      "sourceVsCmsOrderDiffers": false,
+      "homeSelectionField": null,
+      "sourceHomeFeaturedIds": null,
+      "cards": [
+        {
+          "slot": 1,
+          "sourceLabel": "Ailece mavi yolculuk",
+          "entityId": "ailece-mavi-yolculuk",
+          "entityMatch": "stable-source-experience-record",
+          "sourceOrder": 18,
+          "sourceGeometry": {
+            "x": 24.0,
+            "y": 808.0,
+            "width": 342.0,
+            "height": 198.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "deneyimler-mobile-text-11",
+              "sourceId": "deneyimler-mobile-text-11",
+              "sourceGeometry": {
+                "x": 23.0,
+                "y": 1021.0,
+                "width": 143.0,
+                "height": 14.0
+              },
+              "currentBinding": "deneyimler.device.experience1Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "deneyimler-mobile-image-01",
+              "sourceId": "deneyimler-mobile-image-01",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 808.0,
+                "width": 342.0,
+                "height": 198.0
+              },
+              "currentBinding": "deneyimler.content.image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "deneyimler-mobile-text-12",
+              "sourceId": "deneyimler-mobile-text-12",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1046.0,
+                "width": 52.0,
+                "height": 11.0
+              },
+              "currentBinding": "deneyimler.device.experience1Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Ailece mavi yolculuk",
+            "image": "assets/device-design-assets/images/801af00a1f876234ffc4.png",
+            "link": null,
+            "order": 1,
+            "featuredHome": null,
+            "status": "published"
+          }
+        },
+        {
+          "slot": 2,
+          "sourceLabel": "Size özel gulet tatili",
+          "entityId": "size-ozel-gulet-tatili",
+          "entityMatch": "stable-source-experience-record",
+          "sourceOrder": 21,
+          "sourceGeometry": {
+            "x": 24.0,
+            "y": 1098.0,
+            "width": 342.0,
+            "height": 198.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "deneyimler-mobile-text-13",
+              "sourceId": "deneyimler-mobile-text-13",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1311.0,
+                "width": 137.0,
+                "height": 14.0
+              },
+              "currentBinding": "deneyimler.device.experience2Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "deneyimler-mobile-image-02",
+              "sourceId": "deneyimler-mobile-image-02",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1098.0,
+                "width": 342.0,
+                "height": 198.0
+              },
+              "currentBinding": "deneyimler.device.experience1Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "deneyimler-mobile-text-14",
+              "sourceId": "deneyimler-mobile-text-14",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1336.0,
+                "width": 52.0,
+                "height": 11.0
+              },
+              "currentBinding": "deneyimler.device.experience2Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Size özel gulet tatili",
+            "image": "assets/device-design-assets/images/f0fab493786f234da45a.png",
+            "link": null,
+            "order": 2,
+            "featuredHome": null,
+            "status": "published"
+          }
+        },
+        {
+          "slot": 3,
+          "sourceLabel": "Guvertede gün batımı",
+          "entityId": "guvertede-gun-batimi",
+          "entityMatch": "stable-source-experience-record",
+          "sourceOrder": 24,
+          "sourceGeometry": {
+            "x": 24.0,
+            "y": 1388.0,
+            "width": 342.0,
+            "height": 198.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "deneyimler-mobile-text-15",
+              "sourceId": "deneyimler-mobile-text-15",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1601.0,
+                "width": 154.0,
+                "height": 14.0
+              },
+              "currentBinding": "deneyimler.device.experience3Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "deneyimler-mobile-image-03",
+              "sourceId": "deneyimler-mobile-image-03",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1388.0,
+                "width": 342.0,
+                "height": 198.0
+              },
+              "currentBinding": "deneyimler.device.experience2Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "deneyimler-mobile-text-16",
+              "sourceId": "deneyimler-mobile-text-16",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1626.0,
+                "width": 52.0,
+                "height": 11.0
+              },
+              "currentBinding": "deneyimler.device.experience3Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Guvertede gün batımı",
+            "image": "assets/device-design-assets/images/a1b9d9776943aaa37574.png",
+            "link": null,
+            "order": 3,
+            "featuredHome": null,
+            "status": "published"
+          }
+        },
+        {
+          "slot": 4,
+          "sourceLabel": "Koylarda yüzme",
+          "entityId": "koylarda-yuzme",
+          "entityMatch": "stable-source-experience-record",
+          "sourceOrder": 27,
+          "sourceGeometry": {
+            "x": 24.0,
+            "y": 1678.0,
+            "width": 342.0,
+            "height": 198.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "deneyimler-mobile-text-17",
+              "sourceId": "deneyimler-mobile-text-17",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1891.0,
+                "width": 111.0,
+                "height": 14.0
+              },
+              "currentBinding": "deneyimler.device.experience4Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "deneyimler-mobile-image-04",
+              "sourceId": "deneyimler-mobile-image-04",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1678.0,
+                "width": 342.0,
+                "height": 198.0
+              },
+              "currentBinding": "deneyimler.device.experience3Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "deneyimler-mobile-text-18",
+              "sourceId": "deneyimler-mobile-text-18",
+              "sourceGeometry": {
+                "x": 24.0,
+                "y": 1916.0,
+                "width": 52.0,
+                "height": 11.0
+              },
+              "currentBinding": "deneyimler.device.experience4Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Koylarda yüzme",
+            "image": "assets/device-design-assets/images/3ba42991d5da4bc676fb.png",
+            "link": null,
+            "order": 4,
+            "featuredHome": null,
+            "status": "published"
+          }
+        }
+      ],
+      "overflowTemplate": {
+        "sourceSlot": 1,
+        "strategy": "clone the full semantic card node group; preserve image/title/link spacing and append by device grid step",
+        "sourceTemplateAvailable": true
+      }
+    },
+    {
+      "pagePath": "/deneyimler/",
+      "pageId": null,
+      "device": "tablet",
+      "designId": "deneyimler-tablet",
+      "entityType": "experience",
+      "sourceNodeCounts": {
+        "cards": 4,
+        "matchedEntities": 0
+      },
+      "sourceSlotOrder": [
+        "ailece-mavi-yolculuk",
+        "size-ozel-gulet-tatili",
+        "guvertede-gun-batimi",
+        "koylarda-yuzme"
+      ],
+      "cmsSortOrderNow": [
+        "ailece-mavi-yolculuk",
+        "size-ozel-gulet-tatili",
+        "guvertede-gun-batimi",
+        "koylarda-yuzme"
+      ],
+      "sourceVsCmsOrderDiffers": false,
+      "homeSelectionField": null,
+      "sourceHomeFeaturedIds": null,
+      "cards": [
+        {
+          "slot": 1,
+          "sourceLabel": "Ailece mavi yolculuk",
+          "entityId": "ailece-mavi-yolculuk",
+          "entityMatch": "stable-source-experience-record",
+          "sourceOrder": 17,
+          "sourceGeometry": {
+            "x": 30.0,
+            "y": 771.0,
+            "width": 374.0,
+            "height": 216.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "deneyimler-tablet-text-10",
+              "sourceId": "deneyimler-tablet-text-10",
+              "sourceGeometry": {
+                "x": 29.0,
+                "y": 1006.0,
+                "width": 177.0,
+                "height": 17.0
+              },
+              "currentBinding": "deneyimler.device.experience1Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "deneyimler-tablet-image-01",
+              "sourceId": "deneyimler-tablet-image-01",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 771.0,
+                "width": 374.0,
+                "height": 216.0
+              },
+              "currentBinding": "deneyimler.content.image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "deneyimler-tablet-text-11",
+              "sourceId": "deneyimler-tablet-text-11",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 1037.5,
+                "width": 64.0,
+                "height": 14.0
+              },
+              "currentBinding": "deneyimler.device.experience1Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Ailece mavi yolculuk",
+            "image": "assets/device-design-assets/images/801af00a1f876234ffc4.png",
+            "link": null,
+            "order": 1,
+            "featuredHome": null,
+            "status": "published"
+          }
+        },
+        {
+          "slot": 2,
+          "sourceLabel": "Size özel gulet tatili",
+          "entityId": "size-ozel-gulet-tatili",
+          "entityMatch": "stable-source-experience-record",
+          "sourceOrder": 20,
+          "sourceGeometry": {
+            "x": 429.0,
+            "y": 771.0,
+            "width": 374.0,
+            "height": 216.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "deneyimler-tablet-text-12",
+              "sourceId": "deneyimler-tablet-text-12",
+              "sourceGeometry": {
+                "x": 429.0,
+                "y": 1006.0,
+                "width": 169.0,
+                "height": 17.0
+              },
+              "currentBinding": "deneyimler.device.experience2Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "deneyimler-tablet-image-02",
+              "sourceId": "deneyimler-tablet-image-02",
+              "sourceGeometry": {
+                "x": 429.0,
+                "y": 771.0,
+                "width": 374.0,
+                "height": 216.0
+              },
+              "currentBinding": "deneyimler.device.experience1Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "deneyimler-tablet-text-13",
+              "sourceId": "deneyimler-tablet-text-13",
+              "sourceGeometry": {
+                "x": 429.0,
+                "y": 1037.5,
+                "width": 64.0,
+                "height": 14.0
+              },
+              "currentBinding": "deneyimler.device.experience2Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Size özel gulet tatili",
+            "image": "assets/device-design-assets/images/f0fab493786f234da45a.png",
+            "link": null,
+            "order": 2,
+            "featuredHome": null,
+            "status": "published"
+          }
+        },
+        {
+          "slot": 3,
+          "sourceLabel": "Guvertede gün batımı",
+          "entityId": "guvertede-gun-batimi",
+          "entityMatch": "stable-source-experience-record",
+          "sourceOrder": 23,
+          "sourceGeometry": {
+            "x": 30.0,
+            "y": 1100.0,
+            "width": 374.0,
+            "height": 216.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "deneyimler-tablet-text-14",
+              "sourceId": "deneyimler-tablet-text-14",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 1335.0,
+                "width": 189.0,
+                "height": 17.0
+              },
+              "currentBinding": "deneyimler.device.experience3Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "deneyimler-tablet-image-03",
+              "sourceId": "deneyimler-tablet-image-03",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 1100.0,
+                "width": 374.0,
+                "height": 216.0
+              },
+              "currentBinding": "deneyimler.device.experience2Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "deneyimler-tablet-text-15",
+              "sourceId": "deneyimler-tablet-text-15",
+              "sourceGeometry": {
+                "x": 30.0,
+                "y": 1366.5,
+                "width": 64.0,
+                "height": 14.0
+              },
+              "currentBinding": "deneyimler.device.experience3Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Guvertede gün batımı",
+            "image": "assets/device-design-assets/images/a1b9d9776943aaa37574.png",
+            "link": null,
+            "order": 3,
+            "featuredHome": null,
+            "status": "published"
+          }
+        },
+        {
+          "slot": 4,
+          "sourceLabel": "Koylarda yüzme",
+          "entityId": "koylarda-yuzme",
+          "entityMatch": "stable-source-experience-record",
+          "sourceOrder": 26,
+          "sourceGeometry": {
+            "x": 429.0,
+            "y": 1100.0,
+            "width": 374.0,
+            "height": 216.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "deneyimler-tablet-text-16",
+              "sourceId": "deneyimler-tablet-text-16",
+              "sourceGeometry": {
+                "x": 429.0,
+                "y": 1335.0,
+                "width": 138.0,
+                "height": 17.0
+              },
+              "currentBinding": "deneyimler.device.experience4Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "deneyimler-tablet-image-04",
+              "sourceId": "deneyimler-tablet-image-04",
+              "sourceGeometry": {
+                "x": 429.0,
+                "y": 1100.0,
+                "width": 374.0,
+                "height": 216.0
+              },
+              "currentBinding": "deneyimler.device.experience3Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "deneyimler-tablet-text-17",
+              "sourceId": "deneyimler-tablet-text-17",
+              "sourceGeometry": {
+                "x": 429.0,
+                "y": 1366.5,
+                "width": 64.0,
+                "height": 14.0
+              },
+              "currentBinding": "deneyimler.device.experience4Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Koylarda yüzme",
+            "image": "assets/device-design-assets/images/3ba42991d5da4bc676fb.png",
+            "link": null,
+            "order": 4,
+            "featuredHome": null,
+            "status": "published"
+          }
+        }
+      ],
+      "overflowTemplate": {
+        "sourceSlot": 1,
+        "strategy": "clone the full semantic card node group; preserve image/title/link spacing and append by device grid step",
+        "sourceTemplateAvailable": true
+      }
+    },
+    {
+      "pagePath": "/deneyimler/",
+      "pageId": null,
+      "device": "tv",
+      "designId": "deneyimler-tv",
+      "entityType": "experience",
+      "sourceNodeCounts": {
+        "cards": 4,
+        "matchedEntities": 0
+      },
+      "sourceSlotOrder": [
+        "ailece-mavi-yolculuk",
+        "size-ozel-gulet-tatili",
+        "guvertede-gun-batimi",
+        "koylarda-yuzme"
+      ],
+      "cmsSortOrderNow": [
+        "ailece-mavi-yolculuk",
+        "size-ozel-gulet-tatili",
+        "guvertede-gun-batimi",
+        "koylarda-yuzme"
+      ],
+      "sourceVsCmsOrderDiffers": false,
+      "homeSelectionField": null,
+      "sourceHomeFeaturedIds": null,
+      "cards": [
+        {
+          "slot": 1,
+          "sourceLabel": "Ailece mavi yolculuk",
+          "entityId": "ailece-mavi-yolculuk",
+          "entityMatch": "stable-source-experience-record",
+          "sourceOrder": 17,
+          "sourceGeometry": {
+            "x": 120.0,
+            "y": 1238.0,
+            "width": 533.0,
+            "height": 309.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "deneyimler-tv-text-10",
+              "sourceId": "deneyimler-tv-text-10",
+              "sourceGeometry": {
+                "x": 119.0,
+                "y": 1578.0,
+                "width": 297.0,
+                "height": 27.0
+              },
+              "currentBinding": "deneyimler.device.experience1Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "deneyimler-tv-image-01",
+              "sourceId": "deneyimler-tv-image-01",
+              "sourceGeometry": {
+                "x": 120.0,
+                "y": 1238.0,
+                "width": 533.0,
+                "height": 309.0
+              },
+              "currentBinding": "deneyimler.content.image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "deneyimler-tv-text-11",
+              "sourceId": "deneyimler-tv-text-11",
+              "sourceGeometry": {
+                "x": 120.0,
+                "y": 1629.0,
+                "width": 115.0,
+                "height": 24.0
+              },
+              "currentBinding": "deneyimler.device.experience1Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Ailece mavi yolculuk",
+            "image": "assets/device-design-assets/images/801af00a1f876234ffc4.png",
+            "link": null,
+            "order": 1,
+            "featuredHome": null,
+            "status": "published"
+          }
+        },
+        {
+          "slot": 2,
+          "sourceLabel": "Size özel gulet tatili",
+          "entityId": "size-ozel-gulet-tatili",
+          "entityMatch": "stable-source-experience-record",
+          "sourceOrder": 20,
+          "sourceGeometry": {
+            "x": 693.0,
+            "y": 1238.0,
+            "width": 533.0,
+            "height": 309.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "deneyimler-tv-text-12",
+              "sourceId": "deneyimler-tv-text-12",
+              "sourceGeometry": {
+                "x": 693.0,
+                "y": 1578.0,
+                "width": 284.0,
+                "height": 27.0
+              },
+              "currentBinding": "deneyimler.device.experience2Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "deneyimler-tv-image-02",
+              "sourceId": "deneyimler-tv-image-02",
+              "sourceGeometry": {
+                "x": 693.0,
+                "y": 1238.0,
+                "width": 533.0,
+                "height": 309.0
+              },
+              "currentBinding": "deneyimler.device.experience1Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "deneyimler-tv-text-13",
+              "sourceId": "deneyimler-tv-text-13",
+              "sourceGeometry": {
+                "x": 693.0,
+                "y": 1629.0,
+                "width": 115.0,
+                "height": 24.0
+              },
+              "currentBinding": "deneyimler.device.experience2Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Size özel gulet tatili",
+            "image": "assets/device-design-assets/images/f0fab493786f234da45a.png",
+            "link": null,
+            "order": 2,
+            "featuredHome": null,
+            "status": "published"
+          }
+        },
+        {
+          "slot": 3,
+          "sourceLabel": "Guvertede gün batımı",
+          "entityId": "guvertede-gun-batimi",
+          "entityMatch": "stable-source-experience-record",
+          "sourceOrder": 23,
+          "sourceGeometry": {
+            "x": 1266.0,
+            "y": 1238.0,
+            "width": 533.0,
+            "height": 309.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "deneyimler-tv-text-14",
+              "sourceId": "deneyimler-tv-text-14",
+              "sourceGeometry": {
+                "x": 1266.0,
+                "y": 1578.0,
+                "width": 312.0,
+                "height": 27.0
+              },
+              "currentBinding": "deneyimler.device.experience3Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "deneyimler-tv-image-03",
+              "sourceId": "deneyimler-tv-image-03",
+              "sourceGeometry": {
+                "x": 1266.0,
+                "y": 1238.0,
+                "width": 533.0,
+                "height": 309.0
+              },
+              "currentBinding": "deneyimler.device.experience2Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "deneyimler-tv-text-15",
+              "sourceId": "deneyimler-tv-text-15",
+              "sourceGeometry": {
+                "x": 1266.0,
+                "y": 1629.0,
+                "width": 115.0,
+                "height": 24.0
+              },
+              "currentBinding": "deneyimler.device.experience3Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Guvertede gün batımı",
+            "image": "assets/device-design-assets/images/a1b9d9776943aaa37574.png",
+            "link": null,
+            "order": 3,
+            "featuredHome": null,
+            "status": "published"
+          }
+        },
+        {
+          "slot": 4,
+          "sourceLabel": "Koylarda yüzme",
+          "entityId": "koylarda-yuzme",
+          "entityMatch": "stable-source-experience-record",
+          "sourceOrder": 26,
+          "sourceGeometry": {
+            "x": 120.0,
+            "y": 1723.0,
+            "width": 533.0,
+            "height": 309.0
+          },
+          "nodes": {
+            "name": {
+              "nodeId": "deneyimler-tv-text-16",
+              "sourceId": "deneyimler-tv-text-16",
+              "sourceGeometry": {
+                "x": 120.0,
+                "y": 2063.0,
+                "width": 230.0,
+                "height": 27.0
+              },
+              "currentBinding": "deneyimler.device.experience4Title",
+              "entityField": "name|title"
+            },
+            "image": {
+              "nodeId": "deneyimler-tv-image-04",
+              "sourceId": "deneyimler-tv-image-04",
+              "sourceGeometry": {
+                "x": 120.0,
+                "y": 1723.0,
+                "width": 533.0,
+                "height": 309.0
+              },
+              "currentBinding": "deneyimler.device.experience3Image",
+              "entityField": "image"
+            },
+            "link": {
+              "nodeId": "deneyimler-tv-text-17",
+              "sourceId": "deneyimler-tv-text-17",
+              "sourceGeometry": {
+                "x": 120.0,
+                "y": 2114.0,
+                "width": 115.0,
+                "height": 24.0
+              },
+              "currentBinding": "deneyimler.device.experience4Cta",
+              "entityField": "path"
+            }
+          },
+          "status": {
+            "entityField": "status",
+            "sourceNodeId": null,
+            "visibleBadge": false,
+            "behavior": "hide/show semantics require renderer; no source status badge"
+          },
+          "sourceLink": null,
+          "sourceDefaults": {
+            "name": "Koylarda yüzme",
+            "image": "assets/device-design-assets/images/3ba42991d5da4bc676fb.png",
+            "link": null,
+            "order": 4,
+            "featuredHome": null,
+            "status": "published"
+          }
+        }
+      ],
+      "overflowTemplate": {
+        "sourceSlot": 1,
+        "strategy": "clone the full semantic card node group; preserve image/title/link spacing and append by device grid step",
+        "sourceTemplateAvailable": true
+      }
+    }
+  ],
+  "runtimeNotes": [
+    "Every card mapping includes source node IDs and original source geometry; no full-board image is embedded.",
+    "Use stable entity IDs for matched routes and gulets. For sortOrder changes, move complete source card groups; do not only replace text/image while leaving the source slot identity fixed.",
+    "Source page order differs from current CMS sortOrder for some route collection layouts.",
+    "Current source has no status badge node. If status is added to entities, renderer must decide hide/show behavior.",
+    "Entities beyond source node count require cloning the first semantic card group using image/title/link nodes and device-specific grid spacing.",
+    "The four experience source cards use stable CMS IDs and canonical sourceDefaults. When entity values equal these defaults, preserve the board-specific source artwork."
+  ],
+  "summary": {
+    "designsScanned": 15,
+    "collectionLayouts": 15,
+    "mappedCards": 72,
+    "matchedStableEntities": 72,
+    "experienceCardsWithoutEntity": 0,
+    "bindingMismatchesExcluded": 1,
+    "unlinkedCardPhotos": 0
+  }
+}

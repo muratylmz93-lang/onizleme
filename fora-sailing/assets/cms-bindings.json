@@ -1,0 +1,2432 @@
+{
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "path": "/",
+      "fields": [
+        {
+          "binding": "home.hero.title",
+          "selectors": [
+            "#hero-title"
+          ],
+          "overlay": {
+            "reference": [
+              ".source-title-glyphs img"
+            ],
+            "hostSelector": "section.hero",
+            "sourceSelector": ".hero-clean-base",
+            "font": "Cormorant Garamond, Georgia, serif",
+            "fontSize": "62px",
+            "lineHeight": "1.05",
+            "color": "#fff",
+            "whiteSpace": "pre-line"
+          },
+          "hideSelectors": [
+            ".source-title-glyphs"
+          ]
+        },
+        {
+          "binding": "home.hero.eyebrow",
+          "selectors": [
+            ".hero-copy .eyebrow"
+          ],
+          "overlay": {
+            "reference": [
+              ".hero-eyebrow-glyph"
+            ],
+            "hostSelector": "section.hero",
+            "sourceSelector": ".hero-clean-base",
+            "font": "Cormorant Garamond, Georgia, serif",
+            "fontSize": "9px",
+            "lineHeight": "1.05",
+            "color": "#fff",
+            "whiteSpace": "pre-line"
+          },
+          "hideSelectors": [
+            ".hero-eyebrow-glyph"
+          ]
+        },
+        {
+          "binding": "home.hero.description",
+          "selectors": [
+            ".hero-lede"
+          ],
+          "overlay": {
+            "reference": [
+              ".source-lede-glyphs img"
+            ],
+            "hostSelector": "section.hero",
+            "sourceSelector": ".hero-clean-base",
+            "font": "DM Sans, sans-serif",
+            "fontSize": "13px",
+            "lineHeight": "1.05",
+            "color": "#fff",
+            "whiteSpace": "pre-line"
+          },
+          "hideSelectors": [
+            ".source-lede-glyphs"
+          ]
+        },
+        {
+          "binding": "home.hero.offerUrl",
+          "selectors": [
+            ".hero-ctas a:first-child"
+          ]
+        },
+        {
+          "binding": "home.hero.whatsappUrl",
+          "selectors": [
+            ".hero-ctas a:last-child"
+          ]
+        },
+        {
+          "binding": "home.hero.image",
+          "selectors": [
+            ".hero-clean-base"
+          ]
+        },
+        {
+          "binding": "home.hero.animation",
+          "selectors": [
+            ".hero-camera-inner"
+          ]
+        },
+        {
+          "binding": "home.story.title",
+          "selectors": [
+            "#story-title"
+          ],
+          "overlay": {
+            "reference": [
+              ".home-art-story-copy"
+            ],
+            "hostSelector": ".desktop-source-art",
+            "sourceSelector": "img[src*=\"desktop-art-story.png\"]",
+            "font": "Cormorant Garamond, Georgia, serif",
+            "fontSize": "34px",
+            "lineHeight": "1.05",
+            "color": "#102e40",
+            "whiteSpace": "pre-line",
+            "referenceRect": {
+              "left": 0,
+              "top": 0.06060606060606061,
+              "width": 1,
+              "height": 0.41414141414141414
+            },
+            "patchAsset": "motion-copy/home-story-title-clean.png"
+          }
+        },
+        {
+          "binding": "home.story.description",
+          "selectors": [
+            ".story-copy > p:last-of-type"
+          ],
+          "overlay": {
+            "reference": [
+              ".home-art-story-copy"
+            ],
+            "hostSelector": ".desktop-source-art",
+            "sourceSelector": "img[src*=\"desktop-art-story.png\"]",
+            "referenceRect": {
+              "left": 0.0163265306122449,
+              "top": 0.5252525252525253,
+              "width": 1.073469387755102,
+              "height": 0.2474747474747475
+            },
+            "patchAsset": "motion-copy/home-story-description-clean-v3.png",
+            "font": "Inter, Arial, sans-serif",
+            "fontSize": "12px",
+            "lineHeight": "1.25",
+            "color": "#17384a",
+            "whiteSpace": "pre-line"
+          }
+        },
+        {
+          "binding": "home.story.link",
+          "selectors": [
+            ".story-copy a"
+          ]
+        },
+        {
+          "binding": "home.routes.title",
+          "selectors": [
+            ".routes h2"
+          ],
+          "overlay": {
+            "reference": [
+              ".home-art-routes-copy"
+            ],
+            "hostSelector": ".desktop-source-art",
+            "sourceSelector": "img[src*=\"desktop-art-routes.png\"]",
+            "font": "Cormorant Garamond, Georgia, serif",
+            "fontSize": "34px",
+            "lineHeight": "1.05",
+            "color": "#fff",
+            "whiteSpace": "pre-line",
+            "referenceRect": {
+              "left": 0.02,
+              "top": 0,
+              "width": 0.96,
+              "height": 0.49
+            }
+          }
+        },
+        {
+          "binding": "home.routes.image",
+          "selectors": [
+            ".home-art-route-photo-4"
+          ]
+        },
+        {
+          "binding": "home.routes.link",
+          "selectors": [
+            ".routes .text-link"
+          ]
+        },
+        {
+          "binding": "home.fleet.title",
+          "selectors": [
+            ".fleet h2"
+          ],
+          "overlay": {
+            "reference": [
+              ".home-art-fleet-copy"
+            ],
+            "hostSelector": ".desktop-source-art",
+            "sourceSelector": "img[src*=\"desktop-art-fleet.png\"]",
+            "font": "Cormorant Garamond, Georgia, serif",
+            "fontSize": "34px",
+            "lineHeight": "1.05",
+            "color": "#102e40",
+            "whiteSpace": "pre-line",
+            "referenceRect": {
+              "left": 0.02,
+              "top": 0.04,
+              "width": 0.95,
+              "height": 0.31
+            }
+          }
+        },
+        {
+          "binding": "home.fleet.eylul.image",
+          "selectors": [
+            ".home-art-fleet-photo-1"
+          ]
+        },
+        {
+          "binding": "home.fleet.eylul.link",
+          "selectors": [
+            ".hotspot-fleet-1"
+          ]
+        },
+        {
+          "binding": "home.offer.title",
+          "selectors": [
+            ".home-art-offer-copy"
+          ],
+          "overlay": {
+            "reference": [
+              ".home-art-offer-copy"
+            ],
+            "hostSelector": ".desktop-source-art",
+            "sourceSelector": "img[src*=\"desktop-art-offer.png\"]",
+            "font": "Cormorant Garamond, Georgia, serif",
+            "fontSize": "30px",
+            "lineHeight": "1.05",
+            "color": "#fff",
+            "whiteSpace": "pre-line",
+            "referenceRect": {
+              "left": 0.04,
+              "top": 0.23,
+              "width": 0.91,
+              "height": 0.34
+            }
+          }
+        },
+        {
+          "binding": "home.offer.link",
+          "selectors": [
+            ".hotspot-offer-cta"
+          ]
+        },
+        {
+          "binding": "home.footer.creditUrl",
+          "selectors": []
+        },
+        {
+          "binding": "home.hero.offerLabel",
+          "selectors": [
+            ".hero-ctas a:first-child"
+          ],
+          "overlay": {
+            "reference": [
+              ".hero-ctas a:first-child"
+            ],
+            "hostSelector": "section.hero",
+            "sourceSelector": ".hero-clean-base",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "11px",
+            "lineHeight": "1",
+            "color": "#142f3b",
+            "background": "#c9a970",
+            "radius": "999px",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "fontWeight": "600",
+            "whiteSpace": "nowrap"
+          }
+        },
+        {
+          "binding": "home.hero.whatsappLabel",
+          "selectors": [
+            ".hero-ctas a:last-child"
+          ],
+          "overlay": {
+            "reference": [
+              ".hero-ctas a:last-child"
+            ],
+            "hostSelector": "section.hero",
+            "sourceSelector": ".hero-clean-base",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "10px",
+            "lineHeight": "1",
+            "color": "#fff",
+            "background": "rgba(7,48,67,.75)",
+            "radius": "999px",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "fontWeight": "500",
+            "whiteSpace": "nowrap"
+          }
+        },
+        {
+          "binding": "home.benefits.title",
+          "selectors": [
+            "#benefits-title"
+          ]
+        },
+        {
+          "binding": "home.benefits.item1.title",
+          "selectors": [
+            ".benefit-list>div:nth-child(1) b"
+          ]
+        },
+        {
+          "binding": "home.benefits.item1.description",
+          "selectors": [
+            ".benefit-list>div:nth-child(1) small"
+          ]
+        },
+        {
+          "binding": "home.benefits.item2.title",
+          "selectors": [
+            ".benefit-list>div:nth-child(2) b"
+          ]
+        },
+        {
+          "binding": "home.benefits.item2.description",
+          "selectors": [
+            ".benefit-list>div:nth-child(2) small"
+          ]
+        },
+        {
+          "binding": "home.benefits.item3.title",
+          "selectors": [
+            ".benefit-list>div:nth-child(3) b"
+          ]
+        },
+        {
+          "binding": "home.benefits.item3.description",
+          "selectors": [
+            ".benefit-list>div:nth-child(3) small"
+          ]
+        },
+        {
+          "binding": "home.benefits.item4.title",
+          "selectors": [
+            ".benefit-list>div:nth-child(4) b"
+          ]
+        },
+        {
+          "binding": "home.benefits.item4.description",
+          "selectors": [
+            ".benefit-list>div:nth-child(4) small"
+          ]
+        },
+        {
+          "binding": "home.reviews.title",
+          "selectors": [
+            "#reviews-title"
+          ]
+        },
+        {
+          "binding": "home.reviews.quote",
+          "selectors": [
+            ".review-card blockquote"
+          ]
+        },
+        {
+          "binding": "home.reviews.author",
+          "selectors": [
+            ".review-card img"
+          ]
+        },
+        {
+          "binding": "home.reviews.link",
+          "selectors": [
+            ".reviews-copy a"
+          ]
+        },
+        {
+          "binding": "home.header.offerLabel",
+          "selectors": [
+            ".masthead .nav-actions .pill-gold"
+          ],
+          "overlay": {
+            "hostSelector": ".desktop-source-art",
+            "sourceSelector": "img:nth-child(1)",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "11px",
+            "lineHeight": "1",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "fontWeight": "600",
+            "reference": [
+              ".masthead .nav-actions .pill-gold"
+            ]
+          }
+        },
+        {
+          "binding": "home.header.offerUrl",
+          "selectors": [
+            ".masthead .nav-actions .pill-gold"
+          ],
+          "overlay": {
+            "hostSelector": ".desktop-source-art",
+            "sourceSelector": "img:nth-child(1)",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "11px",
+            "lineHeight": "1",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "fontWeight": "600",
+            "reference": [
+              ".masthead .nav-actions .pill-gold"
+            ]
+          }
+        },
+        {
+          "binding": "home.header.whatsappLabel",
+          "selectors": [
+            ".masthead .nav-actions .pill-green"
+          ],
+          "overlay": {
+            "hostSelector": ".desktop-source-art",
+            "sourceSelector": "img:nth-child(1)",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "11px",
+            "lineHeight": "1",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "fontWeight": "600",
+            "reference": [
+              ".masthead .nav-actions .pill-green"
+            ]
+          }
+        },
+        {
+          "binding": "home.header.whatsappUrl",
+          "selectors": [
+            ".masthead .nav-actions .pill-green"
+          ],
+          "overlay": {
+            "hostSelector": ".desktop-source-art",
+            "sourceSelector": "img:nth-child(1)",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "11px",
+            "lineHeight": "1",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "fontWeight": "600",
+            "reference": [
+              ".masthead .nav-actions .pill-green"
+            ]
+          }
+        },
+        {
+          "binding": "ana-sayfa.footer.copyright",
+          "selectors": [
+            ".footer .footer-meta span:first-child"
+          ],
+          "overlay": {
+            "hostSelector": ".desktop-source-art",
+            "sourceSelector": "img:nth-child(8)",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "10px",
+            "lineHeight": "1.2",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "reference": [
+              ".footer .footer-meta span:first-child"
+            ]
+          }
+        },
+        {
+          "binding": "ana-sayfa.footer.tagline",
+          "selectors": [
+            ".footer .footer-meta span:last-child"
+          ],
+          "overlay": {
+            "hostSelector": ".desktop-source-art",
+            "sourceSelector": "img:nth-child(8)",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "10px",
+            "lineHeight": "1.2",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "reference": [
+              ".footer .footer-meta span:last-child"
+            ]
+          }
+        }
+      ],
+      "collections": [
+        {
+          "key": "routes",
+          "selector": ".home-art-hotspots [class*=\"hotspot-route-\"]",
+          "imageSelector": ".home-foreground-art img[class*=\"home-art-route-photo-\"]",
+          "homeFeatured": true
+        },
+        {
+          "key": "gulets",
+          "selector": ".home-art-hotspots [class*=\"hotspot-fleet-\"]",
+          "imageSelector": ".home-foreground-art img[class*=\"home-art-fleet-photo-\"]",
+          "homeFeatured": true
+        }
+      ]
+    },
+    {
+      "path": "/deneyimler/",
+      "fields": [
+        {
+          "binding": "deneyimler.hero.title",
+          "selectors": [
+            ".sr-content h1",
+            ".sr-only h1"
+          ],
+          "overlay": {
+            "reference": [
+              ".hero-title-line",
+              ".hero-glyph.hero-title-line"
+            ],
+            "hostSelector": "section.hero, .canvas",
+            "sourceSelector": "img[src*=\"hero.png\"]",
+            "font": "Cormorant Garamond, Georgia, serif",
+            "fontSize": "40px",
+            "lineHeight": "1.05",
+            "color": "#fff",
+            "whiteSpace": "pre-line"
+          },
+          "hideSelectors": [
+            ".hero-title-line"
+          ]
+        },
+        {
+          "binding": "deneyimler.hero.description",
+          "selectors": [
+            ".sr-content h1 + p",
+            ".sr-only h1 + p"
+          ],
+          "overlay": {
+            "reference": [
+              ".hero-copy-line"
+            ],
+            "hostSelector": "section.hero",
+            "sourceSelector": "img[src*=\"hero.png\"]",
+            "font": "DM Sans, sans-serif",
+            "fontSize": "13px",
+            "lineHeight": "1.05",
+            "color": "#fff",
+            "whiteSpace": "pre-line"
+          },
+          "hideSelectors": [
+            ".hero-copy-line"
+          ]
+        },
+        {
+          "binding": "deneyimler.hero.image",
+          "selectors": [
+            "img.hero-art",
+            "section.hero > img:last-of-type"
+          ]
+        },
+        {
+          "binding": "deneyimler.hero.offerUrl",
+          "selectors": [
+            "a.hero-offer",
+            ".hotspot[aria-label*=\"teklif\"]"
+          ]
+        },
+        {
+          "binding": "deneyimler.hero.whatsappUrl",
+          "selectors": [
+            "a.hero-whatsapp",
+            ".hotspot[aria-label*=\"WhatsApp\"]"
+          ]
+        },
+        {
+          "binding": "deneyimler.hero.animation",
+          "selectors": [
+            ".hero-photo-layer",
+            ".hero-art"
+          ]
+        },
+        {
+          "binding": "deneyimler.content.title",
+          "selectors": [
+            ".sr-content h2",
+            ".sr-only h2"
+          ]
+        },
+        {
+          "binding": "deneyimler.content.description",
+          "selectors": [
+            ".sr-content h2 + p",
+            ".sr-only h2 + p"
+          ]
+        },
+        {
+          "binding": "deneyimler.content.image",
+          "selectors": [
+            ".art-section.experiences>img:not(.foreground)"
+          ]
+        },
+        {
+          "binding": "deneyimler.content.link",
+          "selectors": [
+            "a.experience-card:first-of-type",
+            ".hotspot[href*=\"deneyimler\"]"
+          ]
+        },
+        {
+          "binding": "deneyimler.footer.creditUrl",
+          "selectors": []
+        },
+        {
+          "binding": "deneyimler.video.title",
+          "selectors": [
+            "#video-title"
+          ]
+        },
+        {
+          "binding": "deneyimler.video.description",
+          "selectors": [
+            "#video-title + p"
+          ]
+        },
+        {
+          "binding": "deneyimler.plan.title",
+          "selectors": [
+            "#plan-title"
+          ]
+        },
+        {
+          "binding": "deneyimler.plan.description",
+          "selectors": [
+            "#plan-title + p"
+          ]
+        },
+        {
+          "binding": "deneyimler.experiences.card1",
+          "selectors": [
+            ".experiences .sr-content li:nth-child(1)"
+          ]
+        },
+        {
+          "binding": "deneyimler.experiences.card2",
+          "selectors": [
+            ".experiences .sr-content li:nth-child(2)"
+          ]
+        },
+        {
+          "binding": "deneyimler.experiences.card3",
+          "selectors": [
+            ".experiences .sr-content li:nth-child(3)"
+          ]
+        },
+        {
+          "binding": "deneyimler.experiences.card4",
+          "selectors": [
+            ".experiences .sr-content li:nth-child(4)"
+          ]
+        },
+        {
+          "binding": "deneyimler.header.offerLabel",
+          "selectors": [
+            ".source-header .nav-offer"
+          ],
+          "overlay": {
+            "hostSelector": ".source-header",
+            "sourceSelector": ".header-art",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "11px",
+            "lineHeight": "1",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "fontWeight": "600",
+            "reference": [
+              ".source-header .nav-offer"
+            ]
+          }
+        },
+        {
+          "binding": "deneyimler.header.offerUrl",
+          "selectors": [
+            ".source-header .nav-offer"
+          ],
+          "overlay": {
+            "hostSelector": ".source-header",
+            "sourceSelector": ".header-art",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "11px",
+            "lineHeight": "1",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "fontWeight": "600",
+            "reference": [
+              ".source-header .nav-offer"
+            ]
+          }
+        },
+        {
+          "binding": "deneyimler.header.whatsappLabel",
+          "selectors": [
+            ".source-header .nav-wa"
+          ],
+          "overlay": {
+            "hostSelector": ".source-header",
+            "sourceSelector": ".header-art",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "11px",
+            "lineHeight": "1",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "fontWeight": "600",
+            "reference": [
+              ".source-header .nav-wa"
+            ]
+          }
+        },
+        {
+          "binding": "deneyimler.header.whatsappUrl",
+          "selectors": [
+            ".source-header .nav-wa"
+          ],
+          "overlay": {
+            "hostSelector": ".source-header",
+            "sourceSelector": ".header-art",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "11px",
+            "lineHeight": "1",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "fontWeight": "600",
+            "reference": [
+              ".source-header .nav-wa"
+            ]
+          }
+        },
+        {
+          "binding": "deneyimler.footer.copyright",
+          "selectors": [],
+          "overlay": {
+            "hostSelector": ".canvas",
+            "sourceSelector": "img[src*=\"footer.png\"]",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "10px",
+            "lineHeight": "1.2",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "reference": [
+              ".canvas"
+            ],
+            "referenceRect": {
+              "left": 0.045,
+              "top": 0.965,
+              "width": 0.27,
+              "height": 0.012
+            }
+          }
+        },
+        {
+          "binding": "deneyimler.footer.tagline",
+          "selectors": [],
+          "overlay": {
+            "hostSelector": ".canvas",
+            "sourceSelector": "img[src*=\"footer.png\"]",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "10px",
+            "lineHeight": "1.2",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "reference": [
+              ".canvas"
+            ],
+            "referenceRect": {
+              "left": 0.045,
+              "top": 0.965,
+              "width": 0.27,
+              "height": 0.012
+            }
+          }
+        },
+        {
+          "binding": "deneyimler.hero.eyebrow",
+          "selectors": []
+        }
+      ],
+      "collections": [
+        {
+          "key": "experiences",
+          "selector": ".experience-card",
+          "includeStatus": "published",
+          "renderMode": "source-slot-overlays",
+          "pathField": "path",
+          "imageSelector": ".exp-card",
+          "sortBy": "sortOrder",
+          "slotSelector": ".experience-card",
+          "layoutManifest": "/assets/experience-desktop-collections.json",
+          "descriptionField": "description",
+          "imageField": "image",
+          "titleField": "title"
+        }
+      ]
+    },
+    {
+      "path": "/rotalar/",
+      "fields": [
+        {
+          "binding": "rotalar.hero.title",
+          "selectors": [
+            ".sr-content h1",
+            ".sr-only h1"
+          ],
+          "overlay": {
+            "reference": [
+              ".hero-title-line",
+              ".hero-glyph.hero-title-line"
+            ],
+            "hostSelector": "section.hero, .canvas",
+            "sourceSelector": "img.hero-art",
+            "font": "Cormorant Garamond, Georgia, serif",
+            "fontSize": "40px",
+            "lineHeight": "1.05",
+            "color": "#fff",
+            "whiteSpace": "pre-line"
+          },
+          "hideSelectors": [
+            ".hero-title-line"
+          ]
+        },
+        {
+          "binding": "rotalar.hero.description",
+          "selectors": [
+            ".sr-content h1 + p",
+            ".sr-only h1 + p"
+          ],
+          "hideSelectors": [
+            ".hero-copy-line"
+          ]
+        },
+        {
+          "binding": "rotalar.hero.image",
+          "selectors": [
+            "img.hero-art",
+            "section.hero > img:last-of-type"
+          ]
+        },
+        {
+          "binding": "rotalar.hero.offerUrl",
+          "selectors": [
+            "a.hero-offer",
+            ".hotspot[aria-label*=\"teklif\"]"
+          ]
+        },
+        {
+          "binding": "rotalar.hero.whatsappUrl",
+          "selectors": [
+            "a.hero-whatsapp",
+            ".hotspot[aria-label*=\"WhatsApp\"]"
+          ]
+        },
+        {
+          "binding": "rotalar.hero.animation",
+          "selectors": [
+            ".hero-photo-layer",
+            ".hero-art"
+          ]
+        },
+        {
+          "binding": "rotalar.content.title",
+          "selectors": [
+            ".sr-content h2",
+            ".sr-only h2"
+          ]
+        },
+        {
+          "binding": "rotalar.content.description",
+          "selectors": [
+            ".sr-content h2 + p",
+            ".sr-only h2 + p"
+          ]
+        },
+        {
+          "binding": "rotalar.content.image",
+          "selectors": [
+            "img.art[src*=\"catalog.png\"]"
+          ]
+        },
+        {
+          "binding": "rotalar.content.link",
+          "selectors": [
+            "a.experience-card:first-of-type",
+            ".hotspot[href*=\"deneyimler\"]"
+          ]
+        },
+        {
+          "binding": "rotalar.footer.creditUrl",
+          "selectors": []
+        },
+        {
+          "binding": "rotalar.planning.title",
+          "selectors": [
+            ".sr-only[aria-label=\"Rota planlama\"] h2"
+          ]
+        },
+        {
+          "binding": "rotalar.planning.description",
+          "selectors": [
+            ".sr-only[aria-label=\"Rota planlama\"] p"
+          ]
+        },
+        {
+          "binding": "rotalar.header.offerLabel",
+          "selectors": [
+            ".source-header .nav-offer"
+          ],
+          "overlay": {
+            "hostSelector": ".source-header",
+            "sourceSelector": ".header-art",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "11px",
+            "lineHeight": "1",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "fontWeight": "600",
+            "reference": [
+              ".source-header .nav-offer"
+            ]
+          }
+        },
+        {
+          "binding": "rotalar.header.offerUrl",
+          "selectors": [
+            ".source-header .nav-offer"
+          ],
+          "overlay": {
+            "hostSelector": ".source-header",
+            "sourceSelector": ".header-art",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "11px",
+            "lineHeight": "1",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "fontWeight": "600",
+            "reference": [
+              ".source-header .nav-offer"
+            ]
+          }
+        },
+        {
+          "binding": "rotalar.header.whatsappLabel",
+          "selectors": [
+            ".source-header .nav-wa"
+          ],
+          "overlay": {
+            "hostSelector": ".source-header",
+            "sourceSelector": ".header-art",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "11px",
+            "lineHeight": "1",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "fontWeight": "600",
+            "reference": [
+              ".source-header .nav-wa"
+            ]
+          }
+        },
+        {
+          "binding": "rotalar.header.whatsappUrl",
+          "selectors": [
+            ".source-header .nav-wa"
+          ],
+          "overlay": {
+            "hostSelector": ".source-header",
+            "sourceSelector": ".header-art",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "11px",
+            "lineHeight": "1",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "fontWeight": "600",
+            "reference": [
+              ".source-header .nav-wa"
+            ]
+          }
+        },
+        {
+          "binding": "rotalar.footer.copyright",
+          "selectors": [],
+          "overlay": {
+            "hostSelector": ".canvas",
+            "sourceSelector": "img[src*=\"footer.png\"]",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "10px",
+            "lineHeight": "1.2",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "reference": [
+              ".canvas"
+            ],
+            "referenceRect": {
+              "left": 0.045,
+              "top": 0.965,
+              "width": 0.27,
+              "height": 0.012
+            }
+          }
+        },
+        {
+          "binding": "rotalar.footer.tagline",
+          "selectors": [],
+          "overlay": {
+            "hostSelector": ".canvas",
+            "sourceSelector": "img[src*=\"footer.png\"]",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "10px",
+            "lineHeight": "1.2",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "reference": [
+              ".canvas"
+            ],
+            "referenceRect": {
+              "left": 0.045,
+              "top": 0.965,
+              "width": 0.27,
+              "height": 0.012
+            }
+          }
+        }
+      ],
+      "collections": [
+        {
+          "key": "routes",
+          "selector": ".canvas .art-card",
+          "homeFeatured": false,
+          "renderMode": "source-art-slots",
+          "layoutManifest": "assets/routes-desktop-collections.json"
+        }
+      ]
+    },
+    {
+      "path": "/rotalar/gocek-fethiye-gocek/",
+      "fields": [
+        {
+          "binding": "rota-gocek-fethiye.hero.title",
+          "selectors": [
+            ".sr-content h1",
+            ".sr-only h1"
+          ],
+          "overlay": {
+            "reference": [
+              ".hero-title-line",
+              ".hero-glyph.hero-title-line"
+            ],
+            "hostSelector": "section.hero, .canvas",
+            "sourceSelector": "img.hero-art",
+            "font": "Cormorant Garamond, Georgia, serif",
+            "fontSize": "40px",
+            "lineHeight": "1.05",
+            "color": "#fff",
+            "whiteSpace": "pre-line"
+          },
+          "hideSelectors": [
+            ".hero-title-line"
+          ]
+        },
+        {
+          "binding": "rota-gocek-fethiye.hero.description",
+          "selectors": [
+            ".sr-content h1 + p",
+            ".sr-only h1 + p"
+          ],
+          "hideSelectors": [
+            ".hero-copy-line"
+          ]
+        },
+        {
+          "binding": "rota-gocek-fethiye.hero.image",
+          "selectors": [
+            "img.hero-art",
+            "section.hero > img:last-of-type"
+          ]
+        },
+        {
+          "binding": "rota-gocek-fethiye.hero.offerUrl",
+          "selectors": [
+            "a.hero-offer",
+            ".hotspot[aria-label*=\"teklif\"]"
+          ]
+        },
+        {
+          "binding": "rota-gocek-fethiye.hero.whatsappUrl",
+          "selectors": [
+            "a.hero-whatsapp",
+            ".hotspot[aria-label*=\"WhatsApp\"]"
+          ]
+        },
+        {
+          "binding": "rota-gocek-fethiye.hero.animation",
+          "selectors": [
+            ".hero-photo-layer",
+            ".hero-art"
+          ]
+        },
+        {
+          "binding": "rota-gocek-fethiye.content.title",
+          "selectors": [
+            ".sr-content h2",
+            ".sr-only h2"
+          ]
+        },
+        {
+          "binding": "rota-gocek-fethiye.content.description",
+          "selectors": [
+            ".sr-content h2 + p",
+            ".sr-only h2 + p"
+          ]
+        },
+        {
+          "binding": "rota-gocek-fethiye.content.image",
+          "selectors": [
+            "img.art[src*=\"story.png\"]"
+          ]
+        },
+        {
+          "binding": "rota-gocek-fethiye.content.link",
+          "selectors": [
+            "a.experience-card:first-of-type",
+            ".hotspot[href*=\"deneyimler\"]"
+          ]
+        },
+        {
+          "binding": "rota-gocek-fethiye.footer.creditUrl",
+          "selectors": []
+        },
+        {
+          "binding": "rota-gocek-fethiye.stops.title",
+          "selectors": [
+            ".sr-only:nth-of-type(3) h2"
+          ]
+        },
+        {
+          "binding": "rota-gocek-fethiye.stops.description",
+          "selectors": [
+            ".sr-only:nth-of-type(3) p"
+          ]
+        },
+        {
+          "binding": "rota-gocek-fethiye.quote.title",
+          "selectors": [
+            ".sr-only:nth-of-type(4) h2"
+          ]
+        },
+        {
+          "binding": "rota-gocek-fethiye.quote.link",
+          "selectors": [
+            ".hotspot[href*=\"rota=\"]"
+          ]
+        },
+        {
+          "binding": "rota-gocek-fethiye.header.offerLabel",
+          "selectors": [
+            ".source-header .nav-offer"
+          ],
+          "overlay": {
+            "hostSelector": ".source-header",
+            "sourceSelector": ".header-art",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "11px",
+            "lineHeight": "1",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "fontWeight": "600",
+            "reference": [
+              ".source-header .nav-offer"
+            ]
+          }
+        },
+        {
+          "binding": "rota-gocek-fethiye.header.offerUrl",
+          "selectors": [
+            ".source-header .nav-offer"
+          ],
+          "overlay": {
+            "hostSelector": ".source-header",
+            "sourceSelector": ".header-art",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "11px",
+            "lineHeight": "1",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "fontWeight": "600",
+            "reference": [
+              ".source-header .nav-offer"
+            ]
+          }
+        },
+        {
+          "binding": "rota-gocek-fethiye.header.whatsappLabel",
+          "selectors": [
+            ".source-header .nav-wa"
+          ],
+          "overlay": {
+            "hostSelector": ".source-header",
+            "sourceSelector": ".header-art",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "11px",
+            "lineHeight": "1",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "fontWeight": "600",
+            "reference": [
+              ".source-header .nav-wa"
+            ]
+          }
+        },
+        {
+          "binding": "rota-gocek-fethiye.header.whatsappUrl",
+          "selectors": [
+            ".source-header .nav-wa"
+          ],
+          "overlay": {
+            "hostSelector": ".source-header",
+            "sourceSelector": ".header-art",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "11px",
+            "lineHeight": "1",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "fontWeight": "600",
+            "reference": [
+              ".source-header .nav-wa"
+            ]
+          }
+        },
+        {
+          "binding": "rota-gocek-fethiye.footer.copyright",
+          "selectors": [],
+          "overlay": {
+            "hostSelector": ".canvas",
+            "sourceSelector": "img[src*=\"footer.png\"]",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "10px",
+            "lineHeight": "1.2",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "reference": [
+              ".canvas"
+            ],
+            "referenceRect": {
+              "left": 0.045,
+              "top": 0.965,
+              "width": 0.27,
+              "height": 0.012
+            }
+          }
+        },
+        {
+          "binding": "rota-gocek-fethiye.footer.tagline",
+          "selectors": [],
+          "overlay": {
+            "hostSelector": ".canvas",
+            "sourceSelector": "img[src*=\"footer.png\"]",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "10px",
+            "lineHeight": "1.2",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "reference": [
+              ".canvas"
+            ],
+            "referenceRect": {
+              "left": 0.045,
+              "top": 0.965,
+              "width": 0.27,
+              "height": 0.012
+            }
+          }
+        },
+        {
+          "binding": "rota-gocek-fethiye.quote.description",
+          "selectors": []
+        }
+      ],
+      "collections": []
+    },
+    {
+      "path": "/filo/",
+      "fields": [
+        {
+          "binding": "filo.hero.title",
+          "selectors": [
+            ".sr-content h1",
+            ".sr-only h1"
+          ],
+          "overlay": {
+            "reference": [
+              ".hero-title-line",
+              ".hero-glyph.hero-title-line"
+            ],
+            "hostSelector": "section.hero, .canvas",
+            "sourceSelector": "img.hero-art",
+            "font": "Cormorant Garamond, Georgia, serif",
+            "fontSize": "40px",
+            "lineHeight": "1.05",
+            "color": "#fff",
+            "whiteSpace": "pre-line"
+          },
+          "hideSelectors": [
+            ".hero-title-line"
+          ]
+        },
+        {
+          "binding": "filo.hero.description",
+          "selectors": [
+            ".sr-content h1 + p",
+            ".sr-only h1 + p"
+          ],
+          "hideSelectors": [
+            ".hero-copy-line"
+          ]
+        },
+        {
+          "binding": "filo.hero.image",
+          "selectors": [
+            "img.hero-art",
+            "section.hero > img:last-of-type"
+          ]
+        },
+        {
+          "binding": "filo.hero.offerUrl",
+          "selectors": [
+            "a.hero-offer",
+            ".hotspot[aria-label*=\"teklif\"]"
+          ]
+        },
+        {
+          "binding": "filo.hero.whatsappUrl",
+          "selectors": [
+            "a.hero-whatsapp",
+            ".hotspot[aria-label*=\"WhatsApp\"]"
+          ]
+        },
+        {
+          "binding": "filo.hero.animation",
+          "selectors": [
+            ".hero-photo-layer",
+            ".hero-art"
+          ]
+        },
+        {
+          "binding": "filo.content.title",
+          "selectors": [
+            ".sr-content h2",
+            ".sr-only h2"
+          ]
+        },
+        {
+          "binding": "filo.content.description",
+          "selectors": [
+            ".sr-content h2 + p",
+            ".sr-only h2 + p"
+          ]
+        },
+        {
+          "binding": "filo.content.image",
+          "selectors": [
+            "img.art[src*=\"fleet.png\"]"
+          ]
+        },
+        {
+          "binding": "filo.content.link",
+          "selectors": [
+            "a.experience-card:first-of-type",
+            ".hotspot[href*=\"deneyimler\"]"
+          ]
+        },
+        {
+          "binding": "filo.footer.creditUrl",
+          "selectors": []
+        },
+        {
+          "binding": "filo.quote.title",
+          "selectors": [
+            ".sr-only:nth-of-type(3) h2"
+          ]
+        },
+        {
+          "binding": "filo.header.offerLabel",
+          "selectors": [
+            ".source-header .nav-offer"
+          ],
+          "overlay": {
+            "hostSelector": ".source-header",
+            "sourceSelector": ".header-art",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "11px",
+            "lineHeight": "1",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "fontWeight": "600",
+            "reference": [
+              ".source-header .nav-offer"
+            ]
+          }
+        },
+        {
+          "binding": "filo.header.offerUrl",
+          "selectors": [
+            ".source-header .nav-offer"
+          ],
+          "overlay": {
+            "hostSelector": ".source-header",
+            "sourceSelector": ".header-art",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "11px",
+            "lineHeight": "1",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "fontWeight": "600",
+            "reference": [
+              ".source-header .nav-offer"
+            ]
+          }
+        },
+        {
+          "binding": "filo.header.whatsappLabel",
+          "selectors": [
+            ".source-header .nav-wa"
+          ],
+          "overlay": {
+            "hostSelector": ".source-header",
+            "sourceSelector": ".header-art",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "11px",
+            "lineHeight": "1",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "fontWeight": "600",
+            "reference": [
+              ".source-header .nav-wa"
+            ]
+          }
+        },
+        {
+          "binding": "filo.header.whatsappUrl",
+          "selectors": [
+            ".source-header .nav-wa"
+          ],
+          "overlay": {
+            "hostSelector": ".source-header",
+            "sourceSelector": ".header-art",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "11px",
+            "lineHeight": "1",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "fontWeight": "600",
+            "reference": [
+              ".source-header .nav-wa"
+            ]
+          }
+        },
+        {
+          "binding": "filo.footer.copyright",
+          "selectors": [],
+          "overlay": {
+            "hostSelector": ".canvas",
+            "sourceSelector": "img[src*=\"footer.png\"]",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "10px",
+            "lineHeight": "1.2",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "reference": [
+              ".canvas"
+            ],
+            "referenceRect": {
+              "left": 0.045,
+              "top": 0.965,
+              "width": 0.27,
+              "height": 0.012
+            }
+          }
+        },
+        {
+          "binding": "filo.footer.tagline",
+          "selectors": [],
+          "overlay": {
+            "hostSelector": ".canvas",
+            "sourceSelector": "img[src*=\"footer.png\"]",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "10px",
+            "lineHeight": "1.2",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "reference": [
+              ".canvas"
+            ],
+            "referenceRect": {
+              "left": 0.045,
+              "top": 0.965,
+              "width": 0.27,
+              "height": 0.012
+            }
+          }
+        }
+      ],
+      "collections": [
+        {
+          "key": "gulets",
+          "selector": ".canvas .art-card",
+          "homeFeatured": false,
+          "renderMode": "source-art-slots",
+          "layoutManifest": "assets/gulets-desktop-collections.json"
+        }
+      ]
+    },
+    {
+      "path": "/filo/eylul/",
+      "fields": [
+        {
+          "binding": "eylul.hero.title",
+          "selectors": [
+            ".sr-content h1",
+            ".sr-only h1"
+          ],
+          "overlay": {
+            "reference": [
+              ".hero-title-line",
+              ".hero-glyph.hero-title-line"
+            ],
+            "hostSelector": "section.hero, .canvas",
+            "sourceSelector": "img.hero-art",
+            "font": "Cormorant Garamond, Georgia, serif",
+            "fontSize": "40px",
+            "lineHeight": "1.05",
+            "color": "#fff",
+            "whiteSpace": "pre-line"
+          },
+          "hideSelectors": [
+            ".hero-title-line"
+          ]
+        },
+        {
+          "binding": "eylul.hero.description",
+          "selectors": [
+            ".sr-content h1 + p",
+            ".sr-only h1 + p"
+          ],
+          "hideSelectors": [
+            ".hero-copy-line"
+          ]
+        },
+        {
+          "binding": "eylul.hero.image",
+          "selectors": [
+            "img.hero-art",
+            "section.hero > img:last-of-type"
+          ]
+        },
+        {
+          "binding": "eylul.hero.offerUrl",
+          "selectors": [
+            "a.hero-offer",
+            ".hotspot[aria-label*=\"teklif\"]"
+          ]
+        },
+        {
+          "binding": "eylul.hero.whatsappUrl",
+          "selectors": [
+            "a.hero-whatsapp",
+            ".hotspot[aria-label*=\"WhatsApp\"]"
+          ]
+        },
+        {
+          "binding": "eylul.hero.animation",
+          "selectors": [
+            ".hero-photo-layer",
+            ".hero-art"
+          ]
+        },
+        {
+          "binding": "eylul.content.title",
+          "selectors": [
+            ".sr-content h2",
+            ".sr-only h2"
+          ]
+        },
+        {
+          "binding": "eylul.content.description",
+          "selectors": [
+            ".sr-content h2 + p",
+            ".sr-only h2 + p"
+          ]
+        },
+        {
+          "binding": "eylul.content.image",
+          "selectors": [
+            "img.art[src*=\"story.png\"]"
+          ]
+        },
+        {
+          "binding": "eylul.content.link",
+          "selectors": [
+            "a.experience-card:first-of-type",
+            ".hotspot[href*=\"deneyimler\"]"
+          ]
+        },
+        {
+          "binding": "eylul.footer.creditUrl",
+          "selectors": []
+        },
+        {
+          "binding": "eylul.gallery.title",
+          "selectors": [
+            ".sr-only:nth-of-type(3) h2"
+          ]
+        },
+        {
+          "binding": "eylul.gallery.description",
+          "selectors": [
+            ".sr-only:nth-of-type(3) p"
+          ]
+        },
+        {
+          "binding": "eylul.header.offerLabel",
+          "selectors": [
+            ".source-header .nav-offer"
+          ],
+          "overlay": {
+            "hostSelector": ".source-header",
+            "sourceSelector": ".header-art",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "11px",
+            "lineHeight": "1",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "fontWeight": "600",
+            "reference": [
+              ".source-header .nav-offer"
+            ]
+          }
+        },
+        {
+          "binding": "eylul.header.offerUrl",
+          "selectors": [
+            ".source-header .nav-offer"
+          ],
+          "overlay": {
+            "hostSelector": ".source-header",
+            "sourceSelector": ".header-art",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "11px",
+            "lineHeight": "1",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "fontWeight": "600",
+            "reference": [
+              ".source-header .nav-offer"
+            ]
+          }
+        },
+        {
+          "binding": "eylul.header.whatsappLabel",
+          "selectors": [
+            ".source-header .nav-wa"
+          ],
+          "overlay": {
+            "hostSelector": ".source-header",
+            "sourceSelector": ".header-art",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "11px",
+            "lineHeight": "1",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "fontWeight": "600",
+            "reference": [
+              ".source-header .nav-wa"
+            ]
+          }
+        },
+        {
+          "binding": "eylul.header.whatsappUrl",
+          "selectors": [
+            ".source-header .nav-wa"
+          ],
+          "overlay": {
+            "hostSelector": ".source-header",
+            "sourceSelector": ".header-art",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "11px",
+            "lineHeight": "1",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "fontWeight": "600",
+            "reference": [
+              ".source-header .nav-wa"
+            ]
+          }
+        },
+        {
+          "binding": "eylul.footer.copyright",
+          "selectors": [],
+          "overlay": {
+            "hostSelector": ".canvas",
+            "sourceSelector": "img[src*=\"footer.png\"]",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "10px",
+            "lineHeight": "1.2",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "reference": [
+              ".canvas"
+            ],
+            "referenceRect": {
+              "left": 0.045,
+              "top": 0.965,
+              "width": 0.27,
+              "height": 0.012
+            }
+          }
+        },
+        {
+          "binding": "eylul.footer.tagline",
+          "selectors": [],
+          "overlay": {
+            "hostSelector": ".canvas",
+            "sourceSelector": "img[src*=\"footer.png\"]",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "10px",
+            "lineHeight": "1.2",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "reference": [
+              ".canvas"
+            ],
+            "referenceRect": {
+              "left": 0.045,
+              "top": 0.965,
+              "width": 0.27,
+              "height": 0.012
+            }
+          }
+        },
+        {
+          "binding": "eylul.quote.title",
+          "selectors": []
+        },
+        {
+          "binding": "eylul.quote.description",
+          "selectors": []
+        },
+        {
+          "binding": "eylul.related.title",
+          "selectors": []
+        },
+        {
+          "binding": "eylul.related.description",
+          "selectors": []
+        }
+      ],
+      "collections": [
+        {
+          "key": "gulets",
+          "detailId": "eylul"
+        }
+      ]
+    },
+    {
+      "path": "/hakkimizda/",
+      "fields": [
+        {
+          "binding": "hakkimizda.hero.title",
+          "selectors": [
+            ".sr-content h1",
+            ".sr-only h1"
+          ],
+          "overlay": {
+            "reference": [
+              ".hero-title-line",
+              ".hero-glyph.hero-title-line"
+            ],
+            "hostSelector": "section.hero, .canvas",
+            "sourceSelector": "img[src*=\"hero.png\"]",
+            "font": "Cormorant Garamond, Georgia, serif",
+            "fontSize": "40px",
+            "lineHeight": "1.05",
+            "color": "#fff",
+            "whiteSpace": "pre-line"
+          },
+          "hideSelectors": [
+            ".hero-title-line"
+          ]
+        },
+        {
+          "binding": "hakkimizda.hero.description",
+          "selectors": [
+            ".sr-content h1 + p",
+            ".sr-only h1 + p"
+          ],
+          "overlay": {
+            "reference": [
+              ".hero-copy-line"
+            ],
+            "hostSelector": "section.hero",
+            "sourceSelector": "img[src*=\"hero.png\"]",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "13px",
+            "lineHeight": "1.15",
+            "color": "#fff",
+            "whiteSpace": "pre-line"
+          },
+          "hideSelectors": [
+            ".hero-copy-line"
+          ]
+        },
+        {
+          "binding": "hakkimizda.hero.image",
+          "selectors": [
+            "img.hero-art",
+            "section.hero > img:last-of-type"
+          ]
+        },
+        {
+          "binding": "hakkimizda.hero.offerUrl",
+          "selectors": [
+            "a.hero-offer",
+            ".hotspot[aria-label*=\"teklif\"]"
+          ]
+        },
+        {
+          "binding": "hakkimizda.hero.whatsappUrl",
+          "selectors": [
+            "a.hero-whatsapp",
+            ".hotspot[aria-label*=\"WhatsApp\"]"
+          ]
+        },
+        {
+          "binding": "hakkimizda.hero.animation",
+          "selectors": [
+            ".hero-photo-layer",
+            ".hero-art"
+          ]
+        },
+        {
+          "binding": "hakkimizda.content.title",
+          "selectors": [
+            ".sr-content h2",
+            ".sr-only h2"
+          ]
+        },
+        {
+          "binding": "hakkimizda.content.description",
+          "selectors": [
+            ".sr-content h2 + p",
+            ".sr-only h2 + p"
+          ]
+        },
+        {
+          "binding": "hakkimizda.content.image",
+          "selectors": [
+            ".about-main-layer"
+          ]
+        },
+        {
+          "binding": "hakkimizda.content.link",
+          "selectors": [
+            "a.experience-card:first-of-type",
+            ".hotspot[href*=\"deneyimler\"]"
+          ]
+        },
+        {
+          "binding": "hakkimizda.footer.creditUrl",
+          "selectors": []
+        },
+        {
+          "binding": "hakkimizda.values.title",
+          "selectors": [
+            ".values .sr-content h2"
+          ]
+        },
+        {
+          "binding": "hakkimizda.values.item1",
+          "selectors": [
+            ".values .sr-content li:nth-child(1)"
+          ]
+        },
+        {
+          "binding": "hakkimizda.values.item2",
+          "selectors": [
+            ".values .sr-content li:nth-child(2)"
+          ]
+        },
+        {
+          "binding": "hakkimizda.values.item3",
+          "selectors": [
+            ".values .sr-content li:nth-child(3)"
+          ]
+        },
+        {
+          "binding": "hakkimizda.together.title",
+          "selectors": [
+            ".together .sr-content h2"
+          ]
+        },
+        {
+          "binding": "hakkimizda.together.description",
+          "selectors": [
+            ".together .sr-content p"
+          ]
+        },
+        {
+          "binding": "hakkimizda.header.offerLabel",
+          "selectors": [
+            ".source-header .nav-offer"
+          ],
+          "overlay": {
+            "hostSelector": ".source-header",
+            "sourceSelector": ".header-art",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "11px",
+            "lineHeight": "1",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "fontWeight": "600",
+            "reference": [
+              ".source-header .nav-offer"
+            ]
+          }
+        },
+        {
+          "binding": "hakkimizda.header.offerUrl",
+          "selectors": [
+            ".source-header .nav-offer"
+          ],
+          "overlay": {
+            "hostSelector": ".source-header",
+            "sourceSelector": ".header-art",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "11px",
+            "lineHeight": "1",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "fontWeight": "600",
+            "reference": [
+              ".source-header .nav-offer"
+            ]
+          }
+        },
+        {
+          "binding": "hakkimizda.header.whatsappLabel",
+          "selectors": [
+            ".source-header .nav-wa"
+          ],
+          "overlay": {
+            "hostSelector": ".source-header",
+            "sourceSelector": ".header-art",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "11px",
+            "lineHeight": "1",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "fontWeight": "600",
+            "reference": [
+              ".source-header .nav-wa"
+            ]
+          }
+        },
+        {
+          "binding": "hakkimizda.header.whatsappUrl",
+          "selectors": [
+            ".source-header .nav-wa"
+          ],
+          "overlay": {
+            "hostSelector": ".source-header",
+            "sourceSelector": ".header-art",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "11px",
+            "lineHeight": "1",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "fontWeight": "600",
+            "reference": [
+              ".source-header .nav-wa"
+            ]
+          }
+        },
+        {
+          "binding": "hakkimizda.footer.copyright",
+          "selectors": [],
+          "overlay": {
+            "hostSelector": ".canvas",
+            "sourceSelector": "img[src*=\"footer.png\"]",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "10px",
+            "lineHeight": "1.2",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "reference": [
+              ".canvas"
+            ],
+            "referenceRect": {
+              "left": 0.045,
+              "top": 0.965,
+              "width": 0.27,
+              "height": 0.012
+            }
+          }
+        },
+        {
+          "binding": "hakkimizda.footer.tagline",
+          "selectors": [],
+          "overlay": {
+            "hostSelector": ".canvas",
+            "sourceSelector": "img[src*=\"footer.png\"]",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "10px",
+            "lineHeight": "1.2",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "reference": [
+              ".canvas"
+            ],
+            "referenceRect": {
+              "left": 0.045,
+              "top": 0.965,
+              "width": 0.27,
+              "height": 0.012
+            }
+          }
+        },
+        {
+          "binding": "hakkimizda.hero.eyebrow",
+          "selectors": []
+        }
+      ],
+      "collections": []
+    },
+    {
+      "path": "/iletisim/",
+      "fields": [
+        {
+          "binding": "iletisim.hero.title",
+          "selectors": [
+            ".sr-content h1",
+            ".sr-only h1"
+          ],
+          "overlay": {
+            "reference": [
+              ".hero-title-line",
+              ".hero-glyph.hero-title-line"
+            ],
+            "hostSelector": "section.hero, .canvas",
+            "sourceSelector": "img[src*=\"hero.png\"]",
+            "font": "Cormorant Garamond, Georgia, serif",
+            "fontSize": "40px",
+            "lineHeight": "1.05",
+            "color": "#fff",
+            "whiteSpace": "pre-line"
+          },
+          "hideSelectors": [
+            ".hero-title-line"
+          ]
+        },
+        {
+          "binding": "iletisim.hero.description",
+          "selectors": [
+            ".sr-content h1 + p",
+            ".sr-only h1 + p"
+          ],
+          "overlay": {
+            "reference": [
+              ".hero-copy-line"
+            ],
+            "hostSelector": "section.hero",
+            "sourceSelector": "img[src*=\"hero.png\"]",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "13px",
+            "lineHeight": "1.15",
+            "color": "#fff",
+            "whiteSpace": "pre-line"
+          },
+          "hideSelectors": [
+            ".hero-copy-line"
+          ]
+        },
+        {
+          "binding": "iletisim.hero.image",
+          "selectors": [
+            "img.hero-art",
+            "section.hero > img:last-of-type"
+          ]
+        },
+        {
+          "binding": "iletisim.hero.offerUrl",
+          "selectors": [
+            "a.hero-offer",
+            ".hotspot[aria-label*=\"teklif\"]"
+          ]
+        },
+        {
+          "binding": "iletisim.hero.whatsappUrl",
+          "selectors": [
+            "a.hero-whatsapp",
+            ".hotspot[aria-label*=\"WhatsApp\"]"
+          ]
+        },
+        {
+          "binding": "iletisim.hero.animation",
+          "selectors": [
+            ".hero-photo-layer",
+            ".hero-art"
+          ]
+        },
+        {
+          "binding": "iletisim.content.title",
+          "selectors": [
+            ".sr-content h2",
+            ".sr-only h2"
+          ]
+        },
+        {
+          "binding": "iletisim.content.description",
+          "selectors": [
+            ".sr-content h2 + p",
+            ".sr-only h2 + p"
+          ]
+        },
+        {
+          "binding": "iletisim.content.image",
+          "selectors": [
+            ".contact-photo-layer"
+          ]
+        },
+        {
+          "binding": "iletisim.content.link",
+          "selectors": [
+            "a.experience-card:first-of-type",
+            ".hotspot[href*=\"deneyimler\"]"
+          ]
+        },
+        {
+          "binding": "iletisim.footer.creditUrl",
+          "selectors": []
+        },
+        {
+          "binding": "iletisim.cta.title",
+          "selectors": [
+            ".cta .sr-content h2"
+          ]
+        },
+        {
+          "binding": "iletisim.cta.description",
+          "selectors": [
+            ".cta .sr-content p"
+          ]
+        },
+        {
+          "binding": "iletisim.form.name",
+          "selectors": [
+            "label[for=\"name\"]"
+          ]
+        },
+        {
+          "binding": "iletisim.form.phone",
+          "selectors": [
+            "label[for=\"phone\"]"
+          ]
+        },
+        {
+          "binding": "iletisim.form.email",
+          "selectors": [
+            "label[for=\"email\"]"
+          ]
+        },
+        {
+          "binding": "iletisim.form.date",
+          "selectors": [
+            "label[for=\"date\"]"
+          ]
+        },
+        {
+          "binding": "iletisim.form.guests",
+          "selectors": [
+            "label[for=\"guests\"]"
+          ]
+        },
+        {
+          "binding": "iletisim.form.route",
+          "selectors": [
+            "label[for=\"route\"]"
+          ]
+        },
+        {
+          "binding": "iletisim.form.message",
+          "selectors": [
+            "label[for=\"message\"]"
+          ]
+        },
+        {
+          "binding": "iletisim.form.submit",
+          "selectors": [
+            "form button[type=\"submit\"]"
+          ]
+        },
+        {
+          "binding": "iletisim.header.offerLabel",
+          "selectors": [
+            ".source-header .nav-offer"
+          ],
+          "overlay": {
+            "hostSelector": ".source-header",
+            "sourceSelector": ".header-art",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "11px",
+            "lineHeight": "1",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "fontWeight": "600",
+            "reference": [
+              ".source-header .nav-offer"
+            ]
+          }
+        },
+        {
+          "binding": "iletisim.header.offerUrl",
+          "selectors": [
+            ".source-header .nav-offer"
+          ],
+          "overlay": {
+            "hostSelector": ".source-header",
+            "sourceSelector": ".header-art",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "11px",
+            "lineHeight": "1",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "fontWeight": "600",
+            "reference": [
+              ".source-header .nav-offer"
+            ]
+          }
+        },
+        {
+          "binding": "iletisim.header.whatsappLabel",
+          "selectors": [
+            ".source-header .nav-wa"
+          ],
+          "overlay": {
+            "hostSelector": ".source-header",
+            "sourceSelector": ".header-art",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "11px",
+            "lineHeight": "1",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "fontWeight": "600",
+            "reference": [
+              ".source-header .nav-wa"
+            ]
+          }
+        },
+        {
+          "binding": "iletisim.header.whatsappUrl",
+          "selectors": [
+            ".source-header .nav-wa"
+          ],
+          "overlay": {
+            "hostSelector": ".source-header",
+            "sourceSelector": ".header-art",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "11px",
+            "lineHeight": "1",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "fontWeight": "600",
+            "reference": [
+              ".source-header .nav-wa"
+            ]
+          }
+        },
+        {
+          "binding": "iletisim.footer.copyright",
+          "selectors": [],
+          "overlay": {
+            "hostSelector": ".canvas",
+            "sourceSelector": "img[src*=\"footer.png\"]",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "10px",
+            "lineHeight": "1.2",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "reference": [
+              ".canvas"
+            ],
+            "referenceRect": {
+              "left": 0.045,
+              "top": 0.965,
+              "width": 0.27,
+              "height": 0.012
+            }
+          }
+        },
+        {
+          "binding": "iletisim.footer.tagline",
+          "selectors": [],
+          "overlay": {
+            "hostSelector": ".canvas",
+            "sourceSelector": "img[src*=\"footer.png\"]",
+            "font": "Inter,Arial,sans-serif",
+            "fontSize": "10px",
+            "lineHeight": "1.2",
+            "color": "#f7f2e8",
+            "whiteSpace": "nowrap",
+            "reference": [
+              ".canvas"
+            ],
+            "referenceRect": {
+              "left": 0.045,
+              "top": 0.965,
+              "width": 0.27,
+              "height": 0.012
+            }
+          }
+        }
+      ],
+      "collections": []
+    }
+  ],
+  "apiEndpoint": null
+}

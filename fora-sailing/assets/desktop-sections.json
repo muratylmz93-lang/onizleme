@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "pinnedSectionIds": ["header"],
+  "sourceViewport": {
+    "home": { "width": 809, "height": 1944 },
+    "canvas": { "width": 1024, "height": 1536 },
+    "artSections": { "width": 1024, "height": 1536 }
+  },
+  "pages": [
+    {
+      "path": "/",
+      "mode": "homeBands",
+      "hostSelector": "main",
+      "sourceSelector": ".desktop-source-art",
+      "bands": [
+        { "sourceSectionId": "hero", "sourceOrder": 0, "sourceRect": { "x": 0, "y": 0, "width": 809, "height": 443 }, "sectionSelector": "main > .hero", "selectors": ["main > .hero"], "backgroundSelector": ".desktop-source-art > img:nth-child(1)" },
+        { "sourceSectionId": "story", "sourceOrder": 1, "sourceRect": { "x": 0, "y": 443, "width": 809, "height": 237 }, "sectionSelector": "main > .story", "selectors": ["main > .story", ".home-foreground-art img[class*=\"home-art-story-\"]", ".home-art-hotspots a[class*=\"hotspot-story-\"]"], "backgroundSelector": ".desktop-source-art > img:nth-child(2)" },
+        { "sourceSectionId": "routes", "sourceOrder": 2, "sourceRect": { "x": 0, "y": 680, "width": 809, "height": 360 }, "sectionSelector": "main > .routes", "selectors": ["main > .routes", ".home-foreground-art img.home-art-routes-copy", ".home-foreground-art img[class*=\"home-art-route-\"]", ".home-foreground-art img.home-art-phone", ".home-art-hotspots a[class*=\"hotspot-routes-\"]", ".home-art-hotspots a[class*=\"hotspot-route-\"]"], "backgroundSelector": ".desktop-source-art > img:nth-child(3)" },
+        { "sourceSectionId": "fleet", "sourceOrder": 3, "sourceRect": { "x": 0, "y": 1040, "width": 809, "height": 220 }, "sectionSelector": "main > .fleet", "selectors": ["main > .fleet", ".home-foreground-art img[class*=\"home-art-fleet-\"]", ".home-art-hotspots a[class*=\"hotspot-fleet-\"]"], "backgroundSelector": ".desktop-source-art > img:nth-child(4)" },
+        { "sourceSectionId": "offer", "sourceOrder": 4, "sourceRect": { "x": 0, "y": 1260, "width": 809, "height": 220 }, "sectionSelector": "main > .offer", "selectors": ["main > .offer", ".home-foreground-art img[class*=\"home-art-offer-\"]", ".home-art-hotspots a[class*=\"hotspot-offer-\"]"], "backgroundSelector": ".desktop-source-art > img:nth-child(5)" },
+        { "sourceSectionId": "benefits", "sourceOrder": 5, "sourceRect": { "x": 0, "y": 1480, "width": 809, "height": 120 }, "sectionSelector": "main > .benefits", "selectors": ["main > .benefits", ".home-foreground-art img[class*=\"home-art-benefits-\"]"], "backgroundSelector": ".desktop-source-art > img:nth-child(6)" },
+        { "sourceSectionId": "reviews", "sourceOrder": 6, "sourceRect": { "x": 0, "y": 1600, "width": 809, "height": 165 }, "sectionSelector": "main > .reviews", "selectors": ["main > .reviews", ".home-foreground-art img.home-art-reviews-copy", ".home-foreground-art img[class*=\"home-art-review-\"]", ".home-art-hotspots a[class*=\"hotspot-review-\"]"], "backgroundSelector": ".desktop-source-art > img:nth-child(7)" },
+        { "sourceSectionId": "footer", "sourceOrder": 7, "sourceRect": { "x": 0, "y": 1765, "width": 809, "height": 179 }, "sectionSelector": "main > .footer", "selectors": ["main > .footer", ".home-foreground-art img[class*=\"home-art-footer-\"]"], "backgroundSelector": ".desktop-source-art > img:nth-child(8)" }
+      ]
+    },
+    {
+      "path": "/rotalar/",
+      "mode": "canvasBands", "hostSelector": ".canvas", "sourceWidth": 1024,
+      "bands": [
+        { "sourceSectionId": "hero", "sourceOrder": 0, "sourceRect": { "x": 0, "y": 0, "width": 1024, "height": 432 } },
+        { "sourceSectionId": "content", "sourceOrder": 1, "sourceRect": { "x": 0, "y": 432, "width": 1024, "height": 734 } },
+        { "sourceSectionId": "planning", "sourceOrder": 2, "sourceRect": { "x": 0, "y": 1166, "width": 1024, "height": 210 } },
+        { "sourceSectionId": "footer", "sourceOrder": 3, "sourceRect": { "x": 0, "y": 1376, "width": 1024, "height": 160 } }
+      ]
+    },
+    {
+      "path": "/rotalar/gocek-fethiye-gocek/",
+      "mode": "canvasBands", "hostSelector": ".canvas", "sourceWidth": 1024,
+      "bands": [
+        { "sourceSectionId": "hero", "sourceOrder": 0, "sourceRect": { "x": 0, "y": 0, "width": 1024, "height": 410 } },
+        { "sourceSectionId": "content", "sourceOrder": 1, "sourceRect": { "x": 0, "y": 410, "width": 1024, "height": 325 } },
+        { "sourceSectionId": "stops", "sourceOrder": 2, "sourceRect": { "x": 0, "y": 735, "width": 1024, "height": 443 } },
+        { "sourceSectionId": "quote", "sourceOrder": 3, "sourceRect": { "x": 0, "y": 1178, "width": 1024, "height": 207 } },
+        { "sourceSectionId": "footer", "sourceOrder": 4, "sourceRect": { "x": 0, "y": 1385, "width": 1024, "height": 151 } }
+      ]
+    },
+    {
+      "path": "/filo/",
+      "mode": "canvasBands", "hostSelector": ".canvas", "sourceWidth": 1024,
+      "bands": [
+        { "sourceSectionId": "hero", "sourceOrder": 0, "sourceRect": { "x": 0, "y": 0, "width": 1024, "height": 450 } },
+        { "sourceSectionId": "content", "sourceOrder": 1, "sourceRect": { "x": 0, "y": 450, "width": 1024, "height": 670 } },
+        { "sourceSectionId": "quote", "sourceOrder": 2, "sourceRect": { "x": 0, "y": 1120, "width": 1024, "height": 270 } },
+        { "sourceSectionId": "footer", "sourceOrder": 3, "sourceRect": { "x": 0, "y": 1390, "width": 1024, "height": 146 } }
+      ]
+    },
+    {
+      "path": "/filo/eylul/",
+      "mode": "canvasBands", "hostSelector": ".canvas", "sourceWidth": 1024,
+      "bands": [
+        { "sourceSectionId": "hero", "sourceOrder": 0, "sourceRect": { "x": 0, "y": 0, "width": 1024, "height": 405 } },
+        { "sourceSectionId": "content", "sourceOrder": 1, "sourceRect": { "x": 0, "y": 405, "width": 1024, "height": 370 } },
+        { "sourceSectionId": "gallery", "sourceOrder": 2, "sourceRect": { "x": 0, "y": 775, "width": 1024, "height": 420 } },
+        { "sourceSectionId": "quote", "sourceOrder": 3, "sourceRect": { "x": 0, "y": 775, "width": 1024, "height": 420 }, "aliasOf": "gallery" },
+        { "sourceSectionId": "related", "sourceOrder": 4, "sourceRect": { "x": 0, "y": 1195, "width": 1024, "height": 238 } },
+        { "sourceSectionId": "footer", "sourceOrder": 5, "sourceRect": { "x": 0, "y": 1433, "width": 1024, "height": 103 } }
+      ]
+    },
+    {
+      "path": "/deneyimler/",
+      "mode": "artSections", "hostSelector": "main", "sourceWidth": 1024,
+      "bands": [
+        { "sourceSectionId": "hero", "sourceOrder": 0, "sourceRect": { "x": 0, "y": 0, "width": 1024, "height": 412 }, "selector": "main > section.hero" },
+        { "sourceSectionId": "content", "sourceOrder": 1, "sourceRect": { "x": 0, "y": 412, "width": 1024, "height": 532 }, "selector": "main > section.experiences" },
+        { "sourceSectionId": "experiences", "sourceOrder": 2, "sourceRect": { "x": 0, "y": 412, "width": 1024, "height": 532 }, "selector": "main > section.experiences", "aliasOf": "content" },
+        { "sourceSectionId": "video", "sourceOrder": 3, "sourceRect": { "x": 0, "y": 944, "width": 1024, "height": 288 }, "selector": "main > section.video" },
+        { "sourceSectionId": "plan", "sourceOrder": 4, "sourceRect": { "x": 0, "y": 1232, "width": 1024, "height": 200 }, "selector": "main > section.plan" },
+        { "sourceSectionId": "footer", "sourceOrder": 5, "sourceRect": { "x": 0, "y": 1432, "width": 1024, "height": 104 }, "selector": "main > footer.footer" }
+      ]
+    },
+    {
+      "path": "/hakkimizda/",
+      "mode": "artSections", "hostSelector": "main", "sourceWidth": 1024,
+      "bands": [
+        { "sourceSectionId": "hero", "sourceOrder": 0, "sourceRect": { "x": 0, "y": 0, "width": 1024, "height": 455 }, "selector": "main > section.hero" },
+        { "sourceSectionId": "content", "sourceOrder": 1, "sourceRect": { "x": 0, "y": 455, "width": 1024, "height": 330 }, "selector": "main > section.story" },
+        { "sourceSectionId": "values", "sourceOrder": 2, "sourceRect": { "x": 0, "y": 785, "width": 1024, "height": 295 }, "selector": "main > section.values" },
+        { "sourceSectionId": "together", "sourceOrder": 3, "sourceRect": { "x": 0, "y": 1080, "width": 1024, "height": 338 }, "selector": "main > section.together" },
+        { "sourceSectionId": "footer", "sourceOrder": 4, "sourceRect": { "x": 0, "y": 1418, "width": 1024, "height": 118 }, "selector": "main > footer.footer" }
+      ]
+    },
+    {
+      "path": "/iletisim/",
+      "mode": "artSections", "hostSelector": "main", "sourceWidth": 1024,
+      "bands": [
+        { "sourceSectionId": "hero", "sourceOrder": 0, "sourceRect": { "x": 0, "y": 0, "width": 1024, "height": 440 }, "selector": "main > section.hero" },
+        { "sourceSectionId": "content", "sourceOrder": 1, "sourceRect": { "x": 0, "y": 440, "width": 1024, "height": 634 }, "selector": "main > section.inquiry" },
+        { "sourceSectionId": "form", "sourceOrder": 2, "sourceRect": { "x": 0, "y": 440, "width": 1024, "height": 634 }, "selector": "main > section.inquiry", "aliasOf": "content" },
+        { "sourceSectionId": "cta", "sourceOrder": 3, "sourceRect": { "x": 0, "y": 1074, "width": 1024, "height": 358 }, "selector": "main > section.cta" },
+        { "sourceSectionId": "footer", "sourceOrder": 4, "sourceRect": { "x": 0, "y": 1432, "width": 1024, "height": 104 }, "selector": "main > footer.footer" }
+      ]
+    }
+  ]
+}

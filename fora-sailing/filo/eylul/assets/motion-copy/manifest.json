@@ -1,0 +1,366 @@
+{
+  "pageId": "eylul",
+  "pagePath": "/filo/eylul/",
+  "source": "05-gulet-detay-eylul.png",
+  "sourceDimensions": [
+    1024,
+    1536
+  ],
+  "assetBase": "assets/motion-copy/",
+  "layers": [
+    {
+      "id": "hero-kicker",
+      "semantic": "eyebrow",
+      "sourceText": "GULET FILOMUZ",
+      "sourceBBox": [
+        54,
+        112,
+        289,
+        135
+      ],
+      "canvasRect": {
+        "left": 0.052734375,
+        "top": 0.07291666666666667,
+        "width": 0.2294921875,
+        "height": 0.014973958333333334
+      },
+      "binding": null,
+      "sampleText": null,
+      "glyph": "hero-kicker-glyph.png",
+      "cleanPatch": "hero-kicker-clean.png",
+      "ink": "light"
+    },
+    {
+      "id": "hero-copy",
+      "semantic": "paragraph",
+      "sourceText": "Maviyle iç içe, özgür ve huzurlu bir yolculuk. Eylül, Akdeniz’in en özel koylarında size ait bir yaşam sunuyor.",
+      "sourceBBox": [
+        58,
+        240,
+        391,
+        310
+      ],
+      "canvasRect": {
+        "left": 0.056640625,
+        "top": 0.15625,
+        "width": 0.3251953125,
+        "height": 0.045572916666666664
+      },
+      "binding": "eylul.hero.description",
+      "sampleText": "Maviyle iç içe, özgür ve huzurlu bir yolculuk. Eylül, Akdeniz’in en özel koylarında size ait bir yaşam sunuyor.",
+      "glyph": "hero-copy-glyph.png",
+      "cleanPatch": "hero-copy-clean.png",
+      "ink": "light"
+    },
+    {
+      "id": "hero-cta-label",
+      "semantic": "button-label",
+      "sourceText": "Teklif Alın",
+      "sourceBBox": [
+        83,
+        328,
+        201,
+        354
+      ],
+      "canvasRect": {
+        "left": 0.0810546875,
+        "top": 0.21354166666666666,
+        "width": 0.115234375,
+        "height": 0.016927083333333332
+      },
+      "binding": "eylul.header.offerLabel",
+      "sampleText": "Teklif Alın",
+      "glyph": "hero-cta-label-glyph.png",
+      "cleanPatch": "hero-cta-label-clean.png",
+      "ink": "dark"
+    },
+    {
+      "id": "hero-script",
+      "semantic": "decorative-script",
+      "sourceText": "Mavi içinde daha fazlası sizi bekliyor...",
+      "sourceBBox": [
+        868,
+        254,
+        1014,
+        392
+      ],
+      "canvasRect": {
+        "left": 0.84765625,
+        "top": 0.16536458333333334,
+        "width": 0.142578125,
+        "height": 0.08984375
+      },
+      "binding": null,
+      "sampleText": null,
+      "glyph": "hero-script-glyph.png",
+      "cleanPatch": "hero-script-clean.png",
+      "ink": "light"
+    },
+    {
+      "id": "story-kicker",
+      "semantic": "eyebrow",
+      "sourceText": "EYLÜL GULETİ",
+      "sourceBBox": [
+        52,
+        426,
+        252,
+        445
+      ],
+      "canvasRect": {
+        "left": 0.05078125,
+        "top": 0.27734375,
+        "width": 0.1953125,
+        "height": 0.012369791666666666
+      },
+      "binding": null,
+      "sampleText": null,
+      "glyph": "story-kicker-glyph.png",
+      "cleanPatch": "story-kicker-clean.png",
+      "ink": "dark"
+    },
+    {
+      "id": "story-heading",
+      "semantic": "heading",
+      "sourceText": "Mavide Size Ait Bir Yaşam",
+      "sourceBBox": [
+        51,
+        451,
+        395,
+        551
+      ],
+      "canvasRect": {
+        "left": 0.0498046875,
+        "top": 0.2936197916666667,
+        "width": 0.3359375,
+        "height": 0.06510416666666667
+      },
+      "binding": "eylul.content.title",
+      "sampleText": "Mavide Size Ait Bir Yaşam",
+      "glyph": "story-heading-glyph.png",
+      "cleanPatch": "story-heading-clean.png",
+      "ink": "dark"
+    },
+    {
+      "id": "story-copy",
+      "semantic": "paragraph",
+      "sourceText": "Geniş güvertesi, zarif tasarımı ve sıcak atmosferiyle Eylül, denizin ritminde sakin ve konforlu bir yolculuk sunar. Güneşin, rüzgârın ve masmavi koyların eşlik ettiği bu özel deneyim, size Akdeniz’in gerçek ruhunu hissettirir.",
+      "sourceBBox": [
+        52,
+        578,
+        347,
+        674
+      ],
+      "canvasRect": {
+        "left": 0.05078125,
+        "top": 0.3763020833333333,
+        "width": 0.2880859375,
+        "height": 0.0625
+      },
+      "binding": "eylul.content.description",
+      "sampleText": "Geniş güvertesi, zarif tasarımı ve sıcak atmosferiyle Eylül, denizin ritminde sakin ve konforlu bir yolculuk sunar.",
+      "glyph": "story-copy-glyph.png",
+      "cleanPatch": "story-copy-clean.png",
+      "ink": "dark"
+    },
+    {
+      "id": "quote-heading",
+      "semantic": "heading",
+      "sourceText": "Eylül İçin Teklif Alın",
+      "sourceBBox": [
+        701,
+        807,
+        944,
+        895
+      ],
+      "canvasRect": {
+        "left": 0.6845703125,
+        "top": 0.525390625,
+        "width": 0.2373046875,
+        "height": 0.057291666666666664
+      },
+      "binding": "eylul.quote.title",
+      "sampleText": "Eylül İçin Teklif Alın",
+      "glyph": "quote-heading-glyph.png",
+      "cleanPatch": "quote-heading-clean.png",
+      "ink": "light"
+    },
+    {
+      "id": "quote-copy",
+      "semantic": "paragraph",
+      "sourceText": "Hayalinizdeki mavi yolculuk bir adım uzağınızda.",
+      "sourceBBox": [
+        701,
+        894,
+        944,
+        953
+      ],
+      "canvasRect": {
+        "left": 0.6845703125,
+        "top": 0.58203125,
+        "width": 0.2373046875,
+        "height": 0.038411458333333336
+      },
+      "binding": "eylul.quote.description",
+      "sampleText": "Hayalinizdeki mavi yolculuk bir adım uzağınızda.",
+      "glyph": "quote-copy-glyph.png",
+      "cleanPatch": "quote-copy-clean.png",
+      "ink": "light"
+    },
+    {
+      "id": "related-heading",
+      "semantic": "heading",
+      "sourceText": "Diğer Guletlerimizi Keşfedin",
+      "sourceBBox": [
+        58,
+        1229,
+        358,
+        1310
+      ],
+      "canvasRect": {
+        "left": 0.056640625,
+        "top": 0.8001302083333334,
+        "width": 0.29296875,
+        "height": 0.052734375
+      },
+      "binding": "eylul.related.title",
+      "sampleText": "Diğer Guletlerimizi Keşfedin",
+      "glyph": "related-heading-glyph.png",
+      "cleanPatch": "related-heading-clean.png",
+      "ink": "light"
+    },
+    {
+      "id": "related-copy",
+      "semantic": "paragraph",
+      "sourceText": "Her gulet, yeni bir hikâye. Türkiye’nin en güzel koylarında sizi bekleyen diğer guletlerimizi inceleyin.",
+      "sourceBBox": [
+        58,
+        1316,
+        370,
+        1362
+      ],
+      "canvasRect": {
+        "left": 0.056640625,
+        "top": 0.8567708333333334,
+        "width": 0.3046875,
+        "height": 0.029947916666666668
+      },
+      "binding": "eylul.related.description",
+      "sampleText": "Her gulet, yeni bir hikâye. Türkiye’nin en güzel koylarında sizi bekleyen diğer guletlerimizi inceleyin.",
+      "glyph": "related-copy-glyph.png",
+      "cleanPatch": "related-copy-clean.png",
+      "ink": "light"
+    },
+    {
+      "id": "related-link",
+      "semantic": "link-label",
+      "sourceText": "Tüm Gulet Filomuz",
+      "sourceBBox": [
+        58,
+        1368,
+        259,
+        1392
+      ],
+      "canvasRect": {
+        "left": 0.056640625,
+        "top": 0.890625,
+        "width": 0.1962890625,
+        "height": 0.015625
+      },
+      "binding": null,
+      "sampleText": null,
+      "glyph": "related-link-glyph.png",
+      "cleanPatch": "related-link-clean.png",
+      "ink": "light"
+    },
+    {
+      "id": "footer-nav",
+      "semantic": "footer-navigation",
+      "sourceText": null,
+      "sourceBBox": [
+        246,
+        1419,
+        630,
+        1454
+      ],
+      "canvasRect": {
+        "left": 0.240234375,
+        "top": 0.923828125,
+        "width": 0.375,
+        "height": 0.022786458333333332
+      },
+      "binding": null,
+      "sampleText": null,
+      "glyph": "footer-nav-glyph.png",
+      "cleanPatch": "footer-nav-clean.png",
+      "ink": "light"
+    },
+    {
+      "id": "footer-social",
+      "semantic": "social-links",
+      "sourceText": null,
+      "sourceBBox": [
+        654,
+        1419,
+        794,
+        1454
+      ],
+      "canvasRect": {
+        "left": 0.638671875,
+        "top": 0.923828125,
+        "width": 0.13671875,
+        "height": 0.022786458333333332
+      },
+      "binding": null,
+      "sampleText": null,
+      "glyph": "footer-social-glyph.png",
+      "cleanPatch": "footer-social-clean.png",
+      "ink": "light"
+    },
+    {
+      "id": "footer-note-left",
+      "semantic": "source-copy",
+      "sourceText": null,
+      "sourceBBox": [
+        43,
+        1486,
+        260,
+        1517
+      ],
+      "canvasRect": {
+        "left": 0.0419921875,
+        "top": 0.9674479166666666,
+        "width": 0.2119140625,
+        "height": 0.020182291666666668
+      },
+      "binding": null,
+      "sampleText": null,
+      "glyph": "footer-note-left-glyph.png",
+      "cleanPatch": "footer-note-left-clean.png",
+      "ink": "light"
+    },
+    {
+      "id": "footer-note-right",
+      "semantic": "source-copy",
+      "sourceText": null,
+      "sourceBBox": [
+        640,
+        1486,
+        866,
+        1517
+      ],
+      "canvasRect": {
+        "left": 0.625,
+        "top": 0.9674479166666666,
+        "width": 0.220703125,
+        "height": 0.020182291666666668
+      },
+      "binding": null,
+      "sampleText": null,
+      "glyph": "footer-note-right-glyph.png",
+      "cleanPatch": "footer-note-right-clean.png",
+      "ink": "light"
+    }
+  ],
+  "heroStatic": "hero-static.png",
+  "heroCleanMotion": "../hero-motion-clean.png"
+}

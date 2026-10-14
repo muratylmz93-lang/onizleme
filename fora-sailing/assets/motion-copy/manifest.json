@@ -1,0 +1,521 @@
+{
+  "pageId": "home",
+  "pagePath": "/",
+  "source": "Fora_Sailing_Gorsel_Paketi/00-tam-sayfa-tasarimlar/01-anasayfa.png",
+  "sourceDimensions": [
+    809,
+    1942
+  ],
+  "assetBase": "../",
+  "layers": [
+    {
+      "id": "home-story-description",
+      "semantic": "paragraph",
+      "sourceText": null,
+      "sourceBBox": [
+        39,
+        581,
+        302,
+        630
+      ],
+      "canvasRect": {
+        "left": 0.048207663782447466,
+        "top": 0.7181705809641533,
+        "width": 0.32509270704573545,
+        "height": 0.06056860321384425
+      },
+      "binding": "home.story.description",
+      "sampleText": null,
+      "glyph": "home-story-description-glyph-v2.png",
+      "cleanPatch": "home-story-description-clean-v3.png",
+      "assetNote": "Original source artwork layer; patch only listed where a source patch already exists.",
+      "ink": "dark",
+      "sourceDimensions": [
+        809,
+        1942
+      ],
+      "cleanup": "root-verified clean-v3 background; exact source glyph bbox",
+      "referenceRect": {
+        "left": 0,
+        "top": 0,
+        "width": 1,
+        "height": 1
+      },
+      "anchor": "[data-copy-id=\"home-story-description\"]",
+      "hideSelector": "[data-copy-id=\"home-story-description\"] .copy-glyph",
+      "patchDimensions": [
+        263,
+        49
+      ]
+    },
+    {
+      "id": "home-benefits-title",
+      "semantic": "heading",
+      "sourceBBox": [
+        39,
+        1508,
+        240,
+        1546
+      ],
+      "canvasRect": {
+        "left": 0.048207663782447466,
+        "top": 0.776519052523172,
+        "width": 0.2484548825710754,
+        "height": 0.01956745623069001
+      },
+      "referenceRect": {
+        "left": 0,
+        "top": 0,
+        "width": 1,
+        "height": 1
+      },
+      "anchor": "[data-copy-id=\"home-benefits-title\"]",
+      "hideSelector": "[data-copy-id=\"home-benefits-title\"] .copy-glyph",
+      "binding": "home.benefits.title",
+      "sourceText": null,
+      "sampleText": null,
+      "glyph": "home-benefits-title-glyph.png",
+      "cleanPatch": "home-benefits-title-clean.png",
+      "ink": "light",
+      "sourceDimensions": [
+        809,
+        1942
+      ],
+      "patchDimensions": [
+        201,
+        38
+      ],
+      "cleanup": "2px dilated glyph/antialias mask; source RGB outside that mask is byte-identical"
+    },
+    {
+      "id": "home-benefit-1-title",
+      "semantic": "heading",
+      "sourceBBox": [
+        96,
+        1568,
+        174,
+        1584
+      ],
+      "canvasRect": {
+        "left": 0.11866501854140915,
+        "top": 0.8074150360453141,
+        "width": 0.09641532756489493,
+        "height": 0.008238928939237899
+      },
+      "referenceRect": {
+        "left": 0,
+        "top": 0,
+        "width": 1,
+        "height": 1
+      },
+      "anchor": "[data-copy-id=\"home-benefit-1-title\"]",
+      "hideSelector": "[data-copy-id=\"home-benefit-1-title\"] .copy-glyph",
+      "binding": "home.benefits.item1.title",
+      "sourceText": null,
+      "sampleText": null,
+      "glyph": "home-benefit-1-title-glyph.png",
+      "cleanPatch": "home-benefit-1-title-clean.png",
+      "ink": "light",
+      "sourceDimensions": [
+        809,
+        1942
+      ],
+      "patchDimensions": [
+        78,
+        16
+      ],
+      "cleanup": "2px dilated glyph/antialias mask; source RGB outside that mask is byte-identical"
+    },
+    {
+      "id": "home-benefit-1-copy",
+      "semantic": "paragraph",
+      "sourceBBox": [
+        96,
+        1582,
+        174,
+        1600
+      ],
+      "canvasRect": {
+        "left": 0.11866501854140915,
+        "top": 0.8146240988671473,
+        "width": 0.09641532756489493,
+        "height": 0.009268795056642637
+      },
+      "referenceRect": {
+        "left": 0,
+        "top": 0,
+        "width": 1,
+        "height": 1
+      },
+      "anchor": "[data-copy-id=\"home-benefit-1-copy\"]",
+      "hideSelector": "[data-copy-id=\"home-benefit-1-copy\"] .copy-glyph",
+      "binding": "home.benefits.item1.description",
+      "sourceText": null,
+      "sampleText": null,
+      "glyph": "home-benefit-1-copy-glyph.png",
+      "cleanPatch": "home-benefit-1-copy-clean.png",
+      "ink": "light",
+      "sourceDimensions": [
+        809,
+        1942
+      ],
+      "patchDimensions": [
+        78,
+        18
+      ],
+      "cleanup": "2px dilated glyph/antialias mask; source RGB outside that mask is byte-identical"
+    },
+    {
+      "id": "home-benefit-2-title",
+      "semantic": "heading",
+      "sourceBBox": [
+        178,
+        1568,
+        278,
+        1584
+      ],
+      "canvasRect": {
+        "left": 0.2200247218788628,
+        "top": 0.8074150360453141,
+        "width": 0.12360939431396786,
+        "height": 0.008238928939237899
+      },
+      "referenceRect": {
+        "left": 0,
+        "top": 0,
+        "width": 1,
+        "height": 1
+      },
+      "anchor": "[data-copy-id=\"home-benefit-2-title\"]",
+      "hideSelector": "[data-copy-id=\"home-benefit-2-title\"] .copy-glyph",
+      "binding": "home.benefits.item2.title",
+      "sourceText": null,
+      "sampleText": null,
+      "glyph": "home-benefit-2-title-glyph.png",
+      "cleanPatch": "home-benefit-2-title-clean.png",
+      "ink": "light",
+      "sourceDimensions": [
+        809,
+        1942
+      ],
+      "patchDimensions": [
+        100,
+        16
+      ],
+      "cleanup": "2px dilated glyph/antialias mask; source RGB outside that mask is byte-identical"
+    },
+    {
+      "id": "home-benefit-2-copy",
+      "semantic": "paragraph",
+      "sourceBBox": [
+        178,
+        1582,
+        278,
+        1600
+      ],
+      "canvasRect": {
+        "left": 0.2200247218788628,
+        "top": 0.8146240988671473,
+        "width": 0.12360939431396786,
+        "height": 0.009268795056642637
+      },
+      "referenceRect": {
+        "left": 0,
+        "top": 0,
+        "width": 1,
+        "height": 1
+      },
+      "anchor": "[data-copy-id=\"home-benefit-2-copy\"]",
+      "hideSelector": "[data-copy-id=\"home-benefit-2-copy\"] .copy-glyph",
+      "binding": "home.benefits.item2.description",
+      "sourceText": null,
+      "sampleText": null,
+      "glyph": "home-benefit-2-copy-glyph.png",
+      "cleanPatch": "home-benefit-2-copy-clean.png",
+      "ink": "light",
+      "sourceDimensions": [
+        809,
+        1942
+      ],
+      "patchDimensions": [
+        100,
+        18
+      ],
+      "cleanup": "2px dilated glyph/antialias mask; source RGB outside that mask is byte-identical"
+    },
+    {
+      "id": "home-benefit-3-title",
+      "semantic": "heading",
+      "sourceBBox": [
+        309,
+        1568,
+        415,
+        1584
+      ],
+      "canvasRect": {
+        "left": 0.3819530284301607,
+        "top": 0.8074150360453141,
+        "width": 0.13102595797280595,
+        "height": 0.008238928939237899
+      },
+      "referenceRect": {
+        "left": 0,
+        "top": 0,
+        "width": 1,
+        "height": 1
+      },
+      "anchor": "[data-copy-id=\"home-benefit-3-title\"]",
+      "hideSelector": "[data-copy-id=\"home-benefit-3-title\"] .copy-glyph",
+      "binding": "home.benefits.item3.title",
+      "sourceText": null,
+      "sampleText": null,
+      "glyph": "home-benefit-3-title-glyph.png",
+      "cleanPatch": "home-benefit-3-title-clean.png",
+      "ink": "light",
+      "sourceDimensions": [
+        809,
+        1942
+      ],
+      "patchDimensions": [
+        106,
+        16
+      ],
+      "cleanup": "2px dilated glyph/antialias mask; source RGB outside that mask is byte-identical"
+    },
+    {
+      "id": "home-benefit-3-copy",
+      "semantic": "paragraph",
+      "sourceBBox": [
+        309,
+        1582,
+        415,
+        1600
+      ],
+      "canvasRect": {
+        "left": 0.3819530284301607,
+        "top": 0.8146240988671473,
+        "width": 0.13102595797280595,
+        "height": 0.009268795056642637
+      },
+      "referenceRect": {
+        "left": 0,
+        "top": 0,
+        "width": 1,
+        "height": 1
+      },
+      "anchor": "[data-copy-id=\"home-benefit-3-copy\"]",
+      "hideSelector": "[data-copy-id=\"home-benefit-3-copy\"] .copy-glyph",
+      "binding": "home.benefits.item3.description",
+      "sourceText": null,
+      "sampleText": null,
+      "glyph": "home-benefit-3-copy-glyph.png",
+      "cleanPatch": "home-benefit-3-copy-clean.png",
+      "ink": "light",
+      "sourceDimensions": [
+        809,
+        1942
+      ],
+      "patchDimensions": [
+        106,
+        18
+      ],
+      "cleanup": "2px dilated glyph/antialias mask; source RGB outside that mask is byte-identical"
+    },
+    {
+      "id": "home-benefit-4-title",
+      "semantic": "heading",
+      "sourceBBox": [
+        439,
+        1568,
+        599,
+        1584
+      ],
+      "canvasRect": {
+        "left": 0.5426452410383189,
+        "top": 0.8074150360453141,
+        "width": 0.19777503090234858,
+        "height": 0.008238928939237899
+      },
+      "referenceRect": {
+        "left": 0,
+        "top": 0,
+        "width": 1,
+        "height": 1
+      },
+      "anchor": "[data-copy-id=\"home-benefit-4-title\"]",
+      "hideSelector": "[data-copy-id=\"home-benefit-4-title\"] .copy-glyph",
+      "binding": "home.benefits.item4.title",
+      "sourceText": null,
+      "sampleText": null,
+      "glyph": "home-benefit-4-title-glyph.png",
+      "cleanPatch": "home-benefit-4-title-clean.png",
+      "ink": "light",
+      "sourceDimensions": [
+        809,
+        1942
+      ],
+      "patchDimensions": [
+        160,
+        16
+      ],
+      "cleanup": "2px dilated glyph/antialias mask; source RGB outside that mask is byte-identical"
+    },
+    {
+      "id": "home-benefit-4-copy",
+      "semantic": "paragraph",
+      "sourceBBox": [
+        439,
+        1582,
+        599,
+        1600
+      ],
+      "canvasRect": {
+        "left": 0.5426452410383189,
+        "top": 0.8146240988671473,
+        "width": 0.19777503090234858,
+        "height": 0.009268795056642637
+      },
+      "referenceRect": {
+        "left": 0,
+        "top": 0,
+        "width": 1,
+        "height": 1
+      },
+      "anchor": "[data-copy-id=\"home-benefit-4-copy\"]",
+      "hideSelector": "[data-copy-id=\"home-benefit-4-copy\"] .copy-glyph",
+      "binding": "home.benefits.item4.description",
+      "sourceText": null,
+      "sampleText": null,
+      "glyph": "home-benefit-4-copy-glyph.png",
+      "cleanPatch": "home-benefit-4-copy-clean.png",
+      "ink": "light",
+      "sourceDimensions": [
+        809,
+        1942
+      ],
+      "patchDimensions": [
+        160,
+        18
+      ],
+      "cleanup": "2px dilated glyph/antialias mask; source RGB outside that mask is byte-identical"
+    },
+    {
+      "id": "home-reviews-title",
+      "semantic": "heading",
+      "sourceBBox": [
+        39,
+        1645,
+        229,
+        1715
+      ],
+      "canvasRect": {
+        "left": 0.048207663782447466,
+        "top": 0.8470648815653965,
+        "width": 0.23485784919653893,
+        "height": 0.03604531410916581
+      },
+      "referenceRect": {
+        "left": 0,
+        "top": 0,
+        "width": 1,
+        "height": 1
+      },
+      "anchor": "[data-copy-id=\"home-reviews-title\"]",
+      "hideSelector": "[data-copy-id=\"home-reviews-title\"] .copy-glyph",
+      "binding": "home.reviews.title",
+      "sourceText": null,
+      "sampleText": null,
+      "glyph": "home-reviews-title-glyph.png",
+      "cleanPatch": "home-reviews-title-clean.png",
+      "ink": "dark",
+      "sourceDimensions": [
+        809,
+        1942
+      ],
+      "patchDimensions": [
+        190,
+        70
+      ],
+      "cleanup": "2px dilated glyph/antialias mask; source RGB outside that mask is byte-identical"
+    },
+    {
+      "id": "home-review-quote",
+      "semantic": "paragraph",
+      "sourceBBox": [
+        316,
+        1677,
+        451,
+        1724
+      ],
+      "canvasRect": {
+        "left": 0.39060568603213847,
+        "top": 0.8635427394438723,
+        "width": 0.1668726823238566,
+        "height": 0.02420185375901133
+      },
+      "referenceRect": {
+        "left": 0,
+        "top": 0,
+        "width": 1,
+        "height": 1
+      },
+      "anchor": "[data-copy-id=\"home-review-quote\"]",
+      "hideSelector": "[data-copy-id=\"home-review-quote\"] .copy-glyph",
+      "binding": "home.reviews.quote",
+      "sourceText": null,
+      "sampleText": null,
+      "glyph": "home-review-quote-glyph.png",
+      "cleanPatch": "home-review-quote-clean.png",
+      "ink": "dark",
+      "sourceDimensions": [
+        809,
+        1942
+      ],
+      "patchDimensions": [
+        135,
+        47
+      ],
+      "cleanup": "2px dilated glyph/antialias mask; source RGB outside that mask is byte-identical"
+    },
+    {
+      "id": "home-review-author",
+      "semantic": "paragraph",
+      "sourceBBox": [
+        326,
+        1737,
+        413,
+        1757
+      ],
+      "canvasRect": {
+        "left": 0.40296662546353523,
+        "top": 0.8944387229660145,
+        "width": 0.10754017305315204,
+        "height": 0.010298661174047374
+      },
+      "referenceRect": {
+        "left": 0,
+        "top": 0,
+        "width": 1,
+        "height": 1
+      },
+      "anchor": "[data-copy-id=\"home-review-author\"]",
+      "hideSelector": "[data-copy-id=\"home-review-author\"] .copy-glyph",
+      "binding": "home.reviews.author",
+      "sourceText": null,
+      "sampleText": null,
+      "glyph": "home-review-author-glyph.png",
+      "cleanPatch": "home-review-author-clean.png",
+      "ink": "dark",
+      "sourceDimensions": [
+        809,
+        1942
+      ],
+      "patchDimensions": [
+        87,
+        20
+      ],
+      "cleanup": "2px dilated glyph/antialias mask; source RGB outside that mask is byte-identical"
+    }
+  ],
+  "notes": "Clean patches were derived from the original source and alter only the dilated glyph/antialias mask. Anchors match the patch box exactly."
+}

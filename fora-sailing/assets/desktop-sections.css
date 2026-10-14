@@ -1,0 +1,49 @@
+/* Enabled only when a page's section structure differs from its source template. */
+body[data-desktop-sections-active="true"] .desktop-cms-section-stage {
+  position: absolute;
+  inset: 0 auto auto 0;
+  display: block;
+  width: 100%;
+  container-type: inline-size;
+  overflow: visible;
+  z-index: 1;
+  pointer-events: none;
+}
+body[data-desktop-sections-active="true"] [data-desktop-section-source-hidden] {
+  visibility: hidden !important;
+}
+/* The selected source bands already include the footer art. Avoid rendering
+   the semantic page footer a second time after the custom section stack. */
+body[data-desktop-sections-active="true"] > footer.footer {
+  display: none !important;
+}
+body[data-desktop-sections-active="true"] .desktop-cms-section-stage > * {
+  box-sizing: border-box;
+  pointer-events: auto;
+}
+body[data-desktop-sections-active="true"] .desktop-cms-section-band,
+body[data-desktop-sections-active="true"] .desktop-cms-native-section {
+  box-sizing: border-box;
+}
+body[data-desktop-sections-active="true"] .desktop-section-field-overlay {
+  position: absolute;
+  display: block;
+  overflow: hidden;
+  pointer-events: none;
+}
+body[data-desktop-sections-active="true"] .desktop-section-field-patch {
+  position: absolute;
+  inset: 0;
+  display: block;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+body[data-desktop-sections-active="true"] .desktop-section-field-text {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+body[data-desktop-sections-active="true"] .desktop-cms-section-stage .cms-live-group { z-index: 50 !important; }
+body[data-desktop-sections-active="true"] .desktop-cms-section-stage .desktop-section-field-overlay { z-index: 50; }
