@@ -1,6 +1,7 @@
 @font-face{font-family:"Fora Serif";src:url("./device-design-assets/fonts/fora-serif.ttf") format("truetype");font-display:swap}@font-face{font-family:"Fora Sans";src:url("./device-design-assets/fonts/fora-sans.ttf") format("truetype");font-display:swap}
 #fora-device-stage{position:relative;z-index:100;left:auto;top:auto;width:100vw;min-height:100vh;background:#f7f3e9;color:#103b4b}
 #fora-device-stage>svg{display:block;width:100%;height:auto;overflow:visible}
+#fora-device-stage text{white-space:pre}
 .fora-device-active body{margin:0!important;width:100vw!important;max-width:none!important;min-height:100vh;background:#f7f3e9}
 .fora-device-active body>:not(#fora-device-stage):not(.cms-overlay-layer):not(dialog){display:none!important}
 .fora-device-active .cms-overlay-layer{display:none!important}
