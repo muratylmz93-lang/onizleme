@@ -1,0 +1,221 @@
+/* Contact page mobile composition, aligned to the 725px source board. */
+@media (max-width: 760px) {
+  .fora-detail--contact .detail-hero {
+    min-height: 51.3cqw;
+  }
+
+  .fora-detail--contact .detail-hero-copy {
+    padding: 13.5cqw 0 3cqw;
+  }
+
+  .fora-detail--contact .detail-hero-copy h1 {
+    max-width: 55cqw;
+    font-size: 8.3cqw;
+    line-height: .94;
+  }
+
+  .fora-detail--contact .detail-hero-description {
+    max-width: 76cqw;
+    font-size: 2.6cqw;
+    line-height: 1.2;
+  }
+
+  .fora-detail--contact .detail-contact-section {
+    min-height: 0;
+    padding: 3cqw 0 2cqw;
+  }
+
+  .fora-detail--contact .detail-contact-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .fora-detail--contact .detail-contact-form-wrap {
+    max-width: none;
+  }
+
+  .fora-detail--contact .detail-contact-form-wrap > .detail-eyebrow {
+    margin-bottom: 1.1cqw;
+    font-size: 2.1cqw;
+    letter-spacing: .27em;
+  }
+
+  .fora-detail--contact .detail-contact-form-wrap h2 {
+    max-width: 90cqw;
+    margin: 0 0 1.5cqw;
+    font-size: 6.2cqw;
+    line-height: .98;
+    text-align: left;
+  }
+
+  .fora-detail--contact .detail-contact-form-wrap > p:not(.detail-eyebrow) {
+    max-width: 91cqw;
+    margin: 0 0 2.5cqw;
+    font-size: 2.55cqw;
+    line-height: 1.24;
+  }
+
+  .fora-detail--contact .detail-contact-form {
+    gap: .8cqw;
+  }
+
+  .fora-detail--contact .detail-contact-form label {
+    gap: .8cqw;
+    font-size: 2.4cqw;
+  }
+
+  .fora-detail--contact .detail-contact-form input,
+  .fora-detail--contact .detail-contact-form select {
+    min-height: 6.2cqw;
+    padding: 1cqw 2.2cqw;
+    font-size: 2.5cqw;
+    border-radius: 1.2cqw;
+  }
+
+  .fora-detail--contact .detail-contact-form textarea {
+    min-height: 12cqw;
+    padding: 1.7cqw 2.2cqw;
+    font-size: 2.5cqw;
+    border-radius: 1.2cqw;
+  }
+
+  .fora-detail--contact .detail-contact-form .detail-form-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: .8cqw;
+  }
+
+  .fora-detail--contact .detail-contact-form .btn {
+    min-height: 7cqw;
+    margin-top: .5cqw;
+    border-radius: 99px;
+    font-size: 2.6cqw;
+  }
+
+  .fora-detail--contact .detail-contact-aside {
+    position: relative;
+    display: block;
+    min-height: 42cqw;
+    margin-top: 0;
+    padding: 5cqw;
+    overflow: visible;
+    border-radius: 0;
+    background: #06344b;
+    isolation: isolate;
+  }
+
+  .fora-detail--contact .detail-contact-aside::before {
+    display: none;
+  }
+
+  .fora-detail--contact .detail-contact-aside-copy {
+    position: relative;
+    z-index: 3;
+    width: 45%;
+    max-width: 45%;
+    text-align: left;
+  }
+
+  .fora-detail--contact .detail-contact-aside-copy .detail-eyebrow {
+    display: none;
+  }
+
+  .fora-detail--contact .detail-contact-aside-copy h2 {
+    max-width: 85cqw;
+    margin-bottom: 1.5cqw;
+    font-size: 6cqw;
+    line-height: .95;
+    white-space: nowrap;
+  }
+
+  .fora-detail--contact .detail-contact-aside-copy > p:not(.detail-eyebrow) {
+    max-width: 34cqw;
+    margin-bottom: 2.5cqw;
+    font-size: 2.45cqw;
+    line-height: 1.22;
+  }
+
+  .fora-detail--contact .detail-contact-aside .btn {
+    min-height: 7.2cqw;
+    padding: 1.5cqw 2.2cqw;
+    font-size: 2.2cqw;
+    white-space: nowrap;
+  }
+
+  .fora-detail--contact .detail-contact-photo {
+    position: absolute;
+    z-index: 2;
+    top: 13cqw;
+    right: 9cqw;
+    bottom: auto;
+    left: auto;
+    width: 48cqw;
+    height: 40cqw;
+    margin: 0;
+    border: 1.2cqw solid #fffdf8;
+    border-radius: 1cqw;
+    object-fit: cover;
+    transform: rotate(5deg);
+    box-shadow: 0 1cqw 3cqw rgba(0, 0, 0, .28);
+  }
+
+  .fora-detail--contact .detail-contact-aside .detail-hand-note--aside {
+    z-index: 4;
+    right: 3cqw;
+    bottom: 2cqw;
+    max-width: 31cqw;
+    font-size: 3.5cqw;
+  }
+
+  .fora-detail--contact .detail-contact-cta {
+    position: relative;
+    display: block;
+    min-height: 41cqw;
+    overflow: hidden;
+  }
+
+  .fora-detail--contact .detail-contact-cta-copy {
+    position: relative;
+    z-index: 2;
+    width: 78%;
+    max-width: 78%;
+    margin: 0;
+    padding: 8cqw 0 8cqw 6cqw;
+    text-align: left;
+  }
+
+  .fora-detail--contact .detail-contact-cta h2 {
+    max-width: 50cqw;
+    margin-bottom: 1.8cqw;
+    font-size: 7.1cqw;
+    line-height: .94;
+  }
+
+  .fora-detail--contact .detail-contact-cta p {
+    max-width: 47cqw;
+    font-size: 2.2cqw;
+    line-height: 1.2;
+  }
+
+  .fora-detail--contact .detail-cta-photo {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .88;
+    object-fit: cover;
+  }
+
+  .fora-detail--contact .detail-contact-cta::after {
+    background: linear-gradient(90deg, rgba(1, 28, 45, .9), rgba(1, 28, 45, .3) 74%);
+  }
+
+  .fora-detail--contact .detail-contact-cta .detail-hand-note--cta {
+    right: 5cqw;
+    bottom: 4cqw;
+    max-width: 34cqw;
+    font-size: 3.5cqw;
+  }
+}

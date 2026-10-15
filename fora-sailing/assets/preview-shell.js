@@ -20,6 +20,7 @@
 
   const mode = body.dataset.previewMode === 'mobil' ? 'mobil' : 'web';
   const siteBase = new URL('../', script.src);
+  const release = new URL(script.src).searchParams.get('v') || '20261015-99';
   const query = new URLSearchParams(location.search);
   const requestedPath = query.get('page') || '/';
   let currentPage = pages.find(page => page.path === requestedPath) || pages[0];
@@ -37,6 +38,7 @@
       const targetMode = link.dataset.previewModeLink;
       const target = new URL(targetMode === 'mobil' ? '../mobil/' : '../web/', location.href);
       if (currentPage.path !== '/') target.searchParams.set('page', currentPage.path);
+      target.searchParams.set('v', release);
       link.href = `${target.pathname}${target.search}`;
     }
   }
@@ -45,6 +47,7 @@
     const path = page.path.replace(/^\/+/, '');
     const url = new URL(path, siteBase);
     url.searchParams.set('designViewport', mode === 'mobil' ? 'mobile' : 'desktop');
+    url.searchParams.set('v', release);
     frame.src = `${url.pathname}${url.search}`;
     frame.title = `Fora Sailing ${mode === 'mobil' ? 'mobil' : 'web'} önizlemesi: ${page.label}`;
   }

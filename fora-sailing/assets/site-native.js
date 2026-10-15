@@ -1,7 +1,7 @@
-import { renderHome, initHome } from './site-home.js';
-import { subscribeContent, createContentContext, setupSEO, submitInquiry, trackEvent } from './site-content-runtime.js';
-import { PHOTO, escapeHTML as esc } from './site-assets.js';
-import { detailContent } from './site-detail-context.js';
+import { renderHome, initHome } from './site-home.js?v=20261015-99';
+import { subscribeContent, createContentContext, setupSEO, submitInquiry, trackEvent } from './site-content-runtime.js?v=20261015-99';
+import { PHOTO, escapeHTML as esc } from './site-assets.js?v=20261015-99';
+import { detailContent } from './site-detail-context.js?v=20261015-99';
 
 const PAGES = {
   home: { id:'ana-sayfa', path:'/', prefix:'home' },
@@ -75,7 +75,7 @@ function footer(ctx) {
     const image=`<img class="icon-source" src="${esc(ctx.asset(`assets/icons/bootstrap/${name}.svg`))}" alt="" width="20" height="20">`;
     return target?`<a href="${esc(ctx.url(target))}" aria-label="${esc(name==='whatsapp'?'WhatsApp ile iletişim':name)}">${image}</a>`:`<span aria-hidden="true">${image}</span>`;
   }).join('');
-  return `<footer class="site-footer" data-section-id="footer"><img class="footer-water" src="${esc(ctx.asset('assets/native-footer-sea-v1.png'))}" alt="" loading="lazy"><div class="footer-top" data-reveal><a class="footer-brand" href="${esc(routeUrl(ctx,'/'))}"><img src="${esc(brandUrl(ctx,brand.footerLogo,'assets/brand/fora-sailing.png'))}" alt="Fora Sailing" loading="lazy" width="240" height="96"></a><nav class="footer-nav" aria-label="Alt menü">${navigation(ctx)}</nav><div class="footer-socials">${social}</div></div><p class="footer-note script-note" data-reveal data-cms-binding="home.footer.note">${esc(ctx.get('home.footer.note','Mavi\nYaşatır…')).replace(/\n/g,'<br>')}</p><div class="footer-bottom" data-reveal><small data-cms-binding="home.footer.copyright">${esc(copyright)}</small><small class="footer-tagline" data-cms-binding="home.footer.tagline">${esc(ctx.get('home.footer.tagline','Daha güzel bir dünya için, daha fazla mavi…'))}</small><a class="footer-credit" href="${esc(ctx.url(brand.creditUrl || 'https://mydijital.com.tr/'))}" target="_blank" rel="noopener" aria-label="Web tasarım MY Dijital"><span>Web Tasarım</span><img src="${esc(brandUrl(ctx,brand.creditLogo,'assets/brand/mydijital.png'))}" alt="MY Dijital" loading="lazy"></a></div></footer><aside class="site-contact-dock" aria-label="Hızlı iletişim">${button(ctx,routeUrl(ctx,'/iletisim/'),'Teklif Alın')}<a class="btn btn-whatsapp" href="${esc(whatsapp)}">${icon(ctx,'message')}WhatsApp</a></aside>`;
+  return `<footer class="site-footer" data-section-id="footer"><img class="footer-water" src="${esc(ctx.asset('assets/native-footer-sea-v1.webp'))}" alt="" loading="lazy"><div class="footer-top" data-reveal><a class="footer-brand" href="${esc(routeUrl(ctx,'/'))}"><img src="${esc(brandUrl(ctx,brand.footerLogo,'assets/brand/fora-sailing.png'))}" alt="Fora Sailing" loading="lazy" width="240" height="96"></a><nav class="footer-nav" aria-label="Alt menü">${navigation(ctx)}</nav><div class="footer-socials">${social}</div></div><p class="footer-note script-note" data-reveal data-cms-binding="home.footer.note">${esc(ctx.get('home.footer.note','Mavi\nYaşatır…')).replace(/\n/g,'<br>')}</p><div class="footer-bottom" data-reveal><small data-cms-binding="home.footer.copyright">${esc(copyright)}</small><small class="footer-tagline" data-cms-binding="home.footer.tagline">${esc(ctx.get('home.footer.tagline','Daha güzel bir dünya için, daha fazla mavi…'))}</small><a class="footer-credit" href="${esc(ctx.url(brand.creditUrl || 'https://mydijital.com.tr/'))}" target="_blank" rel="noopener" aria-label="Web tasarım MY Dijital"><span>Web Tasarım</span><img src="${esc(brandUrl(ctx,brand.creditLogo,'assets/brand/mydijital.png'))}" alt="MY Dijital" loading="lazy"></a></div></footer><aside class="site-contact-dock" aria-label="Hızlı iletişim">${button(ctx,routeUrl(ctx,'/iletisim/'),'Teklif Alın')}<a class="btn btn-whatsapp" href="${esc(whatsapp)}">${icon(ctx,'message')}WhatsApp</a></aside>`;
 }
 
 function applySectionState(ctx) {
@@ -150,6 +150,14 @@ function initIcons(ctx) {
     card.insertAdjacentHTML('beforeend',`<span class="home-card-arrow" aria-hidden="true">${icon(ctx,'arrow-right')}</span>`);
   });
   mount.querySelectorAll('.catalog-card__arrow').forEach(arrow=>arrow.innerHTML=icon(ctx,'arrow-right'));
+  const contactForm=mount.querySelector('.detail-contact-form');
+  mount.querySelectorAll('.detail-contact-aside h2 br').forEach(br=>br.before(document.createTextNode(' ')));
+  for(const [name,mark] of [['name','user'],['phone','phone'],['email','mail'],['startDate','calendar'],['guests','users'],['routeId','location'],['message','message']]){
+    const field=contactForm?.elements.namedItem(name),label=field?.closest('label');
+    if(!label)continue;
+    label.classList.add('has-field-icon');
+    label.insertAdjacentHTML('afterbegin',`<span class="form-field-icon" aria-hidden="true">${icon(ctx,mark)}</span>`);
+  }
 }
 
 function initMotion(ctx) {
@@ -164,9 +172,12 @@ function initMotion(ctx) {
   for(const [selector,direction,distance,delay] of [
     ['.home-story-main','right',30,0],['.home-story-side','',65,150],
     ['.detail-photo-main','right',25,0],['.detail-photo-inset','',45,150],
-    ['.catalog-plan__photo','right',0,0],['.detail-together-photo','',25,0]
+    ['.catalog-plan__photo','right',0,0],['.detail-together-photo','',25,0],
+    ['.detail-photo-cove','left',25,120],['.detail-gallery-current','',0,0],
+    ['.detail-contact-photo','',0,120],['.detail-cta-photo','',25,0]
   ])main.querySelectorAll(selector).forEach(el=>{el.dataset.reveal=direction;el.style.setProperty('--reveal-duration','800ms');el.style.setProperty('--reveal-delay',`${delay}ms`);if(distance)el.dataset.parallax=distance;});
   for(const rail of main.querySelectorAll('.home-route-rail,.home-fleet-rail,.catalog-card-grid,.home-benefit-list,.detail-values-list')) [...rail.children].forEach((el,index)=>{if(el.matches('a,article,li')){el.setAttribute('data-reveal','');el.style.setProperty('--reveal-delay',`${index*100}ms`);}});
+  main.querySelectorAll('.detail-gallery-thumbs>button').forEach((el,index)=>{el.setAttribute('data-reveal','');el.style.setProperty('--reveal-duration','800ms');el.style.setProperty('--reveal-delay',`${index*120}ms`);});
   const description=hero?.querySelector('.home-hero-description,.catalog-hero__description,.detail-hero-description');
   if(description){description.setAttribute('data-reveal','');description.style.setProperty('--reveal-x',mobilePreference.matches?'0px':'25px');description.style.setProperty('--reveal-distance',mobilePreference.matches?'12px':'0px');description.style.setProperty('--reveal-duration',mobilePreference.matches?'450ms':'650ms');}
   hero?.querySelectorAll('.home-hero-actions,.catalog-hero__actions,.detail-actions').forEach(el=>{el.setAttribute('data-reveal','');el.style.setProperty('--reveal-distance','15px');el.style.setProperty('--reveal-duration','500ms');});
@@ -389,7 +400,7 @@ function initPreviewSelection(ctx) {
 async function render(context,meta) {
   const sequence=++renderSequence;
   let ctx=context;
-  const defaults=await import('./site-native-content.js');
+  const defaults=await import('./site-native-content.js?v=20261015-99');
   const normalized=defaults.normalizeNativeContent(context.content);
   baselinePromise ||= fetch(`${config}assets/cms-public.json`,{cache:'no-cache'}).then(response=>response.json()).then(data=>defaults.normalizeNativeContent(data.content||data)).catch(()=>normalized);
   const currentPath=document.querySelector('meta[name="fora-cms-page-path"]')?.content||(preview?pageInfo.path:`/${location.pathname.slice(config.length)}`);
@@ -397,7 +408,7 @@ async function render(context,meta) {
   ctx=createContentContext(detail.content,{basePath:config,includeDraft:params.get('cmsPreview')==='1'});
   ctx.detailEntity=detail.entity;ctx.detailCollection=detail.family;
   if(preview){const originalUrl=ctx.url;ctx.url=route=>previewRoute(ctx.basePath,route)||originalUrl(route);}
-  const templates=pageKey==='home'?null:await import('./site-pages.js');
+  const templates=pageKey==='home'?null:await import('./site-pages.js?v=20261015-99');
   const markup=pageKey==='home'?renderHome(ctx):await templates.renderPage(pageKey,ctx);
   if(sequence!==renderSequence)return;
   const y=scrollY;

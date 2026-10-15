@@ -1,0 +1,275 @@
+/* About page mobile composition, aligned to the 725px source board. */
+@media (max-width: 760px) {
+  .fora-detail--about .detail-hero {
+    min-height: 64cqw;
+  }
+
+  .fora-detail--about .detail-hero-copy {
+    padding-top: 12cqw;
+    padding-bottom: 3cqw;
+  }
+
+  .fora-detail--about .detail-hero-copy h1 {
+    max-width: 66cqw;
+    font-size: 8cqw;
+    line-height: .94;
+  }
+
+  .fora-detail--about .detail-hero-description {
+    max-width: 53cqw;
+    font-size: 2.5cqw;
+    line-height: 1.2;
+  }
+
+  .fora-detail--about .detail-actions {
+    display: grid;
+    width: 48cqw;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5cqw;
+  }
+
+  .fora-detail--about .detail-actions .btn {
+    width: 100%;
+    min-height: 7cqw;
+    justify-content: center;
+    font-size: 2.5cqw;
+  }
+
+  .fora-detail--about .detail-intro {
+    padding: 2.5cqw 0 2.5cqw;
+  }
+
+  .fora-detail--about .detail-intro-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    gap: 0;
+  }
+
+  .fora-detail--about .detail-intro-copy {
+    max-width: 100%;
+  }
+
+  .fora-detail--about .detail-intro-copy .detail-eyebrow {
+    margin-bottom: 1.3cqw;
+    font-size: 2.1cqw;
+    letter-spacing: .28em;
+  }
+
+  .fora-detail--about .detail-intro-copy h2 {
+    max-width: 50cqw;
+    margin-bottom: 1.2cqw;
+    font-size: 7cqw;
+    line-height: .98;
+  }
+
+  .fora-detail--about .detail-intro-copy > p:not(.detail-eyebrow) {
+    max-width: 55cqw;
+    margin-bottom: .9cqw;
+    font-size: 2.35cqw;
+    line-height: 1.18;
+  }
+
+  .fora-detail--about .detail-intro-copy .detail-text-link {
+    display: inline-flex;
+    margin-top: .4cqw;
+    font-size: 2.6cqw;
+  }
+
+  .fora-detail--about .detail-intro-art {
+    position: relative;
+    width: 100%;
+    height: 27cqw;
+    min-height: 27cqw;
+    margin: -6cqw 0 0;
+    overflow: visible;
+    z-index: 3;
+  }
+
+  .fora-detail--about .detail-intro-art .detail-photo-main {
+    position: absolute;
+    top: 5cqw;
+    left: 18cqw;
+    width: 60cqw;
+    height: 31cqw;
+    border: 1.1cqw solid #fffdf8;
+    border-radius: .7cqw;
+    transform: rotate(-4deg);
+    box-shadow: 0 1.2cqw 2.7cqw rgba(6, 37, 54, .22);
+  }
+
+  .fora-detail--about .detail-intro-art .detail-photo-main .detail-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .fora-detail--about .detail-intro-art .detail-photo-inset {
+    top: 1cqw;
+    right: 4%;
+    width: 38%;
+    height: 23cqw;
+    border: 1cqw solid #fffdf8;
+    border-radius: .6cqw;
+    transform: rotate(4deg);
+    box-shadow: 0 .8cqw 2cqw rgba(6, 37, 54, .2);
+  }
+
+  .fora-detail--about .detail-intro-art .detail-hand-note--photo {
+    right: 7%;
+    bottom: 1%;
+    max-width: 28cqw;
+    font-size: 3.6cqw;
+  }
+
+  .fora-detail--about .detail-intro-copy { position: relative; z-index: 4; }
+
+  .fora-detail--about .detail-intro-art .detail-hand-note--inset {
+    top: 25%;
+    right: 1%;
+    max-width: 26cqw;
+    font-size: 3.2cqw;
+  }
+
+  .fora-detail--about .detail-values {
+    position: relative;
+    z-index: 1;
+    padding-block: 2.7cqw;
+  }
+
+  .fora-detail--about .detail-values h2 {
+    max-width: 88cqw;
+    margin-bottom: 1.5cqw;
+    font-size: 6.3cqw;
+    line-height: .98;
+  }
+
+  .fora-detail--about .detail-values-lead {
+    max-width: 88cqw;
+    margin: 1.4cqw 0 2cqw;
+    font-size: 2.55cqw;
+    line-height: 1.25;
+  }
+
+  .fora-detail--about .detail-values-list {
+    gap: 0;
+    margin-top: 1cqw;
+  }
+
+  .fora-detail--about .detail-values-list li,
+  .fora-detail--about .detail-values-list li + li {
+    grid-template-columns: 11cqw minmax(0, 1fr);
+    align-items: center;
+    gap: 3cqw;
+    padding: .1cqw 0;
+  }
+
+  .fora-detail--about .detail-values-list .detail-icon {
+    width: 8cqw;
+    height: 8cqw;
+  }
+
+  .fora-detail--about .detail-values-list h3 {
+    margin-bottom: .6cqw;
+    font-size: 3.7cqw;
+    line-height: 1.05;
+  }
+
+  .fora-detail--about .detail-values-list p {
+    font-size: 2.45cqw;
+    line-height: 1.22;
+  }
+
+  .fora-detail--about .detail-values .detail-hand-note--values {
+    max-width: 52cqw;
+    margin: 1.5cqw 0 0 auto;
+    font-size: 3.4cqw;
+  }
+
+  .fora-detail--about .detail-together {
+    padding: 0 0 5cqw;
+  }
+
+  .fora-detail--about .detail-together-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, .58fr);
+    align-items: start;
+    gap: 3cqw 4cqw;
+    padding: 0;
+  }
+
+  .fora-detail--about .detail-together-grid > .detail-together-photo {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    width: 100%;
+    height: 24cqw;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    transform: none;
+  }
+
+  .fora-detail--about .detail-together-grid > .detail-together-photo .detail-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .fora-detail--about .detail-together-grid > div:last-child {
+    grid-column: 1;
+    grid-row: 2;
+    padding: 1cqw 0 0 6cqw;
+  }
+
+  .fora-detail--about .detail-together-grid > div:last-child .detail-eyebrow {
+    margin-bottom: 1.2cqw;
+    font-size: 2.1cqw;
+  }
+
+  .fora-detail--about .detail-together-grid h2 {
+    max-width: 60cqw;
+    margin-bottom: 1.4cqw;
+    font-size: 6.2cqw;
+    line-height: .98;
+  }
+
+  .fora-detail--about .detail-together-grid p:not(.detail-eyebrow) {
+    font-size: 2.45cqw;
+    line-height: 1.25;
+  }
+
+  .fora-detail--about .detail-together-grid .detail-text-link {
+    font-size: 2.5cqw;
+  }
+
+  .fora-detail--about .detail-together-grid > .detail-together-inset {
+    position: static;
+    grid-column: 2;
+    grid-row: 2;
+    align-self: center;
+    width: 100%;
+    height: 34cqw;
+    margin-top: 1cqw;
+    border: 1cqw solid #fffdf8;
+    border-radius: .7cqw;
+    object-fit: cover;
+    transform: rotate(3deg);
+    box-shadow: 0 .8cqw 2cqw rgba(6, 37, 54, .2);
+  }
+
+  .fora-detail--about .detail-together .detail-hand-note--together {
+    top: auto;
+    right: 5cqw;
+    bottom: 2cqw;
+    left: auto;
+    max-width: 34cqw;
+    font-size: 3.5cqw;
+  }
+
+  .fora-detail--about .detail-together .detail-hand-note--inset {
+    top: 42cqw;
+    right: 6cqw;
+    max-width: 24cqw;
+    font-size: 3.2cqw;
+  }
+}

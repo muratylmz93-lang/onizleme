@@ -1,9 +1,18 @@
-import { escapeHTML } from './site-assets.js';
+import { escapeHTML } from './site-assets.js?v=20261015-99';
 
 const esc = escapeHTML;
 const sprite = 'assets/icons/fora-icons.svg';
 const view = { width: 760, height: 220 };
-const routePath = 'M 40 158 C 190 20, 520 20, 720 145';
+const mapLayouts = {
+  home: {
+    path: 'M 45 100 C 90 8 180 12 190 78 C 200 146 270 112 305 155 C 350 206 385 127 430 146 C 482 163 472 198 535 194 C 590 190 655 181 700 208',
+    points: [{ x: 45, y: 100 }, { x: 430, y: 146 }, { x: 700, y: 208 }],
+  },
+  detail: {
+    path: 'M 38 136 C 100 32 160 61 220 111 S 328 174 392 139 S 463 171 520 162 S 595 102 655 120 S 694 149 722 137',
+    points: [{ x: 38, y: 136 }, { x: 392, y: 139 }, { x: 722, y: 137 }],
+  },
+};
 const startedMapIds = new Set();
 
 function safeId(value) {
@@ -17,25 +26,19 @@ function normalizeStops(stops) {
   }).filter((stop) => stop.label);
 }
 
-function cubicPoint(t) {
-  const u = 1 - t;
-  const x = (u ** 3 * 40) + (3 * u ** 2 * t * 190) + (3 * u * t ** 2 * 520) + (t ** 3 * 720);
-  const y = (u ** 3 * 158) + (3 * u ** 2 * t * 20) + (3 * u * t ** 2 * 20) + (t ** 3 * 145);
-  return { x, y };
-}
-
 /** Render a small native route diagram; labels remain real HTML text. */
 export function renderRouteMap(ctx = {}, { id, stops, duration = 1600, showBoat = false } = {}) {
   const cleanStops = normalizeStops(stops);
   if (!cleanStops.length) return '';
 
   const mapId = safeId(id);
+  const layout = mapLayouts[mapId.startsWith('home-') ? 'home' : 'detail'];
+  const routePath = layout.path;
   const pathId = `route-path-${mapId}`;
   const durationMs = Math.max(1, Number(duration) || 1600);
   const assetUrl = (path) => esc(typeof ctx?.asset === 'function' ? ctx.asset(path) : path);
   const pins = cleanStops.map((stop, index) => {
-    const t = cleanStops.length === 1 ? 0.5 : 0.12 + (0.76 * index) / (cleanStops.length - 1);
-    const point = cubicPoint(t);
+    const point = layout.points[Math.min(index, layout.points.length - 1)];
     const x = (point.x / view.width) * 100;
     const y = (point.y / view.height) * 100;
     return `<li class="fora-route-map__stop" style="--stop-x:${x.toFixed(2)}%;--stop-y:${y.toFixed(2)}%;--stop-delay:${index * 250}ms"><svg class="fora-route-map__pin" viewBox="0 0 24 24" aria-hidden="true"><use href="${assetUrl(sprite)}#fora-location"></use></svg><span class="fora-route-map__label">${esc(stop.label)}</span></li>`;
@@ -109,7 +112,7 @@ export function initRouteMaps(root = document) {
       map.dataset.routeMapStarted = 'true';
 
       const path = map.querySelector('.fora-route-map__path');
-      const mobile = window.matchMedia?.('(max-width: 700px)').matches ?? false;
+      const mobile = window.matchMedia?.('(max-width: 760px)').matches ?? false;
       const configured = Number(map.dataset.motionDuration) || 1600;
       const drawDuration = mobile ? Math.min(configured, 950) : configured;
       if (path) {

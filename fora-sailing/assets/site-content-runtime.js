@@ -1,4 +1,4 @@
-import { normalizeNativeContent } from './site-native-content.js';
+import { normalizeNativeContent } from './site-native-content.js?v=20261015-99';
 
 const DEFAULT_API_URL = '/api/public/content';
 const DEFAULT_STATIC_URL = '/assets/cms-public.json';

@@ -220,8 +220,8 @@
                 "id": "home.story.image",
                 "label": "Home.story.image",
                 "type": "image",
-                "value": "assets/device-design-assets/images/ca40e141031e3cf8010f.png",
-                "defaultValue": "assets/device-design-assets/images/ca40e141031e3cf8010f.png",
+                "value": "assets/native-story-cove-v2.webp",
+                "defaultValue": "assets/native-story-cove-v2.webp",
                 "binding": "home.story.image"
               },
               {
@@ -275,8 +275,8 @@
                 "label": "Rota görseli",
                 "type": "image",
                 "binding": "home.routes.image",
-                "value": "assets/device-design-assets/images/ca40e141031e3cf8010f.png",
-                "defaultValue": "assets/device-design-assets/images/ca40e141031e3cf8010f.png"
+                "value": "assets/native-route-sea-v2.webp",
+                "defaultValue": "assets/native-route-sea-v2.webp"
               },
               {
                 "id": "link",
@@ -309,6 +309,30 @@
                 "binding": "home.routes.linkLabel",
                 "value": "Tüm Rotaları İncele",
                 "defaultValue": "Tüm Rotaları İncele"
+              },
+              {
+                "id": "native-home.routes.note",
+                "label": "El yazısı notu",
+                "type": "textarea",
+                "binding": "home.routes.note",
+                "value": "Her rota,\nbaşka bir masal…",
+                "defaultValue": "Her rota,\nbaşka bir masal…"
+              },
+              {
+                "id": "native-home.routes.footerNote",
+                "label": "El yazısı notu",
+                "type": "textarea",
+                "binding": "home.routes.footerNote",
+                "value": "Her an yanınızda…",
+                "defaultValue": "Her an yanınızda…"
+              },
+              {
+                "id": "native-home.phone.note",
+                "label": "El yazısı notu",
+                "type": "textarea",
+                "binding": "home.phone.note",
+                "value": "Mavi, size çok yakışacak…",
+                "defaultValue": "Mavi, size çok yakışacak…"
               }
             ]
           },
@@ -379,6 +403,14 @@
                 "defaultValue": "iletisim/?kampanya=erken-rezervasyon"
               },
               {
+                "id": "native-home.offer.note",
+                "label": "Kampanya fotoğrafı notu",
+                "type": "textarea",
+                "binding": "home.offer.note",
+                "value": "Mavi, insana\nhep iyi gelir.",
+                "defaultValue": "Mavi, insana\nhep iyi gelir."
+              },
+              {
                 "id": "native-home.offer.eyebrow",
                 "label": "Fırsat üst başlığı",
                 "type": "text",
@@ -407,8 +439,16 @@
                 "label": "Kampanya fotoğrafı",
                 "type": "image",
                 "binding": "home.offer.image",
-                "value": "assets/native-sunset-woman-v1.png",
-                "defaultValue": "assets/native-sunset-woman-v1.png"
+                "value": "assets/native-sunset-woman-v1.webp",
+                "defaultValue": "assets/native-sunset-woman-v1.webp"
+              },
+              {
+                "id": "native-home.offer.badge",
+                "label": "Sezon rozeti",
+                "type": "textarea",
+                "binding": "home.offer.badge",
+                "value": "2026\nSEZONU\nAVANTAJLI\nFİYATLAR",
+                "defaultValue": "2026\nSEZONU\nAVANTAJLI\nFİYATLAR"
               }
             ]
           },
@@ -493,8 +533,16 @@
                 "label": "Kıyı fotoğrafı",
                 "type": "image",
                 "binding": "home.benefits.image",
-                "value": "assets/device-design-assets/images/f0fab493786f234da45a.png",
-                "defaultValue": "assets/device-design-assets/images/f0fab493786f234da45a.png"
+                "value": "assets/native-benefit-coast-v2.webp",
+                "defaultValue": "assets/native-benefit-coast-v2.webp"
+              },
+              {
+                "id": "native-home.benefits.note",
+                "label": "El yazısı notu",
+                "type": "textarea",
+                "binding": "home.benefits.note",
+                "value": "Aynı deniz,\ndaha güzel bir gelecek için…",
+                "defaultValue": "Aynı deniz,\ndaha güzel bir gelecek için…"
               }
             ]
           },
@@ -557,6 +605,14 @@
                 "binding": "home.reviews.location",
                 "value": "İstanbul",
                 "defaultValue": "İstanbul"
+              },
+              {
+                "id": "native-home.reviews.avatarImage",
+                "label": "Misafir portresi",
+                "type": "image",
+                "binding": "home.reviews.avatarImage",
+                "value": "assets/native-review-avatar-v1.webp",
+                "defaultValue": "assets/native-review-avatar-v1.webp"
               }
             ]
           },
@@ -691,8 +747,8 @@
                 "label": "Giriş görseli",
                 "type": "image",
                 "binding": "deneyimler.hero.image",
-                "value": "assets/native-hero-deneyimler-v1.png",
-                "defaultValue": "assets/native-hero-deneyimler-v1.png"
+                "value": "assets/native-hero-deneyimler-v1.webp",
+                "defaultValue": "assets/native-hero-deneyimler-v1.webp"
               },
               {
                 "id": "offer",
@@ -787,6 +843,14 @@
                 "binding": "deneyimler.content.note",
                 "value": "Paylaşılan anlar, daha da anlamlı…",
                 "defaultValue": "Paylaşılan anlar, daha da anlamlı…"
+              },
+              {
+                "id": "native-deneyimler.content.sideNote",
+                "label": "El yazısı notu",
+                "type": "textarea",
+                "binding": "deneyimler.content.sideNote",
+                "value": "Her rota, başka bir masal…",
+                "defaultValue": "Her rota, başka bir masal…"
               }
             ]
           },
@@ -815,8 +879,8 @@
                 "label": "Deneyim fotoğrafı",
                 "type": "image",
                 "binding": "deneyimler.video.image",
-                "value": "assets/device-design-assets/images/ca40e141031e3cf8010f.png",
-                "defaultValue": "assets/device-design-assets/images/ca40e141031e3cf8010f.png"
+                "value": "assets/native-fleet-quote-v2.webp",
+                "defaultValue": "assets/native-fleet-quote-v2.webp"
               },
               {
                 "id": "native-deneyimler.video.linkLabel",
@@ -869,8 +933,16 @@
                 "label": "Planlama fotoğrafı",
                 "type": "image",
                 "binding": "deneyimler.plan.image",
-                "value": "assets/device-design-assets/images/339c8a1e8198842fcc7f.png",
-                "defaultValue": "assets/device-design-assets/images/339c8a1e8198842fcc7f.png"
+                "value": "assets/native-fleet-eylul-v3.webp",
+                "defaultValue": "assets/native-fleet-eylul-v3.webp"
+              },
+              {
+                "id": "native-deneyimler.plan.note",
+                "label": "El yazısı notu",
+                "type": "textarea",
+                "binding": "deneyimler.plan.note",
+                "value": "Güzel anılar hep ileride…",
+                "defaultValue": "Güzel anılar hep ileride…"
               }
             ]
           },
@@ -961,8 +1033,8 @@
                 "label": "Giriş görseli",
                 "type": "image",
                 "binding": "rotalar.hero.image",
-                "value": "assets/native-hero-rotalar-v1.png",
-                "defaultValue": "assets/native-hero-rotalar-v1.png"
+                "value": "assets/native-hero-rotalar-v1.webp",
+                "defaultValue": "assets/native-hero-rotalar-v1.webp"
               },
               {
                 "id": "offer",
@@ -1061,8 +1133,8 @@
                 "label": "Planlama fotoğrafı",
                 "type": "image",
                 "binding": "rotalar.planning.image",
-                "value": "assets/device-design-assets/images/1108a6975deea6b4dfee.png",
-                "defaultValue": "assets/device-design-assets/images/1108a6975deea6b4dfee.png"
+                "value": "assets/native-about-together-v2.webp",
+                "defaultValue": "assets/native-about-together-v2.webp"
               }
             ]
           },
@@ -1148,15 +1220,15 @@
                 "label": "Giriş görseli",
                 "type": "image",
                 "binding": "rota-gocek-fethiye.hero.image",
-                "value": "assets/native-hero-rotalar-v1.png",
-                "defaultValue": "assets/native-hero-rotalar-v1.png"
+                "value": "assets/native-hero-rotalar-v1.webp",
+                "defaultValue": "assets/native-hero-rotalar-v1.webp"
               },
               {
                 "id": "eyebrow",
                 "label": "Eyebrow",
                 "type": "textarea",
-                "value": "MAVİ YOLCULUK • FORA SAILING",
-                "defaultValue": "MAVİ YOLCULUK • FORA SAILING",
+                "value": "MAVİ YOLCULUK ROTALARI",
+                "defaultValue": "MAVİ YOLCULUK ROTALARI",
                 "binding": "rota-gocek-fethiye.hero.eyebrow"
               },
               {
@@ -1174,6 +1246,14 @@
                 "binding": "rota-gocek-fethiye.hero.whatsappLabel",
                 "value": "WhatsApp ile İletişim",
                 "defaultValue": "WhatsApp ile İletişim"
+              },
+              {
+                "id": "native-rota-gocek-fethiye.hero.note",
+                "label": "El yazısı notu",
+                "type": "textarea",
+                "binding": "rota-gocek-fethiye.hero.note",
+                "value": "Aynı deniz, daha güzel bir gelecek…",
+                "defaultValue": "Aynı deniz, daha güzel bir gelecek…"
               }
             ]
           },
@@ -1202,8 +1282,8 @@
                 "label": "Bölüm görseli",
                 "type": "image",
                 "binding": "rota-gocek-fethiye.content.image",
-                "value": "assets/device-design-assets/images/f0fab493786f234da45a.png",
-                "defaultValue": "assets/device-design-assets/images/f0fab493786f234da45a.png"
+                "value": "assets/native-route-story-v2.webp",
+                "defaultValue": "assets/native-route-story-v2.webp"
               },
               {
                 "id": "link",
@@ -1218,8 +1298,8 @@
                 "label": "Rota küçük koy görseli",
                 "type": "image",
                 "binding": "rota-gocek-fethiye.content.insetImage",
-                "value": "assets/device-design-assets/images/ca40e141031e3cf8010f.png",
-                "defaultValue": "assets/device-design-assets/images/ca40e141031e3cf8010f.png"
+                "value": "assets/native-route-inset-v2.webp",
+                "defaultValue": "assets/native-route-inset-v2.webp"
               },
               {
                 "id": "native-rota-gocek-fethiye.content.eyebrow",
@@ -1236,6 +1316,22 @@
                 "binding": "rota-gocek-fethiye.content.linkLabel",
                 "value": "Rota Hakkında Daha Fazla Bilgi",
                 "defaultValue": "Rota Hakkında Daha Fazla Bilgi"
+              },
+              {
+                "id": "native-rota-gocek-fethiye.content.note",
+                "label": "El yazısı notu",
+                "type": "textarea",
+                "binding": "rota-gocek-fethiye.content.note",
+                "value": "Keşfet. Hisset. Yaşa…",
+                "defaultValue": "Keşfet. Hisset. Yaşa…"
+              },
+              {
+                "id": "native-rota-gocek-fethiye.content.insetNote",
+                "label": "El yazısı notu",
+                "type": "textarea",
+                "binding": "rota-gocek-fethiye.content.insetNote",
+                "value": "Turkuaz sular, saklı koylar, sonsuz keşif…",
+                "defaultValue": "Turkuaz sular, saklı koylar, sonsuz keşif…"
               }
             ]
           },
@@ -1256,8 +1352,8 @@
                 "label": "Duraklar",
                 "type": "text",
                 "binding": "rota-gocek-fethiye.stops.description",
-                "value": "Göcek, Fethiye ve Göcek.",
-                "defaultValue": "Göcek, Fethiye ve Göcek."
+                "value": "Göcek’ten başlayıp Fethiye’ye uzanan bu rotada, birbirinden özel koylar ve büyüleyici manzaralar sizi bekliyor.",
+                "defaultValue": "Göcek’ten başlayıp Fethiye’ye uzanan bu rotada, birbirinden özel koylar ve büyüleyici manzaralar sizi bekliyor."
               },
               {
                 "id": "native-rota-gocek-fethiye.stops.linkLabel",
@@ -1266,6 +1362,14 @@
                 "binding": "rota-gocek-fethiye.stops.linkLabel",
                 "value": "Rota Detaylarını İncele",
                 "defaultValue": "Rota Detaylarını İncele"
+              },
+              {
+                "id": "native-rota-gocek-fethiye.stops.note",
+                "label": "El yazısı notu",
+                "type": "textarea",
+                "binding": "rota-gocek-fethiye.stops.note",
+                "value": "Her durakta yeni bir hikâye.",
+                "defaultValue": "Her durakta yeni bir hikâye."
               }
             ]
           },
@@ -1278,16 +1382,16 @@
                 "label": "Rota koy görseli",
                 "type": "image",
                 "binding": "rota-gocek-fethiye.highlights.coveImage",
-                "value": "assets/device-design-assets/images/ca40e141031e3cf8010f.png",
-                "defaultValue": "assets/device-design-assets/images/ca40e141031e3cf8010f.png"
+                "value": "assets/native-route-cove-v2.webp",
+                "defaultValue": "assets/native-route-cove-v2.webp"
               },
               {
                 "id": "native-rota-gocek-fethiye.highlights.sunsetImage",
                 "label": "Gün batımı görseli",
                 "type": "image",
                 "binding": "rota-gocek-fethiye.highlights.sunsetImage",
-                "value": "assets/native-sunset-woman-v1.png",
-                "defaultValue": "assets/native-sunset-woman-v1.png"
+                "value": "assets/native-sunset-woman-v1.webp",
+                "defaultValue": "assets/native-sunset-woman-v1.webp"
               },
               {
                 "id": "native-rota-gocek-fethiye.highlights.coveTitle",
@@ -1344,6 +1448,14 @@
                 "binding": "rota-gocek-fethiye.highlights.eyebrow",
                 "value": "KOYLAR VE KIYILAR",
                 "defaultValue": "KOYLAR VE KIYILAR"
+              },
+              {
+                "id": "native-rota-gocek-fethiye.highlights.coveNote",
+                "label": "El yazısı notu",
+                "type": "textarea",
+                "binding": "rota-gocek-fethiye.highlights.coveNote",
+                "value": "Sadece deniz değil, bir yaşam tarzı…",
+                "defaultValue": "Sadece deniz değil, bir yaşam tarzı…"
               }
             ]
           },
@@ -1483,8 +1595,8 @@
                 "label": "Giriş görseli",
                 "type": "image",
                 "binding": "filo.hero.image",
-                "value": "assets/native-hero-filo-v1.png",
-                "defaultValue": "assets/native-hero-filo-v1.png"
+                "value": "assets/native-hero-filo-v1.webp",
+                "defaultValue": "assets/native-hero-filo-v1.webp"
               },
               {
                 "id": "offer",
@@ -1506,8 +1618,8 @@
                 "id": "eyebrow",
                 "label": "Eyebrow",
                 "type": "textarea",
-                "value": "MAVİ YOLCULUK • FORA SAILING",
-                "defaultValue": "MAVİ YOLCULUK • FORA SAILING",
+                "value": "EGE VE AKDENİZ’İN EN GÜZEL KOYLARINDA",
+                "defaultValue": "EGE VE AKDENİZ’İN EN GÜZEL KOYLARINDA",
                 "binding": "filo.hero.eyebrow"
               },
               {
@@ -1555,6 +1667,14 @@
                 "binding": "filo.content.description",
                 "value": "Sizin için en uygun guleti bulmamıza yardımcı olun. Tarih aralığınızı ve misafir sayısını seçerek size özel alternatifleri sunalım.",
                 "defaultValue": "Sizin için en uygun guleti bulmamıza yardımcı olun. Tarih aralığınızı ve misafir sayısını seçerek size özel alternatifleri sunalım."
+              },
+              {
+                "id": "native-filo.cards.detailsLabel",
+                "label": "Kart detay bağlantısı",
+                "type": "text",
+                "binding": "filo.cards.detailsLabel",
+                "value": "Detayları İncele",
+                "defaultValue": "Detayları İncele"
               },
               {
                 "id": "native-filo.content.eyebrow",
@@ -1623,8 +1743,8 @@
                 "label": "Teklif fotoğrafı",
                 "type": "image",
                 "binding": "filo.quote.image",
-                "value": "assets/device-design-assets/images/ca40e141031e3cf8010f.png",
-                "defaultValue": "assets/device-design-assets/images/ca40e141031e3cf8010f.png"
+                "value": "assets/native-fleet-quote-v2.webp",
+                "defaultValue": "assets/native-fleet-quote-v2.webp"
               }
             ]
           },
@@ -1710,15 +1830,15 @@
                 "label": "Giriş görseli",
                 "type": "image",
                 "binding": "eylul.hero.image",
-                "value": "assets/native-hero-filo-v1.png",
-                "defaultValue": "assets/native-hero-filo-v1.png"
+                "value": "assets/native-hero-filo-v1.webp",
+                "defaultValue": "assets/native-hero-filo-v1.webp"
               },
               {
                 "id": "eyebrow",
                 "label": "Eyebrow",
                 "type": "textarea",
-                "value": "MAVİ YOLCULUK • FORA SAILING",
-                "defaultValue": "MAVİ YOLCULUK • FORA SAILING",
+                "value": "GULET FİLOMUZ",
+                "defaultValue": "GULET FİLOMUZ",
                 "binding": "eylul.hero.eyebrow"
               },
               {
@@ -1736,6 +1856,14 @@
                 "binding": "eylul.hero.whatsappLabel",
                 "value": "WhatsApp ile İletişim",
                 "defaultValue": "WhatsApp ile İletişim"
+              },
+              {
+                "id": "native-eylul.hero.note",
+                "label": "El yazısı notu",
+                "type": "textarea",
+                "binding": "eylul.hero.note",
+                "value": "Mavi içinde daha fazlası sizi bekliyor…",
+                "defaultValue": "Mavi içinde daha fazlası sizi bekliyor…"
               }
             ]
           },
@@ -1764,16 +1892,32 @@
                 "label": "Bölüm görseli",
                 "type": "image",
                 "binding": "eylul.content.image",
-                "value": "assets/device-design-assets/images/2f526deddee5006eccf3.png",
-                "defaultValue": "assets/device-design-assets/images/2f526deddee5006eccf3.png"
+                "value": "assets/native-gulet-deck-v2.webp",
+                "defaultValue": "assets/native-gulet-deck-v2.webp"
+              },
+              {
+                "id": "native-eylul.content.insetNote",
+                "label": "Koy fotoğrafı notu",
+                "type": "textarea",
+                "binding": "eylul.content.insetNote",
+                "value": "Mavi sonsuzlukta\nsizi bekliyor…",
+                "defaultValue": "Mavi sonsuzlukta\nsizi bekliyor…"
+              },
+              {
+                "id": "native-eylul.content.sideImage",
+                "label": "Kamara görünümü",
+                "type": "image",
+                "binding": "eylul.content.sideImage",
+                "value": "assets/native-gallery-cabin-v2.webp",
+                "defaultValue": "assets/native-gallery-cabin-v2.webp"
               },
               {
                 "id": "native-eylul.content.insetImage",
                 "label": "Eylül koy görseli",
                 "type": "image",
                 "binding": "eylul.content.insetImage",
-                "value": "assets/device-design-assets/images/91b716151f45e7c3d92a.png",
-                "defaultValue": "assets/device-design-assets/images/91b716151f45e7c3d92a.png"
+                "value": "assets/native-route-cove-v2.webp",
+                "defaultValue": "assets/native-route-cove-v2.webp"
               },
               {
                 "id": "native-eylul.content.eyebrow",
@@ -1782,6 +1926,14 @@
                 "binding": "eylul.content.eyebrow",
                 "value": "EYLÜL GULETİ",
                 "defaultValue": "EYLÜL GULETİ"
+              },
+              {
+                "id": "native-eylul.content.note",
+                "label": "El yazısı notu",
+                "type": "textarea",
+                "binding": "eylul.content.note",
+                "value": "Keşfet.\nHisset.\nYaşa…",
+                "defaultValue": "Keşfet.\nHisset.\nYaşa…"
               }
             ]
           },
@@ -1818,40 +1970,40 @@
                 "label": "Ana galeri fotoğrafı",
                 "type": "image",
                 "binding": "eylul.gallery.mainImage",
-                "value": "assets/device-design-assets/images/2f526deddee5006eccf3.png",
-                "defaultValue": "assets/device-design-assets/images/2f526deddee5006eccf3.png"
+                "value": "assets/native-gallery-saloon-v2.webp",
+                "defaultValue": "assets/native-gallery-saloon-v2.webp"
               },
               {
                 "id": "native-eylul.gallery.item1Label",
                 "label": "Galeri 1 etiketi",
                 "type": "text",
                 "binding": "eylul.gallery.item1Label",
-                "value": "Salon",
-                "defaultValue": "Salon"
+                "value": "Kamara 1",
+                "defaultValue": "Kamara 1"
               },
               {
                 "id": "native-eylul.gallery.item2Label",
                 "label": "Galeri 2 etiketi",
                 "type": "text",
                 "binding": "eylul.gallery.item2Label",
-                "value": "Kamaralar",
-                "defaultValue": "Kamaralar"
+                "value": "Yemek Alanı",
+                "defaultValue": "Yemek Alanı"
               },
               {
                 "id": "native-eylul.gallery.item3Label",
                 "label": "Galeri 3 etiketi",
                 "type": "text",
                 "binding": "eylul.gallery.item3Label",
-                "value": "Güverte",
-                "defaultValue": "Güverte"
+                "value": "Kamara 2",
+                "defaultValue": "Kamara 2"
               },
               {
                 "id": "native-eylul.gallery.item4Label",
                 "label": "Galeri 4 etiketi",
                 "type": "text",
                 "binding": "eylul.gallery.item4Label",
-                "value": "Yaşam Alanı",
-                "defaultValue": "Yaşam Alanı"
+                "value": "Güverte",
+                "defaultValue": "Güverte"
               }
             ]
           },
@@ -1941,6 +2093,22 @@
                 "binding": "eylul.related.linkLabel",
                 "value": "Tüm Gulet Filomuz",
                 "defaultValue": "Tüm Gulet Filomuz"
+              },
+              {
+                "id": "native-eylul.related.note",
+                "label": "El yazısı notu",
+                "type": "textarea",
+                "binding": "eylul.related.note",
+                "value": "Her rota başka bir masal…",
+                "defaultValue": "Her rota başka bir masal…"
+              },
+              {
+                "id": "native-eylul.related.guletIds",
+                "label": "Önerilen guletler (kimlikleri virgülle ayırın)",
+                "type": "textarea",
+                "binding": "eylul.related.guletIds",
+                "value": "ata,getaway",
+                "defaultValue": "ata,getaway"
               }
             ]
           }
@@ -2021,15 +2189,15 @@
                 "label": "Giriş görseli",
                 "type": "image",
                 "binding": "hakkimizda.hero.image",
-                "value": "assets/native-hero-filo-v1.png",
-                "defaultValue": "assets/native-hero-filo-v1.png"
+                "value": "assets/native-hero-filo-v1.webp",
+                "defaultValue": "assets/native-hero-filo-v1.webp"
               },
               {
                 "id": "eyebrow",
                 "label": "MAVİ YOLCULUKTA",
                 "type": "text",
-                "value": "MAVİ YOLCULUKTA",
-                "defaultValue": "MAVİ YOLCULUKTA",
+                "value": "FORA SAILING HAKKIMIZDA",
+                "defaultValue": "FORA SAILING HAKKIMIZDA",
                 "binding": "hakkimizda.hero.eyebrow"
               },
               {
@@ -2047,6 +2215,14 @@
                 "binding": "hakkimizda.hero.whatsappLabel",
                 "value": "WhatsApp ile İletişim",
                 "defaultValue": "WhatsApp ile İletişim"
+              },
+              {
+                "id": "native-hakkimizda.hero.note",
+                "label": "El yazısı notu",
+                "type": "textarea",
+                "binding": "hakkimizda.hero.note",
+                "value": "Aynı deniz, daha güzel bir gün…",
+                "defaultValue": "Aynı deniz, daha güzel bir gün…"
               }
             ]
           },
@@ -2075,16 +2251,16 @@
                 "label": "Bölüm görseli",
                 "type": "image",
                 "binding": "hakkimizda.content.image",
-                "value": "assets/device-design-assets/images/f0fab493786f234da45a.png",
-                "defaultValue": "assets/device-design-assets/images/f0fab493786f234da45a.png"
+                "value": "assets/native-route-story-v2.webp",
+                "defaultValue": "assets/native-route-story-v2.webp"
               },
               {
                 "id": "native-hakkimizda.content.sideImage",
                 "label": "Hikâye yan görseli",
                 "type": "image",
                 "binding": "hakkimizda.content.sideImage",
-                "value": "assets/native-sunset-woman-v1.png",
-                "defaultValue": "assets/native-sunset-woman-v1.png"
+                "value": "assets/native-about-side-v2.webp",
+                "defaultValue": "assets/native-about-side-v2.webp"
               },
               {
                 "id": "native-hakkimizda.content.eyebrow",
@@ -2101,6 +2277,14 @@
                 "binding": "hakkimizda.content.secondDescription",
                 "value": "Denizin dinginliği, doğanın sadeliği ve samimi misafirperverlik anlayışımızla, her yolculuğun size özel olmasına özen gösteriyoruz.",
                 "defaultValue": "Denizin dinginliği, doğanın sadeliği ve samimi misafirperverlik anlayışımızla, her yolculuğun size özel olmasına özen gösteriyoruz."
+              },
+              {
+                "id": "native-hakkimizda.content.note",
+                "label": "El yazısı notu",
+                "type": "textarea",
+                "binding": "hakkimizda.content.note",
+                "value": "Keşfet. Hisset. Yaşa…",
+                "defaultValue": "Keşfet. Hisset. Yaşa…"
               }
             ]
           },
@@ -2141,6 +2325,14 @@
                 "defaultValue": "Denizle İç İçe"
               },
               {
+                "id": "native-hakkimizda.values.image",
+                "label": "Değerler deniz zemini",
+                "type": "image",
+                "binding": "hakkimizda.values.image",
+                "value": "assets/native-route-sea-v2.webp",
+                "defaultValue": "assets/native-route-sea-v2.webp"
+              },
+              {
                 "id": "native-hakkimizda.values.eyebrow",
                 "label": "Değerler üst başlığı",
                 "type": "text",
@@ -2153,8 +2345,8 @@
                 "label": "Değerler giriş metni",
                 "type": "textarea",
                 "binding": "hakkimizda.values.lead",
-                "value": "Her yolculuk, sizin hayallerinizden ve beklentilerinizden doğar.",
-                "defaultValue": "Her yolculuk, sizin hayallerinizden ve beklentilerinizden doğar."
+                "value": "Her misafirimizin hayalleri, beklentileri ve keşfetmek istediği rotalar farklıdır. Biz, sizi dinler, ihtiyaçlarınızı anlar ve mavi yolculuk deneyiminizi size özel olarak şekillendiririz.",
+                "defaultValue": "Her misafirimizin hayalleri, beklentileri ve keşfetmek istediği rotalar farklıdır. Biz, sizi dinler, ihtiyaçlarınızı anlar ve mavi yolculuk deneyiminizi size özel olarak şekillendiririz."
               },
               {
                 "id": "native-hakkimizda.values.item1Description",
@@ -2179,6 +2371,14 @@
                 "binding": "hakkimizda.values.item3Description",
                 "value": "Kalabalıktan uzak, doğayla uyumlu ve unutulmaz anlarla dolu bir yolculuk için yanınızdayız.",
                 "defaultValue": "Kalabalıktan uzak, doğayla uyumlu ve unutulmaz anlarla dolu bir yolculuk için yanınızdayız."
+              },
+              {
+                "id": "native-hakkimizda.values.note",
+                "label": "El yazısı notu",
+                "type": "textarea",
+                "binding": "hakkimizda.values.note",
+                "value": "Her rota, başka bir masal…",
+                "defaultValue": "Her rota, başka bir masal…"
               }
             ]
           },
@@ -2203,12 +2403,20 @@
                 "defaultValue": "Yeni yerler keşfetmek, farklı kültürlerle tanışmak, doğayla yeniden bağ kurmak ve sevdiklerinizle kaliteli zaman geçirmek…"
               },
               {
+                "id": "native-hakkimizda.together.insetImage",
+                "label": "Birlikte yüzme fotoğrafı",
+                "type": "image",
+                "binding": "hakkimizda.together.insetImage",
+                "value": "assets/device-design-assets/images/3ba42991d5da4bc676fb.png",
+                "defaultValue": "assets/device-design-assets/images/3ba42991d5da4bc676fb.png"
+              },
+              {
                 "id": "native-hakkimizda.together.image",
                 "label": "Birlikte hikâyesi fotoğrafı",
                 "type": "image",
                 "binding": "hakkimizda.together.image",
-                "value": "assets/device-design-assets/images/801af00a1f876234ffc4.png",
-                "defaultValue": "assets/device-design-assets/images/801af00a1f876234ffc4.png"
+                "value": "assets/native-about-together-v2.webp",
+                "defaultValue": "assets/native-about-together-v2.webp"
               },
               {
                 "id": "native-hakkimizda.together.eyebrow",
@@ -2217,6 +2425,22 @@
                 "binding": "hakkimizda.together.eyebrow",
                 "value": "DENİZ, DOĞA, İNSAN",
                 "defaultValue": "DENİZ, DOĞA, İNSAN"
+              },
+              {
+                "id": "native-hakkimizda.together.note",
+                "label": "El yazısı notu",
+                "type": "textarea",
+                "binding": "hakkimizda.together.note",
+                "value": "Daha fazla mavi, daha fazla siz…",
+                "defaultValue": "Daha fazla mavi, daha fazla siz…"
+              },
+              {
+                "id": "native-hakkimizda.together.insetNote",
+                "label": "El yazısı notu",
+                "type": "textarea",
+                "binding": "hakkimizda.together.insetNote",
+                "value": "Mavi insana hep iyi gelir.",
+                "defaultValue": "Mavi insana hep iyi gelir."
               }
             ]
           },
@@ -2302,8 +2526,8 @@
                 "label": "Giriş görseli",
                 "type": "image",
                 "binding": "iletisim.hero.image",
-                "value": "assets/native-hero-filo-v1.png",
-                "defaultValue": "assets/native-hero-filo-v1.png"
+                "value": "assets/native-hero-filo-v1.webp",
+                "defaultValue": "assets/native-hero-filo-v1.webp"
               },
               {
                 "id": "eyebrow",
@@ -2328,6 +2552,14 @@
                 "binding": "iletisim.hero.whatsappLabel",
                 "value": "WhatsApp ile İletişim",
                 "defaultValue": "WhatsApp ile İletişim"
+              },
+              {
+                "id": "native-iletisim.hero.note",
+                "label": "El yazısı notu",
+                "type": "textarea",
+                "binding": "iletisim.hero.note",
+                "value": "Mavi, hemen şimdi başlıyor…",
+                "defaultValue": "Mavi, hemen şimdi başlıyor…"
               }
             ]
           },
@@ -2356,8 +2588,8 @@
                 "label": "Bölüm görseli",
                 "type": "image",
                 "binding": "iletisim.content.image",
-                "value": "assets/device-design-assets/images/1108a6975deea6b4dfee.png",
-                "defaultValue": "assets/device-design-assets/images/1108a6975deea6b4dfee.png"
+                "value": "assets/native-contact-sunset-v2.webp",
+                "defaultValue": "assets/native-contact-sunset-v2.webp"
               },
               {
                 "id": "native-iletisim.content.eyebrow",
@@ -2398,6 +2630,14 @@
                 "binding": "iletisim.aside.whatsappLabel",
                 "value": "WhatsApp ile İletişim",
                 "defaultValue": "WhatsApp ile İletişim"
+              },
+              {
+                "id": "native-iletisim.aside.note",
+                "label": "El yazısı notu",
+                "type": "textarea",
+                "binding": "iletisim.aside.note",
+                "value": "Güzel planlar daima daha yakın…",
+                "defaultValue": "Güzel planlar daima daha yakın…"
               }
             ]
           },
@@ -2426,8 +2666,16 @@
                 "label": "İletişim CTA görseli",
                 "type": "image",
                 "binding": "iletisim.cta.image",
-                "value": "assets/device-design-assets/images/ca40e141031e3cf8010f.png",
-                "defaultValue": "assets/device-design-assets/images/ca40e141031e3cf8010f.png"
+                "value": "assets/native-contact-cta-v2.webp",
+                "defaultValue": "assets/native-contact-cta-v2.webp"
+              },
+              {
+                "id": "native-iletisim.cta.note",
+                "label": "El yazısı notu",
+                "type": "textarea",
+                "binding": "iletisim.cta.note",
+                "value": "Aynı deniz, daha güzel bir gelecek için…",
+                "defaultValue": "Aynı deniz, daha güzel bir gelecek için…"
               }
             ]
           },
@@ -2521,7 +2769,7 @@
         "id": "eylul",
         "name": "Eylül",
         "description": "Geniş güvertesi, zarif tasarımı ve sıcak atmosferiyle Eylül, denizin ritminde sakin ve konforlu bir yolculuk sunar. Güneşin, rüzgârın ve masmavi koyların eşlik ettiği bu özel deneyim, size Akdeniz’in gerçek ruhunu hissettirir.",
-        "image": "assets/device-design-assets/images/339c8a1e8198842fcc7f.png",
+        "image": "assets/native-fleet-eylul-v3.webp",
         "guestCapacity": 8,
         "cabins": 4,
         "path": "/filo/eylul/",
@@ -2530,11 +2778,10 @@
         "featuredHome": true,
         "homeUrl": "/filo/eylul/",
         "gallery": [
-          "assets/device-design-assets/images/2f526deddee5006eccf3.png",
-          "assets/device-design-assets/images/91b716151f45e7c3d92a.png",
-          "assets/device-design-assets/images/a0e7ca86c29121f2f4e7.png",
-          "assets/device-design-assets/images/339c8a1e8198842fcc7f.png",
-          "assets/device-design-assets/images/1108a6975deea6b4dfee.png"
+          "assets/native-gallery-cabin-v2.webp",
+          "assets/native-gallery-dining-v2.webp",
+          "assets/native-gallery-cabin2-v2.webp",
+          "assets/native-gallery-deck-v2.webp"
         ],
         "shortDescription": "Maviyle iç içe, özgür ve huzurlu bir yolculuk. Eylül, Akdeniz’in en özel koylarında size ait bir yaşam sunuyor."
       },
@@ -2542,7 +2789,7 @@
         "id": "ata",
         "name": "Ata",
         "description": "Ata guletiyle Ege ve Akdeniz'de size özel mavi yolculuk.",
-        "image": "assets/device-design-assets/images/98dc79c0fee4fdb9b14d.png",
+        "image": "assets/native-fleet-ata-v3.webp",
         "guestCapacity": 10,
         "cabins": 5,
         "path": "/filo/",
@@ -2555,7 +2802,7 @@
         "id": "miss-2",
         "name": "Miss 2",
         "description": "Miss 2 guletiyle Ege ve Akdeniz'de size özel mavi yolculuk.",
-        "image": "assets/device-design-assets/images/c99b655f9f324400f984.png",
+        "image": "assets/native-fleet-miss-2-v3.webp",
         "guestCapacity": 8,
         "cabins": 4,
         "path": "/filo/",
@@ -2568,7 +2815,7 @@
         "id": "zel",
         "name": "Zel",
         "description": "Zel guletiyle Ege ve Akdeniz'de size özel mavi yolculuk.",
-        "image": "assets/device-design-assets/images/f0fab493786f234da45a.png",
+        "image": "assets/native-fleet-zel-v3.webp",
         "guestCapacity": 10,
         "cabins": 5,
         "path": "/filo/",
@@ -2581,7 +2828,7 @@
         "id": "getaway",
         "name": "Getaway",
         "description": "Getaway guletiyle Ege ve Akdeniz'de size özel mavi yolculuk.",
-        "image": "assets/device-design-assets/images/a0e7ca86c29121f2f4e7.png",
+        "image": "assets/native-fleet-getaway-v3.webp",
         "guestCapacity": 12,
         "cabins": 6,
         "path": "/filo/",
@@ -2597,7 +2844,7 @@
         "name": "Bodrum – Gökova",
         "title": "Bodrum – Gökova",
         "description": "Sakin koylar, berrak sular.",
-        "image": "assets/device-design-assets/images/ca40e141031e3cf8010f.png",
+        "image": "assets/native-route-bodrum-gokova-v2.webp",
         "path": "/rotalar/",
         "inquiryUrl": "/iletisim/?rota=bodrum-gokova",
         "sortOrder": 1,
@@ -2609,7 +2856,7 @@
         "name": "Marmaris – Datça",
         "title": "Marmaris – Datça",
         "description": "Doğal güzelliklerin buluşma noktası.",
-        "image": "assets/device-design-assets/images/b49f059dfe5bd8955a8a.png",
+        "image": "assets/native-route-marmaris-datca-v2.webp",
         "path": "/rotalar/",
         "inquiryUrl": "/iletisim/?rota=marmaris-datca",
         "sortOrder": 2,
@@ -2621,7 +2868,7 @@
         "name": "Kemer – Kekova",
         "title": "Kemer – Kekova",
         "description": "Tarihi dokularla eşsiz bir yolculuk.",
-        "image": "assets/device-design-assets/images/511585c00a0bd5f5873e.png",
+        "image": "assets/native-route-kemer-kekova-v2.webp",
         "path": "/rotalar/",
         "inquiryUrl": "/iletisim/?rota=kemer-kekova",
         "sortOrder": 3,
@@ -2633,7 +2880,7 @@
         "name": "Marmaris – Fethiye",
         "title": "Marmaris – Fethiye",
         "description": "Maviyle yeşilin en güzel tonları.",
-        "image": "assets/device-design-assets/images/f0fab493786f234da45a.png",
+        "image": "assets/native-route-marmaris-fethiye-v2.webp",
         "path": "/rotalar/",
         "inquiryUrl": "/iletisim/?rota=marmaris-fethiye",
         "sortOrder": 4,
@@ -2644,7 +2891,7 @@
         "name": "Göcek – Fethiye",
         "title": "Göcek – Fethiye",
         "description": "Turkuazın bin tonu sizi bekliyor.",
-        "image": "assets/device-design-assets/images/339c8a1e8198842fcc7f.png",
+        "image": "assets/native-route-gocek-fethiye-v2.webp",
         "path": "/rotalar/gocek-fethiye-gocek/",
         "inquiryUrl": "/rotalar/gocek-fethiye-gocek/",
         "sortOrder": 5,
@@ -2670,7 +2917,7 @@
         "name": "Bodrum – Yunan Adaları",
         "title": "Bodrum – Yunan Adaları",
         "description": "Farklı kültürler, yeni rotalar.",
-        "image": "assets/device-design-assets/images/8312360b16906574fada.png",
+        "image": "assets/native-route-bodrum-yunan-adalari-v2.webp",
         "path": "/rotalar/",
         "inquiryUrl": "/iletisim/?rota=bodrum-yunan-adalari",
         "sortOrder": 6,

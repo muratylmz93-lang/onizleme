@@ -1,2 +1,7 @@
-@import url('./site-pages-catalog.css');
-@import url('./site-pages-detail.css');
+@import url('./site-pages-catalog.css?v=20261015-99');
+@import url('./site-pages-detail.css?v=20261015-99');
+@import url('./site-about-mobile.css?v=20261015-99');
+@import url('./site-contact-mobile.css?v=20261015-99');
+@import url('./site-route-gulet-mobile.css?v=20261015-99');
+@import url('./site-catalog-mobile.css?v=20261015-99');
+@import url('./site-native-finishing.css?v=20261015-99');

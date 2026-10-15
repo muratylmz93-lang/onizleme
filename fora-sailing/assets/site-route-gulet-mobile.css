@@ -1,0 +1,191 @@
+/* Portrait source alignment for route and Eylül pages. Loaded after the shared detail stylesheet. */
+@media (max-width: 760px) {
+  /* The route source reads from one full-width copy block into its photo collage. */
+  .fora-detail--route .detail-hero { min-height: 51.3cqw; }
+  .fora-detail--route .detail-hero-copy h1 { max-width: 64cqw; font-size: 7cqw; }
+  .fora-detail--route .detail-intro {
+    min-height: 0;
+    padding-block: 2.5cqw;
+  }
+  .fora-detail--route .detail-intro-grid {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    gap: 2cqw;
+  }
+  .fora-detail--route .detail-intro-copy { width: 100%; }
+  .fora-detail--route .detail-intro-copy h2 {
+    max-width: 54cqw;
+    font-size: 6.2cqw;
+    line-height: .98;
+  }
+  .fora-detail--route .detail-intro-copy > p:not(.detail-eyebrow) {
+    max-width: 62cqw;
+    font-size: 2.2cqw;
+    line-height: 1.2;
+  }
+  .fora-detail--route .detail-intro-art {
+    width: 100%;
+    min-height: 40cqw;
+    margin: 0;
+  }
+  .fora-detail--route .detail-intro-art .detail-photo-main {
+    top: 0;
+    left: 4cqw;
+    width: 72cqw;
+    height: 37cqw;
+    transform: rotate(-5deg);
+  }
+  .fora-detail--route .detail-intro-art .detail-photo-inset {
+    top: -9cqw;
+    right: 0;
+    width: 29cqw;
+    height: 23cqw;
+    transform: rotate(-12deg);
+  }
+
+  /* Each highlight follows the source: copy at left, photograph at right. */
+  .fora-detail--route .detail-highlights-grid {
+    grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+    grid-template-rows: auto auto;
+    align-items: center;
+    column-gap: 3cqw;
+    row-gap: 2cqw;
+  }
+  .fora-detail--route .detail-highlights-grid > .detail-highlight-copy {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .fora-detail--route .detail-highlights-grid > .detail-highlight-photo {
+    grid-column: 2;
+    grid-row: 1;
+    height: 26cqw;
+  }
+  .fora-detail--route .detail-highlights-grid > .detail-highlight-copy--last {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .fora-detail--route .detail-highlights-grid > .detail-highlight-sunset {
+    grid-column: 2;
+    grid-row: 2;
+    height: 26cqw;
+  }
+  .fora-detail--route .detail-highlight-copy h2,
+  .fora-detail--route .detail-highlight-copy--last h2 {
+    font-size: 4.7cqw;
+    line-height: 1;
+  }
+  .fora-detail--route .detail-highlight-copy p { font-size: 2.1cqw; line-height: 1.25; }
+  .fora-detail--route .detail-highlights { padding-block: 2cqw; }
+  .fora-detail--route .detail-stops { padding-block: 2cqw; }
+  .fora-detail--route .detail-stops { padding-block: 1cqw; }
+  .fora-detail--route .detail-stops-copy h2 { max-width: 54cqw; width: 54cqw; font-size: 5.3cqw; }
+  .fora-detail--route .detail-stops-copy p { max-width: 60cqw; font-size: 2.2cqw; }
+  .fora-detail--route .detail-stops-inner { gap: 1.5cqw; }
+  .fora-detail--route .detail-stops .fora-route-map { width: 100%; height: 16cqw; min-height: 0; max-height: 16cqw; }
+  .fora-detail--route .detail-stops .fora-route-map > .fora-route-map__drawing { width: 100%; height: 100%; }
+
+  /* Keep both functional date inputs together as one date-range panel. */
+  .fora-detail--route .detail-quote-grid { gap: 1cqw; }
+  .fora-detail--route .detail-quote-grid > div:first-child > p:not(.detail-quote-note) {
+    max-width: 45cqw; margin: 0; font-size: 2.2cqw; line-height: 1.2;
+  }
+  .fora-detail--route .detail-quote-grid > div:first-child h2 { margin-bottom: 1cqw; }
+  .fora-detail--route .detail-quote h2 {
+    max-width: 38cqw;
+    font-size: 5.4cqw;
+    line-height: .98;
+  }
+  .fora-detail--route .detail-quick-form {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: end;
+    gap: .8cqw;
+    padding: 1cqw;
+  }
+  .fora-detail--route .detail-quick-form > label:first-of-type { grid-column: 1; }
+  .fora-detail--route .detail-quick-form > label:nth-of-type(2) { grid-column: 2; }
+  .fora-detail--route .detail-quick-form > .btn { grid-column: 1 / -1; }
+  .fora-detail--route .detail-quick-form > label:first-of-type {
+    padding: .8cqw;
+    border: 1px solid rgba(20, 61, 83, .18);
+    border-radius: 2cqw;
+    background: #fffdf8;
+  }
+  .fora-detail--route .detail-quick-form > label:first-of-type > span { display: block; margin-bottom: .4cqw; }
+  .fora-detail--route .detail-quick-form label { min-height: 0; gap: .3cqw; }
+  .fora-detail--route .detail-date-pair { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1cqw; }
+  .fora-detail--route .detail-quick-form input,
+  .fora-detail--route .detail-quick-form select { min-height: 6cqw; padding: .5cqw; font-size: 2.1cqw; }
+  .fora-detail--route .detail-quick-form .btn { min-height: 5.5cqw; padding-block: .35cqw; }
+
+  /* Eylül's portrait cover uses a restrained single-word display title. */
+  .fora-detail--gulet .detail-hero-copy h1 {
+    max-width: 60cqw;
+    font-size: 12.8cqw;
+    line-height: .92;
+  }
+
+  /* Text precedes the three-photo deck collage, as in the supplied mobile board. */
+  .fora-detail--gulet .detail-intro { padding-block: 4cqw; }
+  .fora-detail--gulet .detail-intro-grid {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    gap: 2.5cqw;
+  }
+  .fora-detail--gulet .detail-intro-copy h2 {
+    max-width: 66cqw;
+    font-size: 7.1cqw;
+    line-height: .98;
+  }
+  .fora-detail--gulet .detail-intro-copy > p:not(.detail-eyebrow) {
+    max-width: 68cqw;
+    font-size: 2.35cqw;
+    line-height: 1.25;
+  }
+  .fora-detail--gulet .detail-specs { display: none; }
+  .fora-detail--gulet .detail-intro-art {
+    width: 100%;
+    min-height: 44cqw;
+    margin: 0;
+  }
+  .fora-detail--gulet .detail-intro-art .detail-photo-main {
+    top: 1cqw;
+    left: 1cqw;
+    width: 60cqw;
+    height: 44cqw;
+    transform: rotate(-2deg);
+  }
+  .fora-detail--gulet .detail-intro-art .detail-photo-inset {
+    top: 1cqw;
+    right: 1cqw;
+    width: 30cqw;
+    height: 23cqw;
+    transform: rotate(2deg);
+  }
+  .fora-detail--gulet .detail-intro-art .detail-photo-cove {
+    right: 1cqw;
+    bottom: 0;
+    width: 30cqw;
+    height: 23cqw;
+    transform: rotate(-1.5deg);
+  }
+  .fora-detail--gulet .detail-photo-play { width: 10cqw; height: 10cqw; }
+
+  /* Keep gallery controls clear and trim the gallery/form transition to the source rhythm. */
+  .fora-detail--gulet .detail-gallery-section { padding-block: 1cqw 0; }
+  .fora-detail--gulet .detail-gallery-categories { margin-bottom: 1cqw; }
+  .fora-detail--gulet .detail-gallery-categories button { min-height: 8cqw; }
+  .fora-detail--gulet .detail-gallery-main { height: 29cqw; }
+  .fora-detail--gulet .detail-gallery-thumbs img { height: 7.5cqw; }
+  .fora-detail--gulet .detail-gulet-quote { margin-top: 1cqw; padding: 2cqw 5cqw; }
+  .fora-detail--gulet .detail-gulet-quote h2 {
+    max-width: 64cqw;
+    font-size: 6.2cqw;
+    line-height: .98;
+  }
+  .fora-detail--gulet .detail-gulet-form { gap: .5cqw; }
+  .fora-detail--gulet .detail-gulet-form input,
+  .fora-detail--gulet .detail-gulet-form select,
+  .fora-detail--gulet .detail-gulet-form textarea,
+  .fora-detail--gulet .detail-gulet-form .btn { min-height: 6cqw; }
+  .fora-detail--gulet .detail-gulet-form textarea { min-height: 7cqw; }
+}

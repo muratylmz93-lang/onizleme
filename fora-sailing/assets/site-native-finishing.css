@@ -1,0 +1,63 @@
+/* Source measurements shared by the editable desktop and mobile layouts. */
+.detail-contact-form .has-field-icon{position:relative}
+.detail-contact-form .form-field-icon{position:absolute;z-index:1;left:1cqw;top:50%;width:1.5cqw;height:1.5cqw;translate:0 -50%;color:#59788c;pointer-events:none}
+.detail-contact-form .form-field-icon .icon{width:100%;height:100%}
+.detail-contact-form .has-field-icon input,.detail-contact-form .has-field-icon select,.detail-contact-form .has-field-icon textarea{padding-left:3cqw}
+.detail-contact-form .has-field-icon:has(textarea) .form-field-icon{top:1.5cqw;translate:none}
+@media(min-width:761px){
+  #site-app .fora-detail--about .detail-hero-copy{width:90%;max-width:none}
+  #site-app .fora-detail--about .detail-hero-copy h1{max-width:56cqw;font-size:6.6cqw}
+  #site-app .fora-detail--about .detail-hero-description{max-width:42cqw}
+  #site-app .fora-detail--about .detail-intro-art{min-height:29.2cqw}
+  #site-app .fora-detail--about .detail-together{min-height:29cqw;padding-block:1cqw}
+  #site-app .fora-detail--about .detail-together-photo{height:27cqw}
+  #site-app .fora-detail--about .detail-together-copy{align-self:start;padding-top:1cqw;max-width:31cqw}
+  #site-app .fora-detail--about .detail-together-inset{top:28%;left:94%;width:14cqw;height:20cqw;transform:rotate(7deg)}
+  #site-app .fora-detail--route .detail-intro-art{min-height:28.2cqw}
+  #site-app .fora-detail--route .detail-intro-art .detail-photo-main{height:27.3cqw}
+  #site-app .fora-detail--gulet .detail-gallery-section{min-height:41cqw}
+  #site-app .catalog-experiences__note{bottom:1cqw;font-size:2.2cqw;left:5cqw;right:auto;width:21cqw}
+}
+@media(prefers-reduced-motion:reduce){
+  #site-app .btn:hover,#site-app .home-button:hover,#site-app .home-route-card:hover,#site-app .home-fleet-card:hover,#site-app .catalog-card:hover,#site-app .catalog-card__link:hover,#site-app .detail-related-card:hover{transform:none!important}
+  #site-app a:hover img,#site-app button:hover .icon,#site-app .button-arrow,#site-app .detail-photo-play:hover,#site-app .home-story-play:hover,#site-app .catalog-story__play:hover{transform:none!important;scale:none!important}
+}
+@media(max-width:760px){
+  #site-app .fora-detail--about .detail-intro{padding-block:1.25cqw;overflow:visible;z-index:3}
+  #site-app .fora-detail--about .detail-intro-copy h2{max-width:43cqw}
+  #site-app .fora-detail--about .detail-values{z-index:1}
+  #site-app .fora-detail--about .detail-values{padding-top:10.5cqw;padding-bottom:1.2cqw}
+  #site-app .fora-detail--about .detail-values .detail-eyebrow{display:none}
+  #site-app .fora-detail--about .detail-values h2{line-height:.85}
+  #site-app .fora-detail--about .detail-values>.container>p:not(.detail-eyebrow){font-size:2.45cqw;line-height:1.2}
+  #site-app .fora-detail--route .detail-hero-copy{padding-top:11.5cqw;padding-bottom:0;width:86%}
+  #site-app .fora-detail--route .detail-intro{padding-block:1.25cqw}
+  #site-app .fora-detail--route .detail-stops-copy h2{width:47cqw;max-width:47cqw;font-size:4.5cqw;margin-bottom:.8cqw}
+  #site-app .fora-detail--route .detail-stops-copy p{max-width:55cqw;font-size:2.15cqw;line-height:1.2}
+  #site-app .fora-detail--route .detail-stops-copy .detail-inline-link{padding-block:.5cqw}
+  #site-app .fora-detail--route .detail-stops .fora-route-map{height:14cqw;max-height:14cqw}
+  #site-app .fora-detail--route .detail-highlights{padding-block:1cqw}
+  #site-app .fora-detail--route .detail-quick-form>label{padding:0;border:0;gap:.3cqw}
+  #site-app .fora-detail--route .detail-quick-form>label>span{font-size:2cqw;line-height:1;margin:0 0 .5cqw}
+  #site-app .fora-detail--route .detail-quick-form input,#site-app .fora-detail--route .detail-quick-form select,#site-app .fora-detail--route .detail-quick-form .btn{min-height:5.2cqw}
+  #site-app .catalog-experiences__intro-wrap{padding-top:6cqw}
+  #site-app .detail-compass-stamp{position:absolute;z-index:1;left:60cqw;top:-40cqw;width:20cqw;height:auto;opacity:.3;pointer-events:none}
+  #site-app .fora-detail--about .detail-compass-stamp{top:-42cqw;left:60cqw}
+  #site-app .fora-detail--route .detail-compass-stamp{top:13cqw;left:76cqw;width:16cqw}
+  #site-app .fora-detail--gulet .detail-compass-stamp{top:-35cqw;left:56cqw}
+  #site-app:not([data-page="home"]):not([data-page="gulet-detail"]) .site-header-actions>.btn-gold{display:none}
+  #site-app .fora-detail--route .detail-actions{max-width:48cqw}
+  #site-app .fora-detail--route .detail-actions .btn{width:100%;min-height:5.2cqw;padding:.9cqw 2.5cqw;font-size:2cqw}
+  #site-app .fora-detail--route .detail-hero-description{max-width:54cqw;font-size:2.35cqw;line-height:1.25;margin-bottom:1.5cqw}
+  #site-app .fora-detail--gulet .detail-hero-description{max-width:53cqw;font-size:2.45cqw;line-height:1.25}
+  #site-app .fora-detail--contact .detail-contact-form-wrap{position:relative;width:85cqw;margin-inline:2.5cqw;padding-bottom:4cqw}
+  #site-app .fora-detail--contact .detail-contact-form-wrap::before{content:'';position:absolute;top:1cqw;right:0;width:18cqw;height:18cqw;background:url('compass-stamp.png') center/contain no-repeat;opacity:.45;pointer-events:none}
+  #site-app .fora-detail--contact .detail-contact-aside{width:100cqw;margin-inline:-5cqw;overflow:visible}
+  #site-app .fora-detail--contact .detail-contact-aside h2{width:85cqw;max-width:none;white-space:nowrap;font-size:6cqw}
+  #site-app .fora-detail--contact .detail-contact-aside h2 br{display:none}
+  #site-app .fora-detail--contact .detail-contact-section{padding-bottom:12cqw}
+  #site-app[data-page="contact"] .site-footer{min-height:40cqw}
+  #site-app .detail-contact-form .form-field-icon{left:2.2cqw;width:3cqw;height:3cqw}
+  #site-app .detail-contact-form .has-field-icon input,#site-app .detail-contact-form .has-field-icon select,#site-app .detail-contact-form .has-field-icon textarea{padding-left:7cqw;border-radius:1cqw}
+  #site-app .detail-contact-form .has-field-icon:has(textarea) .form-field-icon{top:2cqw}
+}
