@@ -515,7 +515,18 @@
           "key": "gulets",
           "selector": ".home-art-hotspots [class*=\"hotspot-fleet-\"]",
           "imageSelector": ".home-foreground-art img[class*=\"home-art-fleet-photo-\"]",
-          "homeFeatured": true
+          "homeFeatured": true,
+          "sourceDimensions": [809, 1942],
+          "conditionalUnderlays": [
+            {
+              "id": "home-fleet-slot-5-vacancy",
+              "path": "assets/home-fleet-slot-5-underlay-v2.png",
+              "rect": [694, 1090, 809, 1310],
+              "whenAnyMissing": ["getaway"],
+              "whenSlotsEmpty": [4],
+              "zIndex": 3
+            }
+          ]
         }
       ]
     },
@@ -578,7 +589,8 @@
           "binding": "deneyimler.hero.offerUrl",
           "selectors": [
             "a.hero-offer",
-            ".hotspot[aria-label*=\"teklif\"]"
+            "a.hotspot[aria-label*=\"teklif\" i]",
+            ".mobile-header-cta"
           ]
         },
         {
@@ -875,7 +887,7 @@
           "binding": "rotalar.hero.offerUrl",
           "selectors": [
             "a.hero-offer",
-            ".hotspot[aria-label*=\"teklif\"]"
+            "a.hotspot[aria-label*=\"teklif\" i]"
           ]
         },
         {
@@ -1125,7 +1137,8 @@
           "binding": "rota-gocek-fethiye.hero.offerUrl",
           "selectors": [
             "a.hero-offer",
-            ".hotspot[aria-label*=\"teklif\"]"
+            ".mobile-header-cta",
+            "a.hotspot[aria-label*=\"teklif\" i]"
           ]
         },
         {
@@ -1334,7 +1347,12 @@
           "selectors": []
         }
       ],
-      "collections": []
+      "collections": [
+        {
+          "key": "routes",
+          "detailId": "gocek-fethiye"
+        }
+      ]
     },
     {
       "path": "/filo/",
@@ -1383,7 +1401,7 @@
           "binding": "filo.hero.offerUrl",
           "selectors": [
             "a.hero-offer",
-            ".hotspot[aria-label*=\"teklif\"]"
+            "a.hotspot[aria-label*=\"teklif\" i]"
           ]
         },
         {
@@ -1627,7 +1645,8 @@
           "binding": "eylul.hero.offerUrl",
           "selectors": [
             "a.hero-offer",
-            ".hotspot[aria-label*=\"teklif\"]"
+            ".mobile-header-cta",
+            "a.hotspot[aria-label*=\"teklif\" i]"
           ]
         },
         {
@@ -1839,7 +1858,14 @@
       "collections": [
         {
           "key": "gulets",
-          "detailId": "eylul"
+          "detailId": "eylul",
+          "galleryUnderlay": {
+          "path": "filo/eylul/assets/gallery-cms-clean-underlay-v3.png",
+            "selector": ".canvas",
+            "rect": [58, 825, 658, 1158],
+            "sourceDimensions": [1024, 1536],
+            "zIndex": 3
+          }
         }
       ]
     },
@@ -1902,7 +1928,7 @@
           "binding": "hakkimizda.hero.offerUrl",
           "selectors": [
             "a.hero-offer",
-            ".hotspot[aria-label*=\"teklif\"]"
+            "a.hotspot[aria-label*=\"teklif\" i]"
           ]
         },
         {
@@ -2184,7 +2210,7 @@
           "binding": "iletisim.hero.offerUrl",
           "selectors": [
             "a.hero-offer",
-            ".hotspot[aria-label*=\"teklif\"]"
+            "a.hotspot[aria-label*=\"teklif\" i]"
           ]
         },
         {

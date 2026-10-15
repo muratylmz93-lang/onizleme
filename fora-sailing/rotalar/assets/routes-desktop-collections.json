@@ -310,7 +310,7 @@
       "titleSourceText": "Kemer – Kekova",
       "titleFont": "Georgia, 'Times New Roman', serif",
       "titleColor": "#102c4a",
-      "maskArtwork": "assets/cms-collection-cards/route-3-hidden-mask-v4.png",
+      "maskArtwork": "assets/cms-collection-cards/route-3-hidden-mask-v5.png",
       "maskArtworkPolygon": [
         [
           0,
@@ -335,15 +335,15 @@
         322,
         312
       ],
-      "maskArtworkFillType": "source-context-clean-underlay",
-      "maskArtworkSource": "routes-underlay-no-cards-v1.png",
+      "maskArtworkFillType": "localized-inpainted-paper-context",
+      "maskArtworkSource": "routes-kemer-card-removed-candidate.png",
       "maskArtworkCanvasRect": [
         664,
         576,
         986,
         888
       ],
-      "maskEdgeFeatherPx": 3,
+      "maskEdgeFeatherPx": 22,
       "photoRect": [
         0,
         2,
@@ -402,7 +402,8 @@
         322,
         312
       ],
-      "maskVersion": 4
+      "maskVersion": 5,
+      "maskAlphaMode": "card-footprint-expanded-soft-context"
     },
     {
       "slotId": "route-4",

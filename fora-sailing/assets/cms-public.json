@@ -1,7 +1,7 @@
 {
   "content": {
     "schemaVersion": 1,
-    "revision": 18,
+    "revision": 33,
     "pages": [
       {
         "id": "ana-sayfa",
@@ -1655,8 +1655,8 @@
                 "label": "Bölüm metni",
                 "type": "text",
                 "binding": "rotalar.content.description",
-                "value": "Bodrum–Gökova; Marmaris–Datça; Kemer–Kekova; Marmaris–Fethiye; Göcek–Fethiye; Bodrum–Yunan Adaları.",
-                "defaultValue": "Bodrum–Gökova; Marmaris–Datça; Kemer–Kekova; Marmaris–Fethiye; Göcek–Fethiye; Bodrum–Yunan Adaları."
+                "value": "Türkiye’nin en güzel kıyılarında, birbirinden özel rotalarla mavi yolculuğunuzu planlayın. İster sakin koylarda huzur arayın, ister tarihi limanları keşfedin; her rota size unutulmaz bir deneyim sunar.",
+                "defaultValue": "Türkiye’nin en güzel kıyılarında, birbirinden özel rotalarla mavi yolculuğunuzu planlayın. İster sakin koylarda huzur arayın, ister tarihi limanları keşfedin; her rota size unutulmaz bir deneyim sunar."
               },
               {
                 "id": "image",
@@ -2190,8 +2190,8 @@
                 "label": "Bölüm metni",
                 "type": "text",
                 "binding": "rota-gocek-fethiye.content.description",
-                "value": "Göcek’in sakin koylarından Fethiye’nin eşsiz manzaralarına uzanan bu rota, her gün yeni bir koy, yeni bir manzara ve daha derin bir mavi sunar.",
-                "defaultValue": "Göcek’in sakin koylarından Fethiye’nin eşsiz manzaralarına uzanan bu rota, her gün yeni bir koy, yeni bir manzara ve daha derin bir mavi sunar.",
+                "value": "Göcek’in sakin koylarından Fethiye’nin eşsiz manzaralarına uzanan bu rota, her gün yeni bir koy, yeni bir manzara ve daha derin bir mavi sunar. Doğanın ritmine uyum sağlayarak, denizin, güneşin ve özgürlüğün keyfini yaşayın.",
+                "defaultValue": "Göcek’in sakin koylarından Fethiye’nin eşsiz manzaralarına uzanan bu rota, her gün yeni bir koy, yeni bir manzara ve daha derin bir mavi sunar. Doğanın ritmine uyum sağlayarak, denizin, güneşin ve özgürlüğün keyfini yaşayın.",
                 "deviceOverrides": {
                   "mobile": "Göcek’ten açılan yolculuğunuzda deniz, doğa ve\nguvertede geçen sakin anlar bir araya gelir.",
                   "tablet": "Göcek’ten açılan yolculuğunuzda deniz,\ndoğa ve guvertede geçen sakin anlar\nbir araya gelir.",
@@ -2653,8 +2653,8 @@
                 "label": "Bölüm metni",
                 "type": "text",
                 "binding": "filo.content.description",
-                "value": "Eylül, Ata, Miss 2, Zel ve Getaway guletleri.",
-                "defaultValue": "Eylül, Ata, Miss 2, Zel ve Getaway guletleri."
+                "value": "Sizin için en uygun guleti bulmamıza yardımcı olun. Tarih aralığınızı ve misafir sayısını seçerek size özel alternatifleri sunalım.",
+                "defaultValue": "Sizin için en uygun guleti bulmamıza yardımcı olun. Tarih aralığınızı ve misafir sayısını seçerek size özel alternatifleri sunalım."
               },
               {
                 "id": "image",
@@ -3147,8 +3147,8 @@
                 "label": "Bölüm metni",
                 "type": "text",
                 "binding": "eylul.content.description",
-                "value": "Geniş güvertesi, zarif tasarımı ve sıcak atmosferiyle Eylül, denizin ritminde sakin ve konforlu bir yolculuk sunar.",
-                "defaultValue": "Geniş güvertesi, zarif tasarımı ve sıcak atmosferiyle Eylül, denizin ritminde sakin ve konforlu bir yolculuk sunar.",
+                "value": "Geniş güvertesi, zarif tasarımı ve sıcak atmosferiyle Eylül, denizin ritminde sakin ve konforlu bir yolculuk sunar. Güneşin, rüzgârın ve masmavi koyların eşlik ettiği bu özel deneyim, size Akdeniz’in gerçek ruhunu hissettirir.",
+                "defaultValue": "Geniş güvertesi, zarif tasarımı ve sıcak atmosferiyle Eylül, denizin ritminde sakin ve konforlu bir yolculuk sunar. Güneşin, rüzgârın ve masmavi koyların eşlik ettiği bu özel deneyim, size Akdeniz’in gerçek ruhunu hissettirir.",
                 "deviceOverrides": {
                   "mobile": "Yaşam alanları, guverte ve kabin detaylarıyla\nEylül’ü keşfedin.",
                   "tablet": "Yaşam alanları, guverte ve kabin\ndetaylarıyla Eylül’ü keşfedin.",
@@ -4461,7 +4461,7 @@
       {
         "id": "eylul",
         "name": "Eylül",
-        "description": "Eylül guletiyle Ege ve Akdeniz'de size özel mavi yolculuk.",
+        "description": "Geniş güvertesi, zarif tasarımı ve sıcak atmosferiyle Eylül, denizin ritminde sakin ve konforlu bir yolculuk sunar. Güneşin, rüzgârın ve masmavi koyların eşlik ettiği bu özel deneyim, size Akdeniz’in gerçek ruhunu hissettirir.",
         "image": "assets/fleet-eylul.png",
         "artwork": "filo/assets/art-card-1.png",
         "guestCapacity": 8,
@@ -4477,7 +4477,8 @@
           "filo/eylul/assets/gallery-thumb-2.png",
           "filo/eylul/assets/gallery-thumb-3.png",
           "filo/eylul/assets/gallery-thumb-4.png"
-        ]
+        ],
+        "shortDescription": "Maviyle iç içe, özgür ve huzurlu bir yolculuk. Eylül, Akdeniz’in en özel koylarında size ait bir yaşam sunuyor."
       },
       {
         "id": "ata",
@@ -4735,6 +4736,6 @@
       }
     }
   },
-  "revision": 18,
-  "publishedAt": "2026-10-14T13:56:00.024Z"
+  "revision": 33,
+  "publishedAt": "2026-10-15T02:46:47.690Z"
 }

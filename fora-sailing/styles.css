@@ -304,13 +304,24 @@ body.has-scrolled .discover i{animation-play-state:paused}
 .motion-ready .home-foreground-art .home-art-benefits-copy{--art-y:15px}
 .motion-ready .home-foreground-art .home-art-benefits-copy.is-visible{--art-y:0px}
 .fleet-drag-card{transition:transform 400ms ease;touch-action:pan-y;cursor:grab}
-.fleet-drag-card{transform:translate(var(--fleet-shift,0px),var(--art-y,0px))}
+.home-foreground-art .fleet-drag-card{transform:translate(var(--fleet-shift,0px),var(--art-y,0px))}
 .fleet-drag-card:active{cursor:grabbing}
 .motion-ready .home-foreground-art .home-art-footer-brand,.motion-ready .home-foreground-art .home-art-footer-script{--art-y:15px;transition-duration:600ms}
 .motion-ready .home-foreground-art .home-art-footer-brand.is-visible,.motion-ready .home-foreground-art .home-art-footer-script.is-visible{--art-y:0px}
 .home-art-hotspots a:hover{background:transparent}
 .card-photo-hover{opacity:0!important;transform:scale(1);transition:opacity 120ms ease,transform 350ms ease!important;transform-origin:center center}
 .card-photo-hover.is-hovered{opacity:1!important;transform:scale(1.04)!important}
+.home-foreground-art [class*="home-art-fleet-photo-"]{transform:translateX(var(--fleet-shift,0px))!important}
+.home-foreground-art [class*="home-art-fleet-photo-"].is-hovered{transform:translateX(var(--fleet-shift,0px)) scale(1.03)!important}
+.home-foreground-art.is-fleet-dragging .fleet-drag-card,.home-foreground-art.is-fleet-dragging [class*="home-art-fleet-photo-"]{transition:none!important}
+.home-foreground-art .home-fleet-drag-underlay{left:20.27194067cqw;top:134.73423980cqw;width:79.72805933cqw;height:28.43016069cqw;transform:none!important;transition:none!important;clip-path:polygon(16.81087763cqw 0,100% 0,100% 100%,0 100%,0 7.41656366cqw,16.81087763cqw 7.41656366cqw)}
+.has-fleet-shift .home-art-fleet-copy{clip-path:polygon(0 0,100% 0,100% 70%,75% 70%,75% 100%,0 100%)}
+.has-fleet-shift .home-art-offer-photo{clip-path:polygon(0 0,40.4% 0,40.4% 16.13%,100% 16.13%,100% 100%,0 100%)}
+.has-fleet-shift .home-art-fleet-card-1{clip-path:polygon(0 10%,100% 1.7647%,100% 90%,0 90%)}
+.has-fleet-shift .home-art-fleet-card-2{clip-path:polygon(0 12.9032%,92.5926% 6.4516%,92.5926% 90.8602%,0 96.2366%)}
+.has-fleet-shift .home-art-fleet-card-3{clip-path:polygon(0 12%,92.5373% 6.5%,92.5373% 92%,0 98.5%)}
+.has-fleet-shift .home-art-fleet-card-4{clip-path:polygon(0 13.4884%,96.1240% 7.9070%,96.1240% 93.4884%,0 99.5349%)}
+.has-fleet-shift .home-art-fleet-card-5{clip-path:polygon(0 26.6667%,95.6522% 22.5641%,95.6522% 93.8462%,0 100%)}
 .motion-ready .home-foreground-art .home-art-story-main,.motion-ready .home-foreground-art .home-art-story-side{transition-duration:800ms}
 .motion-ready .home-foreground-art .home-art-story-side{transition-delay:150ms}
 .motion-ready .home-foreground-art .home-art-route-map{--art-y:0px}
@@ -325,7 +336,7 @@ body.has-scrolled .discover i{animation-play-state:paused}
 .motion-ready .home-foreground-art .home-art-story-script.is-visible,.motion-ready .home-foreground-art .home-art-fleet-note.is-visible,.motion-ready .home-foreground-art .home-art-footer-script.is-visible{clip-path:inset(0)}
 @media(max-width:650px){.home-foreground-art,.home-art-hotspots{display:none}}
 @media(max-width:650px){.motion-ready .story-main,.motion-ready .story-side,.motion-ready .stagger-item,.motion-ready .reveal{transition-duration:450ms}.motion-ready .story-main,.motion-ready .story-side{transform:translateY(15px)}.motion-ready .story-main.is-visible,.motion-ready .story-side.is-visible{transform:translateY(0)}.motion-ready .stagger-item{transform:translateY(15px)}.motion-ready .reveal{transform:translateY(12px)}.motion-ready .reveal.is-visible{transform:translateY(0)}}
-@media(prefers-reduced-motion:reduce){.home-foreground-art .motion-art,.fleet-drag-card{opacity:1!important;transform:translateX(var(--fleet-shift,0px))!important;transition-duration:150ms!important}.home-art-route-map{clip-path:none!important}.card-photo-hover{display:none}.hero-script-glyph{animation:none!important;clip-path:none!important}}
+@media(prefers-reduced-motion:reduce){.home-foreground-art .motion-art{opacity:1!important;transform:none!important;transition-duration:150ms!important}.home-foreground-art .fleet-drag-card{transform:translateX(var(--fleet-shift,0px))!important;transition-duration:150ms!important}.home-art-route-map{clip-path:none!important}.card-photo-hover{display:none}.hero-script-glyph{animation:none!important;clip-path:none!important}}
 body:has(:focus-visible) .desktop-source-art,body:has(:focus-visible) .home-foreground-art{opacity:0}
 .masthead{z-index:10}
 /* Desktop keeps the exact source lede lettering; live copy remains accessible and focusable without duplicating it. */

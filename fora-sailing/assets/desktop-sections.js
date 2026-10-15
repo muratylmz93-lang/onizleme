@@ -3,6 +3,7 @@
 
   const scriptUrl = document.currentScript?.src || location.href;
   const assetBaseUrl = new URL('.', scriptUrl);
+  const siteBaseUrl = new URL('../', assetBaseUrl);
   const manifestUrl = new URL('desktop-sections.json', scriptUrl);
   const hiddenAttr = 'data-desktop-section-source-hidden';
   const state = { manifest: null, stage: null, host: null, hostStyle: null, observer: null, signature: '', livePage: null, baselinePage: null };
@@ -143,6 +144,35 @@
     });
   }
 
+  function normalizeClonedImageURLs(root) {
+    const routeParts = cleanPath(location.pathname).split('/').filter(Boolean);
+    if (!routeParts.length) return;
+    const images = root.matches?.('img') ? [root, ...root.querySelectorAll('img')] : [...root.querySelectorAll('img')];
+    for (const image of images) {
+      const raw = image.getAttribute('src') || image.src;
+      if (!raw) continue;
+      try {
+        const url = new URL(raw, location.href);
+        const parts = url.pathname.split('/').filter(Boolean);
+        const siteIndex = parts.indexOf('site');
+        if (siteIndex < 0) continue;
+        const start = siteIndex + 1;
+        const isRoutePrefix = routeParts.every((part, index) => parts[start + index] === part);
+        if (!isRoutePrefix) continue;
+        let duplicateStart = start + routeParts.length;
+        while (routeParts.every((part, index) => parts[duplicateStart + index] === part)) {
+          parts.splice(duplicateStart, routeParts.length);
+        }
+        url.pathname = `/${parts.join('/')}`;
+        // The live source layer may have acquired this retry marker after its
+        // first request failed under the reordered containing block. Clones
+        // resolve from the normalized original asset URL and retry cleanly.
+        url.searchParams.delete('fora-retry');
+        image.setAttribute('src', url.href);
+      } catch { /* Keep data/blob URLs and malformed optional art unchanged. */ }
+    }
+  }
+
   function createStage(host, mode) {
     const stage = document.createElement('div');
     stage.className = `desktop-cms-section-stage desktop-cms-section-stage-${mode}`;
@@ -176,11 +206,18 @@
 
   function copyElement(source, wrapper, sourceRootRect, sourceWidth, options = {}) {
     const clone = source.cloneNode(true);
+    // Hover classes are transient pointer state, not part of the source art.
+    // The original interaction handler does not own these cloned nodes, so a
+    // class left on a photo when the CMS stage is built would freeze the
+    // faded-neighbour artwork into the reordered preview.
+    if (clone.classList.contains('is-hovered')) clone.classList.remove('is-hovered');
+    clone.querySelectorAll('.is-hovered').forEach(node => node.classList.remove('is-hovered'));
     // Originals are hidden while the reordered stack is active. cloneNode()
     // also copies the marker onto every matching descendant, which would hide
     // the cloned artwork and leave the placeholder band showing through.
     clone.removeAttribute(hiddenAttr);
     clone.querySelectorAll(`[${hiddenAttr}]`).forEach(node => node.removeAttribute(hiddenAttr));
+    normalizeClonedImageURLs(clone);
     // The page observer only watches source DOM. Clones are already in their
     // final source position, so mark reveal-driven art as settled immediately.
     const motionTargets = [clone, ...clone.querySelectorAll('.motion-art,.reveal,[data-reveal],.source-copy-motion,.art-card,.photo-art-group')];
@@ -205,15 +242,16 @@
   }
 
   function canvasBandSource(host, band, sourceWidth) {
+    const sourceRect = band.renderSourceRect || band.sourceRect;
     const rootRect = box(host);
     const scale = rootRect.width / sourceWidth;
-    const start = band.sourceRect.y * scale;
-    const end = start + band.sourceRect.height * scale;
+    const start = sourceRect.y * scale;
+    const end = start + sourceRect.height * scale;
     const nodes = [...host.children].filter(node => {
       if (node.classList.contains('sr-only') || node.matches('[data-desktop-sections-stage]')) return false;
       const rect = box(node);
       const middle = ((rect.top + rect.bottom) / 2) - rootRect.top;
-      return rect.width > 1 && rect.height > 1 && middle >= start && middle < end;
+      return rect.width > 1 && rect.height > 1 && rect.bottom > rootRect.top + start && rect.top < rootRect.top + end;
     });
     return { rootRect, start, end, nodes };
   }
@@ -226,7 +264,7 @@
     document.querySelectorAll('.cms-overlay-layer > .cms-live-group').forEach(hideSource);
   }
   function addCanvasBand(stage, host, entry, sourceWidth) {
-    const band = entry.band;
+    const band = { ...entry.band, renderSourceRect: entry.renderSourceRect || entry.band.sourceRect };
     const source = canvasBandSource(host, band, sourceWidth);
     if (!source.nodes.length) return false;
     const wrapper = document.createElement('section');
@@ -238,8 +276,11 @@
     wrapper.style.left = '0';
     wrapper.style.top = `calc(${entry.displayY / sourceWidth * 100}cqw)`;
     wrapper.style.width = '100%';
-    wrapper.style.height = `calc(${band.sourceRect.height / sourceWidth * 100}cqw)`;
-    wrapper.style.overflow = 'visible';
+    wrapper.style.height = `calc(${entry.visualHeight / sourceWidth * 100}cqw)`;
+    // Recreate each band from every source layer that intersects it, then
+    // clip to the semantic band. This preserves tall backplates and artwork
+    // crossing a boundary without assigning a whole-page layer to one band.
+    wrapper.style.overflow = 'hidden';
     const segment = { left: source.rootRect.left, top: source.rootRect.top + source.start, right: source.rootRect.right, bottom: source.rootRect.top + source.end };
     const segmentRect = { left: segment.left, top: segment.top, right: segment.right, bottom: segment.bottom, width: segment.right-segment.left, height: segment.bottom-segment.top };
     for (const node of source.nodes) copyElement(node, wrapper, segmentRect, source.rootRect.width);
@@ -251,6 +292,7 @@
 
   function addNativeBand(stage, entry, template, sourceWidth) {
     const band = entry.band;
+    const visualHeight = Number(entry.visualHeight || band.sourceRect.height || 0);
     const wrapper = document.createElement('section');
     wrapper.className = 'desktop-cms-section-band';
     wrapper.dataset.cmsSectionId = entry.sourceId;
@@ -261,24 +303,32 @@
     if (!nodes.length) return false;
     const hostRect = box(state.host);
     const start = band.sourceRect.y * hostRect.width / sourceWidth;
-    const groupRect = { left:hostRect.left,top:hostRect.top+start,right:hostRect.right,bottom:hostRect.top+start+band.sourceRect.height*hostRect.width/sourceWidth,width:hostRect.width,height:band.sourceRect.height*hostRect.width/sourceWidth };
+    const groupRect = { left:hostRect.left,top:hostRect.top+start,right:hostRect.right,bottom:hostRect.top+start+visualHeight*hostRect.width/sourceWidth,width:hostRect.width,height:visualHeight*hostRect.width/sourceWidth };
     wrapper.style.position = 'relative';
     wrapper.style.display = 'block';
     wrapper.style.width = '100%';
-    wrapper.style.height = `calc(${band.sourceRect.height / sourceWidth * 100}cqw)`;
+    wrapper.style.height = `calc(${visualHeight / sourceWidth * 100}cqw)`;
     wrapper.style.minHeight = '1px';
     wrapper.style.overflow = 'visible';
     const rootSet = new Set(nodes.filter(node => node.matches(band.sectionSelector || band.selector)));
-    const sorted = nodes.filter(node => !nodes.some(parent => parent !== node && parent.contains(node))).sort((a,b) => {
+    const sorted = nodes.filter(node => !nodes.some(parent => parent !== node && parent.contains(node)
+      && !(template.mode === 'homeBands' && rootSet.has(parent) && (!band.backgroundSelector || !node.matches(band.backgroundSelector))))).sort((a,b) => {
       const ar=box(a),br=box(b); return (ar.top-br.top)||(ar.left-br.left);
     });
     for (const node of sorted) {
       const isBackground = !!band.backgroundSelector && node.matches(band.backgroundSelector);
       if (isBackground) hideSource(node);
-      const copied = copyElement(node, wrapper, groupRect, hostRect.width, { sectionRoot:rootSet.has(node), logicalHeight:band.sourceRect.height });
+      const copied = copyElement(node, wrapper, groupRect, hostRect.width, { sectionRoot:rootSet.has(node), logicalHeight:visualHeight });
+      // The shared runtime samples the image under its footer patch rectangle.
+      // This source sprite contains the old wordmark and menu artwork, so it
+      // must not be mistaken for the footer background when the official logo
+      // is placed over the reordered footer.
+      if (template.mode === 'homeBands' && entry.sourceId === 'footer'
+          && copied.matches('img.home-art-footer-brand')) copied.classList.add('foreground');
       // The homepage visual art and hotspot anchors provide the visible/interactive
       // desktop source. The semantic section copy is only a duplicate text layer here.
       if (template.mode === 'homeBands' && rootSet.has(node)) {
+        copied.style.height = `calc(${band.sourceRect.height / sourceWidth * 100}cqw)`;
         copied.setAttribute('aria-hidden', 'true');
         copied.style.pointerEvents = 'none';
         if (band.sourceSectionId === 'hero') {
@@ -287,14 +337,30 @@
           // original hero while accessible text remains in the source DOM.
           copied.style.visibility = 'visible';
           copied.querySelectorAll('.hero-copy').forEach(copy => { copy.style.visibility = 'hidden'; });
+          // The cleaned photo is the exact resting source. These derived
+          // overlays contain rectangular cleanup tiles exposed by reordering.
+          copied.querySelectorAll('.hero-photo-overlay,.hero-cream-edge').forEach(layer => { layer.style.display = 'none'; });
+          // The full-frame proof composite carries baked navigation; it is normally zero-sized.
+          // A cloned hero gets a new containing block, so keep that duplicate out.
+          copied.querySelectorAll('.hero-static-reference').forEach(image => { image.style.display = 'none'; });
         } else {
           copied.style.visibility = 'hidden';
         }
       } else if (template.mode === 'homeBands') {
         // Source art shares a global stacking context. Keep its foreground
         // above later background bands when artwork extends past its section.
-        copied.style.zIndex = isBackground ? '0' : '20';
+        copied.style.zIndex = isBackground ? '0' : (copied.matches('.source-copy-motion') ? '40' : '20');
       }
+    }
+    // The source story plate includes a gray phone-shadow placeholder where
+    // the overlapping phone art starts. Once sections are staged, the phone
+    // belongs to the routes band, so restore a small patch of the same-source
+    // sea photo behind that seam. The default, unmodified page never uses this.
+    if (template.mode === 'homeBands' && entry.sourceId === 'story') {
+      const patch = document.createElement('span');
+      patch.className = 'desktop-cms-story-sea-patch';
+      patch.setAttribute('aria-hidden', 'true');
+      wrapper.append(patch);
     }
     addLiveOverlays(wrapper, state.host, entry, sourceWidth);
     stage.append(wrapper);
@@ -371,7 +437,13 @@
     const text = String(value || '').trim();
     if (!text || /[\u0000-\u001f\u007f]/.test(text)) return '';
     try {
-      const url = new URL(text, location.href);
+      if (text.startsWith('#')) return text;
+      const rootMedia = text.match(/^\/?media\//i);
+      const url = rootMedia
+        ? new URL(text.replace(/^\/+/, ''), `${location.origin}/`)
+        : /^\/site(?:\/|$)/i.test(text)
+          ? new URL(text, location.origin)
+          : new URL(text.replace(/^\/+/, ''), siteBaseUrl);
       return ['http:','https:','mailto:','tel:'].includes(url.protocol) ? url.href : '';
     } catch { return ''; }
   }
@@ -385,6 +457,12 @@
     if (!spec) return;
     // Visual copy anchors can be siblings of the semantic field root.
     const overlayRoot = entry.root || root;
+    // Anchor the replacement to the source art inside this section. A global
+    // `.cms-live-group` is laid out in the canonical full-page coordinate
+    // system; copying its box into a reordered band can stretch a small copy
+    // patch across neighbouring sections. The manifest's `reference` and
+    // `referenceRect` describe the tight source glyph region and remain valid
+    // after the band moves.
     const selectorList = spec.copyId ? [`[data-desktop-source-copy-id="${CSS.escape(spec.copyId)}"]`] : (spec.reference || mapping.selectors || []);
     const anchors = selectorList.flatMap(selector => findMapped(overlayRoot, selector)).filter(element => element.getClientRects().length);
     if (!anchors.length) return;
@@ -430,9 +508,11 @@
           const targets = findMapped(root, selector);
           for (const target of targets) {
             if (['image','media','video'].includes(String(field.type).toLowerCase())) {
+              if (!isChanged) continue;
               const url = safeUrl(value);
               if (url && target.matches('img,source')) target.setAttribute('src', url);
             } else if (['url','link'].includes(String(field.type).toLowerCase())) {
+              if (!isChanged) continue;
               const url = safeUrl(value);
               if (url && target.matches('a,area')) target.setAttribute('href', url);
             } else if (!mapping.overlay && isChanged) setText(target, value);
@@ -470,11 +550,24 @@
 
   function stageCanvas(host, stage, entries, template) {
     const sourceWidth = Number(template.sourceWidth || 1024);
-    const total = entries.reduce((sum,entry)=>sum+Number(entry.band.sourceRect.height||0),0);
+    const pinnedHeader = entries[0]?.sourceId !== 'hero';
+    const clearance = pinnedHeader ? Number(template.pinnedHeaderHeight || 80) : 0;
+    entries.forEach(entry => {
+      const trimTop = pinnedHeader && entry.sourceId === 'hero' ? Number(template.pinnedHeaderHeight || 80) : 0;
+      entry.renderSourceRect = {
+        ...entry.band.sourceRect,
+        y: Number(entry.band.sourceRect.y || 0) + trimTop,
+        height: Math.max(0, Number(entry.band.sourceRect.height || 0) - trimTop)
+      };
+      entry.visualHeight = entry.renderSourceRect.height;
+    });
+    const contentHeight = entries.reduce((sum,entry)=>sum+Number(entry.visualHeight||0),0);
+    const total = clearance + contentHeight;
     const setSize = () => {
       const width = host.getBoundingClientRect().width;
       const height = total / sourceWidth * width;
       stage.style.height = `${height}px`;
+      stage.style.top = `calc(${clearance / sourceWidth * 100}cqw)`;
       host.style.height = `${height}px`;
       host.style.aspectRatio = 'auto';
     };
@@ -484,9 +577,10 @@
     entries.forEach(entry => {
       entry.order = cursor;
       entry.displayY = cursor;
-      cursor += Number(entry.band.sourceRect.height || 0);
+      cursor += Number(entry.visualHeight || 0);
       addCanvasBand(stage,host,entry,sourceWidth);
     });
+    normalizeClonedImageURLs(stage);
   }
 
   function stageNative(host, stage, entries, template) {
@@ -500,8 +594,16 @@
 
   function stageHome(host, stage, entries, template) {
     const sourceWidth = 809;
-    const total = entries.reduce((sum, entry) => sum + Number(entry.band.sourceRect.height || 0), 0);
-    const setSize = () => { host.style.height = `${total / sourceWidth * host.getBoundingClientRect().width}px`; };
+    const clearance = entries[0]?.sourceId === 'hero' ? 0 : 55;
+    entries.forEach(entry => { entry.visualHeight = entry.sourceId === 'story' ? Math.max(0, Number(entry.band.sourceRect.height || 0) - 15) : Number(entry.band.sourceRect.height || 0); });
+    const contentHeight = entries.reduce((sum, entry) => sum + entry.visualHeight, 0);
+    const total = contentHeight + clearance;
+    const setSize = () => {
+      const width = host.getBoundingClientRect().width;
+      host.style.height = `${total / sourceWidth * width}px`;
+      stage.style.top = `calc(${clearance / sourceWidth * 100}cqw)`;
+      stage.style.height = `${contentHeight / sourceWidth * width}px`;
+    };
     setSize();
     if ('ResizeObserver' in window) { state.observer = new ResizeObserver(setSize); state.observer.observe(host); }
     entries.forEach((entry,index) => { entry.order=index; entry.sourceWidth=sourceWidth; addNativeBand(stage,entry,template,sourceWidth); });
@@ -539,18 +641,27 @@
     for (const entry of entries) { entry.sections=entry.sections||[entry.section]; }
     entries.forEach(entry => applyFields(entry,baselinePage,pageConfig));
     state.signature = signature;
-    window.dispatchEvent(new CustomEvent('fora:desktop-sections-stage', {
-      detail: {
-        active: true,
-        path: normalizedPath,
-        stage,
-        footerAnchor: stage.querySelector('[data-cms-section-id="footer"]') || null,
-        footerSourceRect: (() => {
-          const footer = entries.find(entry => entry.sourceId === 'footer');
-          return footer ? { ...footer.band.sourceRect, sourceWidth: footer.sourceWidth } : null;
-        })()
+    const stageDetail = {
+      active: true,
+      path: normalizedPath,
+      stage,
+      footerAnchor: stage.querySelector('[data-cms-section-id="footer"]') || null,
+      footerSourceRect: (() => {
+        const footer = entries.find(entry => entry.sourceId === 'footer');
+        return footer ? { ...footer.band.sourceRect, sourceWidth: footer.sourceWidth } : null;
+      })()
+    };
+    const announceStage = () => {
+      if (stage.isConnected && document.querySelector('.desktop-cms-section-stage') === stage) {
+        window.dispatchEvent(new CustomEvent('fora:desktop-sections-stage', { detail: stageDetail }));
       }
-    }));
+    };
+    announceStage();
+    // The CMS runtime installs its brand-layer bridge while initializing. A
+    // staged preview can be applied during the same boot turn, before that
+    // listener exists; repeat after layout is committed so the official logo
+    // follows the actual reordered footer anchor instead of the old page box.
+    requestAnimationFrame(() => requestAnimationFrame(announceStage));
     requestAnimationFrame(() => window.dispatchEvent(new Event('resize')));
     return true;
   }

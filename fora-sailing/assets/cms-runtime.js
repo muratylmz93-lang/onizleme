@@ -13,6 +13,8 @@
   const configuredTemplatePath = document.querySelector('meta[name="fora-cms-template-path"]')?.content || '';
   let previewPagePath = '';
   let previewTemplatePath = '';
+  let draftPreviewActive = false;
+  let appliedContentFingerprint = '';
   const siteBase = configuredSiteBase || (() => {
     const path = location.pathname.replace(/\/+$/, '') || '/';
     const match = path.match(/\/(?:rotalar|filo|deneyimler|hakkimizda|iletisim)(?:\/|$)/);
@@ -54,7 +56,9 @@
   };
   let bindingConfig = { pages: [] };
   let currentRevision = -1;
+  let appliedContentSource = '';
   let currentContent = null;
+  let currentRenderedContent = null;
   let baselineContent = null;
   let analyticsLoadedId = '';
   let overlayLayer;
@@ -69,13 +73,293 @@
     const pages = bindingConfig.pages || [];
     return pages.find((page) => page.path === path) || (path === currentPagePath() ? pages.find((page) => page.path === currentTemplatePath()) : null);
   };
-  const findPage = (content, path) => content?.pages?.find((page) => {
-    const candidate = page.path.startsWith('/') ? page.path : `/${page.path}`;
-    return normalizePath(candidate) === path;
-  });
+  const findPage = (content, path) => {
+    const direct = content?.pages?.find((page) => {
+      const candidate = page.path.startsWith('/') ? page.path : `/${page.path}`;
+      return normalizePath(candidate) === path;
+    });
+    if (direct) return direct;
+    const templatePath = currentTemplatePath();
+    if (path === currentPagePath() && templatePath && templatePath !== path) {
+      return content?.pages?.find((page) => normalizePath(page.path) === templatePath);
+    }
+    return undefined;
+  };
   const fieldsForPage = (contentPage) => (contentPage?.sections || []).flatMap((section) => section.fields || []);
   const fieldMap = (page) => new Map(fieldsForPage(page).map((field) => [field.binding, field]));
   const defaultMatches = (field) => JSON.stringify(field.value) === JSON.stringify(field.defaultValue);
+
+  function contentWithDetailEntityFields(content, page, pageConfig, path) {
+    const family = path.startsWith('/filo/') ? 'gulets' : path.startsWith('/rotalar/') ? 'routes' : '';
+    if (!family || path === '/filo/' || path === '/rotalar/' || !page || !pageConfig) return content;
+    const slug = path.slice(family === 'gulets' ? '/filo/'.length : '/rotalar/'.length).replace(/\/$/, '').toLowerCase();
+    const collection = pageConfig.collections?.find((spec) => spec.key === family);
+    const query = new URLSearchParams(location.search);
+    const requestedId = query.get(family === 'gulets' ? 'gulet' : 'rota');
+    const allEntities = Array.isArray(content[family]) ? content[family] : [];
+    const entities = draftPreviewActive ? allEntities : allEntities.filter((item) => item.published !== false && item.status !== 'draft');
+    const idOf = (item) => String(item.id || item.slug || '').toLowerCase();
+    const pathOf = (item) => String(item.path || '').replace(/\/$/, '').toLowerCase();
+    const requested = requestedId ? entities.find((item) => idOf(item) === requestedId.toLowerCase() || pathOf(item).endsWith(`/${requestedId.toLowerCase()}`)) : null;
+    const byPath = entities.find((item) => pathOf(item) === path.replace(/\/$/, '').toLowerCase() || idOf(item) === slug || pathOf(item).endsWith(`/${slug}`));
+    const detailFallback = path === pageConfig.path && collection?.detailId ? entities.find((item) => idOf(item) === String(collection.detailId).toLowerCase()) : null;
+    const entity = requested || byPath || detailFallback;
+    if (!entity) return content;
+    const baselineEntities = Array.isArray(baselineContent?.[family]) ? baselineContent[family] : [];
+    const baseEntity = baselineEntities.find((item) => String(item.id || item.slug || '').toLowerCase() === String(entity.id || entity.slug || '').toLowerCase());
+    const templateId = String(collection?.detailId || '').toLowerCase();
+    const selectedId = idOf(entity);
+    const isDifferentTemplateEntity = Boolean(templateId && selectedId !== templateId);
+    const templateEntity = isDifferentTemplateEntity ? baselineEntities.find((item) => idOf(item) === templateId) : null;
+    const comparisonEntity = templateEntity || baseEntity;
+    const isEntityChange = (key, value) => isDifferentTemplateEntity || !baseEntity || JSON.stringify(value) !== JSON.stringify(baseEntity[key]);
+
+    const fields = fieldsForPage(page);
+    const prefix = String(pageConfig.fields?.find((mapping) => mapping.binding)?.binding || '').split('.')[0];
+    if (!prefix) return content;
+    const nameField = entity.title && isEntityChange('title', entity.title)
+      ? entity.title
+      : entity.name && isEntityChange('name', entity.name) ? entity.name : entity.name || entity.title;
+    const nameChanged = Boolean(nameField) && String(nameField) !== String(comparisonEntity?.name || comparisonEntity?.title || '');
+    const heroDescription = entity.shortDescription || entity.description;
+    const heroDescriptionChanged = heroDescription != null && (
+      isDifferentTemplateEntity || !comparisonEntity || JSON.stringify(heroDescription) !== JSON.stringify(comparisonEntity.shortDescription || comparisonEntity.description)
+    );
+    const detailCopy = entity.storyDescription || entity.longDescription || entity.content?.description || entity.description;
+    const descriptionChanged = detailCopy != null && (
+      isDifferentTemplateEntity || !comparisonEntity || JSON.stringify(detailCopy) !== JSON.stringify(comparisonEntity.storyDescription || comparisonEntity.longDescription || comparisonEntity.content?.description || comparisonEntity.description)
+    );
+    const imageValue = entity.heroImage || entity.coverImage || entity.image || entity.artwork;
+    const imageChanged = Boolean(imageValue) && (
+      isDifferentTemplateEntity || !comparisonEntity || JSON.stringify(imageValue) !== JSON.stringify(comparisonEntity.heroImage || comparisonEntity.coverImage || comparisonEntity.image || comparisonEntity.artwork)
+    );
+    const entityId = String(entity.id || entity.slug || slug);
+    const inquiryValue = entity.inquiryUrl || `/iletisim/?${family === 'gulets' ? 'gulet' : 'rota'}=${encodeURIComponent(entityId)}`;
+    const offerField = fields.find((field) => field.binding === `${prefix}.hero.offerUrl`);
+    const inquiryChanged = Boolean(inquiryValue) && String(offerField?.value || '') !== inquiryValue;
+    const galleryChanged = isDifferentTemplateEntity || !comparisonEntity || JSON.stringify(entity.gallery || []) !== JSON.stringify(comparisonEntity.gallery || []);
+    const capacityChanged = JSON.stringify(entity.guestCapacity) !== JSON.stringify(comparisonEntity?.guestCapacity);
+    const cabinsChanged = JSON.stringify(entity.cabins) !== JSON.stringify(comparisonEntity?.cabins);
+    const stopNames = family === 'routes' && Array.isArray(entity.stops)
+      ? entity.stops.map((stop, index) => String(stop?.name || `Durak ${index + 1}`).trim()) : [];
+    const sourceStopNames = family === 'routes' && Array.isArray(comparisonEntity?.stops)
+      ? comparisonEntity.stops.map((stop, index) => String(stop?.name || `Durak ${index + 1}`).trim()) : [];
+    const stopNamesChanged = family === 'routes' && JSON.stringify(stopNames) !== JSON.stringify(sourceStopNames);
+    const overrides = new Map([
+      [`${prefix}.hero.title`, nameChanged ? nameField : null],
+      [`${prefix}.hero.description`, heroDescriptionChanged ? heroDescription : null],
+      [`${prefix}.hero.image`, imageChanged ? imageValue : null],
+      [`${prefix}.hero.offerUrl`, inquiryChanged ? inquiryValue : null],
+      [`${prefix}.content.description`, descriptionChanged ? detailCopy : null],
+      [`${prefix}.stops.description`, stopNamesChanged ? (stopNames.length ? `${stopNames.join(' → ')}.` : '') : null]
+    ]);
+    if (family === 'gulets' && galleryChanged && Array.isArray(entity.gallery)) {
+      for (let index = 0; index < 6; index += 1) {
+        const image = entity.gallery[index];
+        const resolved = typeof image === 'string' && image.trim() ? safeImage(image) : '';
+        overrides.set(`${prefix}.device.gallery${index + 1}Image`, resolved || '');
+      }
+    }
+    let changed = false;
+    const nextFields = fields.map((field) => {
+      if (!overrides.has(field.binding) || !defaultMatches(field)) return field;
+      const value = overrides.get(field.binding);
+      const galleryImageField = /\.device\.gallery\d+Image$/.test(field.binding || '');
+      const stopsSummaryField = field.binding === `${prefix}.stops.description` && stopNamesChanged;
+      if (value == null || (value === '' && !galleryImageField && !stopsSummaryField)) return field;
+      changed = true;
+      const nextField = { ...field, value, cmsEntityDerived: true };
+      if (field.deviceOverrides && Object.keys(field.deviceOverrides).length) {
+        nextField.deviceOverrides = Object.fromEntries(Object.entries(field.deviceOverrides || {}).map(([device, original]) => {
+          if (!stopsSummaryField) return [device, value];
+          // Keep the source weather/itinerary note after the itinerary sentence.
+          const source = String(original || '');
+          const fullStop = source.indexOf('.');
+          const tail = fullStop >= 0 ? source.slice(fullStop + 1) : '';
+          return [device, `${value}${tail}`];
+        }));
+      }
+      return nextField;
+    });
+    if (nameChanged) {
+      const previousName = String(comparisonEntity?.name || comparisonEntity?.title || (family === 'gulets' ? 'Eylül' : 'Göcek–Fethiye')).trim();
+      if (previousName) {
+        const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const replaceName = (value) => {
+          if (typeof value !== 'string' || !value.toLocaleLowerCase('tr-TR').includes(previousName.toLocaleLowerCase('tr-TR'))) return value;
+          const pattern = new RegExp(escapeRegExp(previousName), 'giu');
+          return value.replace(pattern, (match) => match === match.toLocaleUpperCase('tr-TR') ? String(nameField).toLocaleUpperCase('tr-TR') : String(nameField));
+        };
+        let fieldIndex = 0;
+        const renamedFields = nextFields.map((field) => {
+          const original = fields[fieldIndex++];
+          if (!field || !original || !defaultMatches(original) || typeof original.value !== 'string') return field;
+          // Explicit entity values already contain the chosen name. Replacing
+          // the source name inside them would duplicate suffixes such as
+          // "Eylül Yayın Kontrolü Yayın Kontrolü".
+          if (field.cmsEntityDerived) return field;
+          const value = replaceName(field.value);
+          if (value === field.value) return field;
+          changed = true;
+          const deviceOverrides = Object.fromEntries(Object.entries(field.deviceOverrides || {}).map(([device, deviceValue]) => [device, replaceName(deviceValue)]));
+          return { ...field, value, deviceOverrides, cmsEntityDerived: true };
+        });
+        nextFields.splice(0, nextFields.length, ...renamedFields);
+      }
+    }
+    // Always attach entity context so restoring canonical content clears any prior gallery/capacity override.
+
+    let fieldIndex = 0;
+    const sections = (page.sections || []).map((section) => {
+      const nextSectionFields = (section.fields || []).map(() => nextFields[fieldIndex++]);
+      return { ...section, fields: nextSectionFields };
+    });
+    const nextPage = { ...page, sections };
+    nextPage.cmsEntityContext = {
+      family,
+      id: entity.id || entity.slug || slug,
+      name: nameField || entity.name || entity.title || '',
+      gallery: Array.isArray(entity.gallery) ? entity.gallery : [],
+      galleryChanged,
+      galleryUnderlay: collection?.galleryUnderlay || null,
+      guestCapacity: entity.guestCapacity,
+      capacityChanged,
+      cabins: entity.cabins,
+      cabinsChanged
+    };
+    if (nameChanged || descriptionChanged) {
+      if (nameChanged) nextPage.title = `${nameField} | Fora Sailing`;
+      nextPage.seo = {
+        ...(page.seo || {}),
+        title: nameChanged ? `${nameField} | Fora Sailing` : (page.seo?.title || ''),
+        description: descriptionChanged ? entity.description : (page.seo?.description || ''),
+        canonical: path
+      };
+    }
+    return { ...content, pages: content.pages.map((candidate) => candidate === page ? nextPage : candidate) };
+  }
+
+  function applyDetailEntityContext(page) {
+    const context = page?.cmsEntityContext;
+    if (!context || context.family !== 'gulets') return;
+    const priorGalleryCover = document.querySelector('.cms-detail-gallery-underlay');
+    const galleryUnderlay = context.galleryChanged ? context.galleryUnderlay : null;
+    if (galleryUnderlay?.path && Array.isArray(galleryUnderlay.rect)) {
+      const host = document.querySelector(galleryUnderlay.selector || '.canvas');
+      const sourceWidth = Number(galleryUnderlay.sourceDimensions?.[0]) || 1024;
+      const sourceHeight = Number(galleryUnderlay.sourceDimensions?.[1]) || 1536;
+      const [left, top, right, bottom] = galleryUnderlay.rect.map(Number);
+      if (host && [left, top, right, bottom].every(Number.isFinite) && right > left && bottom > top) {
+        const cover = priorGalleryCover || document.createElement('img');
+        cover.className = 'cms-detail-gallery-underlay';
+        cover.dataset.cmsGalleryUnderlay = 'true';
+        cover.src = safeImage(galleryUnderlay.path) || '';
+        cover.alt = '';
+        cover.setAttribute('aria-hidden', 'true');
+        Object.assign(cover.style, {
+          position: 'absolute', left: `${left / sourceWidth * 100}%`, top: `${top / sourceHeight * 100}%`,
+          width: `${(right - left) / sourceWidth * 100}%`, height: `${(bottom - top) / sourceHeight * 100}%`,
+          maxWidth: 'none', objectFit: 'fill', pointerEvents: 'none',
+          zIndex: String(Number(galleryUnderlay.zIndex) || 3)
+        });
+        if (!priorGalleryCover) host.append(cover);
+      } else priorGalleryCover?.remove();
+    } else priorGalleryCover?.remove();
+    document.querySelectorAll('input[name="guests"]').forEach((input) => {
+      if (input.dataset.cmsOriginalMaxSaved !== 'true') {
+        input.dataset.cmsOriginalMax = input.getAttribute('max') || '';
+        input.dataset.cmsOriginalMaxSaved = 'true';
+      }
+      if (context.capacityChanged && Number.isFinite(Number(context.guestCapacity)) && Number(context.guestCapacity) > 0) {
+        input.max = String(context.guestCapacity);
+      } else if (input.getAttribute('max') !== input.dataset.cmsOriginalMax) {
+        if (input.dataset.cmsOriginalMax) input.max = input.dataset.cmsOriginalMax;
+        else input.removeAttribute('max');
+      }
+    });
+    const main = document.querySelector('#galleryMain');
+    const buttons = [...document.querySelectorAll('.thumb-hit[data-gallery-image]')];
+    const mobileImages = [...document.querySelectorAll('.mobile-gallery-row img')];
+    const setGalleryVisible = (node, visible) => {
+      if (!node) return;
+      if (node.dataset.cmsGalleryVisibilitySaved !== 'true') {
+        node.dataset.cmsGalleryVisibility = node.style.visibility;
+        node.dataset.cmsGalleryPointerEvents = node.style.pointerEvents;
+        if (node instanceof HTMLButtonElement) node.dataset.cmsGalleryDisabled = String(node.disabled);
+        node.dataset.cmsGalleryVisibilitySaved = 'true';
+      }
+      if (!visible) {
+        node.style.visibility = 'hidden';
+        node.style.pointerEvents = 'none';
+        if (node instanceof HTMLButtonElement) node.disabled = true;
+      } else {
+        node.style.visibility = node.dataset.cmsGalleryVisibility || '';
+        node.style.pointerEvents = node.dataset.cmsGalleryPointerEvents || '';
+        if (node instanceof HTMLButtonElement) node.disabled = node.dataset.cmsGalleryDisabled === 'true';
+      }
+    };
+    if (main) {
+      if (main.dataset.cmsOriginalSrcSaved !== 'true') {
+        main.dataset.cmsOriginalSrc = main.getAttribute('src') || '';
+        main.dataset.cmsOriginalSrcSaved = 'true';
+      }
+      if (context.galleryChanged && context.gallery.length) {
+        const next = safeImage(context.gallery[0]);
+        if (next) main.src = next;
+        setGalleryVisible(main, Boolean(next));
+      } else if (context.galleryChanged) {
+        setGalleryVisible(main, false);
+      } else {
+        // The page's gallery listener may have painted a new image before
+        // this runtime captured the original DOM URL. Use the canonical
+        // collection value when returning a published gallery to its source.
+        const canonicalSrc = safeImage(context.gallery[0]) || main.dataset.cmsOriginalSrc;
+        if (main.getAttribute('src') !== canonicalSrc) main.src = canonicalSrc;
+        setGalleryVisible(main, true);
+      }
+    }
+    buttons.forEach((button, index) => {
+      if (button.dataset.cmsOriginalGalleryImageSaved !== 'true') {
+        button.dataset.cmsOriginalGalleryImage = button.dataset.galleryImage || '';
+        button.dataset.cmsOriginalGalleryImageSaved = 'true';
+      }
+      const value = context.gallery[index + 1];
+      const next = context.galleryChanged && value ? safeImage(value) : null;
+      if (next) {
+        button.dataset.galleryImage = next;
+        button.style.backgroundImage = `url("${next}")`;
+        button.style.backgroundSize = 'cover';
+        button.style.backgroundPosition = 'center';
+        button.style.backgroundRepeat = 'no-repeat';
+        setGalleryVisible(button, true);
+      } else if (context.galleryChanged) {
+        button.dataset.galleryImage = button.dataset.cmsOriginalGalleryImage;
+        button.style.removeProperty('background-image');
+        button.style.removeProperty('background-size');
+        button.style.removeProperty('background-position');
+        button.style.removeProperty('background-repeat');
+        setGalleryVisible(button, false);
+      } else {
+        button.dataset.galleryImage = button.dataset.cmsOriginalGalleryImage;
+        button.style.removeProperty('background-image');
+        button.style.removeProperty('background-size');
+        button.style.removeProperty('background-position');
+        button.style.removeProperty('background-repeat');
+        setGalleryVisible(button, true);
+      }
+    });
+    mobileImages.forEach((image, index) => {
+      if (image.dataset.cmsOriginalSrcSaved !== 'true') {
+        image.dataset.cmsOriginalSrc = image.getAttribute('src') || '';
+        image.dataset.cmsOriginalSrcSaved = 'true';
+      }
+      const next = context.galleryChanged ? safeImage(context.gallery[index]) : null;
+      if (next) image.src = next;
+      else if (context.galleryChanged) image.src = image.dataset.cmsOriginalSrc;
+      else if (image.getAttribute('src') !== image.dataset.cmsOriginalSrc) image.src = image.dataset.cmsOriginalSrc;
+      setGalleryVisible(image, !context.galleryChanged || Boolean(next));
+    });
+  }
 
   function setText(target, value) {
     target.textContent = value == null ? '' : String(value);
@@ -227,6 +511,13 @@
         translate: none !important;
         transition: none !important;
       }
+      @media (min-width: 651px) and (max-width: 1799px) {
+        html[data-cms-home-artwork-collections="true"] .route-cards,
+        html[data-cms-home-artwork-collections="true"] .fleet-cards {
+          visibility: hidden !important;
+          pointer-events: none !important;
+        }
+      }
       html[data-cms-scroll-animations="false"] *,
       html[data-cms-scroll-animations="false"] *::before,
       html[data-cms-scroll-animations="false"] *::after {
@@ -361,7 +652,14 @@
 
   function makeOverlay(binding, mapping, field) {
     if (!mapping.overlay) return;
-    if (defaultMatches(field)) {
+    const bindingPrefix = String(binding || '').split('.')[0];
+    const heroFields = fieldMap(findPage(currentRenderedContent, currentPagePath()));
+    const heroImageField = heroFields.get(`${bindingPrefix}.hero.image`);
+    const entityPhotoChanged = Boolean((/\.hero\.(?:title|description|eyebrow)$/.test(binding) || mapping.overlay.forceWhenHeroPhotoReplaced === true)
+      && heroImageField && !defaultMatches(heroImageField));
+    const heroPhotoReplaced = Boolean(heroImageField && !defaultMatches(heroImageField));
+    const sourceTextNeedsOverlay = heroPhotoReplaced && (/\.(?:hero\.(?:title|description|eyebrow)|header\.offerLabel)$/.test(binding) || mapping.overlay.forceWhenHeroPhotoReplaced === true);
+    if (defaultMatches(field) && !sourceTextNeedsOverlay) {
       activeOverlays.delete(binding);
       overlayLayer?.querySelector(`[data-cms-group="${CSS.escape(binding)}"]`)?.remove();
       return;
@@ -384,13 +682,47 @@
       group.append(node);
       overlayLayer.append(group);
     }
-    const anchors = spec.copyId
-      ? [...document.querySelectorAll(`[data-copy-id=\"${CSS.escape(spec.copyId)}\"]`)]
-      : (spec.reference || []).flatMap((selector) => [...document.querySelectorAll(selector)]);
-    const visibleAnchors = anchors.filter((element) => element.getClientRects().length);
+    const anchors = (spec.reference?.length
+      ? spec.reference.flatMap((selector) => [...document.querySelectorAll(selector)])
+      : spec.copyId ? [...document.querySelectorAll(`[data-copy-id=\"${CSS.escape(spec.copyId)}\"]`)] : []);
+    const boundsForAnchor = (element) => {
+      const live = element.getBoundingClientRect();
+      if (live.width > 0 && live.height > 0) {
+        // Source copy can be measured while an entry animation still has a
+        // translate transform. Remove the current transform displacement so
+        // the CMS overlay stays on the authored source box after the motion.
+        let dx = 0, dy = 0;
+        for (let current = element; current && current !== overlayLayer; current = current.parentElement) {
+          const transform = getComputedStyle(current).transform;
+          if (!transform || transform === 'none') continue;
+          try { const matrix = new DOMMatrixReadOnly(transform); dx += matrix.m41; dy += matrix.m42; } catch { /* non-matrix transform */ }
+        }
+        return { left: live.left - dx, top: live.top - dy, right: live.right - dx, bottom: live.bottom - dy, width: live.width, height: live.height };
+      }
+      // Reduced-motion styles may set an original artwork anchor to
+      // display:none. Its inline source percentages still define the exact
+      // canvas rectangle needed to position the CMS replacement copy.
+      const canvas = element.closest('.canvas') || document.querySelector('.canvas');
+      const base = canvas?.getBoundingClientRect();
+      if (!base?.width || !base?.height) return null;
+      const dimension = (value, basis) => {
+        const raw = String(value || '').trim();
+        if (raw.endsWith('%')) return basis * parseFloat(raw) / 100;
+        if (raw.endsWith('px')) return parseFloat(raw);
+        return 0;
+      };
+      const style = element.style;
+      const left = dimension(style.left, base.width);
+      const top = dimension(style.top, base.height);
+      const width = dimension(style.width, base.width);
+      const height = dimension(style.height, base.height);
+      if (!(width > 0 && height > 0)) return null;
+      return { left: base.left + left, top: base.top + top, right: base.left + left + width, bottom: base.top + top + height, width, height };
+    };
+    const positionedAnchors = anchors.map((element) => ({ element, bounds: boundsForAnchor(element) })).filter((entry) => entry.bounds);
+    const visibleAnchors = positionedAnchors.map((entry) => entry.element);
     if (visibleAnchors.length) {
-      const rects = visibleAnchors.map((element) => {
-        const bounds = element.getBoundingClientRect();
+      const rects = positionedAnchors.map(({ bounds }) => {
         const crop = spec.referenceRect;
         return crop ? {
           left: bounds.left + bounds.width * crop.left,
@@ -411,11 +743,13 @@
       group.style.height = `${bottom - top}px`;
       const patch = group.querySelector('.cms-live-patch');
       const node = group.querySelector('.cms-live-overlay');
+      patch.style.display = entityPhotoChanged ? 'none' : '';
+      if (entityPhotoChanged) patch.style.backgroundImage = 'none';
       patch.style.inset = '0';
       patch.style.width = '100%';
       patch.style.height = '100%';
       const source = host.querySelector(spec.sourceSelector || 'img');
-      if (patch && !patch.dataset.ready && !patch.dataset.loading) {
+      if (!entityPhotoChanged && patch && !patch.dataset.ready && !patch.dataset.loading) {
         const clean = spec.patchSelector && anchors[0] ? anchors[0].querySelector(spec.patchSelector) : null;
         if (clean instanceof HTMLImageElement) {
           const setClean = () => {
@@ -466,12 +800,13 @@
       const typographyFont = headingField
         ? getComputedStyle(document.documentElement).getPropertyValue('--font-display').trim()
         : getComputedStyle(document.documentElement).getPropertyValue('--font-body').trim();
-      node.style.setProperty('--cms-font-family', typographyFont || spec.font || 'inherit');
+      node.style.setProperty('--cms-font-family', spec.font || typographyFont || 'inherit');
       // Fit against the final font metrics; a transition would return an
       // intermediate font size and leave long replacement lines clipped.
       node.style.transition = 'none';
       node.style.whiteSpace = spec.whiteSpace || 'pre-line';
       if (spec.background) node.style.background = spec.background;
+      if (spec.border) { node.style.border = spec.border; node.style.boxSizing = 'border-box'; }
       if (spec.radius) node.style.borderRadius = spec.radius;
       if (spec.display) node.style.display = spec.display;
       if (spec.alignItems) node.style.alignItems = spec.alignItems;
@@ -479,10 +814,18 @@
       if (spec.fontWeight) node.style.fontWeight = spec.fontWeight;
       if (spec.padding) node.style.padding = spec.padding;
       setText(node, field.value);
+      if (spec.trailingArrow) node.textContent = `${String(field.value ?? '')}  →`;
       if (field.type === 'text' || field.type === 'textarea') {
         let fontSize = parseFloat(getComputedStyle(node).fontSize);
-        const minimum = Math.max(12, fontSize * .65);
-        while (node.scrollHeight > node.clientHeight + 1 && fontSize > minimum) {
+        const fitCanvas = document.querySelector('.canvas') || document.querySelector('.desktop-source-art');
+        const fitScale = (fitCanvas?.getBoundingClientRect().width || window.innerWidth) / (currentTemplatePath() === '/' ? 809 : 1024);
+        const minimum = Math.max(12, Number(spec.minFontSize) ? Number(spec.minFontSize) * fitScale : (spec.maxLines ? 12 : fontSize * .65));
+        const maxLines = Number(spec.maxLines) || Math.max(1, Math.floor((node.clientHeight + 1) / Math.max(1, fontSize * (parseFloat(spec.lineHeight || '1.2') || 1.2))));
+        const lineCount = () => {
+          const range = document.createRange(); range.selectNodeContents(node);
+          return new Set([...range.getClientRects()].map((rect) => Math.round(rect.top))).size;
+        };
+        while ((node.scrollHeight > node.clientHeight + 1 || lineCount() > maxLines) && fontSize > minimum) {
           fontSize *= .96;
           node.style.setProperty('--cms-font-size', `${fontSize}px`);
         }
@@ -522,52 +865,125 @@
     setText(node, field.value);
   }
 
-  function applyContent(envelope) {
+  function applyContent(envelope, source = 'published') {
     const content = envelope?.content || envelope;
     if (!content || !Array.isArray(content.pages)) return false;
     const revision = Number(envelope?.revision ?? content.revision ?? 0);
-    if (currentContent && revision < currentRevision) return false;
+    if (currentContent && source === appliedContentSource && revision < currentRevision) return false;
+    const incomingFingerprint = JSON.stringify(content);
+    if (currentContent && source === appliedContentSource && revision === currentRevision && incomingFingerprint === appliedContentFingerprint) return true;
+    const applied = () => {
+      appliedContentFingerprint = incomingFingerprint;
+      appliedContentSource = source;
+      return true;
+    };
     currentContent = content;
     currentRevision = revision;
     document.documentElement.dataset.cmsRevision = String(revision);
-    window.dispatchEvent(new CustomEvent('fora:cms-content', { detail: { content, revision } }));
+    const path = currentPagePath();
+    const page = findPage(content, path);
+    const pageConfig = pageConfigFor(path);
+    currentRenderedContent = contentWithDetailEntityFields(content, page, pageConfig, path);
+    window.dispatchEvent(new CustomEvent('fora:cms-content', { detail: { content: currentRenderedContent, revision } }));
     const settings = content.settings || {};
     applyMotionSettings(settings);
     applyTypography(settings);
     if (settings.brand?.favicon) applyFavicon(settings.brand.favicon);
-    const path = currentPagePath();
-    const page = findPage(content, path);
-    const pageConfig = pageConfigFor(path);
-    if (!page) return true;
+    if (!page) return applied();
+    const renderPage = findPage(currentRenderedContent, path) || page;
+    applyDetailEntityContext(renderPage);
     if (path === '/') {
       const heroSection = page.sections?.find(section => (section.sourceSectionId || section.id) === 'hero');
       document.documentElement.dataset.cmsHomeHeroSourceDefault = String(!heroSection || (heroSection.fields || []).every(defaultMatches));
     }
-    applySeo(page, content.settings || {});
-    if (!pageConfig) return true;
-    const fields = fieldMap(page);
-
+    applySeo(renderPage, content.settings || {});
+    if (!pageConfig) return applied();
+    const fields = fieldMap(renderPage);
+    const entityHeroImageChanged = pageConfig.fields?.some((mapping) => /\.hero\.image$/.test(mapping.binding)
+      && fields.get(mapping.binding)?.cmsEntityDerived === true) || false;
+    const heroImageField = pageConfig.fields?.map((mapping) => fields.get(mapping.binding))
+      .find((field) => field && /\.hero\.image$/.test(field.binding || ''));
+    const heroPhotoReplaced = Boolean(heroImageField && !defaultMatches(heroImageField));
+    document.documentElement.dataset.cmsHeroPhotoReplaced = String(heroPhotoReplaced);
+    pageConfig.fields?.forEach((mapping) => {
+      if (!mapping.heroPhotoOverlayBase || !mapping.heroPhotoOverlaySpecial) return;
+      mapping.overlay = heroPhotoReplaced
+        ? { ...mapping.heroPhotoOverlayBase, ...mapping.heroPhotoOverlaySpecial }
+        : { ...mapping.heroPhotoOverlayBase };
+    });
+    if (path === '/filo/eylul/') {
+      document.querySelectorAll('img.hero-edge').forEach((image) => {
+        if (!image.dataset.cmsHeroEdgeOriginalSrc) {
+          image.dataset.cmsHeroEdgeOriginalSrc = new URL(image.getAttribute('src') || '', location.href).href;
+        }
+        const nextSrc = heroPhotoReplaced
+          ? safeImage('filo/eylul/assets/hero-edge-cms-clean.png')
+          : image.dataset.cmsHeroEdgeOriginalSrc;
+        if (nextSrc && image.src !== nextSrc) image.src = nextSrc;
+      });
+    }
     pageConfig.fields?.forEach((mapping) => {
       const field = fields.get(mapping.binding);
       if (!field) return;
-      const targets = mapping.selectors?.flatMap((selector) => {
-        if (mapping.all === true) return [...document.querySelectorAll(selector)];
+      const entityHeroImage = field.cmsEntityDerived === true && /\.hero\.image$/.test(mapping.binding);
+      const selectors = entityHeroImage ? ['img.hero-art'] : mapping.selectors;
+      const targets = selectors?.flatMap((selector) => {
+        if (mapping.all === true || entityHeroImage) return [...document.querySelectorAll(selector)];
         const first = document.querySelector(selector);
         return first ? [first] : [];
       }) || [];
       const uniqueTargets = [...new Set(targets)];
       uniqueTargets.forEach((target) => {
-        if (mapping.overlay && ['text','textarea'].includes(field.type)) {
-          if (target instanceof HTMLAnchorElement) target.setAttribute('aria-label', String(field.value ?? ''));
-          return;
+        if (mapping.overlay && ['text','textarea'].includes(field.type) && target instanceof HTMLAnchorElement) {
+          target.setAttribute('aria-label', String(field.value ?? ''));
+          if (/\.header\.(?:offerLabel|whatsappLabel)$/.test(mapping.binding)) {
+            // Header labels are baked into the source art. Keep the hit target accessible without painting duplicate text.
+            target.textContent = '';
+            return;
+          }
         }
+        // Keep semantic text synchronized when its visible counterpart is
+        // drawn as a source-art overlay.
         setValue(target, field);
       });
+      const replaceHeroSourceCopy = heroPhotoReplaced && (/\.(?:hero\.(?:title|description|eyebrow)|header\.offerLabel)$/.test(mapping.binding) || mapping.overlay?.forceWhenHeroPhotoReplaced === true);
+      if (mapping.overlay?.copyId) {
+        const sourceCopy = document.querySelector(`[data-copy-id="${CSS.escape(mapping.overlay.copyId)}"]`);
+        const replaceSourceCopy = replaceHeroSourceCopy || !defaultMatches(field);
+        if (sourceCopy) sourceCopy.style.setProperty('visibility', replaceSourceCopy ? 'hidden' : '', replaceSourceCopy ? 'important' : '');
+      }
       mapping.hideSelectors?.forEach((selector) => document.querySelectorAll(selector).forEach((element) => {
-        element.style.visibility = defaultMatches(field) ? '' : 'hidden';
+        element.style.visibility = defaultMatches(field) && !replaceHeroSourceCopy ? '' : 'hidden';
       }));
       makeOverlay(mapping.binding, mapping, field);
     });
+
+    if (heroPhotoReplaced) {
+      (pageConfig.motionStaticLayers || []).forEach((layer) => {
+        const id = `eylul.__source-copy.${layer.id}`;
+        const selector = `[data-copy-id="${CSS.escape(layer.id)}"]`;
+        document.querySelectorAll(`${selector} .copy-clean,${selector} .copy-glyph`).forEach((element) => { element.style.visibility = 'hidden'; });
+        const dims = layer.sourceDimensions || [1024,1536];
+        const rect = layer.canvasRect || (layer.sourceBBox && {
+          left: layer.sourceBBox[0]/dims[0], top: layer.sourceBBox[1]/dims[1],
+          width:(layer.sourceBBox[2]-layer.sourceBBox[0])/dims[0], height:(layer.sourceBBox[3]-layer.sourceBBox[1])/dims[1]
+        });
+        if (!rect) return;
+        const mapping = { overlay: { reference:['.canvas'], hostSelector:'.canvas', referenceRect:rect,
+          forceWhenHeroPhotoReplaced:true, font:'var(--font-script, Caveat, cursive)',
+          fontSize:'24px', lineHeight:'1.05', maxLines:5, color:layer.ink==='light'?'#f7f2e8':'#17384a',
+          whiteSpace:'pre-line', align:'center' }};
+        makeOverlay(id, mapping, {value:layer.sourceText,defaultValue:layer.sourceText,type:'textarea'});
+      });
+    } else {
+      (pageConfig.motionStaticLayers || []).forEach((layer) => {
+        const selector = `[data-copy-id="${CSS.escape(layer.id)}"]`;
+        document.querySelectorAll(`${selector} .copy-clean,${selector} .copy-glyph`).forEach((element) => { element.style.visibility = ''; });
+        const id = `eylul.__source-copy.${layer.id}`;
+        overlayLayer?.querySelector(`[data-cms-group="${CSS.escape(id)}"]`)?.remove();
+        activeOverlays.delete(id);
+      });
+    }
 
     document.querySelectorAll('[data-cms-binding]').forEach((target) => {
       const field = fields.get(target.dataset.cmsBinding);
@@ -602,7 +1018,20 @@
       link.href = whatsapp;
     });
     renderCollections(content, pageConfig);
-    return true;
+    // A couple of legacy detail hotspots still carry page-relative art paths
+    // copied from the list template. Resolve those against their real source
+    // folder so lazy artwork does not request /filo/<slug>/assets/art-card-N.
+    if (path === '/filo/eylul/') {
+      document.querySelectorAll('.mobile-related img[src*="art-card-"]').forEach((image) => {
+        const match = (image.getAttribute('src') || '').match(/art-card-(\d+)\.png/i);
+        if (match) image.src = safeImage(`filo/assets/art-card-${match[1]}.png`) || image.src;
+      });
+      document.querySelectorAll('.canvas .art-card[data-art-index]').forEach((card) => {
+        const index = card.dataset.artIndex;
+        if (/^\d+$/.test(index || '')) card.style.setProperty('--art-src', `url("${safeImage(`filo/assets/art-card-${index}.png`)}")`);
+      });
+    }
+    return applied();
   }
 
   function applySectionOrder(content, path, pageConfig) {
@@ -738,7 +1167,7 @@
     if (!rootRect.width || !rootRect.height) return;
     const sx = rootRect.width / sourceW, sy = rootRect.height / sourceH;
     if(!document.getElementById('cms-artwork-slot-style')){const style=document.createElement('style');style.id='cms-artwork-slot-style';style.textContent='.art-card.cms-art-artwork-active::after{opacity:1!important;animation:none!important;transform:none!important}';document.head.append(style);}
-    root.querySelectorAll('.cms-art-slot-overlay,.cms-art-slot-mask,.cms-art-slot-photo').forEach((node) => node.remove());
+    root.querySelectorAll('.cms-art-slot-overlay,.cms-art-slot-mask,.cms-art-slot-photo,.cms-art-shared-underlay').forEach((node) => node.remove());
     const sourceItems = Array.isArray(content[spec.key]) ? content[spec.key] : [];
     const originalItems = Array.isArray(baselineContent?.[spec.key]) ? baselineContent[spec.key] : [];
     const eligible = sourceItems.filter((item) => String(item.status || 'published').toLowerCase() === 'published' && item.isActive !== false)
@@ -784,6 +1213,17 @@
     const orderWasEdited = originalItems.some((item) => !currentIds.has(String(item.id)))
       || sourceItems.some((item) => !originalIds.has(String(item.id))
         || Number(originalItems.find((entry) => String(entry.id) === String(item.id))?.sortOrder || 0) !== Number(item.sortOrder || 0));
+    const conditionalUnderlays=(layout.conditionalUnderlays||[]).filter((underlay)=>{
+      const missing=new Set(underlay.whenAnyMissing||[]);
+      return missing.size>0&&slots.some((slot)=>missing.has(String(slot.slotId||''))&&!eligible.some((item)=>String(item.id)===String(slot.entityId||slot.defaultEntity?.id||'')));
+    });
+    const underlayCoveredSlots=new Set(conditionalUnderlays.flatMap((underlay)=>underlay.coversSlots||underlay.whenAnyMissing||[]).map(String));
+    conditionalUnderlays.forEach((underlay)=>{
+      const rect=box(underlay.rect);if(!rect||!underlay.path)return;
+      const image=document.createElement('img');image.className='cms-art-shared-underlay';image.alt='';image.setAttribute('aria-hidden','true');image.dataset.cmsArtUnderlay=underlay.id||'';image.src=assetFor(underlay.path);
+      Object.assign(image.style,{position:'absolute',zIndex:String(Number.isFinite(Number(underlay.zIndex))?Number(underlay.zIndex):4),pointerEvents:'none',left:rect.left+'px',top:rect.top+'px',width:rect.width+'px',height:rect.height+'px',maxWidth:'none',objectFit:'fill'});
+      root.append(image);
+    });
     slots.forEach((slot,index)=>{
       const anchor=root.querySelector(slot.selector||`.art-card[data-art-index="${index+1}"]`);
       const artNode=root.querySelector(slot.artworkSelector||slot.selector||`.art-card[data-art-index="${index+1}"]`);
@@ -800,7 +1240,7 @@
       const isChanged=!!item&&changed(item,original);
       if(!item){
         anchor.style.setProperty('visibility','hidden','important');anchor.style.setProperty('pointer-events','none');
-        if(slot.maskArtwork||slot.maskRect)addCardMask(slot,index);
+        if(!underlayCoveredSlots.has(String(slot.slotId||''))&&(slot.maskArtwork||slot.maskRect))addCardMask(slot,index);
         return;
       }
       anchor.style.removeProperty('visibility');anchor.style.removeProperty('pointer-events');
@@ -813,7 +1253,7 @@
       // The source section raster still contains the original card underneath
       // the interactive hotspot. Clear its exact tilted footprint, then reveal
       // the replacement artwork in the foreground pseudo-element.
-      addCardMask(slot,index,4);
+      if(!underlayCoveredSlots.has(String(slot.slotId||'')))addCardMask(slot,index,4);
       anchor.classList.add('cms-art-artwork-active');
       const artwork=String(item.artwork||slot.sourceArtwork||'');
       if(artwork){
@@ -837,7 +1277,7 @@
       if(String(item.image||'')!==String(original?.image||'')&&slot.photoViewportPolygon){
         const dims=artSlot.sourceArtworkDimensions||artSlot.artworkDimensions||[1,1];
         const card=box(slot.cardRect), photoRect=artSlot.photoRect||[0,0,Number(dims[0]),Number(dims[1])], pr=localBox(slot,photoRect,artSlot), src=safeImage(item.image);
-        if(card&&pr&&src){const layer=document.createElement('span');layer.className='cms-art-slot-photo';layer.setAttribute('aria-hidden','true');const points=artSlot.photoViewportPolygon.map((p)=>`${Number(p[0])/Math.max(1,Number(dims[0]))*100}% ${Number(p[1])/Math.max(1,Number(dims[1]))*100}%`).join(',');Object.assign(layer.style,{position:'absolute',zIndex:'17',left:card.left+'px',top:card.top+'px',width:card.width+'px',height:card.height+'px',overflow:'hidden',pointerEvents:'none',clipPath:`polygon(${points})`});const photo=document.createElement('img');photo.src=src;photo.alt='';Object.assign(photo.style,{position:'absolute',left:(pr.left-card.left)+'px',top:(pr.top-card.top)+'px',width:pr.width+'px',height:pr.height+'px',maxWidth:'none',objectFit:'cover'});layer.append(photo);root.append(layer);if(artSlot.photoFrameOverlay)addImagePatch('cms-art-slot-overlay',artSlot.photoFrameOverlay,card,19);}
+        if(card&&pr&&src){const layer=document.createElement('span');layer.className='cms-art-slot-photo';layer.setAttribute('aria-hidden','true');const points=artSlot.photoViewportPolygon.map((p)=>`${Number(p[0])/Math.max(1,Number(dims[0]))*100}% ${Number(p[1])/Math.max(1,Number(dims[1]))*100}%`).join(',');Object.assign(layer.style,{position:'absolute',zIndex:'17',left:card.left+'px',top:card.top+'px',width:card.width+'px',height:card.height+'px',overflow:'hidden',pointerEvents:'none'});const photo=document.createElement('img');photo.src=src;photo.alt='';Object.assign(photo.style,{position:'absolute',left:(pr.left-card.left)+'px',top:(pr.top-card.top)+'px',width:pr.width+'px',height:pr.height+'px',maxWidth:'none',objectFit:'cover'});layer.append(photo);root.append(layer);if(artSlot.photoFrameOverlay)addImagePatch('cms-art-slot-overlay',artSlot.photoFrameOverlay,card,19);}
       }
       const listPath=spec.key==='routes'?'/rotalar/':'/filo/';
       const destination=item.homeUrl||item.inquiryUrl||(item.path&&item.path!==listPath?item.path:'')||anchor.dataset.cmsArtworkHref;
@@ -891,12 +1331,13 @@
     const sourceW = Number(layout.sourceDimensions?.[0] || 1024);
     const sectionSourceH = Math.max(1, Number(sourceSection[3]) - Number(sourceSection[1]));
     const sx = sectionRect.width / sourceW, sy = sourceBaseHeight / sectionSourceH;
-    root.querySelectorAll('.cms-experience-slot-overlay,.cms-experience-extra-row,.cms-experience-card-mask,.cms-experience-photo-composite').forEach((node) => node.remove());
+    root.querySelectorAll('.cms-experience-slot-overlay,.cms-experience-extra-row,.cms-experience-card-mask,.cms-experience-photo-composite,.cms-experience-photo-frame,.cms-experience-shared-underlay').forEach((node) => node.remove());
     const sourceItems = Array.isArray(content[spec.key]) ? content[spec.key] : [];
     const originalItems = Array.isArray(baselineContent?.[spec.key]) ? baselineContent[spec.key] : [];
     const eligible = sourceItems.filter((item) => String(item.status || 'published').toLowerCase() === 'published' && item.isActive !== false)
       .slice().sort((a, b) => Number(a.sortOrder || 0) - Number(b.sortOrder || 0));
     const slots = (layout.slots || []).slice().sort((a, b) => Number(a.defaultEntity?.sortOrder || 0) - Number(b.defaultEntity?.sortOrder || 0));
+    const topSourceLayerOrder = Math.max(0, ...slots.map((slot) => Number(slot.sourceLayerOrder) || 0));
     const originalIds = new Set(originalItems.map((item) => String(item.id)));
     const currentIds = new Set(sourceItems.map((item) => String(item.id)));
     const orderWasEdited = originalItems.some((item) => !currentIds.has(String(item.id)))
@@ -911,28 +1352,114 @@
       const pageBase = new URL(currentPagePath().replace(/^\/+/, ''), new URL(siteBase, location.href));
       return new URL(String(value).replace(/^\.?\//, ''), pageBase).href;
     };
-    const addCopy = (slot, type, value) => {
+    const slotLayerZ = (slot, offset=0) => 10 + Math.max(1, Number(slot?.sourceLayerOrder) || 1) * 10 + offset;
+    const addExperienceImagePatch = (path, rect, z=18, slot=null) => {
+      if (!path || !Array.isArray(rect)) return null;
+      const r=box(rect,false);
+      const image=document.createElement('img');
+      image.className='cms-experience-photo-composite';
+      image.alt=''; image.setAttribute('aria-hidden','true');
+      if (slot) image.dataset.cmsExperienceSlot=slot.slotId;
+      const imageUrl=new URL(assetFor(path));
+      imageUrl.searchParams.set('v','20261014-10');
+      image.src=imageUrl.href;
+      Object.assign(image.style,{position:'absolute',zIndex:String(z),pointerEvents:'none',left:r.left+'px',top:r.top+'px',width:r.width+'px',height:r.height+'px',maxWidth:'none',objectFit:'fill'});
+      root.append(image);
+      return image;
+    };
+    const eligibleIds = new Set(eligible.map((item) => String(item.id)));
+    const conditionalUnderlays = (layout.conditionalUnderlays || []).filter((underlay) =>
+      (underlay.whenAnyMissing || []).some((slotId) => {
+        const slot = slots.find((entry) => String(entry.slotId) === String(slotId));
+        return slot && !eligibleIds.has(String(slot.entityId));
+      })
+    );
+    if (!root.dataset.cmsSourceIsolationSaved) {
+      root.dataset.cmsSourceIsolationSaved = '1';
+      root.dataset.cmsSourceIsolation = root.style.isolation || '';
+    }
+    root.style.isolation = conditionalUnderlays.length ? 'isolate' : root.dataset.cmsSourceIsolation;
+    const underlayCoveredSlots = new Set(conditionalUnderlays.flatMap((underlay) => underlay.coversSlots || underlay.whenAnyMissing || []).map(String));
+    conditionalUnderlays.forEach((underlay) => {
+      const rect = box(underlay.rect, false);
+      const image = document.createElement('img');
+      image.className = 'cms-experience-shared-underlay';
+      image.alt = '';
+      image.setAttribute('aria-hidden', 'true');
+      image.dataset.cmsExperienceUnderlay = underlay.id || '';
+      image.src = assetFor(underlay.path);
+      Object.assign(image.style, {position:'absolute',zIndex:String(Math.max(Number(underlay.zIndex ?? 1),3)),pointerEvents:'none',left:rect.left+'px',top:rect.top+'px',width:rect.width+'px',height:rect.height+'px',maxWidth:'none',objectFit:'fill'});
+      root.append(image);
+    });
+    const addCopy = (slot, type, value, cleanSource = true) => {
       const rect = slot[type === 'title' ? 'titleRectSection' : 'descriptionRectSection'];
       const patchPath = slot[type === 'title' ? 'titleCleanPatch' : 'descriptionCleanPatch'];
       const r=box(rect,true);
-      if (patchPath) {
+      if (patchPath && cleanSource) {
         const patch=document.createElement('img');
         patch.className='cms-experience-slot-overlay'; patch.alt=''; patch.setAttribute('aria-hidden','true'); patch.src=assetFor(patchPath);
-        Object.assign(patch.style,{position:'absolute',zIndex:'18',pointerEvents:'none',left:r.left+'px',top:r.top+'px',width:r.width+'px',height:r.height+'px',maxWidth:'none'});
+        Object.assign(patch.style,{position:'absolute',zIndex:String(slotLayerZ(slot,2)),pointerEvents:'none',left:r.left+'px',top:r.top+'px',width:r.width+'px',height:r.height+'px',maxWidth:'none'});
         root.append(patch);
       }
       if (!value) return;
       const text=document.createElement('span'); text.className='cms-experience-slot-overlay'; text.textContent=String(value);
       text.setAttribute('data-cms-live-copy','experiences.'+slot.slotId+'.'+type);
-      Object.assign(text.style,{position:'absolute',zIndex:'19',pointerEvents:'none',left:r.left+'px',top:r.top+'px',width:r.width+'px',height:r.height+'px',overflow:'hidden',display:'block',whiteSpace:'pre-line',color:'#15394c',fontFamily:type==='title'?'var(--cms-heading-font,"Playfair Display",Georgia,serif)':'var(--cms-body-font,"Inter",Arial,sans-serif)',fontSize:(type==='title'?Math.max(12,16*sx):Math.max(10,12*sx))+'px',fontWeight:type==='title'?'600':'400',lineHeight:type==='title'?'1.1':'1.25'});
+      Object.assign(text.style,{position:'absolute',zIndex:String(slotLayerZ(slot,3)),pointerEvents:'none',left:r.left+'px',top:r.top+'px',width:r.width+'px',height:r.height+'px',overflow:'hidden',display:'block',whiteSpace:'pre-line',color:'#15394c',fontFamily:type==='title'?'var(--cms-heading-font,"Playfair Display",Georgia,serif)':'var(--cms-body-font,"Inter",Arial,sans-serif)',fontSize:(type==='title'?Math.max(12,16*sx):Math.max(10,12*sx))+'px',fontWeight:type==='title'?'600':'400',lineHeight:type==='title'?'1.1':'1.25'});
       root.append(text);
+    };
+    const addSourceGlyph = (slot, type) => {
+      const glyphPath = slot[type === 'title' ? 'titleGlyph' : 'descriptionGlyph'];
+      const rect = slot[type === 'title' ? 'titleRectSection' : 'descriptionRectSection'];
+      if (!glyphPath || !rect) return;
+      const r=box(rect,true);
+      const glyph=document.createElement('img');
+      glyph.className='cms-experience-slot-overlay cms-experience-source-glyph';
+      glyph.alt=''; glyph.setAttribute('aria-hidden','true');
+      const glyphUrl=new URL(assetFor(glyphPath));
+      glyphUrl.searchParams.set('v','20261014-9');
+      glyph.src=glyphUrl.href;
+      Object.assign(glyph.style,{position:'absolute',zIndex:String(slotLayerZ(slot,3)),pointerEvents:'none',left:r.left+'px',top:r.top+'px',width:r.width+'px',height:r.height+'px',maxWidth:'none',objectFit:'fill'});
+      root.append(glyph);
+    };
+    const addFullCardBacking = (slot) => {
+      if (!slot.fullCardBackingOverlay || !slot.fullCardBackingRect) return;
+      const rect = box(slot.fullCardBackingRect, false);
+      const backing = document.createElement('img');
+      backing.className = 'cms-experience-photo-frame';
+      backing.alt = '';
+      backing.setAttribute('aria-hidden', 'true');
+      backing.dataset.cmsExperienceSlot = slot.slotId;
+      const backingUrl = new URL(assetFor(slot.fullCardBackingOverlay));
+      backingUrl.searchParams.set('v', '20261014-11');
+      backing.src = backingUrl.href;
+      Object.assign(backing.style, {position:'absolute',zIndex:String(slotLayerZ(slot)),pointerEvents:'none',left:rect.left+'px',top:rect.top+'px',width:rect.width+'px',height:rect.height+'px',maxWidth:'none',objectFit:'fill'});
+      const polygon = slot.fullCardBackingPolygon;
+      const dims = slot.fullCardBackingOverlayDimensions || [Number(slot.fullCardBackingRect[2])-Number(slot.fullCardBackingRect[0]), Number(slot.fullCardBackingRect[3])-Number(slot.fullCardBackingRect[1])];
+      if (Array.isArray(polygon) && polygon.length >= 3) {
+        backing.style.clipPath = `polygon(${polygon.map((point)=>`${(Number(point[0])/Math.max(1,Number(dims[0]))*100).toFixed(4)}% ${(Number(point[1])/Math.max(1,Number(dims[1]))*100).toFixed(4)}%`).join(',')})`;
+      }
+      root.append(backing);
+    };
+    const addSourceFrame = (slot, sourceImage) => {
+      if (!slot.photoFrameOverlay || !sourceImage) return;
+      const frame=sourceImage.cloneNode(false);
+      frame.classList.add('cms-experience-photo-frame');
+      frame.removeAttribute('data-reveal'); frame.removeAttribute('data-copy-id');
+      frame.dataset.cmsExperienceSlot=slot.slotId;
+      frame.src=assetFor(slot.photoFrameOverlay); frame.alt=''; frame.setAttribute('aria-hidden','true');
+      frame.style.setProperty('pointer-events','none','important');
+      frame.style.setProperty('z-index',String((Number.parseInt(getComputedStyle(sourceImage).zIndex,10)||2)+1),'important');
+      sourceImage.insertAdjacentElement('afterend',frame);
     };
     const addCardMask = (slot) => {
       if (!slot.fullCardMask || !slot.fullCardMaskRect) return;
       const r=slot.fullCardMaskRectSection?box(slot.fullCardMaskRectSection,true):box(slot.fullCardMaskRect,false);
       const mask=document.createElement('img');
-      mask.className='cms-experience-card-mask'; mask.alt=''; mask.setAttribute('aria-hidden','true'); mask.src=assetFor(slot.fullCardMask);
-      Object.assign(mask.style,{position:'absolute',zIndex:'1',pointerEvents:'none',left:r.left+'px',top:r.top+'px',width:r.width+'px',height:r.height+'px',maxWidth:'none',objectFit:'fill'});
+      mask.className='cms-experience-card-mask'; mask.alt=''; mask.setAttribute('aria-hidden','true');
+      const maskUrl=new URL(assetFor(slot.fullCardMask));
+      maskUrl.searchParams.set('v','20261014-9');
+      mask.src=maskUrl.href;
+      Object.assign(mask.style,{position:'absolute',zIndex:String(slotLayerZ(slot)),pointerEvents:'none',left:r.left+'px',top:r.top+'px',width:r.width+'px',height:r.height+'px',maxWidth:'none',objectFit:'fill'});
       if(Array.isArray(slot.fullCardMaskPolygon)&&slot.fullCardMaskPolygon.length>=3){
         const rect=slot.fullCardMaskRectSection||slot.fullCardMaskRect;
         const polygon=slot.fullCardMaskPolygon.map((point)=>`${(Number(point[0])/Math.max(1,Number(rect[2])-Number(rect[0]))*100).toFixed(4)}% ${(Number(point[1])/Math.max(1,Number(rect[3])-Number(rect[1]))*100).toFixed(4)}%`).join(',');
@@ -941,7 +1468,7 @@
       mask.dataset.cmsExperienceSlot=slot.slotId;
       root.append(mask);
     };
-    const addPhotoComposite = (slot, sourceImage, src, rect) => {
+    const addPhotoComposite = (slot, sourceImage, src, rect, aboveUnderlay = false) => {
       const framePath=slot.photoFrameOverlay;
       const polygon=slot.photoViewportPolygon;
       if(!framePath||!Array.isArray(polygon)||!polygon.length||!src)return false;
@@ -949,14 +1476,33 @@
       layer.className=`foreground exp-card cms-experience-photo-composite ${[...sourceImage.classList].filter((name)=>/^card-[a-d]$/.test(name)).join(' ')}`;
       layer.dataset.cmsExperienceSlot=slot.slotId;
       layer.setAttribute('aria-hidden','true');
-      Object.assign(layer.style,{position:'absolute',left:rect.left+'px',top:rect.top+'px',width:rect.width+'px',height:rect.height+'px',zIndex:getComputedStyle(sourceImage).zIndex||'2',maxWidth:'none',overflow:'hidden',pointerEvents:'none',transform:'none'});
+      Object.assign(layer.style,{position:'absolute',left:rect.left+'px',top:rect.top+'px',width:rect.width+'px',height:rect.height+'px',zIndex:aboveUnderlay?String(slotLayerZ(slot,1)):(getComputedStyle(sourceImage).zIndex||'2'),maxWidth:'none',overflow:'hidden',pointerEvents:'none',transform:'none'});
       const photo=document.createElement('img');
       photo.className='cms-experience-replacement-photo';photo.alt='';photo.src=src;
-      const points=polygon.map((point)=>`${(Number(point[0])/rect.width*100).toFixed(4)}% ${(Number(point[1])/rect.height*100).toFixed(4)}%`).join(',');
-      Object.assign(photo.style,{position:'absolute',inset:'0',display:'block',width:'100%',height:'100%',maxWidth:'none',objectFit:'cover',clipPath:`polygon(${points})`});
-      const frame=document.createElement('img');frame.className='cms-experience-photo-frame';frame.alt='';frame.src=assetFor(framePath);
-      Object.assign(frame.style,{position:'absolute',inset:'0',display:'block',width:'100%',height:'100%',maxWidth:'none',objectFit:'fill',pointerEvents:'none'});
-      layer.append(photo,frame);
+      const sourceDims=slot.photoFrameOverlayDimensions||[Math.round(rect.width/sx),Math.round(rect.height/sy)];
+      const points=polygon.map((point)=>`${(Number(point[0])/Math.max(1,Number(sourceDims[0]))*100).toFixed(4)}% ${(Number(point[1])/Math.max(1,Number(sourceDims[1]))*100).toFixed(4)}%`).join(',');
+      Object.assign(photo.style,{position:'absolute',inset:'0',display:'block',width:'100%',height:'100%',maxWidth:'none',objectFit:'cover'});
+      const corners=slot.photoPerspectiveCorners;
+      if(Array.isArray(corners)&&corners.length===4){
+        const q=corners.map((point)=>({x:Number(point[0])*sx,y:Number(point[1])*sy}));
+        const [p0,p1,p2,p3]=q;
+        const dx1=p1.x-p2.x,dx2=p3.x-p2.x,dx3=p0.x-p1.x+p2.x-p3.x;
+        const dy1=p1.y-p2.y,dy2=p3.y-p2.y,dy3=p0.y-p1.y+p2.y-p3.y;
+        const den=dx1*dy2-dx2*dy1;
+        if(Math.abs(den)>1e-6){
+          const g=(dx3*dy2-dx2*dy3)/den,h=(dx1*dy3-dx3*dy1)/den;
+          const a=p1.x-p0.x+g*p1.x,c=p3.x-p0.x+h*p3.x,e=p0.x;
+          const b=p1.y-p0.y+g*p1.y,d=p3.y-p0.y+h*p3.y,f=p0.y;
+          photo.style.transformOrigin='0 0';
+          photo.style.transform=`matrix3d(${a/rect.width},${b/rect.width},0,${g/rect.width},${c/rect.height},${d/rect.height},0,${h/rect.height},0,0,1,0,${e},${f},0,1)`;
+        }
+      }
+      layer.append(photo);
+      if (!aboveUnderlay) {
+        const frame=document.createElement('img');frame.className='cms-experience-photo-frame';frame.alt='';frame.src=assetFor(framePath);
+        Object.assign(frame.style,{position:'absolute',inset:'0',display:'block',width:'100%',height:'100%',maxWidth:'none',objectFit:'fill',pointerEvents:'none'});
+        layer.append(frame);
+      }
       sourceImage.insertAdjacentElement('afterend',layer);
       sourceImage.style.setProperty('visibility','hidden','important');sourceImage.style.setProperty('display','none','important');
       return true;
@@ -986,11 +1532,15 @@
         image.style.setProperty('visibility','hidden','important');
         image.style.setProperty('display','none','important');
         anchor.style.setProperty('visibility','hidden','important');
-        addCardMask(slot);
+        // If the top collage card is removed, clean its silhouette above every
+        // preceding card photo that could otherwise show through its overlap.
+        if (!underlayCoveredSlots.has(String(slot.slotId)) || Number(slot.sourceLayerOrder) === topSourceLayerOrder) addCardMask(slot);
         // Source title/body are baked into the section artwork. Clear just their
         // exact text ROIs after masking the angled card, preserving nearby script.
-        addCopy(slot,'title','');
-        addCopy(slot,'description','');
+        if (!underlayCoveredSlots.has(String(slot.slotId))) {
+          addCopy(slot,'title','');
+          addCopy(slot,'description','');
+        }
         return;
       }
       image.style.removeProperty('visibility');image.style.removeProperty('display');anchor.style.visibility='';
@@ -998,17 +1548,25 @@
       const imageChanged=String(item.image||'')!==String(original.image||'');
       const sourceImage=sourceCrop||image.dataset.cmsSourceSrc||'';
       image.setAttribute('src',sourceImage);
-      if(imageChanged){
+      const useSectionUnderlay = underlayCoveredSlots.has(String(slot.slotId));
+      if(imageChanged || moved || useSectionUnderlay){
         const compositeRect=box(slot.photoRectSection,true);
-        addPhotoComposite(slot,image,safeImage(item.image)||'',compositeRect);
+        if (useSectionUnderlay && !imageChanged && !moved && slot.originalPhotoOverlay) {
+          addExperienceImagePatch(slot.originalPhotoOverlay,slot.originalPhotoOverlayRect||slot.photoRect,slotLayerZ(slot,1),slot);
+        } else {
+          addPhotoComposite(slot,image,safeImage(item.image)||'',compositeRect,useSectionUnderlay);
+        }
+        if (useSectionUnderlay) addFullCardBacking(slot);
       }
       image.alt=item.title||item.name||slot.name||'';
       const title=String(item.title||item.name||'');
       const titleChanged=moved||title!==String(original.title||original.name||'');
       const description=String(item.description||'');
       const descriptionChanged=moved||description!==String(original.description||'');
-      if(titleChanged)addCopy(slot,'title',title);
-      if(descriptionChanged)addCopy(slot,'description',description);
+      if(titleChanged)addCopy(slot,'title',title,!underlayCoveredSlots.has(String(slot.slotId)));
+      else if(underlayCoveredSlots.has(String(slot.slotId)))addSourceGlyph(slot,'title');
+      if(descriptionChanged)addCopy(slot,'description',description,!underlayCoveredSlots.has(String(slot.slotId)));
+      else if(underlayCoveredSlots.has(String(slot.slotId)))addSourceGlyph(slot,'description');
       const destination=item.path||slot.defaultEntity?.path;
       if(destination){anchor.href=siteHref(destination)||safeHref(destination)||anchor.href;anchor.setAttribute('aria-label',(title||'Deneyim')+' için bilgi alın');}
     });
@@ -1040,6 +1598,11 @@
   }
 
   function renderCollections(content, pageConfig) {
+    document.documentElement.dataset.cmsHomeArtworkCollections = String(
+      currentPagePath() === '/' && (pageConfig.collections || []).some((spec) =>
+        spec.homeFeatured && document.querySelector(spec.selector || '')
+      )
+    );
     (pageConfig.collections || []).forEach((spec) => {
       if (spec.renderMode === 'source-slot-overlays' || spec.layoutManifest) { renderSourceSlotCollection(content, spec); return; }
       const sourceItems = Array.isArray(content[spec.key]) ? content[spec.key] : [];
@@ -1069,12 +1632,31 @@
       if (!anchors.length) return;
       const canvas = document.querySelector('.canvas');
       const imageNodes = spec.imageSelector ? [...document.querySelectorAll(spec.imageSelector)] : [];
+      imageNodes.forEach((node) => {
+        if (!node.dataset.cmsOriginalSrc) node.dataset.cmsOriginalSrc = node.getAttribute('src') || '';
+      });
       const changed = (item) => {
         const original = originalItems.find((entry) => entry.id === item.id);
-        return !original || ['name','title','description','image','artwork','homeImage','homeUrl','path','inquiryUrl','status','sortOrder']
+        return !original || ['name','title','description','image','artwork','homeImage','homeUrl','path','inquiryUrl','status','sortOrder','guestCapacity','cabins']
           .some((key) => item[key] !== original[key]);
       };
       const keyOf = (value) => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+      const collectionCardHref = (item, fallbackHref = '') => {
+        if (!['gulets', 'routes'].includes(spec.key)) return siteHref(item.homeUrl || item.path || item.inquiryUrl || fallbackHref) || safeHref(item.homeUrl || item.path || item.inquiryUrl || fallbackHref) || '#';
+        const prefix = spec.key === 'gulets' ? '/filo/' : '/rotalar/';
+        const template = spec.key === 'gulets' ? '/filo/eylul/' : '/rotalar/gocek-fethiye-gocek/';
+        const parameter = spec.key === 'gulets' ? 'gulet' : 'rota';
+        const candidates = [item.detailPath, item.path, item.homeUrl, item.url].filter((value) => typeof value === 'string' && value.trim());
+        const detailPath = candidates.find((value) => {
+          const normalized = normalizePath(value);
+          return normalized.startsWith(prefix) && normalized !== prefix;
+        });
+        if (detailPath) return siteHref(detailPath) || '#';
+        const id = String(item.id || item.slug || '').trim();
+        if (id) return siteHref(`${template}?${parameter}=${encodeURIComponent(id)}`) || '#';
+        const explicit = item.inquiryUrl || item.homeUrl || item.path || fallbackHref;
+        return siteHref(explicit) || safeHref(explicit) || '#';
+      };
       const recordKeys = (item) => new Set([
         keyOf(item.id || item.slug),
         keyOf(String(item.path || '').split('/').filter(Boolean).pop())
@@ -1098,12 +1680,71 @@
       } else {
         slotEntities = entities.slice(0, anchors.length);
       }
+      if (spec.homeFeatured && spec.key === 'gulets') {
+        const foreground = document.querySelector('.home-foreground-art');
+        const sourceSize = spec.sourceDimensions || [809, 1942];
+        const foregroundRect = foreground?.getBoundingClientRect();
+        const sourceScale = foregroundRect ? foregroundRect.width / Math.max(1, Number(sourceSize[0]) || 809) : 1;
+        (spec.conditionalUnderlays || []).forEach((underlay) => {
+          const targetIds = new Set((underlay.whenAnyMissing || []).map(keyOf));
+          const emptySlots = new Set((underlay.whenSlotsEmpty || []).map(Number));
+          const vacancyExists = (targetIds.size > 0 && slotIds.some((slotId, index) =>
+            targetIds.has(slotId) && (!slotEntities[index] || !recordKeys(slotEntities[index]).has(slotId))
+          )) || [...emptySlots].some((index) => Number.isInteger(index) && index >= 0 && index < slotEntities.length && !slotEntities[index]);
+          const old = foreground?.querySelector(`[data-cms-home-underlay="${CSS.escape(String(underlay.id || ''))}"]`);
+          if (!vacancyExists) { old?.remove(); return; }
+          if (!foreground || !Array.isArray(underlay.rect) || !underlay.path) return;
+          const [x0, y0, x1, y1] = underlay.rect.map(Number);
+          if (![x0, y0, x1, y1].every(Number.isFinite) || x1 <= x0 || y1 <= y0) return;
+          const image = old || document.createElement('img');
+          image.className = 'cms-home-collection-underlay';
+          image.dataset.cmsHomeUnderlay = String(underlay.id || '');
+          image.alt = '';
+          image.setAttribute('aria-hidden', 'true');
+          image.src = safeImage(underlay.path) || '';
+          Object.assign(image.style, {
+            position: 'absolute', zIndex: String(Number.isFinite(Number(underlay.zIndex)) ? Number(underlay.zIndex) : 3),
+            pointerEvents: 'none', left: `${x0 * sourceScale}px`, top: `${y0 * sourceScale}px`,
+            width: `${(x1 - x0) * sourceScale}px`, height: `${(y1 - y0) * sourceScale}px`,
+            maxWidth: 'none', objectFit: 'fill'
+          });
+          if (!old) foreground.append(image);
+        });
+      }
       const assignedIds = new Set(slotEntities.filter(Boolean).map((item) => String(item.id)));
       // Detail pages have a small, hand-picked related-card strip. Its source
       // anchors identify the eligible records; the rest of the catalog must
       // never be appended as a second row to that detail page.
       const extraEntities = isDetail ? [] : entities.filter((item) => !assignedIds.has(String(item.id)));
+      if (spec.homeFeatured && spec.key === 'gulets') {
+        document.querySelectorAll('.cms-home-fleet-extra-card,.cms-home-fleet-extra-hotspot').forEach((node) => node.remove());
+      }
       const clearVisual = (anchor) => anchor.querySelectorAll(':scope > .cms-entity-visual, :scope > .cms-home-card-name').forEach((node) => node.remove());
+      const setCollectionVisibility = (node, visible) => {
+        if (!node) return;
+        if (!visible) {
+          if (node.dataset.cmsDisplaySaved !== '1') {
+            node.dataset.cmsDisplaySaved = '1';
+            node.dataset.cmsInlineDisplay = node.style.getPropertyValue('display');
+            node.dataset.cmsInlineDisplayPriority = node.style.getPropertyPriority('display');
+          }
+          node.hidden = true;
+          node.style.setProperty('display', 'none', 'important');
+          return;
+        }
+        node.hidden = false;
+        if (node.dataset.cmsDisplaySaved === '1') {
+          if (node.dataset.cmsInlineDisplay) node.style.setProperty('display', node.dataset.cmsInlineDisplay, node.dataset.cmsInlineDisplayPriority || '');
+          else node.style.removeProperty('display');
+          delete node.dataset.cmsDisplaySaved;
+          delete node.dataset.cmsInlineDisplay;
+          delete node.dataset.cmsInlineDisplayPriority;
+        }
+      };
+      if (spec.homeFeatured && spec.key === 'gulets') {
+        const hasSlotChange = orderWasEdited || slotEntities.some((item, index) => !item || String(item.id) !== String(slotIds[index]));
+        setCollectionVisibility(document.querySelector('.home-art-fleet-note'), !hasSlotChange);
+      }
       const addPhotoOnlyVisual = (anchor, item) => {
         clearVisual(anchor);
         const image = document.createElement('img');
@@ -1116,7 +1757,7 @@
         });
         anchor.append(image);
       };
-      const addVisual = (anchor, item, home = false) => {
+      const addVisual = (anchor, item, home = false, photoOverride = '') => {
         clearVisual(anchor);
         const visual = document.createElement('span');
         visual.className = 'cms-entity-visual';
@@ -1127,19 +1768,35 @@
           pointerEvents: 'none', containerType: 'inline-size'
         });
         const image = document.createElement('img');
-        image.src = safeImage(item.image || item.homeImage || item.artwork) || '';
+        image.src = photoOverride || safeImage(item.image || item.homeImage || item.artwork) || '';
         image.alt = '';
         Object.assign(image.style, { display: 'block', position: 'absolute', left: '0', top: '0', width: '100%', height: '62%', objectFit: 'cover', borderRadius: '7px 7px 2px 2px' });
         const caption = document.createElement('span');
         caption.className = 'cms-entity-caption';
-        caption.textContent = item.name || item.title || '';
         Object.assign(caption.style, {
           position: 'absolute', left: '0', right: '0', bottom: '0', height: '38%',
           display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '2% 5%',
           background: '#f7f3e9', color: '#123347', font: '600 6cqi Georgia,serif',
           lineHeight: '1.12', textAlign: 'left'
         });
-        if (item.description) {
+        if (home && spec.key === 'gulets') {
+          const name = document.createElement('strong');
+          name.textContent = item.name || item.title || '';
+          Object.assign(name.style, {display:'block',font:'600 7.2cqi Georgia,serif',lineHeight:'1.05',whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'});
+          const capacity = Number(item.guestCapacity);
+          const cabins = Number(item.cabins);
+          const facts = document.createElement('small');
+          facts.textContent = `${Number.isFinite(capacity) && capacity > 0 ? `${capacity} misafir` : ''}${Number.isFinite(capacity) && capacity > 0 && Number.isFinite(cabins) && cabins > 0 ? ' | ' : ''}${Number.isFinite(cabins) && cabins > 0 ? `${cabins} kabin` : ''}`;
+          Object.assign(facts.style, {display:'block',marginTop:'2px',font:'400 4.8cqi Inter,Arial,sans-serif',lineHeight:'1.05',whiteSpace:'nowrap'});
+          const arrow = document.createElement('span');
+          arrow.textContent = '›';
+          Object.assign(arrow.style, {position:'absolute',right:'4%',bottom:'8%',width:'13%',aspectRatio:'1',display:'grid',placeItems:'center',border:'1px solid #b8b3a8',borderRadius:'50%',font:'400 9px Georgia,serif',lineHeight:'1'});
+          caption.style.padding = '2% 5%';
+          caption.append(name, facts, arrow);
+        } else if (item.name || item.title) {
+          caption.textContent = item.name || item.title;
+        }
+        if (item.description && !(home && spec.key === 'gulets')) {
           const detail = document.createElement('small');
           detail.textContent = item.description;
           Object.assign(detail.style, { display: 'block', marginTop: '2px', font: '4.8cqi Inter,Arial,sans-serif', lineHeight: '1.15', fontWeight: '400' });
@@ -1186,20 +1843,25 @@
       anchors.forEach((anchor, index) => {
         const item = slotEntities[index] || null;
         if (!item) {
-          if (!anchor.hidden) addDeletedMask(anchor, index);
-          anchor.hidden = true;
+          if (!anchor.hidden && !spec.homeFeatured) addDeletedMask(anchor, index);
+          setCollectionVisibility(anchor, false);
           if (spec.homeFeatured) {
             const prefix = spec.key === 'routes' ? 'home-art-route-card-' : 'home-art-fleet-card-';
-            document.querySelector(`.${prefix}${index + 1}`)?.setAttribute('hidden', '');
-            imageNodes[index]?.setAttribute('hidden', '');
+            setCollectionVisibility(document.querySelector(`.${prefix}${index + 1}`), false);
+            setCollectionVisibility(imageNodes[index], false);
           }
           return;
         }
-        anchor.hidden = false;
+        setCollectionVisibility(anchor, true);
+        if (spec.homeFeatured) {
+          const prefix = spec.key === 'routes' ? 'home-art-route-card-' : 'home-art-fleet-card-';
+          setCollectionVisibility(document.querySelector(`.${prefix}${index + 1}`), true);
+          setCollectionVisibility(imageNodes[index], true);
+        }
         canvas?.querySelector(`[data-cms-deleted-card=\"${CSS.escape(`${spec.key}-${index}`)}\"]`)?.remove();
         const oldHref = anchor.dataset.cmsOriginalHref || anchor.getAttribute('href') || '#';
         if (!anchor.dataset.cmsOriginalHref) anchor.dataset.cmsOriginalHref = oldHref;
-        const href = siteHref(item.homeUrl || item.path || item.inquiryUrl || oldHref) || '#';
+        const href = collectionCardHref(item, oldHref);
         anchor.href = href;
         anchor.setAttribute('aria-label', `${item.name || item.title || ''} — ${spec.key === 'routes' ? 'rota' : 'gulet'}`);
         const original = originalItems.find((entry) => entry.id === item.id);
@@ -1207,7 +1869,7 @@
         const movedFromSource = Boolean(sourceId && !recordKeys(item).has(sourceId));
         const photoOnlyChange = Boolean(original)
           && (item.image !== original.image || item.homeImage !== original.homeImage)
-          && ['name','title','description','artwork','path','homeUrl','inquiryUrl','sortOrder'].every((key) => item[key] === original[key])
+          && ['name','title','description','artwork','path','homeUrl','inquiryUrl','sortOrder','guestCapacity','cabins'].every((key) => item[key] === original[key])
           && !movedFromSource;
         const isChanged = changed(item);
         if (photoOnlyChange && spec.homeFeatured) {
@@ -1229,7 +1891,15 @@
           }
           return;
         }
-        if (changed(item) || movedFromSource) addVisual(anchor, item, Boolean(spec.homeFeatured));
+        if (changed(item) || movedFromSource) {
+          const sourceIndex = slotIds.findIndex((id) => recordKeys(item).has(id));
+          const sourcePhotoNode = sourceIndex >= 0 ? imageNodes[sourceIndex] : null;
+          const samePhoto = original && item.image === original.image && item.homeImage === original.homeImage;
+          const photoOverride = spec.homeFeatured && samePhoto && sourcePhotoNode
+            ? safeImage(sourcePhotoNode.dataset.cmsOriginalSrc || sourcePhotoNode.getAttribute('src') || '') || ''
+            : '';
+          addVisual(anchor, item, Boolean(spec.homeFeatured), photoOverride);
+        }
         else clearVisual(anchor);
         if (spec.homeFeatured) {
           const photo = imageNodes[index];
@@ -1241,6 +1911,65 @@
           }
         }
       });
+
+      if (spec.homeFeatured && spec.key === 'gulets') {
+        const canvasRoot = document.querySelector('.home-foreground-art');
+        const hotspotRoot = document.querySelector('.home-art-hotspots');
+        const sourceCard = document.querySelector('.home-art-fleet-card-5');
+        const sourcePhoto = sourceCard?.getBoundingClientRect();
+        const rootRect = canvasRoot?.getBoundingClientRect();
+        const width = Number(spec.sourceDimensions?.[0]) || 809;
+        const height = Number(spec.sourceDimensions?.[1]) || 1942;
+        const pitch = Number(spec.homeExtraSlotPitch) || 141;
+        const extras = extraEntities.filter((item) => item);
+        document.documentElement.dataset.homeFleetExtraCount = String(extras.length);
+        document.documentElement.dataset.homeFleetExtraPitchSource = String(pitch);
+        document.documentElement.dataset.homeFleetPitchSource = String(pitch);
+        document.dispatchEvent(new CustomEvent('fora:home-fleet-collection', {
+          detail: { extrasCount: extras.length, pitchSource: pitch }
+        }));
+        if (canvasRoot && hotspotRoot && sourceCard && sourcePhoto && rootRect?.width) {
+          const relative = {
+            left: (sourcePhoto.left - rootRect.left) / rootRect.width * width,
+            top: (sourcePhoto.top - rootRect.top) / rootRect.width * width,
+            width: sourcePhoto.width / rootRect.width * width,
+            height: sourcePhoto.height / rootRect.width * width
+          };
+          extras.forEach((item, extraIndex) => {
+            const left = relative.left + pitch * (extraIndex + 1);
+            const group = document.createElement('div');
+            group.className = 'cms-home-fleet-extra-card fleet-drag-card';
+            group.dataset.cmsHomeFleetExtraId = String(item.id || item.slug || extraIndex + 1);
+            Object.assign(group.style, {
+              position: 'absolute', left: `${left / width * 100}%`, top: `${relative.top / height * 100}%`,
+              width: `${relative.width / width * 100}%`, height: `${relative.height / height * 100}%`,
+              overflow: 'visible', zIndex: '8', pointerEvents: 'none'
+            });
+            const frame = document.createElement('img');
+            frame.className = 'cms-home-fleet-extra-frame';
+            frame.src = sourceCard.getAttribute('src') || sourceCard.src;
+            frame.alt = '';
+            frame.setAttribute('aria-hidden', 'true');
+            Object.assign(frame.style, { position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'fill', zIndex: '1', pointerEvents: 'none' });
+            group.append(frame);
+            addVisual(group, item, true);
+            canvasRoot.append(group);
+
+            const hotspot = document.createElement('a');
+            hotspot.className = 'cms-home-fleet-extra-hotspot';
+            hotspot.dataset.cmsHomeFleetExtraId = String(item.id || item.slug || extraIndex + 1);
+            hotspot.href = collectionCardHref(item, item.path || item.inquiryUrl || '#');
+            hotspot.setAttribute('aria-label', `${item.name || item.title || 'Gulet'} — gulet`);
+            Object.assign(hotspot.style, {
+              position: 'absolute', left: `${left / width * 100}%`, top: `${relative.top / height * 100}%`,
+              width: `${relative.width / width * 100}%`, height: `${relative.height / height * 100}%`,
+              display: 'block', zIndex: '30', opacity: '0', transform: 'translateX(var(--fleet-shift,0px))',
+              transition: 'transform 400ms ease', pointerEvents: 'auto'
+            });
+            hotspotRoot.append(hotspot);
+          });
+        }
+      }
 
       for (let index = anchors.length; index < anchors.length + extraEntities.length; index += 1) {
         const template = anchors[0];
@@ -1254,7 +1983,7 @@
         if (!item) continue;
         const original = originalItems.find((entry) => entry.id === item.id);
         if (!original || changed(item)) addVisual(clone, item);
-        clone.href = siteHref(item.path || item.inquiryUrl || '#') || safeHref(item.path || item.inquiryUrl || '#') || '#';
+        clone.href = collectionCardHref(item, item.path || item.inquiryUrl || '#');
         clone.setAttribute('aria-label', `${item.name || item.title || ''} — ${spec.key === 'routes' ? 'rota' : 'gulet'}`);
       }
       document.querySelectorAll(`[data-cms-generated-collection-card="${CSS.escape(spec.key)}"]`).forEach((card, offset) => {
@@ -1288,28 +2017,52 @@
         const manifestUrl = new URL(folder ? `../${folder}/assets/motion-copy/manifest.json` : 'motion-copy/manifest.json', assetsUrl);
         const manifest = await readJson(manifestUrl);
         for (const layer of manifest.layers || []) {
-          if (!layer.binding) continue;
-          const binding = layer.binding;
-          const mapping = pageConfig.fields?.find((field) => field.binding === binding);
-          if (!mapping) continue;
+          let binding = layer.binding || (pageConfig.path === '/filo/eylul/' && layer.id === 'hero-kicker' ? 'eylul.hero.eyebrow' : null);
+          if (!binding && layer.id === 'hero-whatsapp-label') {
+            const offerBinding = pageConfig.fields?.find((field) => field.binding?.endsWith('.header.offerLabel'))?.binding;
+            const whatsappBinding = offerBinding?.replace(/\.offerLabel$/, '.whatsappLabel');
+            if (whatsappBinding && pageConfig.fields?.some((field) => field.binding === whatsappBinding)) binding = whatsappBinding;
+          }
+          if (!binding) {
+            if (pageConfig.path === '/filo/eylul/' && layer.id === 'hero-script') {
+              pageConfig.motionStaticLayers ||= [];
+              pageConfig.motionStaticLayers.push({...layer, sourceDimensions:layer.sourceDimensions||manifest.sourceDimensions});
+            }
+            continue;
+          }
+          let mapping = pageConfig.fields?.find((field) => field.binding === binding);
+          if (!mapping) {
+            mapping = { binding, selectors: [] };
+            pageConfig.fields ||= [];
+            pageConfig.fields.push(mapping);
+          }
           const semantic = layer.semantic || 'paragraph';
           const heading = ['heading', 'eyebrow'].includes(semantic);
           const fontSize = semantic === 'heading' ? '44px'
             : semantic === 'eyebrow' ? '11px'
             : semantic.includes('button') ? '12px'
             : semantic.includes('footer') ? '10px' : '18px';
+          const offerHotspot = binding.endsWith('.header.offerLabel')
+            ? '.canvas a.hotspot[aria-label*="teklif" i]'
+            : null;
+          const hasOfferHotspot = Boolean(offerHotspot && document.querySelector(offerHotspot));
+          const whatsappHotspot = binding.endsWith('.header.whatsappLabel') ? '.canvas a.hotspot[aria-label*="WhatsApp" i]' : null;
+          const hasWhatsappHotspot = Boolean(whatsappHotspot && document.querySelector(whatsappHotspot));
           const selector = layer.anchor || layer.reference || (layer.canvasRect && pageConfig.path === '/' ? '.desktop-source-art' : layer.canvasRect ? '.canvas' : `[data-copy-id="${layer.id}"]`);
-          if (!mapping.overlay && !layer.cleanPatch) continue;
-          const patchAsset = layer.cleanPatch
-            ? (folder || !layer.cleanPatch.startsWith('assets/') ? new URL(layer.cleanPatch, manifestUrl) : new URL(`../${layer.cleanPatch}`, assetsUrl)).href
+          const cmsPatch = layer.cmsCleanPatch || layer.cleanPatch;
+          if (!mapping.overlay && !cmsPatch) continue;
+          const patchAsset = cmsPatch
+            ? (folder || !cmsPatch.startsWith('assets/') ? new URL(cmsPatch, manifestUrl) : new URL(`../${cmsPatch}`, assetsUrl)).href
             : '';
           const sourceRect = layer.referenceRect || layer.canvasRect || (layer.sourceBBox && (layer.sourceDimensions || manifest.sourceDimensions) ? { left: layer.sourceBBox[0] / (layer.sourceDimensions || manifest.sourceDimensions)[0], top: layer.sourceBBox[1] / (layer.sourceDimensions || manifest.sourceDimensions)[1], width: (layer.sourceBBox[2] - layer.sourceBBox[0]) / (layer.sourceDimensions || manifest.sourceDimensions)[0], height: (layer.sourceBBox[3] - layer.sourceBBox[1]) / (layer.sourceDimensions || manifest.sourceDimensions)[1] } : null);
           if (mapping.overlay) {
+            mapping.overlay.copyId = layer.id;
             if (layer.anchor || layer.reference || layer.canvasRect || sourceRect) mapping.overlay.reference = [selector];
             if (sourceRect) mapping.overlay.referenceRect = sourceRect;
             if (patchAsset) mapping.overlay.patchAsset = patchAsset;
           } else {
             mapping.overlay = {
+              copyId: layer.id,
               reference: [selector],
               hostSelector: 'main',
               ...(sourceRect ? { referenceRect: sourceRect } : {}),
@@ -1322,9 +2075,18 @@
               align: 'left'
             };
           }
+          if (pageConfig.path === '/filo/eylul/' && layer.id === 'quote-heading') { mapping.overlay.maxLines = 2; mapping.overlay.minFontSize = 17; }
+          if (layer.id.startsWith('hero-') || binding === 'eylul.header.offerLabel') mapping.overlay.forceWhenHeroPhotoReplaced = true;
+          if (hasOfferHotspot || hasWhatsappHotspot) {
+            mapping.heroPhotoOverlayBase ||= { ...mapping.overlay };
+            mapping.heroPhotoOverlaySpecial = hasOfferHotspot
+              ? { reference:[offerHotspot], referenceRect:null, background:'#efd09a', radius:'999px', display:'flex', alignItems:'center', justifyContent:'center', font:'var(--font-body, Inter, Arial, sans-serif)', fontSize:'12px', fontWeight:'600', color:'#17384c', padding:'0 10px', align:'center', trailingArrow:true }
+              : { reference:[whatsappHotspot], referenceRect:null, background:'transparent', border:'1px solid #f7f2e8', radius:'999px', display:'flex', alignItems:'center', justifyContent:'center', font:'var(--font-body, Inter, Arial, sans-serif)', fontSize:'12px', fontWeight:'500', color:'#f7f2e8', padding:'0 10px', align:'center' };
+            mapping.overlay = { ...mapping.heroPhotoOverlayBase };
+          }
           const hides = [...(mapping.hideSelectors || [])];
           if (layer.hideSelector) hides.push(layer.hideSelector);
-          else hides.push(`${selector} .copy-glyph`);
+          else hides.push(`[data-copy-id="${CSS.escape(layer.id)}"] .copy-glyph`);
           mapping.hideSelectors = [...new Set(hides)];
         }
       } catch { /* Pages without generated text layers retain their source art. */ }
@@ -1332,19 +2094,24 @@
   }
 
   async function refresh() {
+    if (draftPreviewActive) return;
     if (apiUrl) {
       try {
         const live = await readJson(apiUrl);
-        if (applyContent(live)) {
+        if (draftPreviewActive) return;
+        if (applyContent(live, 'published')) {
           document.documentElement.dataset.cmsSource = 'published';
           return;
         }
       } catch { /* A static preview can run without the CMS service. */ }
     }
+    if (draftPreviewActive) return;
+    // Once a published response has been applied, a temporary API outage must
+    // not roll the page back to an older bundled snapshot.
+    if (appliedContentSource === 'published') return;
     try {
       const local = await readJson(fallbackUrl);
-      applyContent(local);
-      document.documentElement.dataset.cmsSource = 'static';
+      if (applyContent(local, 'static')) document.documentElement.dataset.cmsSource = 'static';
     } catch {
       document.documentElement.dataset.cmsSource = 'unavailable';
     }
@@ -1454,6 +2221,12 @@
     activeOverlays.forEach(({ mapping, field }, binding) => makeOverlay(binding, mapping, field));
     if (currentContent?.menus) applyMenus(currentContent.menus);
   }
+
+  // Source anchors can be measured mid-entry. Reflow overlays after motion and
+  // font loading so their final positions match the source art coordinates.
+  document.addEventListener('animationend', () => requestAnimationFrame(updateOverlayPositions), true);
+  document.addEventListener('transitionend', () => requestAnimationFrame(updateOverlayPositions), true);
+  if (document.fonts?.ready) document.fonts.ready.then(() => requestAnimationFrame(updateOverlayPositions));
 
   function positionedNode(parent, element, className, sourceImage, rect, patchRect) {
     const node = document.createElement(element);
@@ -1770,7 +2543,24 @@
     dialog.addEventListener('close', () => { pendingForm = null; submit.hidden = false; });
   }
 
+  function setupLocalImageRetry() {
+    const attempted = new WeakSet();
+    const retry = (node) => {
+      if (!(node instanceof HTMLImageElement) || attempted.has(node) || !node.getAttribute('src')) return;
+      const source = new URL(node.currentSrc || node.src, location.href);
+      if (source.origin !== location.origin || !/^https?:$/.test(source.protocol)) return;
+      attempted.add(node);
+      source.searchParams.set('fora-retry', '20261014');
+      node.src = source.href;
+    };
+    document.addEventListener('error', (event) => retry(event.target), true);
+    document.querySelectorAll('img').forEach(node => {
+      if (node.complete && !node.naturalWidth) retry(node);
+    });
+  }
+
   async function boot() {
+    setupLocalImageRetry();
     overlayLayer = document.createElement('div');
     overlayLayer.className = 'cms-overlay-layer';
     overlayLayer.setAttribute('aria-hidden', 'true');
@@ -1805,10 +2595,12 @@
           window.addEventListener('message', (event) => {
             if (event.origin !== location.origin || event.source !== window.parent || !event.data) return;
             if (event.data.type === 'FORA_CMS_PREVIEW') {
-              if (applyContent({ content: event.data.content, revision: event.data.revision })) {
+              if (applyContent({ content: event.data.content, revision: event.data.revision }, 'draft-preview')) {
+                draftPreviewActive = true;
                 document.documentElement.dataset.cmsSource = 'draft-preview';
               }
             } else if (event.data.type === 'FORA_CMS_PREVIEW_CLEAR') {
+              draftPreviewActive = false;
               refresh();
             }
           });
@@ -1831,7 +2623,7 @@
       appliedSectionSignature = '';
       applySectionOrder(currentContent, currentPagePath(), pageConfigFor(currentPagePath()));
     }, { passive: true });
-    window.ForaCMS = Object.freeze({ refresh, get revision() { return currentRevision; }, get content() { return currentContent; } });
+    window.ForaCMS = Object.freeze({ refresh, get revision() { return currentRevision; }, get content() { return currentRenderedContent || currentContent; } });
     if (apiUrl) {
       window.setInterval(() => { if (!document.hidden) refresh(); }, 5000);
       window.addEventListener('focus', refresh);

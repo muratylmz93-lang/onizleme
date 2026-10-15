@@ -82,7 +82,10 @@
       easing,
       fill: 'both'
     });
-    animation.onfinish = () => animation.cancel();
+    animation.onfinish = () => {
+      element.style.opacity = '1';
+      animation.cancel();
+    };
   }
 
   function animateMenu(panel, opening) {
@@ -107,7 +110,10 @@
             : [{ opacity: 0, transform: 'translateX(15px)' }, { opacity: 1, transform: 'translateX(0)' }],
           { duration: reducedMotion(device) ? 150 : 260, delay: reducedMotion(device) ? 0 : index * 60, fill: 'both', easing: 'ease-out' }
         );
-        animation.onfinish = () => animation.cancel();
+        animation.onfinish = () => {
+      element.style.opacity = '1';
+      animation.cancel();
+    };
       });
     } else {
       links.reverse().forEach((link, index) => {
@@ -117,7 +123,10 @@
             : [{ opacity: 1, transform: 'translateX(0)' }, { opacity: 0, transform: 'translateX(15px)' }],
           { duration: reducedMotion(device) ? 150 : 260, delay: reducedMotion(device) ? 0 : index * 60, fill: 'both', easing: 'ease-in' }
         );
-        animation.onfinish = () => animation.cancel();
+        animation.onfinish = () => {
+      element.style.opacity = '1';
+      animation.cancel();
+    };
       });
     }
   }
@@ -324,7 +333,7 @@
         if (footer) {
           animateOnce(target, smallDevice(device) ? 'translateY(8px)' : 'translateY(15px)',
             smallDevice(device) ? 400 : 600, position * 80, 'cubic-bezier(.22,.61,.36,1)', device);
-          return;
+          continue;
         }
 
         if (semantic === 'photo-or-illustration') {
@@ -332,7 +341,7 @@
           const delay = footer ? position * 80 : position * (smallDevice(device) ? 130 : 120);
           animateOnce(target, smallDevice(device) ? 'translateY(15px)' : 'translateY(30px) rotate(-2deg)',
             smallDevice(device) ? 500 : 800, delay, 'cubic-bezier(.22,.61,.36,1)', device);
-          return;
+          continue;
         }
 
         if (semantic === 'heading') {
@@ -341,21 +350,21 @@
             (hero ? 'translateY(40px)' : 'translateY(25px)'),
           hero ? (smallDevice(device) ? 550 : 800) : (smallDevice(device) ? 450 : 650), delay,
           'cubic-bezier(.22,.61,.36,1)', device);
-          return;
+          continue;
         }
 
         if (semantic === 'body-copy' || semantic === 'eyebrow-or-caption' || semantic === 'action-label') {
           const delay = hero ? 200 + position * 100 : footer ? position * 80 : 100 + position * (smallDevice(device) ? 100 : 100);
           animateOnce(target, smallDevice(device) ? 'translateY(12px)' : 'translateY(15px)',
             smallDevice(device) ? 450 : 650, delay, 'cubic-bezier(.22,.61,.36,1)', device);
-          return;
+          continue;
         }
 
         if (semantic === 'form-control') {
           animateOnce(target, smallDevice(device) ? 'translateY(12px)' : 'translateY(20px)',
             smallDevice(device) ? 450 : 650, position * 120,
             'cubic-bezier(.22,.61,.36,1)', device);
-          return;
+          continue;
         }
 
         if (semantic === 'menu-toggle-label' || semantic === 'navigation-label') {

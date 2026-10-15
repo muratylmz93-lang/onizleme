@@ -3,6 +3,7 @@
   const hero = document.querySelector('.hero');
   const heroArt = document.querySelector('.hero-camera');
   const heroCameraInner = document.querySelector('.hero-camera-inner');
+  const visibleHero = () => document.querySelector('.desktop-cms-section-stage .hero') || hero;
   const masthead = document.querySelector('.masthead');
   const quickContact = document.querySelector('.quick-contact');
   const menuToggle = document.querySelector('.menu-toggle');
@@ -92,14 +93,19 @@
   heroPhoto.src = 'assets/hero-clean-base.png';
   if (heroPhoto.complete) heroReady();
 
-  const heroObserver = new IntersectionObserver(([entry]) => {
-    if (entry.isIntersecting) hero.classList.add('camera-active');
-    else hero.classList.remove('camera-active');
+  const heroObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => entry.target.classList.toggle('camera-active', canAnimate && entry.isIntersecting));
   }, { threshold: 0.01 });
   if (hero) heroObserver.observe(hero);
   heroCameraInner?.addEventListener('animationend', (event) => {
     if (event.animationName === 'hero-camera-arrive' || event.animationName === 'hero-camera-arrive-mobile') {
       heroCameraInner.classList.add('camera-entered');
+    }
+  });
+  document.addEventListener('animationend', (event) => {
+    if (event.target.matches?.('.desktop-cms-section-stage .hero-camera-inner') &&
+        ['hero-camera-arrive','hero-camera-arrive-mobile'].includes(event.animationName)) {
+      event.target.classList.add('camera-entered');
     }
   });
   const fleetCards = document.querySelectorAll('.fleet-drag-card');
@@ -129,6 +135,31 @@
   });
   let fleetDrag = null;
   let fleetShift = 0;
+  let fleetDragUnderlay = null;
+  const fleetLimits = () => {
+    const extras = Number(document.documentElement.dataset.homeFleetExtraCount || 0);
+    const pitch = Number(document.documentElement.dataset.homeFleetPitchSource || 141);
+    return { min: -Math.max(50, Math.max(0, extras) * pitch), max: 50 };
+  };
+  const updateFleetShift = (value) => {
+    const limits = fleetLimits();
+    fleetShift = Math.max(limits.min, Math.min(limits.max, value));
+    const shiftLength = `${fleetShift / 809 * 100}cqw`;
+    artCanvas?.style.setProperty('--fleet-shift', shiftLength);
+    artHotspots?.style.setProperty('--fleet-shift', shiftLength);
+    artCanvas?.classList.toggle('has-fleet-shift', Math.abs(fleetShift) > 0.01);
+    document.documentElement.style.setProperty('--cms-home-fleet-shift', shiftLength);
+    if (Math.abs(fleetShift) > 0.01 && !fleetDragUnderlay && artCanvas) {
+      fleetDragUnderlay = document.createElement('img');
+      fleetDragUnderlay.className = 'home-fleet-drag-underlay';
+      fleetDragUnderlay.alt = '';
+      fleetDragUnderlay.setAttribute('aria-hidden', 'true');
+      fleetDragUnderlay.src = 'assets/home-fleet-drag-underlay-v3.png';
+      artCanvas.prepend(fleetDragUnderlay);
+    }
+    if (fleetDragUnderlay) fleetDragUnderlay.style.display = Math.abs(fleetShift) > 0.01 ? 'block' : 'none';
+  };
+  window.addEventListener('fora:home-fleet-collection', () => updateFleetShift(fleetShift));
   if (artCanvas && artHotspots && fleetCards.length) {
     artHotspots.addEventListener('pointerdown', (event) => {
       const rect = artCanvas.getBoundingClientRect();
@@ -141,14 +172,13 @@
       const delta = (event.clientX - fleetDrag.x) * 809 / artCanvas.getBoundingClientRect().width;
       if (Math.abs(delta) > 4) {
         fleetDrag.moved = true;
+        artCanvas.classList.add('is-fleet-dragging');
         if (!fleetDrag.captured) {
           artHotspots.setPointerCapture(event.pointerId);
           fleetDrag.captured = true;
         }
       }
-      fleetShift = Math.max(-50, Math.min(50, fleetDrag.origin + delta));
-      artCanvas.style.setProperty('--fleet-shift', `${fleetShift}px`);
-      artHotspots.style.setProperty('--fleet-shift', `${fleetShift}px`);
+      updateFleetShift(fleetDrag.origin + delta);
     });
     const endFleetDrag = (event) => {
       if (!fleetDrag || fleetDrag.pointerId !== event.pointerId) return;
@@ -157,10 +187,61 @@
         artHotspots.addEventListener('click', suppress, true);
       }
       fleetDrag = null;
+      artCanvas.classList.remove('is-fleet-dragging');
     };
     artHotspots.addEventListener('pointerup', endFleetDrag);
     artHotspots.addEventListener('pointercancel', endFleetDrag);
   }
+  // Reordered CMS bands contain cloned links, so they need delegated pointer
+  // handling after the original artwork has been hidden.
+  let stagedFleetDrag = null;
+  const paintStagedFleet = (band, value) => {
+    const limits = fleetLimits();
+    const shift = Math.max(limits.min, Math.min(limits.max, value));
+    const length = `${shift / 809 * 100}cqw`;
+    band.dataset.fleetShift = String(shift);
+    band.style.setProperty('--fleet-shift', length);
+    const stage = band.closest('.desktop-cms-section-stage');
+    stage?.classList.toggle('has-fleet-shift', Math.abs(shift) > .01);
+    band.querySelectorAll('.fleet-drag-card,[class*="home-art-fleet-photo-"],a[class*="hotspot-fleet-"]').forEach(node => {
+      if (node.classList.contains('hotspot-fleet-link')) return;
+      if (!node.hasAttribute('data-fleet-base-transform')) node.dataset.fleetBaseTransform = node.style.transform === 'none' ? '' : node.style.transform;
+      node.style.transform = `translateX(${length}) ${node.dataset.fleetBaseTransform || ''}`.trim();
+    });
+    let plate = band.querySelector('.home-fleet-drag-underlay');
+    if (!plate && Math.abs(shift) > .01) {
+      plate = document.createElement('img');
+      plate.className = 'home-fleet-drag-underlay'; plate.alt = ''; plate.setAttribute('aria-hidden','true');
+      plate.src = 'assets/home-fleet-drag-underlay-v3.png';
+      Object.assign(plate.style,{position:'absolute',left:'20.27194067cqw',top:'6.18046972cqw',width:'79.72805933cqw',height:'28.43016069cqw',zIndex:'1',pointerEvents:'none',transform:'none',clipPath:'polygon(16.81087763cqw 0,100% 0,100% 100%,0 100%,0 7.41656366cqw,16.81087763cqw 7.41656366cqw)'});
+      band.prepend(plate);
+    }
+    if (plate) plate.style.display = Math.abs(shift) > .01 ? 'block' : 'none';
+    return shift;
+  };
+  document.addEventListener('pointerdown', event => {
+    const band = event.target.closest?.('.desktop-cms-section-band[data-cms-section-id="fleet"]');
+    if (!band || !event.target.closest('a[class*="hotspot-fleet-"]') || event.target.closest('.hotspot-fleet-link')) return;
+    stagedFleetDrag = {band,id:event.pointerId,x:event.clientX,origin:Number(band.dataset.fleetShift || 0),moved:false};
+  });
+  document.addEventListener('pointermove', event => {
+    if (!stagedFleetDrag || event.pointerId !== stagedFleetDrag.id) return;
+    const drag = stagedFleetDrag;
+    const delta = (event.clientX - drag.x) * 809 / drag.band.getBoundingClientRect().width;
+    if (Math.abs(delta) > 4) {drag.moved = true; drag.band.setPointerCapture(event.pointerId);}
+    if (drag.moved) paintStagedFleet(drag.band,drag.origin + delta);
+  });
+  const endStagedFleet = event => {
+    if (!stagedFleetDrag || event.pointerId !== stagedFleetDrag.id) return;
+    if (stagedFleetDrag.moved) {
+      const band = stagedFleetDrag.band;
+      const suppress = click => {click.preventDefault();click.stopPropagation();band.removeEventListener('click',suppress,true);};
+      band.addEventListener('click',suppress,true);
+    }
+    stagedFleetDrag = null;
+  };
+  document.addEventListener('pointerup',endStagedFleet);
+  document.addEventListener('pointercancel',endStagedFleet);
   masthead?.addEventListener('animationend', (event) => {
     if (event.animationName !== 'header-arrive' && event.animationName !== 'header-arrive-mobile') return;
     masthead.classList.add('header-arrived');
@@ -170,12 +251,22 @@
   });
 
   const contact = document.querySelector('#iletisim');
+  let contactObserver = null;
   if (contact && quickContact) {
-    const contactObserver = new IntersectionObserver(([entry]) => {
+    contactObserver = new IntersectionObserver(([entry]) => {
       quickContact.classList.toggle('is-contact-visible', entry.isIntersecting);
     }, { threshold: 0.2 });
     contactObserver.observe(contact);
   }
+  window.addEventListener('fora:desktop-sections-stage', (event) => {
+    heroObserver.disconnect();
+    const currentHero = event.detail?.active ? event.detail.stage?.querySelector('.hero') : hero;
+    if (currentHero) heroObserver.observe(currentHero);
+    contactObserver?.disconnect();
+    const currentContact = event.detail?.active ? event.detail.footerAnchor : contact;
+    if (currentContact) contactObserver?.observe(currentContact);
+    window.dispatchEvent(new Event('scroll'));
+  });
 
   const applyMotionPreference = () => {
     canAnimate = !motionQuery.matches;
@@ -188,15 +279,16 @@
           visibleOnce.observe(node);
         }
       });
-      if (hero && hero.getBoundingClientRect().bottom > 0 && hero.getBoundingClientRect().top < window.innerHeight) {
-        hero.classList.add('camera-active');
+      const currentHero = visibleHero();
+      if (currentHero && currentHero.getBoundingClientRect().bottom > 0 && currentHero.getBoundingClientRect().top < window.innerHeight) {
+        currentHero.classList.add('camera-active');
       }
       return;
     }
     document.documentElement.classList.remove('motion-ready');
     visibleOnce.disconnect();
     document.body.classList.add('hero-ready');
-    hero?.classList.remove('camera-active');
+    document.querySelectorAll('.hero').forEach(node => node.classList.remove('camera-active'));
     if (heroArt) heroArt.style.removeProperty('--hero-scroll-scale');
     if (heroArt) heroArt.style.removeProperty('--hero-scroll-y');
     document.querySelectorAll('.hero h1, .hero .hero-copy').forEach((node) => {
@@ -220,9 +312,13 @@
   const clamp = (v) => Math.max(0, Math.min(1, v));
   const paintScrollState = () => {
     const y = window.scrollY;
-    const heroBottom = hero ? hero.getBoundingClientRect().bottom + y : 0;
-    const pastHero = y > 80;
-    const afterHero = y > heroBottom - 80;
+    const currentHero = visibleHero();
+    const currentHeroArt = currentHero?.querySelector('.hero-camera') || heroArt;
+    const heroRect = currentHero?.getBoundingClientRect();
+    const heroTop = heroRect ? heroRect.top + y : 0;
+    const heroBottom = heroRect ? heroRect.bottom + y : 0;
+    const pastHero = y >= heroBottom && y > 80;
+    const afterHero = y >= heroBottom && y > 80;
     if (y > 0) document.body.classList.add('has-scrolled');
     const delta = y - previousY;
     if (Math.sign(delta) === direction) directionTravel += Math.abs(delta);
@@ -233,14 +329,14 @@
       else if (directionTravel >= 12) masthead.classList.toggle('is-hidden', direction > 0);
     }
     if (quickContact) quickContact.classList.toggle('is-visible', afterHero);
-    if (canAnimate && !window.matchMedia('(max-width: 650px)').matches && hero) {
-      const progress = clamp(y / 500);
-      const title = hero.querySelector('.source-title-glyphs') || hero.querySelector('h1');
+    if (canAnimate && !window.matchMedia('(max-width: 650px)').matches && currentHero) {
+      const progress = clamp((y - heroTop) / 500);
+      const title = currentHero.querySelector('.source-title-glyphs') || currentHero.querySelector('h1');
       if (title) {
         title.style.setProperty('--hero-title-shift', `${-progress * 60}px`);
         title.style.setProperty('--hero-title-opacity', String(1 - progress));
       }
-      if (heroArt) heroArt.style.setProperty('--hero-scroll-y', `${-progress * 45}px`);
+      if (currentHeroArt) currentHeroArt.style.setProperty('--hero-scroll-y', `${-progress * 45}px`);
       const story = document.querySelector('.story');
       if (story) {
         const storyProgress = clamp((window.innerHeight - story.getBoundingClientRect().top) / (window.innerHeight + story.offsetHeight));

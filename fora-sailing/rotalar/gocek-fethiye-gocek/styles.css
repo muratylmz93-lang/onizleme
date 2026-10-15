@@ -5,7 +5,7 @@
 /* Source-faithful motion layers: overlay crops are exact pixels from the reference. */
 .source-header img{animation:header-enter 500ms ease-out both}@keyframes header-enter{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
 .hero-edge{z-index:0}
-.art-card{z-index:5;overflow:visible}.photo-art-group{z-index:4;overflow:visible;pointer-events:none}
+.art-card{z-index:5;overflow:visible}.photo-art-group{position:absolute;z-index:4;overflow:visible;pointer-events:none}
 .art-card::before,.art-card::after,.photo-art-group::before,.photo-art-group::after{content:"";position:absolute;inset:0;pointer-events:none}
 .art-card::before,.photo-art-group::before{z-index:1;background:#f7f3e9;opacity:0}
 .art-card::after,.photo-art-group::after{z-index:2;background-image:var(--art-src);background-size:100% 100%;background-repeat:no-repeat;opacity:0;will-change:transform,opacity}
@@ -78,4 +78,30 @@ html{scrollbar-width:none}html::-webkit-scrollbar,body::-webkit-scrollbar{displa
  .hero-static{display:block!important;opacity:1!important}
  .hero-title-line{display:none!important}
  .copy-motion{display:none!important}
+}
+
+
+/* Normal-motion localized hero entry. At rest the original source raster is exact. */
+.canvas.hero-window-container{container-type:inline-size}
+@media(prefers-reduced-motion:no-preference){
+ .canvas .hero-motion{display:none!important}
+ .canvas .hero-static{display:block!important;opacity:1!important;transform:none!important;animation:none!important}
+ .canvas .hero-title-line{display:none;opacity:0;transform:translateY(40px);animation:none}
+ .canvas .copy-motion.hero-copy{display:none!important}
+ .canvas .hero-motion-window,.canvas .hero-title-clean-window{position:absolute;inset:0;display:none;pointer-events:none;z-index:auto}
+ .canvas .hero-title-clean-window{z-index:3}
+ .canvas.hero-entry-active .hero-motion-window,
+ .canvas.hero-entry-active .hero-title-clean-window{display:block}
+ .canvas.hero-entry-active .hero-title-line{display:block;z-index:4;animation:title-enter 800ms cubic-bezier(.2,.7,.2,1) both;animation-delay:var(--title-delay,0ms)}
+ .canvas.hero-entry-active .copy-motion.hero-copy{display:block!important}
+ .canvas.hero-scroll-active .hero-motion-window,
+ .canvas.hero-scroll-active .hero-title-clean-window,
+ .canvas.hero-scroll-active .copy-motion.hero-copy{display:block!important}
+ .canvas.hero-scroll-active .hero-title-line{display:block;animation:none!important;z-index:4}
+
+}/* During the one-shot hero intro, cover contaminated label clean crops with the original pill colors. */
+@media(prefers-reduced-motion:no-preference){
+ .canvas.hero-entry-active .copy-motion.hero-copy[data-copy-id="hero-cta-label"],.canvas.hero-scroll-active .copy-motion.hero-copy[data-copy-id="hero-cta-label"]{background:#efd09a;border-radius:999px}
+ .canvas.hero-entry-active .copy-motion.hero-copy[data-copy-id="hero-whatsapp-label"],.canvas.hero-scroll-active .copy-motion.hero-copy[data-copy-id="hero-whatsapp-label"]{background:#082d43;border-radius:999px}
+ .canvas.hero-entry-active .copy-motion.hero-copy[data-copy-id="hero-cta-label"] .copy-clean,.canvas.hero-scroll-active .copy-motion.hero-copy[data-copy-id="hero-cta-label"] .copy-clean,.canvas.hero-entry-active .copy-motion.hero-copy[data-copy-id="hero-whatsapp-label"] .copy-clean,.canvas.hero-scroll-active .copy-motion.hero-copy[data-copy-id="hero-whatsapp-label"] .copy-clean{visibility:hidden!important}
 }

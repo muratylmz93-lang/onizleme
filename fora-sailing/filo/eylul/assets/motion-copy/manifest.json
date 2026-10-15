@@ -160,7 +160,8 @@
       "sampleText": "Geniş güvertesi, zarif tasarımı ve sıcak atmosferiyle Eylül, denizin ritminde sakin ve konforlu bir yolculuk sunar.",
       "glyph": "story-copy-glyph.png",
       "cleanPatch": "story-copy-clean.png",
-      "ink": "dark"
+      "ink": "dark",
+      "cmsCleanPatch": "story-copy-cms-clean.png"
     },
     {
       "id": "quote-heading",
@@ -182,7 +183,8 @@
       "sampleText": "Eylül İçin Teklif Alın",
       "glyph": "quote-heading-glyph.png",
       "cleanPatch": "quote-heading-clean.png",
-      "ink": "light"
+      "ink": "light",
+      "cmsCleanPatch": "quote-heading-cms-clean-v3.png"
     },
     {
       "id": "quote-copy",

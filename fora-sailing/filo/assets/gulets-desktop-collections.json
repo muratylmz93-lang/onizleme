@@ -419,40 +419,40 @@
       "titleSourceText": "Zel",
       "titleFont": "Georgia, 'Times New Roman', serif",
       "titleColor": "#102c4a",
-      "maskArtwork": "assets/cms-collection-cards/gulet-4-hidden-mask-v4.png",
+      "maskArtwork": "assets/cms-collection-cards/gulet-4-hidden-mask-v8.png",
       "maskArtworkPolygon": [
         [
           0,
           0
         ],
         [
-          425,
+          417,
           0
         ],
         [
-          425,
-          250
+          417,
+          242
         ],
         [
           0,
-          250
+          242
         ]
       ],
       "maskArtworkRect": [
         0,
         0,
-        425,
-        250
+        417,
+        242
       ],
-      "maskArtworkFillType": "source-context-clean-underlay",
-      "maskArtworkSource": "fleet-underlay-no-cards-v1.png",
+      "maskArtworkFillType": "localized-paper-only-inpaint-tight-card",
+      "maskArtworkSource": "fleet-bottom-paper-candidate.png",
       "maskArtworkCanvasRect": [
-        90,
-        886,
-        515,
-        1136
+        94,
+        890,
+        511,
+        1132
       ],
-      "maskEdgeFeatherPx": 3,
+      "maskEdgeFeatherPx": 8,
       "photoRect": [
         2,
         3,
@@ -494,16 +494,17 @@
       },
       "sourceLayerOrder": 4,
       "maskRect": [
-        90,
-        886,
-        515,
-        1136
+        94,
+        890,
+        511,
+        1132
       ],
       "maskArtworkDimensions": [
-        425,
-        250
+        417,
+        242
       ],
-      "maskVersion": 4
+      "maskVersion": 8,
+      "maskAlphaMode": "card-core-opaque-tight-falloff"
     },
     {
       "slotId": "gulet-5",
@@ -537,40 +538,40 @@
       "titleSourceText": "Getaway",
       "titleFont": "Georgia, 'Times New Roman', serif",
       "titleColor": "#102c4a",
-      "maskArtwork": "assets/cms-collection-cards/gulet-5-hidden-mask-v4.png",
+      "maskArtwork": "assets/cms-collection-cards/gulet-5-hidden-mask-v8.png",
       "maskArtworkPolygon": [
         [
           0,
           0
         ],
         [
-          425,
+          417,
           0
         ],
         [
-          425,
-          250
+          417,
+          242
         ],
         [
           0,
-          250
+          242
         ]
       ],
       "maskArtworkRect": [
         0,
         0,
-        425,
-        250
+        417,
+        242
       ],
-      "maskArtworkFillType": "source-context-clean-underlay",
-      "maskArtworkSource": "fleet-underlay-no-cards-v1.png",
+      "maskArtworkFillType": "localized-paper-only-inpaint-tight-card",
+      "maskArtworkSource": "fleet-bottom-paper-candidate.png",
       "maskArtworkCanvasRect": [
-        508,
-        886,
-        933,
-        1136
+        512,
+        890,
+        929,
+        1132
       ],
-      "maskEdgeFeatherPx": 3,
+      "maskEdgeFeatherPx": 8,
       "photoRect": [
         3,
         3,
@@ -612,17 +613,41 @@
       },
       "sourceLayerOrder": 5,
       "maskRect": [
-        508,
-        886,
-        933,
-        1136
+        512,
+        890,
+        929,
+        1132
       ],
       "maskArtworkDimensions": [
-        425,
-        250
+        417,
+        242
       ],
-      "maskVersion": 4
+      "maskVersion": 8,
+      "maskAlphaMode": "card-core-opaque-tight-falloff"
     }
   ],
-  "coordinateFormat": "LTRB-exclusive for canvasRect/cardRect; local pixels for text/photo polygons"
+  "coordinateFormat": "LTRB-exclusive for canvasRect/cardRect; local pixels for text/photo polygons",
+  "conditionalUnderlays": [
+    {
+      "id": "fleet-lower",
+      "path": "assets/cms-collection-cards/fleet-lower-context-underlay-v2.png",
+      "rect": [
+        0,
+        820,
+        1024,
+        1160
+      ],
+      "whenAnyMissing": [
+        "gulet-4",
+        "gulet-5"
+      ],
+      "coversSlots": [
+        "gulet-4",
+        "gulet-5"
+      ],
+      "zIndex": 4,
+      "source": "localized-cleanup-of-bottom-card-canvas",
+      "defaultBehavior": "absent"
+    }
+  ]
 }
