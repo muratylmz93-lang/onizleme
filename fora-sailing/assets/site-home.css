@@ -1,0 +1,234 @@
+.fora-home {
+  --home-ocean: var(--navy, #032b40);
+  --home-deep: #05263a;
+  --home-blue: #0a4966;
+  --home-cream: var(--paper, #f7f2e8);
+  --home-paper: #fffdf7;
+  --home-gold: var(--gold, #f2cf8c);
+  --home-ink: var(--text, #0d3045);
+  --home-body: #203f50;
+  --home-serif: var(--font-display, "Cormorant Garamond", Georgia, serif);
+  --home-sans: var(--font-body, Inter, Arial, sans-serif);
+  position: relative;
+  width: 100%;
+  overflow: clip;
+  color: var(--home-ink);
+  background: var(--home-cream);
+  font-family: var(--home-sans);
+  container-type: inline-size;
+  isolation: isolate;
+}
+
+.fora-home *, .fora-home *::before, .fora-home *::after { box-sizing: border-box; }
+.fora-home img { display: block; max-width: 100%; }
+.fora-home a { color: inherit; }
+.fora-home section { position: relative; width: 100%; overflow: hidden; }
+.fora-home h1, .fora-home h2, .fora-home p, .fora-home ul, .fora-home figure { margin: 0; }
+.fora-home h1, .fora-home h2 { font-family: var(--home-serif); font-weight: 500; letter-spacing: -.045em; }
+.fora-home h2 { font-size: 4.25cqw; line-height: .99; }
+.fora-home p { line-height: 1.45; }
+.fora-home .home-light { color: #fffdf7; }
+.fora-home .home-eyebrow { margin-bottom: 1.15cqw; font-size: 1.02cqw; font-weight: 700; letter-spacing: .2em; line-height: 1.2; text-transform: uppercase; }
+.fora-home .home-hand { font-family: Caveat, cursive; font-size: 2.7cqw; font-weight: 500; line-height: .95; white-space: pre-line; }
+.fora-home .home-text-link { display: inline-flex; align-items: center; gap: .65em; padding: .35em 0 .2em; border-bottom: 1px solid currentColor; color: var(--home-ink); font-size: 1.27cqw; font-weight: 650; text-decoration: none; }
+.fora-home .home-light-link { color: var(--home-gold); }
+.fora-home .home-button { display: inline-flex; min-height: 4.2cqw; align-items: center; justify-content: center; padding: 0 2.2cqw; border: 1px solid transparent; border-radius: 99px; font-size: 1.24cqw; font-weight: 700; text-decoration: none; transition: background-color .2s ease, color .2s ease, transform .2s ease; }
+.fora-home .home-link-icon { width: 1.35em; height: 1.35em; flex: 0 0 auto; }
+.fora-home .home-button-gold .home-link-icon { filter: brightness(0); }
+.fora-home .home-button-outline .home-link-icon { filter: brightness(0) invert(1); }
+.fora-home .home-hero-actions .home-button-gold { padding-inline: 4.5cqw; }
+.fora-home .home-button:hover { transform: translateY(-2px); }
+.fora-home .home-button-gold { background: var(--home-gold); color: var(--home-deep); }
+.fora-home .home-button-gold:hover { background: #ffe0a4; }
+.fora-home .home-button-outline { border-color: rgba(255,255,255,.82); color: #fff; }
+.fora-home .home-button-outline:hover { background: rgba(255,255,255,.12); }
+.fora-home a:focus-visible { outline: 3px solid #ffdc90; outline-offset: 4px; }
+
+.fora-home .home-hero { height: 55cqw; min-height: 360px; color: #fff; background: var(--home-deep); }
+.fora-home .home-hero-photo, .fora-home .home-hero-shade { position: absolute; inset: 0; width: 100%; height: 100%; }
+.fora-home .home-hero-photo { object-fit: cover; object-position: 50% 47%; }
+.fora-home .home-hero-shade { background: linear-gradient(90deg, rgba(1,31,49,.82) 0%, rgba(1,31,49,.55) 42%, rgba(1,31,49,.04) 76%), linear-gradient(0deg, rgba(0,28,44,.72), transparent 27%); }
+.fora-home .home-hero-content { position: absolute; z-index: 1; top: 11.1cqw; left: 4.9cqw; width: 48cqw; }
+.fora-home .home-hero .home-eyebrow { margin-bottom: 1.4cqw; }
+.fora-home .home-hero h1 { display: flex; flex-direction: column; max-width: 50cqw; color: #fff; font-size: 7.2cqw; line-height: .85; }
+.fora-home .home-hero h1 span { display: block; }
+.fora-home .home-hero-description { max-width: 37cqw; margin-top: 1.45cqw; color: rgba(255,255,255,.93); font-size: 1.65cqw; line-height: 1.28; white-space: pre-line; }
+.fora-home .home-hero-actions { display: flex; flex-wrap: wrap; gap: 1.1cqw; margin-top: 2.2cqw; }
+.fora-home .home-proof { position: absolute; top: 34.8cqw; left: 0; display: grid; width: 55cqw; grid-template-columns: repeat(4, 1fr); padding: 0; list-style: none; }
+.fora-home .home-proof li { display: flex; min-height: 4.1cqw; flex-direction: column; justify-content: center; padding: 0 1.2cqw; border-right: 1px solid rgba(255,255,255,.3); }
+.fora-home .home-proof li:first-child { padding-left: 0; }
+.fora-home .home-proof li:last-child { border: 0; }
+.fora-home .home-proof-stat { display: flex; align-items: center; gap: .55cqw; }
+.fora-home .home-proof-icon { width: 2.35cqw; height: 2.35cqw; flex: 0 0 auto; }
+.fora-home .home-proof strong { font-family: var(--home-serif); font-size: 2.7cqw; font-weight: 500; line-height: 1; }
+.fora-home .home-proof li > span { margin-top: .35cqw; font-size: 1cqw; line-height: 1.15; }
+.fora-home .home-hero-note { position: absolute; z-index: 1; top: 23cqw; right: 4.3cqw; width: 12cqw; color: #fff; text-align: center; transform: rotate(-8deg); }
+.fora-home .home-discover { position: absolute; right: 4.5cqw; bottom: 2cqw; display: grid; width: 6.7cqw; height: 6.7cqw; place-content: center; gap: .3cqw; border: 1px solid rgba(255,255,255,.78); border-radius: 50%; color: white; font-size: .9cqw; letter-spacing: .14em; text-align: center; text-decoration: none; text-transform: uppercase; }
+.fora-home .home-discover img { width: 1.5cqw; height: 1.5cqw; margin-inline: auto; filter: brightness(0) invert(1); }
+
+.fora-home .home-story { display: grid; min-height: 32cqw; grid-template-columns: 39% 1fr; align-items: center; padding: 3.2cqw 5cqw; background: var(--home-cream); }
+.fora-home .home-story-copy { position: relative; z-index: 2; max-width: 32cqw; }
+.fora-home .home-story-copy h2 { margin-bottom: 1.3cqw; }
+.fora-home .home-story-copy > p:not(.home-eyebrow) { max-width: 29cqw; margin-bottom: 1.2cqw; color: var(--home-body); font-size: 1.4cqw; white-space: pre-line; }
+.fora-home .home-story-compass { position: absolute; z-index: 1; top: 2.8cqw; left: 35.5cqw; width: 8.5cqw; height: 8.5cqw; opacity: .42; pointer-events: none; }
+.fora-home .home-story-photos { position: relative; height: 25cqw; }
+.fora-home .home-story-main { position: absolute; top: 7%; left: 0; width: 76%; height: 88%; border: .7cqw solid var(--home-paper); border-radius: .6cqw; object-fit: cover; object-position: 50% 48%; box-shadow: 0 1.2cqw 3.2cqw rgba(8,40,54,.18); transform: rotate(-2deg); }
+.fora-home .home-story-side { position: absolute; top: 18%; right: 0; width: 32%; height: 54%; border: .6cqw solid var(--home-paper); border-radius: .5cqw; object-fit: cover; object-position: 50% 45%; transform: rotate(3deg); }
+.fora-home .home-story-play { position: absolute; top: 50%; left: 39%; display: grid; width: 6.5cqw; height: 6.5cqw; place-items: center; border: 1px solid white; border-radius: 50%; background: rgba(3,43,64,.55); color: white; text-decoration: none; transform: translate(-50%,-50%); }
+.fora-home .home-story-play img { width: 1.7cqw; height: 1.7cqw; filter: brightness(0) invert(1); }
+.fora-home .home-story-note { position: absolute; right: 5cqw; bottom: 3cqw; max-width: 11cqw; color: #315166; text-align: center; transform: rotate(5deg); }
+
+.fora-home .home-routes { min-height: 48cqw; padding: 5.3cqw 4.8cqw 3.4cqw; color: white; background: var(--home-ocean); }
+.fora-home .home-routes-scene { position: absolute; inset: 0; overflow: hidden; opacity: .26; }
+.fora-home .home-routes-water { width: 100%; height: 100%; object-fit: cover; object-position: 48% 64%; filter: saturate(.82) brightness(.68); }
+.fora-home .home-routes::after { position: absolute; inset: 0; z-index: 0; background: linear-gradient(110deg, rgba(2,37,56,.72), rgba(2,37,56,.08)); content: ""; pointer-events: none; }
+.fora-home .home-section-heading { position: relative; z-index: 1; max-width: 40cqw; }
+.fora-home .home-section-heading h2 { margin-bottom: 1.1cqw; }
+.fora-home .home-section-heading > p:not(.home-eyebrow) { max-width: 34cqw; margin-bottom: 1.4cqw; font-size: 1.35cqw; }
+.fora-home .home-route-rail { position: relative; z-index: 1; display: flex; gap: 1.3cqw; margin: 3.2cqw -1.4cqw 0; padding: .8cqw 1.4cqw 1.1cqw; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.fora-home .home-route-map { position: absolute; z-index: 1; top: 5cqw; right: 4.8cqw; width: 44cqw; height: 15cqw; margin: 0; pointer-events: none; }
+.fora-home .home-route-map-path { position: absolute; top: 51%; right: 7%; left: 7%; height: 2px; background: repeating-linear-gradient(90deg, rgba(255,255,255,.8) 0 4px, transparent 4px 9px); transform: rotate(-8deg); }
+.fora-home .home-route-stop { position: absolute; display: inline-flex; align-items: center; gap: .35cqw; color: #fff; font-size: 1.05cqw; white-space: nowrap; text-shadow: 0 1px 4px rgba(0,0,0,.45); }
+.fora-home .home-route-stop img { width: 1.55cqw; height: 1.9cqw; filter: brightness(0) invert(1); }
+.fora-home .home-route-stop-start { top: 18%; left: 5%; }
+.fora-home .home-route-stop-middle { top: 27%; left: 45%; }
+.fora-home .home-route-stop-end { top: 65%; right: 3%; }
+.fora-home .home-routes > .fora-route-map { position: absolute; z-index: 1; top: 5cqw; right: 4.8cqw; width: 44cqw; margin: 0; pointer-events: none; }
+.fora-home .home-route-rail::-webkit-scrollbar, .fora-home .home-fleet-rail::-webkit-scrollbar, .fora-home .home-review-photos::-webkit-scrollbar { display: none; }
+.fora-home .home-route-card, .fora-home .home-fleet-card { position: relative; display: flex; flex: 0 0 22.8%; min-width: 0; flex-direction: column; overflow: hidden; border: 1px solid rgba(255,255,255,.75); border-radius: .9cqw; background: var(--home-paper); color: var(--home-ink); text-decoration: none; scroll-snap-align: start; }
+.fora-home .home-route-photo { width: 100%; height: 10cqw; object-fit: cover; object-position: center; }
+.fora-home .home-card-copy { display: grid; gap: .45cqw; padding: 1.2cqw 1.35cqw 1.5cqw; }
+.fora-home .home-card-copy strong { font-family: var(--home-serif); font-size: 1.4cqw; line-height: 1.1; }
+.fora-home .home-card-copy > span { color: #426074; font-size: 1.05cqw; line-height: 1.25; }
+.fora-home .home-fleet-card .home-card-copy > span i { display: inline-block; width: 1px; height: .95em; margin: 0 .6em; background: #9badb7; vertical-align: -.08em; }
+
+.fora-home .home-fleet { display: grid; min-height: 28cqw; grid-template-columns: 18% 1fr; align-items: center; gap: 1.5cqw; padding: 3cqw 4.8cqw; background: var(--home-cream); }
+.fora-home .home-fleet .home-section-heading { max-width: none; }
+.fora-home .home-fleet .home-section-heading > p:not(.home-eyebrow) { margin-bottom: 1.2cqw; }
+.fora-home .home-fleet-rail { display: flex; gap: 1.05cqw; min-width: 0; overflow-x: auto; padding: .6cqw .4cqw 1cqw; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.fora-home .home-fleet-card { flex-basis: 17.5%; border-color: #e7e2d8; box-shadow: 0 .6cqw 1.7cqw rgba(12,44,60,.08); }
+.fora-home .home-fleet-photo { width: 100%; height: 10cqw; object-fit: cover; }
+
+.fora-home .home-offer { display: grid; height: 22cqw; min-height: 22cqw; grid-template-columns: 47% 53%; align-items: center; background: var(--home-ocean); }
+.fora-home .home-offer-photo { width: 100%; height: 100%; min-height: 0; object-fit: cover; object-position: 48% 50%; }
+.fora-home .home-offer-copy { padding: 3cqw 4.5cqw 3cqw 3cqw; }
+.fora-home .home-offer-copy h2 { margin-bottom: 1.3cqw; font-size: 4cqw; }
+.fora-home .home-offer-copy > p:not(.home-eyebrow) { max-width: 42cqw; margin-bottom: 1.5cqw; font-size: 1.35cqw; }
+
+.fora-home .home-benefits { display: grid; min-height: 15cqw; grid-template-columns: 30% 1fr; align-items: center; gap: 2cqw; padding: 2.6cqw 4.8cqw; color: white; background: var(--home-ocean); }
+.fora-home .home-benefit-photo { position: absolute; z-index: -1; inset: 0 0 0 auto; width: 28%; height: 100%; object-fit: cover; object-position: center; opacity: .8; }
+.fora-home .home-benefits h2 { position: relative; z-index: 1; font-size: 3.4cqw; }
+.fora-home .home-benefit-list { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: .6cqw; padding: 0; list-style: none; }
+.fora-home .home-benefit-list li { display: grid; grid-template-columns: 2.2cqw 1fr; column-gap: .55cqw; row-gap: .45cqw; align-content: center; padding: 0 1cqw; border-left: 1px solid rgba(255,255,255,.35); }
+.fora-home .home-benefit-icon { grid-row: 1 / span 2; width: 2.2cqw; height: 2.2cqw; align-self: start; }
+.fora-home .home-benefit-list strong { font-family: var(--home-serif); font-size: 1.3cqw; line-height: 1.1; }
+.fora-home .home-benefit-list span { color: rgba(255,255,255,.8); font-size: .95cqw; line-height: 1.25; }
+
+.fora-home .home-reviews { display: grid; min-height: 20cqw; grid-template-columns: 25% 31% 1fr; align-items: center; gap: 2cqw; padding: 2.3cqw 4.8cqw; background: var(--home-cream); }
+.fora-home .home-reviews-copy h2 { margin-bottom: 1.2cqw; }
+.fora-home .home-reviews-copy .home-eyebrow { max-width: 19cqw; }
+.fora-home .home-review-quote { min-height: 9cqw; padding: 1.4cqw 1.7cqw; border-radius: .7cqw; background: var(--home-paper); box-shadow: 0 .7cqw 2cqw rgba(7,42,60,.1); }
+.fora-home .home-review-quote blockquote { color: var(--home-body); font-family: var(--home-serif); font-size: 1.3cqw; line-height: 1.35; }
+.fora-home .home-review-quote figcaption { display: flex; justify-content: space-between; margin-top: .8cqw; color: var(--home-ink); font-size: 1cqw; font-weight: 700; }
+.fora-home .home-review-quote figcaption span { color: #71838c; font-weight: 400; }
+.fora-home .home-review-photos { display: flex; gap: .7cqw; min-width: 0; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.fora-home .home-review-photos img { flex: 0 0 31%; width: 31%; height: 9cqw; border: .35cqw solid white; border-radius: .45cqw; object-fit: cover; scroll-snap-align: start; }
+.fora-home [data-drag-rail] { cursor: grab; touch-action: pan-x pan-y; }
+.fora-home [data-drag-rail].is-dragging { cursor: grabbing; scroll-snap-type: none; user-select: none; }
+.fora-home [data-drag-rail].is-dragging a { pointer-events: none; }
+.fora-home [data-drag-rail].is-dragging img { user-select: none; -webkit-user-drag: none; }
+
+@media (max-width: 760px) {
+  .fora-home .home-hero { height: 68cqw; min-height: 68cqw; }
+  .fora-home .home-hero-photo { object-position: 55% 48%; }
+  .fora-home .home-hero-shade { background: linear-gradient(90deg, rgba(1,31,49,.72), rgba(1,31,49,.23) 70%), linear-gradient(0deg, rgba(0,28,44,.78), transparent 38%); }
+  .fora-home .home-hero-content { top: 11cqw; right: auto; bottom: 0; left: 7cqw; width: 66cqw; }
+  .fora-home .home-hero .home-eyebrow { margin-bottom: 1.8cqw; font-size: 1.8cqw; }
+  .fora-home .home-hero h1 { max-width: 69cqw; font-size: 9.2cqw; line-height: .78; }
+  .fora-home .home-hero-description { max-width: 58cqw; margin-top: 1.5cqw; font-size: 2.2cqw; }
+  .fora-home .home-hero-actions { display: grid; width: 38cqw; gap: 1.3cqw; margin-top: 1.5cqw; }
+  .fora-home .home-button { min-height: 5.2cqw; padding: 0 2.8cqw; font-size: 1.9cqw; }
+  .fora-home .home-hero-actions .home-button-gold { padding-inline: 2.8cqw; }
+  .fora-home .home-link-icon { width: 1.3em; height: 1.3em; }
+  .fora-home .home-proof { top: auto; bottom: 1.8cqw; left: 6cqw; width: 81cqw; }
+  .fora-home .home-proof li { min-height: 5.8cqw; padding: 0 1.4cqw; }
+  .fora-home .home-proof-icon { width: 3cqw; height: 3cqw; }
+  .fora-home .home-proof strong { font-size: 3.4cqw; }
+  .fora-home .home-proof li > span { font-size: 1.45cqw; }
+  .fora-home .home-hero-note { top: 28cqw; right: 4cqw; width: 16cqw; font-size: 4.2cqw; }
+  .fora-home .home-discover { right: 4.5cqw; bottom: 10cqw; width: 9cqw; height: 9cqw; font-size: 1.45cqw; }
+  .fora-home .home-discover img { width: 2.4cqw; height: 2.4cqw; }
+  .fora-home .home-eyebrow { margin-bottom: 1.7cqw; font-size: 1.75cqw; }
+  .fora-home h2 { font-size: 7.1cqw; }
+  .fora-home .home-text-link { font-size: 2.05cqw; }
+  .fora-home .home-hand { font-size: 4.2cqw; }
+
+  .fora-home .home-story { display: block; height: 43cqw; min-height: 0; padding: 3.5cqw 6.5cqw 0; }
+  .fora-home .home-story-copy { width: 39cqw; max-width: none; }
+  .fora-home .home-story-copy h2 { max-width: 39cqw; margin-bottom: 1.4cqw; font-size: 7.5cqw; }
+  .fora-home .home-story-copy > p:not(.home-eyebrow) { max-width: 37cqw; margin-bottom: .8cqw; font-size: 1.9cqw; line-height: 1.35; }
+  .fora-home .home-story-copy .home-text-link { position: relative; z-index: 2; }
+  .fora-home .home-story-photos { position: absolute; top: 22cqw; right: 2cqw; width: 53cqw; height: 25cqw; }
+  .fora-home .home-story-compass { top: 3.5cqw; left: 50cqw; width: 7cqw; height: 7cqw; opacity: .34; }
+  .fora-home .home-story-main { top: 0; left: 0; width: 72%; height: 90%; border-width: .9cqw; }
+  .fora-home .home-story-side { top: 11%; right: 0; width: 35%; height: 57%; border-width: .8cqw; }
+  .fora-home .home-story-play { width: 8cqw; height: 8cqw; font-size: 1.8cqw; }
+  .fora-home .home-story-note { right: 4cqw; bottom: 3cqw; width: 17cqw; font-size: 4cqw; }
+
+  .fora-home .home-routes { height: 58cqw; min-height: 58cqw; padding: 3cqw 6.5cqw 0; }
+  .fora-home .home-routes-scene { opacity: .24; }
+  .fora-home .home-routes::after { background: linear-gradient(180deg, rgba(2,37,56,.62), rgba(2,37,56,.08)); }
+  .fora-home .home-section-heading { max-width: 76cqw; }
+  .fora-home .home-section-heading h2 { margin-bottom: .8cqw; font-size: 6.8cqw; }
+  .fora-home .home-section-heading > p:not(.home-eyebrow) { max-width: 65cqw; margin-bottom: .7cqw; font-size: 1.65cqw; }
+  .fora-home .home-route-rail { position: absolute; right: 0; bottom: .8cqw; left: 0; gap: 2cqw; margin: 0; padding: .4cqw 6.5cqw .8cqw; }
+  .fora-home .home-route-map { top: 21cqw; right: 6cqw; width: 54cqw; height: 11cqw; }
+  .fora-home .home-routes > .fora-route-map { top: 21cqw; right: 6cqw; width: 54cqw; }
+  .fora-home .home-route-stop { gap: .7cqw; font-size: 1.85cqw; }
+  .fora-home .home-route-stop img { width: 2.7cqw; height: 3.3cqw; }
+  .fora-home .home-route-card { flex-basis: 59cqw; height: 24cqw; border-radius: 1.1cqw; }
+  .fora-home .home-route-photo { height: 13cqw; }
+  .fora-home .home-card-copy { gap: .5cqw; min-height: 10cqw; padding: 1cqw 2cqw 1.2cqw; }
+  .fora-home .home-card-copy strong { font-size: 2.8cqw; }
+  .fora-home .home-card-copy > span { max-width: 47cqw; font-size: 1.9cqw; }
+
+  .fora-home .home-fleet { display: block; height: 42cqw; min-height: 0; padding: 5.5cqw 6.5cqw 2cqw; }
+  .fora-home .home-fleet .home-section-heading { width: 33cqw; }
+  .fora-home .home-fleet .home-section-heading h2 { font-size: 6cqw; }
+  .fora-home .home-fleet .home-section-heading > p:not(.home-eyebrow) { max-width: 32cqw; margin-bottom: .8cqw; font-size: 1.9cqw; }
+  .fora-home .home-fleet-rail { position: absolute; top: 16cqw; left: 34cqw; right: 0; gap: 2cqw; padding: .5cqw 6cqw 1.4cqw 0; }
+  .fora-home .home-fleet-card { flex-basis: 32cqw; border-radius: 1cqw; }
+  .fora-home .home-fleet-photo { height: 16cqw; }
+  .fora-home .home-fleet-card .home-card-copy { min-height: 9cqw; padding: 1.4cqw 1.7cqw; }
+  .fora-home .home-fleet-card .home-card-copy strong { font-size: 2.7cqw; }
+  .fora-home .home-fleet-card .home-card-copy > span { font-size: 1.6cqw; white-space: nowrap; }
+
+  .fora-home .home-offer { height: 25cqw; min-height: 25cqw; grid-template-columns: 55% 45%; }
+  .fora-home .home-offer-photo { min-height: 0; object-position: 32% 50%; }
+  .fora-home .home-offer-copy { padding: 3.5cqw 4cqw 3.5cqw 2cqw; }
+  .fora-home .home-offer-copy h2 { margin-bottom: 1.2cqw; font-size: 6cqw; }
+  .fora-home .home-offer-copy > p:not(.home-eyebrow) { margin-bottom: 1.4cqw; font-size: 1.8cqw; }
+
+  .fora-home .home-benefits { height: 17cqw; min-height: 17cqw; grid-template-columns: 1fr; gap: 1cqw; padding: 1.7cqw 6.5cqw; }
+  .fora-home .home-benefit-photo { width: 34%; opacity: .52; }
+  .fora-home .home-benefits h2 { font-size: 5cqw; }
+  .fora-home .home-benefit-list { grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .fora-home .home-benefit-list li { gap: .55cqw; padding: 0 1.2cqw; }
+  .fora-home .home-benefit-icon { width: 2.7cqw; height: 2.7cqw; }
+  .fora-home .home-benefit-list li:first-child { padding-left: 0; border-left: 0; }
+  .fora-home .home-benefit-list strong { font-size: 1.65cqw; }
+  .fora-home .home-benefit-list span { font-size: 1.15cqw; }
+
+  .fora-home .home-reviews { height: 25.5cqw; min-height: 25.5cqw; grid-template-columns: 27% 34% 1fr; gap: 1.5cqw; padding: 2.5cqw 4.8cqw 2cqw; }
+  .fora-home .home-reviews-copy h2 { font-size: 5cqw; }
+  .fora-home .home-reviews-copy .home-eyebrow { max-width: none; font-size: 1.2cqw; }
+  .fora-home .home-review-quote { min-height: 18cqw; padding: 1.4cqw 1.6cqw; border-radius: 1cqw; }
+  .fora-home .home-review-quote blockquote { font-size: 1.75cqw; }
+  .fora-home .home-review-quote figcaption { margin-top: 1cqw; font-size: 1.35cqw; }
+  .fora-home .home-review-photos { grid-column: auto; gap: .7cqw; }
+  .fora-home .home-review-photos img { flex-basis: 31%; width: 31%; height: 12cqw; border-width: .45cqw; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fora-home *, .fora-home *::before, .fora-home *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
