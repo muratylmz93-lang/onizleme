@@ -88,7 +88,7 @@ html::-webkit-scrollbar{width:0;height:0}
 .metric-sailboat{grid-row:1;grid-column:1;width:3.1cqw;height:3.95cqw;max-width:none;object-fit:contain}
 /* Desktop source art is split into independently positioned section bands. */
 body{position:relative}
-.desktop-source-art{position:absolute;top:0;left:0;width:100%;height:240.2cqw;overflow:hidden;z-index:11;pointer-events:none;transition:opacity 120ms ease}
+.desktop-source-art{position:absolute;top:0;left:0;width:100%;height:240.04944cqw;overflow:hidden;z-index:11;pointer-events:none;transition:opacity 120ms ease}
 .desktop-source-art img{position:absolute;left:0;width:100%;height:auto;max-width:none}
 .desktop-source-art img:nth-child(1){top:0}
 .desktop-source-art img:nth-child(2){top:54.758cqw}
@@ -222,7 +222,7 @@ body.has-scrolled .discover i{animation-play-state:paused}
  .discover i{animation:none!important}
 }
 /* Source-aligned independent home foreground; the wave/background bands stay fixed. */
-.home-foreground-art,.home-art-hotspots{position:absolute;inset:0 auto auto 0;width:100%;height:240.2cqw;pointer-events:none}
+.home-foreground-art,.home-art-hotspots{position:absolute;inset:0 auto auto 0;width:100%;height:240.04944cqw;pointer-events:none}
 .home-foreground-art{z-index:12;overflow:hidden}
 .home-foreground-art img{position:absolute;display:block;max-width:none;object-fit:fill;pointer-events:none;opacity:1;transform:translate(var(--art-x,0px),calc(var(--art-y,0px) + var(--offer-scroll-y,0px) + var(--story-y,0px) + var(--story-side-y,0px)));transition:opacity 650ms ease,transform 650ms cubic-bezier(.2,.7,.2,1)}
 .home-art-hotspots{z-index:13}
