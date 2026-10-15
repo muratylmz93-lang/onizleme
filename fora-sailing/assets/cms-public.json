@@ -1,7 +1,7 @@
 {
   "content": {
     "schemaVersion": 1,
-    "revision": 33,
+    "revision": 38,
     "pages": [
       {
         "id": "ana-sayfa",
@@ -4736,6 +4736,6 @@
       }
     }
   },
-  "revision": 33,
-  "publishedAt": "2026-10-15T02:46:47.690Z"
+  "revision": 38,
+  "publishedAt": "2026-10-15T07:23:00.568Z"
 }

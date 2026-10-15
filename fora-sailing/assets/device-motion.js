@@ -16,9 +16,11 @@
   let contactBar = null;
   let contactScrollHandler = null;
   let contactContentRevision = null;
+  let homeScrollHandler = null;
   let loopAnimation = null;
   let loopTarget = null;
   let loopTimer = 0;
+  let motionWasReduced = false;
 
   const stageSelector = '#fora-device-stage';
   const smallDevice = device => device === 'mobile' || device === 'tablet';
@@ -55,6 +57,8 @@
     contactObserver = null;
     if (contactScrollHandler) window.removeEventListener('scroll', contactScrollHandler);
     contactScrollHandler = null;
+    if (homeScrollHandler) window.removeEventListener('scroll', homeScrollHandler);
+    homeScrollHandler = null;
     contactBar?.remove();
     contactBar = null;
     contactContentRevision = null;
@@ -63,10 +67,11 @@
     fixedHeader?.remove();
     fixedHeader = null;
     currentStage = null;
+    motionWasReduced = false;
   }
 
   function wrapperFor(node) {
-    return node.closest('g') || node.closest('a') || node;
+    return node.closest('g[data-device-node]') || node.closest('a[data-device-node]') || node;
   }
 
   function animateOnce(element, from, duration, delay = 0, easing = 'cubic-bezier(.22,.61,.36,1)', device = 'mobile') {
@@ -98,7 +103,11 @@
       { duration: reducedMotion(device) ? 150 : duration, easing: 'cubic-bezier(.22,.61,.36,1)', fill: 'both' }
     );
     panelAnimation.onfinish = () => {
-      if (!opening) panel.remove();
+      if (!opening) {
+        const opener = panel._foraMenuOpener;
+        panel.remove();
+        if (opener?.isConnected) opener.focus({ preventScroll: true });
+      }
       else panelAnimation.cancel();
     };
     const links = [...panel.querySelectorAll('a')];
@@ -111,9 +120,9 @@
           { duration: reducedMotion(device) ? 150 : 260, delay: reducedMotion(device) ? 0 : index * 60, fill: 'both', easing: 'ease-out' }
         );
         animation.onfinish = () => {
-      element.style.opacity = '1';
-      animation.cancel();
-    };
+          link.style.opacity = '1';
+          animation.cancel();
+        };
       });
     } else {
       links.reverse().forEach((link, index) => {
@@ -124,9 +133,9 @@
           { duration: reducedMotion(device) ? 150 : 260, delay: reducedMotion(device) ? 0 : index * 60, fill: 'both', easing: 'ease-in' }
         );
         animation.onfinish = () => {
-      element.style.opacity = '1';
-      animation.cancel();
-    };
+          link.style.opacity = opening ? '1' : '0';
+          animation.cancel();
+        };
       });
     }
   }
@@ -144,6 +153,7 @@
         for (const node of record.addedNodes) {
           if (!(node instanceof HTMLElement) || !node.matches('.fora-device-menu')) continue;
           node.style.zIndex = '104';
+          node._foraMenuOpener = stage.querySelector('[data-link-semantic="menu-toggle"]');
           contactBar?.classList.add('is-menu-open');
           contactBar?.setAttribute('aria-hidden', 'true');
           contactBar?.querySelectorAll('a').forEach(link => { link.tabIndex = -1; });
@@ -176,16 +186,104 @@
       }
     }, true);
     stage.addEventListener('keydown', event => {
-      if (event.key === 'Escape') closeMenu(stage.querySelector('.fora-device-menu'));
+      const panel = stage.querySelector('.fora-device-menu');
+      if (event.key === 'Escape') {
+        closeMenu(panel);
+        return;
+      }
+      if (event.key !== 'Tab' || !panel) return;
+      const focusable = [...panel.querySelectorAll('button:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])')]
+        .filter(element => !element.hidden && element.getAttribute('aria-hidden') !== 'true');
+      if (!focusable.length) {
+        event.preventDefault();
+        panel.focus();
+        return;
+      }
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && (document.activeElement === first || !panel.contains(document.activeElement))) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && (document.activeElement === last || !panel.contains(document.activeElement))) {
+        event.preventDefault();
+        first.focus();
+      }
     });
   }
 
   function headerHeightFor(svg, board) {
     const width = Number(board?.viewport?.width || viewBox(svg)?.width || 0);
+    const sectionHeight = Number(board?.sections?.find(section => section.sourceSectionId === 'header')?.sourceRect?.height || 0);
+    if (sectionHeight > 0) return sectionHeight;
+    const maxHeaderHeight = Math.max(160, width * 0.2);
     const header = board?.nodes?.find(node => node.type === 'rect' && node.geometry?.x === 0 &&
       node.geometry?.y === 0 && node.geometry.width >= width * 0.8 &&
-      node.geometry.height >= 30 && node.geometry.height <= 160);
+      node.geometry.height >= 30 && node.geometry.height <= maxHeaderHeight);
     return Number(header?.geometry?.height || 0);
+  }
+
+  function sectionForNode(node, board) {
+    const id = node?.dataset?.deviceNode;
+    return board?.sections?.find(section => section.nodeIds?.includes(id))?.sourceSectionId || '';
+  }
+
+  function scrollWrapperFor(target, role) {
+    const existing = target.closest(`g[data-fm-scroll-role="${role}"]`);
+    if (existing) return existing;
+    const wrapper = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    wrapper.setAttribute('data-fm-scroll', 'true');
+    wrapper.setAttribute('data-fm-scroll-role', role);
+    target.parentNode?.insertBefore(wrapper, target);
+    wrapper.append(target);
+    return wrapper;
+  }
+
+  function installHomeScroll(stage, board) {
+    if (homeScrollHandler) window.removeEventListener('scroll', homeScrollHandler);
+    homeScrollHandler = null;
+    if (board?.pageId !== 'home') return;
+    const device = stage.dataset.device || 'mobile';
+    if (device !== 'tv') {
+      stage.querySelectorAll('g[data-fm-scroll]').forEach(wrapper => {
+        wrapper.removeAttribute('transform');
+        wrapper.style.removeProperty('opacity');
+      });
+      return;
+    }
+    const hero = board.sections?.find(section => section.sourceSectionId === 'hero');
+    if (!hero) return;
+    const heroIds = new Set(hero.nodeIds || []);
+    const nodes = [...stage.querySelectorAll('[data-device-node]')]
+      .filter(node => heroIds.has(node.dataset.deviceNode));
+    const photoNode = nodes.find(node => semanticFor(node, board) === 'photo-or-illustration');
+    const titleNodes = nodes.filter(node => semanticFor(node, board) === 'heading');
+    const photo = photoNode && scrollWrapperFor(wrapperFor(photoNode), 'photo');
+    const titles = titleNodes.map(node => scrollWrapperFor(wrapperFor(node), 'title'));
+    const reset = () => {
+      for (const wrapper of [photo, ...titles]) {
+        if (!wrapper) continue;
+        wrapper.removeAttribute('transform');
+        wrapper.style.removeProperty('opacity');
+      }
+    };
+    if (reducedMotion(device) || (!photo && !titles.length)) {
+      reset();
+      return;
+    }
+    const svg = stage.querySelector('svg');
+    const boardWidth = Number(board.viewport?.width || viewBox(svg)?.width || 0);
+    const update = () => {
+      const scale = (svg?.getBoundingClientRect().width || boardWidth) / boardWidth || 1;
+      const progress = Math.max(0, Math.min(1, (window.scrollY || 0) / 500));
+      if (photo) photo.setAttribute('transform', `translate(0 ${-45 * progress / scale})`);
+      for (const wrapper of titles) {
+        wrapper.setAttribute('transform', `translate(0 ${-60 * progress / scale})`);
+        wrapper.style.opacity = String(1 - progress);
+      }
+    };
+    homeScrollHandler = update;
+    window.addEventListener('scroll', update, { passive: true });
+    update();
   }
 
   function makeFixedHeader(stage, board) {
@@ -270,12 +368,11 @@
     return Math.floor(Math.max(0, rect.y + rect.height / 2) / stride);
   }
 
-  function scheduleTargets(stage, board) {
+  function scheduleTargets(stage, board, preserveVisible = false) {
     const device = stage.dataset.device || 'mobile';
     const reduced = reducedMotion(device);
     const canAnimate = !reduced;
     const width = Number(board?.viewport?.width || viewBox(stage.querySelector('svg'))?.width || 390);
-    const footerStart = Number(board?.viewport?.height || viewBox(stage.querySelector('svg'))?.height || 0) - width * 0.78;
     const nodes = [...stage.querySelectorAll('[data-device-node]')];
     const unique = new Map();
 
@@ -292,7 +389,7 @@
         try { const b = node.getBBox(); rect = { x: b.x, y: b.y, width: b.width, height: b.height }; }
         catch { continue; }
       }
-      unique.set(target, { node, target, semantic, rect, order: orderFor(node, board) });
+      unique.set(target, { node, target, semantic, rect, order: orderFor(node, board), sectionId: sectionForNode(node, board) });
     }
 
     [...stage.querySelectorAll('.fora-device-form input, .fora-device-form textarea, .fora-device-form select, .fora-device-form .device-submit-hit')]
@@ -303,7 +400,8 @@
           target: control,
           semantic: 'form-control',
           rect: { x: rect.x, y: rect.y + (window.scrollY || 0), width: rect.width, height: rect.height },
-          order: index
+          order: index,
+          sectionId: ''
         });
       });
 
@@ -311,8 +409,8 @@
     const groupCounts = new Map();
     descriptors.sort((a, b) => a.order - b.order);
     descriptors.forEach(item => {
-      item.footer = item.rect.y >= footerStart;
-      item.hero = item.rect.y < width * 1.2;
+      item.footer = item.sectionId === 'footer';
+      item.hero = item.sectionId === 'hero';
       item.bucket = item.footer ? 'footer' : `${groupKey(item.rect, device, board)}:${item.semantic}`;
       item.position = groupCounts.get(item.bucket) || 0;
       groupCounts.set(item.bucket, item.position + 1);
@@ -384,9 +482,22 @@
 
     descriptors.forEach(item => {
       item.target._foraMotionDescriptor = item;
+      if (preserveVisible) {
+        const bounds = item.target.getBoundingClientRect();
+        const visible = bounds.bottom > 0 && bounds.top < window.innerHeight &&
+          bounds.right > 0 && bounds.left < window.innerWidth;
+        if (visible) {
+          const key = `${stage.dataset.page}:${device}:${item.target.dataset.deviceNode || item.target.firstElementChild?.dataset.deviceNode || item.rect.y}`;
+          seen.add(key);
+          item.target.style.opacity = '1';
+          item.target.style.transform = 'none';
+          item.target.dataset.fmSeen = 'true';
+          return;
+        }
+      }
       observer.observe(item.target);
     });
-    const headerItems = descriptors.filter(item => item.rect.y < width * 0.35 &&
+    const headerItems = descriptors.filter(item => item.sectionId === 'header' &&
       ['menu-toggle-label', 'navigation-label', 'body-copy'].includes(item.semantic));
     headerItems.forEach((item, index) => {
       const delay = index * 80;
@@ -402,6 +513,8 @@
       .sort((a, b) => orderFor(a, board) - orderFor(b, board))[0];
     if (!firstImage) return;
     const target = wrapperFor(firstImage);
+    target.style.transformBox = 'fill-box';
+    target.style.transformOrigin = 'center';
     let cameraVisible = false;
     const toggle = entries => {
       cameraVisible = entries.some(entry => entry.isIntersecting);
@@ -534,9 +647,11 @@
     if (!stage) { clearTransient(); return; }
     clearTransient();
     currentStage = stage;
+    motionWasReduced = reducedMotion(stage.dataset.device || 'mobile');
     const board = getBoard(stage);
     installMenuMotion(stage);
     installHoverHooks(stage);
+    installHomeScroll(stage, board);
     scheduleTargets(stage, board);
     installHomeCamera(stage, board);
     makeFixedHeader(stage, board);
@@ -555,6 +670,8 @@
     if (!currentStage) return;
     const device = currentStage.dataset.device || 'mobile';
     if (reducedMotion(device)) {
+      motionWasReduced = true;
+      installHomeScroll(currentStage, getBoard(currentStage));
       cancelLoop();
       fixedHeader?._removeScroll?.();
       fixedHeader?.remove();
@@ -569,7 +686,10 @@
       observer = null;
       return;
     }
-    scheduleTargets(currentStage, getBoard(currentStage));
+    const preserveVisible = motionWasReduced;
+    motionWasReduced = false;
+    installHomeScroll(currentStage, getBoard(currentStage));
+    scheduleTargets(currentStage, getBoard(currentStage), preserveVisible);
     installHomeCamera(currentStage, getBoard(currentStage));
     if (!fixedHeader) makeFixedHeader(currentStage, getBoard(currentStage));
   }

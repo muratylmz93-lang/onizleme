@@ -2,7 +2,7 @@
 #fora-device-stage{position:relative;z-index:100;left:auto;top:auto;width:100vw;min-height:100vh;background:#f7f3e9;color:#103b4b}
 #fora-device-stage>svg{display:block;width:100%;height:auto;overflow:visible}
 .fora-device-active body{margin:0!important;width:100vw!important;max-width:none!important;min-height:100vh;background:#f7f3e9}
-.fora-device-active body>:not(#fora-device-stage):not(.cms-overlay-layer){display:none!important}
+.fora-device-active body>:not(#fora-device-stage):not(.cms-overlay-layer):not(dialog){display:none!important}
 .fora-device-active .cms-overlay-layer{display:none!important}
 .fora-device-menu{position:fixed;z-index:102;inset:0;background:#07364c;color:#f7f3e9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;font:16px/1.4 "Fora Sans",sans-serif}
 .fora-device-menu a{color:inherit;text-decoration:none;padding:8px 20px}.fora-device-menu button{position:absolute;top:18px;right:20px;background:transparent;color:inherit;border:1px solid currentColor;border-radius:999px;padding:8px 14px;font:inherit}
