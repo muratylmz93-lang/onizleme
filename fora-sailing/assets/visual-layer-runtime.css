@@ -1,0 +1,20 @@
+.cms-live-group[data-visual-layer-animation="once"],
+.fora-visual-raster-foreground[data-visual-layer-animation="once"] {
+  opacity: 0;
+  transform: translateY(var(--visual-layer-distance, 12px));
+  transition: opacity var(--visual-layer-duration, 650ms) ease,
+    transform var(--visual-layer-duration, 650ms) cubic-bezier(.2,.7,.2,1);
+}
+.cms-live-group[data-visual-layer-animation="once"].is-visible,
+.fora-visual-raster-foreground[data-visual-layer-animation="once"].is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .cms-live-group[data-visual-layer-animation="once"],
+  .fora-visual-raster-foreground[data-visual-layer-animation="once"] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

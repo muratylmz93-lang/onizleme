@@ -1,0 +1,11 @@
+.fora-embedded-layer[data-layer-animation="fade"] { animation: fora-layer-fade 650ms ease both; }
+.fora-embedded-layer[data-layer-animation="fade-up"],
+.fora-embedded-layer[data-layer-animation="slide-up"] { animation: fora-layer-up 650ms cubic-bezier(.2,.7,.2,1) both; }
+.fora-embedded-layer[data-layer-animation="slide-left"] { animation: fora-layer-left 650ms cubic-bezier(.2,.7,.2,1) both; }
+.fora-embedded-layer-pending[data-layer-animation] { animation-play-state: paused !important; }
+@keyframes fora-layer-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fora-layer-up { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fora-layer-left { from { opacity: 0; transform: translateX(12px); } to { opacity: 1; transform: translateX(0); } }
+@media (prefers-reduced-motion: reduce) {
+  .fora-embedded-layer[data-layer-animation] { animation: none !important; opacity: 1 !important; transform: none !important; visibility: visible !important; }
+}

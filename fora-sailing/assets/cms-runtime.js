@@ -68,6 +68,7 @@
   let appliedSectionSignature = '';
   let appliedSectionState = null;
   let reducedMotionQuery;
+  let visualLayerCatalog = null;
 
   const pageConfigFor = (path) => {
     const pages = bindingConfig.pages || [];
@@ -375,6 +376,9 @@
           const overlay = document.querySelector('.hero-photo-overlay');
           if (overlay) overlay.style.visibility = String(value) === String(field.defaultValue) ? '' : 'hidden';
         }
+      } else if (src && target?.namespaceURI === 'http://www.w3.org/2000/svg' && target.localName === 'image') {
+        target.setAttribute('href', src);
+        target.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', src);
       }
       return;
     }
@@ -796,6 +800,9 @@
       node.style.setProperty('--cms-color', spec.color || 'inherit');
       node.style.setProperty('--cms-align', spec.align || 'left');
       node.style.setProperty('--cms-line-height', spec.lineHeight || '1.2');
+      const visualLayer = visualLayerCatalog?.layerForField(currentPagePath(), field, mapping);
+      const visualLayerState = visualLayerCatalog?.fieldLayerState(field, visualLayer);
+      if (visualLayer) visualLayerCatalog.bindOverlayAnimation(group, visualLayer, visibleAnchors[0], visualLayerState);
       const headingField = /(?:^|\.)(?:title|heading|name)$/.test(binding);
       const typographyFont = headingField
         ? getComputedStyle(document.documentElement).getPropertyValue('--font-display').trim()
@@ -899,6 +906,9 @@
     applySeo(renderPage, content.settings || {});
     if (!pageConfig) return applied();
     const fields = fieldMap(renderPage);
+    fieldsForPage(renderPage).filter((field) => field?.layerOnly && field.layerId).forEach((field) => {
+      visualLayerCatalog?.applyLayerOnly(path, field, document);
+    });
     const entityHeroImageChanged = pageConfig.fields?.some((mapping) => /\.hero\.image$/.test(mapping.binding)
       && fields.get(mapping.binding)?.cmsEntityDerived === true) || false;
     const heroImageField = pageConfig.fields?.map((mapping) => fields.get(mapping.binding))
@@ -925,6 +935,7 @@
     pageConfig.fields?.forEach((mapping) => {
       const field = fields.get(mapping.binding);
       if (!field) return;
+      if (mapping.visualLayerOnly && !visualLayerCatalog?.fieldHasExplicitLayerEdit(path, field, mapping)) return;
       const entityHeroImage = field.cmsEntityDerived === true && /\.hero\.image$/.test(mapping.binding);
       const selectors = entityHeroImage ? ['img.hero-art'] : mapping.selectors;
       const targets = selectors?.flatMap((selector) => {
@@ -933,7 +944,15 @@
         return first ? [first] : [];
       }) || [];
       const uniqueTargets = [...new Set(targets)];
+      if (mapping.visualLayerDevice && mapping.visualLayerDevice !== 'web' && field.type === 'text') {
+        visualLayerCatalog?.applyFieldPresentation(path, field, mapping, document);
+        return;
+      }
       uniqueTargets.forEach((target) => {
+        // Device SVG text is rendered from the canonical layer group by
+        // device-runtime. Writing the CMS string onto an SVG <g> destroys its
+        // child glyph/tspan structure (and can duplicate multiline fragments).
+        if (target.closest?.('#fora-device-stage')) return;
         if (mapping.overlay && ['text','textarea'].includes(field.type) && target instanceof HTMLAnchorElement) {
           target.setAttribute('aria-label', String(field.value ?? ''));
           if (/\.header\.(?:offerLabel|whatsappLabel)$/.test(mapping.binding)) {
@@ -946,6 +965,7 @@
         // drawn as a source-art overlay.
         setValue(target, field);
       });
+      visualLayerCatalog?.applyFieldPresentation(path, field, mapping, document);
       const replaceHeroSourceCopy = heroPhotoReplaced && (/\.(?:hero\.(?:title|description|eyebrow)|header\.offerLabel)$/.test(mapping.binding) || mapping.overlay?.forceWhenHeroPhotoReplaced === true);
       if (mapping.overlay?.copyId) {
         const sourceCopy = document.querySelector(`[data-copy-id="${CSS.escape(mapping.overlay.copyId)}"]`);
@@ -2170,51 +2190,74 @@
     } catch { return null; }
   }
 
+  const menuAnchorOriginal = new WeakMap();
+  const menuCleanImageCache = new Map();
   function applyMenus(menus) {
     if (!Array.isArray(menus)) return;
-    const defaults = new Map([['/rotalar/','Rotalar'],['/filo/','Gulet Filosu'],['/deneyimler/','Deneyimler'],['/hakkimizda/','Hakkımızda'],['/iletisim/','İletişim']]);
-    const pageBase = new URL(siteBase, location.href).pathname.replace(/\/+$/, '');
-    const links = [...document.querySelectorAll('.main-nav a, .source-header nav a')].filter((link) => !link.closest('.mobile-panel'));
-    for (const item of menus) {
-      if (!item || typeof item.label !== 'string' || typeof item.url !== 'string') continue;
-      let targetPath;
-      try { targetPath = new URL(item.url, location.href).pathname; } catch { continue; }
-      if (pageBase && targetPath.startsWith(`${pageBase}/`)) targetPath = targetPath.slice(pageBase.length);
-      if (!targetPath.endsWith('/')) targetPath += '/';
-      const anchor = links.find((candidate) => {
-        let pathname = new URL(candidate.href, location.href).pathname;
-        if (pageBase && pathname.startsWith(`${pageBase}/`)) pathname = pathname.slice(pageBase.length);
-        if (!pathname.endsWith('/')) pathname += '/';
-        return pathname === targetPath || candidate.textContent.trim() === defaults.get(targetPath);
+    const defaults = [
+      ['/rotalar/', 'Rotalar'], ['/filo/', 'Gulet Filosu'], ['/deneyimler/', 'Deneyimler'],
+      ['/hakkimizda/', 'Hakkımızda'], ['/iletisim/', 'İletişim']
+    ];
+    const entries = menus.map((item, index) => {
+      if (!item || typeof item.label !== 'string' || typeof item.url !== 'string') return null;
+      try { return { item, index, path: normalizePath(item.url), label: item.label.trim() }; } catch { return null; }
+    }).filter(Boolean).sort((a, b) => (Number(a.item.sortOrder) || a.index) - (Number(b.item.sortOrder) || b.index));
+    const defaultMenu = entries.length === defaults.length && defaults.every(([path, label], i) =>
+      entries[i].path === path && entries[i].label === label && entries[i].item.visible !== false && entries[i].item.hidden !== true);
+    const navs = [...document.querySelectorAll('.main-nav, .source-header nav:not(.mobile-panel)')];
+    navs.forEach((nav) => {
+      const anchors = [...nav.querySelectorAll('a')];
+      anchors.forEach((a, index) => {
+        if (!menuAnchorOriginal.has(a)) menuAnchorOriginal.set(a, { href:a.getAttribute('href'), text:a.textContent, aria:a.getAttribute('aria-label'), hidden:a.hidden, style:a.getAttribute('style'), index, rect:(()=>{const r=a.getBoundingClientRect();return{x:r.x,y:r.y,width:r.width,height:r.height}})() });
       });
-      if (!anchor) continue;
-      const defaultLabel = defaults.get(targetPath);
-      const sourceLabelIsVisible = Boolean(anchor.textContent.trim());
-      anchor.href = siteHref(item.url) || anchor.href;
-      anchor.setAttribute('aria-label', item.label);
-      const id = `menu-${item.id || targetPath.replace(/\W+/g,'-')}`;
-      if (item.label === defaultLabel) { overlayLayer.querySelector(`[data-cms-group="${CSS.escape(id)}"]`)?.remove(); continue; }
-      let group = overlayLayer.querySelector(`[data-cms-group="${CSS.escape(id)}"]`);
-      if (!group) {
-        group = document.createElement('div'); group.className = 'cms-live-group'; group.dataset.cmsGroup = id;
-        group.append(document.createElement('span'), document.createElement('span'));
-        group.children[0].className = 'cms-live-patch'; group.children[0].setAttribute('aria-hidden','true');
-        group.children[1].className = 'cms-live-overlay'; group.children[1].setAttribute('aria-hidden','true'); overlayLayer.append(group);
+      const parent = nav.parentElement;
+      let patches = parent ? [...parent.querySelectorAll(':scope > [data-cms-menu-clean-patch]')] : [];
+      if (defaultMenu) {
+        patches.forEach((patch)=>patch.remove());
+        anchors.forEach((a) => {
+          const o=menuAnchorOriginal.get(a); if (!o) return;
+          a.textContent=o.text; o.href===null?a.removeAttribute('href'):a.setAttribute('href',o.href);
+          o.aria===null?a.removeAttribute('aria-label'):a.setAttribute('aria-label',o.aria);
+          a.hidden=o.hidden; o.style===null?a.removeAttribute('style'):a.setAttribute('style',o.style); nav.append(a);
+        });
+        nav.removeAttribute('data-cms-menu-edited'); return;
       }
-      const bounds = anchor.getBoundingClientRect();
-      const layerBounds = overlayLayer.getBoundingClientRect();
-      group.style.left = `${bounds.left - layerBounds.left}px`; group.style.top = `${bounds.top - layerBounds.top}px`;
-      group.style.width = `${bounds.width}px`; group.style.height = `${bounds.height}px`;
-      const source = document.querySelector('.source-header img, .desktop-source-art img[src*="desktop-art-header"]');
-      const patch = group.querySelector('.cms-live-patch');
-      if (source?.complete && source.naturalWidth && !patch.dataset.ready) {
-        const r = source.getBoundingClientRect(); const crop = {left:(bounds.left-r.left)/r.width,top:(bounds.top-r.top)/r.height,width:bounds.width/r.width,height:bounds.height/r.height};
-        const image = makeBackgroundPatch(source,crop); if(image){patch.style.backgroundImage=`url("${image}")`;patch.dataset.ready='true';}
+      const mapped=entries.map((entry)=>({ ...entry, anchor:anchors.find((a)=>{
+        const o=menuAnchorOriginal.get(a); if(!o?.href) return false;
+        try{return normalizePath(new URL(o.href,location.href).pathname)===entry.path;}catch{return false;}
+      })})).filter(x=>x.anchor);
+      const visible=mapped.filter(({item})=>item.visible!==false&&item.hidden!==true), keep=new Set(visible.map(x=>x.anchor));
+      anchors.forEach((a)=>{a.hidden=!keep.has(a); if(keep.has(a)) a.style.removeProperty('display'); else a.style.setProperty('display','none','important');});
+      visible.forEach(({item,anchor})=>{
+        anchor.textContent=item.label; anchor.href=siteHref(item.url)||anchor.href; anchor.setAttribute('aria-label',item.label);
+        if(nav.closest('.source-header')){
+          anchor.style.setProperty('font-size','0.72cqw','important'); anchor.style.setProperty('color','#f7f2e8','important');
+          anchor.style.setProperty('white-space','nowrap','important'); anchor.style.setProperty('opacity','1','important'); anchor.style.setProperty('visibility','visible','important');
+        }
+        nav.append(anchor);
+      });
+      nav.dataset.cmsMenuEdited='true';
+      nav.style.setProperty('z-index','2','important');
+      if (parent) {
+        const page=currentPagePath(), slug=page==='/'?'home':({'/rotalar/':'routes','/rotalar/gocek-fethiye-gocek/':'route','/filo/':'fleet','/filo/eylul/':'gulet','/deneyimler/':'experiences','/hakkimizda/':'about','/iletisim/':'contact'}[page]||'home');
+        const cleanUrl=new URL(`layer-clean/${slug}-clean-v1.png`,assetsUrl);
+        const navRect=nav.getBoundingClientRect(), parentRect=parent.getBoundingClientRect();
+        let patch=patches[0];
+        if(!patch){patch=document.createElement('span');patch.dataset.cmsMenuCleanPatch='true';patch.setAttribute('aria-hidden','true');Object.assign(patch.style,{position:'absolute',display:'block',pointerEvents:'none',zIndex:'1',backgroundRepeat:'no-repeat'});parent.insertBefore(patch,nav);patches.push(patch);}
+        patches.slice(1).forEach(node=>node.remove());
+        patch.style.left=`${navRect.left-parentRect.left}px`;patch.style.top=`${navRect.top-parentRect.top}px`;patch.style.width=`${navRect.width}px`;patch.style.height=`${navRect.height}px`;
+        const bodyRect=document.body.getBoundingClientRect();
+        const paint=()=>{if(!patch.isConnected)return;const currentBody=document.body.getBoundingClientRect();patch.style.backgroundImage=`url("${cleanUrl.href}")`;patch.style.backgroundSize=`${currentBody.width}px auto`;patch.style.backgroundPosition=`${-(navRect.left-currentBody.left)}px ${-(navRect.top-currentBody.top)}px`;patch.dataset.ready='true';};
+        if(patch.dataset.cleanUrl!==cleanUrl.href){
+          patch.dataset.cleanUrl=cleanUrl.href;let image=menuCleanImageCache.get(cleanUrl.href);
+          if(!image){image=new Image();menuCleanImageCache.set(cleanUrl.href,image);image.src=cleanUrl.href;}
+          if(image.complete&&image.naturalWidth)paint();else image.addEventListener('load',paint,{once:true});
+        }else if(patch.dataset.ready==='true'){
+          patch.style.backgroundSize=`${bodyRect.width}px auto`;patch.style.backgroundPosition=`${-(navRect.left-bodyRect.left)}px ${-(navRect.top-bodyRect.top)}px`;
+        }
       }
-      const text = group.querySelector('.cms-live-overlay'); text.textContent=item.label; text.style.left='0';text.style.top='0';text.style.width='100%';text.style.height='100%';
-      text.style.display='flex';text.style.alignItems='center';text.style.justifyContent='center';text.style.whiteSpace='nowrap';
-      text.style.setProperty('--cms-font-size','11px');text.style.setProperty('--cms-line-height','1');text.style.setProperty('--cms-font-family','Inter,Arial,sans-serif');text.style.setProperty('--cms-color','#f7f2e8');
-    }
+      if(nav.matches('.main-nav')){nav.style.setProperty('opacity','1','important');nav.style.setProperty('visibility','visible','important');nav.style.setProperty('transform','none','important');}
+    });
   }
 
   function updateOverlayPositions() {
@@ -2569,6 +2612,20 @@
     setupInquiryForms();
     try { bindingConfig = await readJson(bindingsUrl); } catch { /* Semantic direct bindings still work. */ }
     await loadCopyLayerMappings();
+    try {
+      if (!window.ForaVisualLayers) {
+        await new Promise((resolve, reject) => {
+          const loader = document.createElement('script');
+          loader.src = new URL('visual-layer-runtime.js', assetsUrl).href;
+          loader.onload = resolve;
+          loader.onerror = () => reject(new Error('Visual layer runtime failed to load'));
+          document.head.append(loader);
+        });
+      }
+      visualLayerCatalog = await window.ForaVisualLayers?.ready;
+      visualLayerCatalog?.attachMappings(bindingConfig);
+      if (visualLayerCatalog) window.ForaVisualLayerCatalog = visualLayerCatalog;
+    } catch { /* Visual layer support is additive; ordinary CMS bindings remain available. */ }
     try {
       const snapshot = await readJson(fallbackUrl);
       baselineContent = snapshot?.content || snapshot;

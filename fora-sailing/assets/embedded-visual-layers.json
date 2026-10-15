@@ -1,0 +1,4736 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "03_CMS/qa/build-embedded-visual-layers.py",
+  "source": {
+    "atomCatalog": "03_CMS/qa/embedded-atom-catalog.json",
+    "mobileCellMap": "03_CMS/qa/embedded-mobile-ui-tiles73-cells.json",
+    "deviceDesigns": "assets/device-designs.json",
+    "deviceBindings": "assets/device-bindings.json",
+    "deviceCollections": "assets/device-collections.json",
+    "mainVisualLayers": "assets/visual-layers.json"
+  },
+  "notes": [
+    "Mobile raster-baked atoms only; web copy with existing motion-copy glyph/clean assets remains owned by visual-layers.json.",
+    "All 51 reviewed mobile atoms are ready; there are no source-layer-needed entries.",
+    "Handwritten overlays use Caveat; navy ink notes use #18334B and light scripts use white.",
+    "Mobile child boxes are based on full-resolution review; collection slot labels remain independently editable child layers.",
+    "Collection ownership is recorded for editor field mapping; it does not exclude baked source labels.",
+    "Mobile atlas coordinates are scaled from the 1418x1320 QA sheet to the actual 1299x1211 clean asset."
+  ],
+  "summary": {
+    "atomCount": 51,
+    "pageCount": 8,
+    "managedParentNodes": 216,
+    "statusCounts": {
+      "ready": 51,
+      "source-layer-needed": 0
+    },
+    "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+    "cleanAssetSize": [
+      1299,
+      1211
+    ]
+  },
+  "pages": [
+    {
+      "path": "/",
+      "device": "mobile",
+      "designId": "home-mobile",
+      "sourceViewport": {
+        "width": 390.0,
+        "height": 5657.0
+      },
+      "layers": [
+        {
+          "id": "mobile.home.story.script",
+          "layerId": "mobile.home.story.script",
+          "sectionId": "home.embedded",
+          "device": "mobile",
+          "binding": "home.story.videoHeadline",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 0,
+          "label": "Hikâye el yazısı metni",
+          "sourceText": "Keşfet Hisset Yaşa...",
+          "semantic": "handwritten-script",
+          "source": {
+            "nodeId": "home-mobile-image-01",
+            "sourceId": "home-mobile-image-01",
+            "parentNodeId": "home-mobile-image-01",
+            "parentBinding": "home.story.image",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/b885910a070bcaf58525.png",
+            "viewport": {
+              "width": 390,
+              "height": 5657
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 40.0,
+              "y": 967.0,
+              "width": 101.0,
+              "height": 96.0
+            },
+            "localRect": {
+              "x": 16.0,
+              "y": 117.0,
+              "width": 101.0,
+              "height": 96.0
+            },
+            "sourceText": "Keşfet Hisset Yaşa...",
+            "text": "Keşfet Hisset Yaşa...",
+            "font": {
+              "family": "Caveat"
+            },
+            "fill": "#FFFFFF",
+            "rotationDeg": -8,
+            "pageReference": "device-designs.json#home-mobile"
+          },
+          "original": {
+            "sourceText": "Keşfet Hisset Yaşa...",
+            "kind": "handwritten-script",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 23.818,
+              "y": 136.696,
+              "width": 92.524,
+              "height": 88.073
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "Keşfet Hisset Yaşa..."
+          }
+        },
+        {
+          "id": "mobile.home.story.play",
+          "layerId": "mobile.home.story.play",
+          "sectionId": "home.embedded",
+          "device": "mobile",
+          "binding": "home.story.videoUrl",
+          "type": "image",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 1,
+          "label": "Hikâye video oynatma simgesi",
+          "sourceText": null,
+          "semantic": "play-icon",
+          "source": {
+            "nodeId": "home-mobile-image-01",
+            "sourceId": "home-mobile-image-01",
+            "parentNodeId": "home-mobile-image-01",
+            "parentBinding": "home.story.image",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/b885910a070bcaf58525.png",
+            "viewport": {
+              "width": 390,
+              "height": 5657
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 138.0,
+              "y": 928.0,
+              "width": 61.0,
+              "height": 60.0
+            },
+            "localRect": {
+              "x": 114.0,
+              "y": 78.0,
+              "width": 61.0,
+              "height": 60.0
+            },
+            "sourceText": null,
+            "text": null,
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#home-mobile"
+          },
+          "original": {
+            "sourceText": null,
+            "kind": "play-icon",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 113.594,
+              "y": 100.917,
+              "width": 55.881,
+              "height": 55.045
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "play-icon"
+          }
+        },
+        {
+          "id": "mobile.home.story.note",
+          "layerId": "mobile.home.story.note",
+          "sectionId": "home.embedded",
+          "device": "mobile",
+          "binding": "home.story.note",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 2,
+          "label": "Koy fotoğrafı el yazısı notu",
+          "sourceText": "Mavi Sonsuzlukta Sizi Bekliyor",
+          "semantic": "handwritten-note",
+          "source": {
+            "nodeId": "home-mobile-image-01",
+            "sourceId": "home-mobile-image-01",
+            "parentNodeId": "home-mobile-image-01",
+            "parentBinding": "home.story.image",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/b885910a070bcaf58525.png",
+            "viewport": {
+              "width": 390,
+              "height": 5657
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 324.0,
+              "y": 958.0,
+              "width": 42.0,
+              "height": 78.0
+            },
+            "localRect": {
+              "x": 300.0,
+              "y": 108.0,
+              "width": 42.0,
+              "height": 78.0
+            },
+            "sourceText": "Mavi Sonsuzlukta Sizi Bekliyor",
+            "text": "Mavi Sonsuzlukta Sizi Bekliyor",
+            "font": {
+              "family": "Caveat"
+            },
+            "fill": "#18334B",
+            "rotationDeg": -9,
+            "pageReference": "device-designs.json#home-mobile"
+          },
+          "original": {
+            "sourceText": "Mavi Sonsuzlukta Sizi Bekliyor",
+            "kind": "handwritten-note",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 283.984,
+              "y": 128.439,
+              "width": 38.475,
+              "height": 71.559
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "Mavi Sonsuzlukta Sizi Bekliyor"
+          }
+        },
+        {
+          "id": "mobile.home.story.wordmark",
+          "layerId": "mobile.home.story.wordmark",
+          "sectionId": "home.embedded",
+          "device": "mobile",
+          "binding": "brand.wordmark",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 3,
+          "label": "Fora Sailing marka yazısı",
+          "sourceText": "FORA SAILING",
+          "semantic": "wordmark",
+          "source": {
+            "nodeId": "home-mobile-image-01",
+            "sourceId": "home-mobile-image-01",
+            "parentNodeId": "home-mobile-image-01",
+            "parentBinding": "home.story.image",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/b885910a070bcaf58525.png",
+            "viewport": {
+              "width": 390,
+              "height": 5657
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 283.0,
+              "y": 1063.0,
+              "width": 80.0,
+              "height": 17.0
+            },
+            "localRect": {
+              "x": 259.0,
+              "y": 213.0,
+              "width": 80.0,
+              "height": 17.0
+            },
+            "sourceText": "FORA SAILING",
+            "text": "FORA SAILING",
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#home-mobile"
+          },
+          "original": {
+            "sourceText": "FORA SAILING",
+            "kind": "wordmark",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 246.425,
+              "y": 224.769,
+              "width": 73.286,
+              "height": 15.596
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "FORA SAILING"
+          }
+        },
+        {
+          "id": "mobile.home.offer.script",
+          "layerId": "mobile.home.offer.script",
+          "sectionId": "home.embedded",
+          "device": "mobile",
+          "binding": "home.offer.handwrittenCopy",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 4,
+          "label": "Teklif bölümündeki el yazısı metni",
+          "sourceText": "Mavi, insana hep iyi gelir.",
+          "semantic": "handwritten-script",
+          "source": {
+            "nodeId": "home-mobile-image-11",
+            "sourceId": "home-mobile-image-11",
+            "parentNodeId": "home-mobile-image-11",
+            "parentBinding": "home.device.offerImage",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/dddb5936dfd403bdcfbf.png",
+            "viewport": {
+              "width": 390,
+              "height": 5657
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 193.0,
+              "y": 4320.0,
+              "width": 142.0,
+              "height": 58.0
+            },
+            "localRect": {
+              "x": 169.0,
+              "y": 87.0,
+              "width": 142.0,
+              "height": 58.0
+            },
+            "sourceText": "Mavi, insana hep iyi gelir.",
+            "text": "Mavi, insana hep iyi gelir.",
+            "font": {
+              "family": "Caveat"
+            },
+            "fill": "#18334B",
+            "rotationDeg": -5,
+            "pageReference": "device-designs.json#home-mobile"
+          },
+          "original": {
+            "sourceText": "Mavi, insana hep iyi gelir.",
+            "kind": "handwritten-script",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 486.438,
+              "y": 109.173,
+              "width": 130.083,
+              "height": 53.211
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "Mavi, insana hep iyi gelir."
+          }
+        },
+        {
+          "id": "mobile.home.offer.heading",
+          "layerId": "mobile.home.offer.heading",
+          "sectionId": "home.embedded",
+          "device": "mobile",
+          "binding": "home.offer.badgeText",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 5,
+          "label": "Teklif rozeti başlığı",
+          "sourceText": "Avantajlı Fiyatlar",
+          "semantic": "clipped-heading",
+          "source": {
+            "nodeId": "home-mobile-image-11",
+            "sourceId": "home-mobile-image-11",
+            "parentNodeId": "home-mobile-image-11",
+            "parentBinding": "home.device.offerImage",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/dddb5936dfd403bdcfbf.png",
+            "viewport": {
+              "width": 390,
+              "height": 5657
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 24.0,
+              "y": 4453.0,
+              "width": 200.0,
+              "height": 10.0
+            },
+            "localRect": {
+              "x": 0.0,
+              "y": 220.0,
+              "width": 200.0,
+              "height": 10.0
+            },
+            "sourceText": "Avantajlı Fiyatlar",
+            "text": "Avantajlı Fiyatlar",
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#home-mobile"
+          },
+          "original": {
+            "sourceText": "Avantajlı Fiyatlar",
+            "kind": "clipped-heading",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 331.621,
+              "y": 231.191,
+              "width": 183.216,
+              "height": 9.174
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "Avantajlı Fiyatlar"
+          }
+        },
+        {
+          "id": "mobile.home.benefit3.icon",
+          "layerId": "mobile.home.benefit3.icon",
+          "sectionId": "home.embedded",
+          "device": "mobile",
+          "binding": "home.benefits[2].icon",
+          "type": "image",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 6,
+          "label": "Kişiye özel rota kalp simgesi",
+          "sourceText": null,
+          "semantic": "heart-icon",
+          "source": {
+            "nodeId": "home-mobile-image-12",
+            "sourceId": "home-mobile-image-12",
+            "parentNodeId": "home-mobile-image-12",
+            "parentBinding": "home.device.benefitsImage",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/dc987173b5ca74ffa669.png",
+            "viewport": {
+              "width": 390,
+              "height": 5657
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 28.0,
+              "y": 4755.0,
+              "width": 44.0,
+              "height": 43.0
+            },
+            "localRect": {
+              "x": 4.0,
+              "y": 83.0,
+              "width": 44.0,
+              "height": 43.0
+            },
+            "sourceText": null,
+            "text": null,
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#home-mobile"
+          },
+          "original": {
+            "sourceText": null,
+            "kind": "heart-icon",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 657.745,
+              "y": 105.504,
+              "width": 40.307,
+              "height": 39.449
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "heart-icon"
+          }
+        },
+        {
+          "id": "mobile.home.benefit3.title",
+          "layerId": "mobile.home.benefit3.title",
+          "sectionId": "home.embedded",
+          "device": "mobile",
+          "binding": "home.benefits[2].title",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 7,
+          "label": "Kişiye özel rota başlığı",
+          "sourceText": "Kişiye Özel Rotalar",
+          "semantic": "benefit-title",
+          "source": {
+            "nodeId": "home-mobile-image-12",
+            "sourceId": "home-mobile-image-12",
+            "parentNodeId": "home-mobile-image-12",
+            "parentBinding": "home.device.benefitsImage",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/dc987173b5ca74ffa669.png",
+            "viewport": {
+              "width": 390,
+              "height": 5657
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 88.0,
+              "y": 4770.0,
+              "width": 134.0,
+              "height": 23.0
+            },
+            "localRect": {
+              "x": 64.0,
+              "y": 98.0,
+              "width": 134.0,
+              "height": 23.0
+            },
+            "sourceText": "Kişiye Özel Rotalar",
+            "text": "Kişiye Özel Rotalar",
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#home-mobile"
+          },
+          "original": {
+            "sourceText": "Kişiye Özel Rotalar",
+            "kind": "benefit-title",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 712.709,
+              "y": 119.265,
+              "width": 122.755,
+              "height": 21.101
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "Kişiye Özel Rotalar"
+          }
+        },
+        {
+          "id": "mobile.home.benefit3.description",
+          "layerId": "mobile.home.benefit3.description",
+          "sectionId": "home.embedded",
+          "device": "mobile",
+          "binding": "home.benefits[2].description",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 8,
+          "label": "Kişiye özel rota açıklaması",
+          "sourceText": "Size özel planlama",
+          "semantic": "benefit-description",
+          "source": {
+            "nodeId": "home-mobile-image-12",
+            "sourceId": "home-mobile-image-12",
+            "parentNodeId": "home-mobile-image-12",
+            "parentBinding": "home.device.benefitsImage",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/dc987173b5ca74ffa669.png",
+            "viewport": {
+              "width": 390,
+              "height": 5657
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 88.0,
+              "y": 4797.0,
+              "width": 134.0,
+              "height": 22.0
+            },
+            "localRect": {
+              "x": 64.0,
+              "y": 125.0,
+              "width": 134.0,
+              "height": 22.0
+            },
+            "sourceText": "Size özel planlama",
+            "text": "Size özel planlama",
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#home-mobile"
+          },
+          "original": {
+            "sourceText": "Size özel planlama",
+            "kind": "benefit-description",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 712.709,
+              "y": 144.036,
+              "width": 122.755,
+              "height": 20.183
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "Size özel planlama"
+          }
+        },
+        {
+          "id": "mobile.home.benefit4.icon",
+          "layerId": "mobile.home.benefit4.icon",
+          "sectionId": "home.embedded",
+          "device": "mobile",
+          "binding": "home.benefits[3].icon",
+          "type": "image",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 9,
+          "label": "Sürdürülebilirlik yaprak simgesi",
+          "sourceText": null,
+          "semantic": "leaf-icon",
+          "source": {
+            "nodeId": "home-mobile-image-12",
+            "sourceId": "home-mobile-image-12",
+            "parentNodeId": "home-mobile-image-12",
+            "parentBinding": "home.device.benefitsImage",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/dc987173b5ca74ffa669.png",
+            "viewport": {
+              "width": 390,
+              "height": 5657
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 255.0,
+              "y": 4756.0,
+              "width": 40.0,
+              "height": 43.0
+            },
+            "localRect": {
+              "x": 231.0,
+              "y": 84.0,
+              "width": 40.0,
+              "height": 43.0
+            },
+            "sourceText": null,
+            "text": null,
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#home-mobile"
+          },
+          "original": {
+            "sourceText": null,
+            "kind": "leaf-icon",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 865.695,
+              "y": 106.421,
+              "width": 36.643,
+              "height": 39.449
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "leaf-icon"
+          }
+        },
+        {
+          "id": "mobile.home.benefit4.title",
+          "layerId": "mobile.home.benefit4.title",
+          "sectionId": "home.embedded",
+          "device": "mobile",
+          "binding": "home.benefits[3].title",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 10,
+          "label": "Sürdürülebilirlik başlığı",
+          "sourceText": "Doğal ve Sürdürülebilir",
+          "semantic": "benefit-title",
+          "source": {
+            "nodeId": "home-mobile-image-12",
+            "sourceId": "home-mobile-image-12",
+            "parentNodeId": "home-mobile-image-12",
+            "parentBinding": "home.device.benefitsImage",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/dc987173b5ca74ffa669.png",
+            "viewport": {
+              "width": 390,
+              "height": 5657
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 313.0,
+              "y": 4770.0,
+              "width": 53.0,
+              "height": 23.0
+            },
+            "localRect": {
+              "x": 289.0,
+              "y": 98.0,
+              "width": 53.0,
+              "height": 23.0
+            },
+            "sourceText": "Doğal ve Sürdürülebilir",
+            "text": "Doğal ve Sürdürülebilir",
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#home-mobile"
+          },
+          "original": {
+            "sourceText": "Doğal ve Sürdürülebilir",
+            "kind": "benefit-title",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 918.827,
+              "y": 119.265,
+              "width": 48.552,
+              "height": 21.101
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "Doğal ve Sürdürülebilir"
+          }
+        },
+        {
+          "id": "mobile.home.benefit4.description",
+          "layerId": "mobile.home.benefit4.description",
+          "sectionId": "home.embedded",
+          "device": "mobile",
+          "binding": "home.benefits[3].description",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 11,
+          "label": "Sürdürülebilirlik açıklaması",
+          "sourceText": "Doğayı koruyan turizm",
+          "semantic": "benefit-description",
+          "source": {
+            "nodeId": "home-mobile-image-12",
+            "sourceId": "home-mobile-image-12",
+            "parentNodeId": "home-mobile-image-12",
+            "parentBinding": "home.device.benefitsImage",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/dc987173b5ca74ffa669.png",
+            "viewport": {
+              "width": 390,
+              "height": 5657
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 313.0,
+              "y": 4797.0,
+              "width": 53.0,
+              "height": 22.0
+            },
+            "localRect": {
+              "x": 289.0,
+              "y": 125.0,
+              "width": 53.0,
+              "height": 22.0
+            },
+            "sourceText": "Doğayı koruyan turizm",
+            "text": "Doğayı koruyan turizm",
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#home-mobile"
+          },
+          "original": {
+            "sourceText": "Doğayı koruyan turizm",
+            "kind": "benefit-description",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 918.827,
+              "y": 144.036,
+              "width": 48.552,
+              "height": 20.183
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "Doğayı koruyan turizm"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/rotalar/",
+      "device": "mobile",
+      "designId": "rotalar-mobile",
+      "sourceViewport": {
+        "width": 390.0,
+        "height": 3303.0
+      },
+      "layers": [
+        {
+          "id": "mobile.routes.planning.heading",
+          "layerId": "mobile.routes.planning.heading",
+          "sectionId": "rotalar.embedded",
+          "device": "mobile",
+          "binding": "rotalar.planning.title",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 0,
+          "label": "Rota planlama başlığı",
+          "sourceText": "Sen hayal et, birlikte planlayalım",
+          "semantic": "banner-heading",
+          "source": {
+            "nodeId": "rotalar-mobile-image-07",
+            "sourceId": "rotalar-mobile-image-07",
+            "parentNodeId": "rotalar-mobile-image-07",
+            "parentBinding": "rotalar.device.planningImage",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/142fcc8d525384708583.png",
+            "viewport": {
+              "width": 390,
+              "height": 3303
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 203.0,
+              "y": 2826.0,
+              "width": 163.0,
+              "height": 75.0
+            },
+            "localRect": {
+              "x": 179.0,
+              "y": 33.0,
+              "width": 163.0,
+              "height": 75.0
+            },
+            "sourceText": "Sen hayal et, birlikte planlayalım",
+            "text": "Sen hayal et, birlikte planlayalım",
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#rotalar-mobile"
+          },
+          "original": {
+            "sourceText": "Sen hayal et, birlikte planlayalım",
+            "kind": "banner-heading",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 1140.518,
+              "y": 59.633,
+              "width": 149.321,
+              "height": 68.807
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "Sen hayal et, birlikte planlayalım"
+          }
+        },
+        {
+          "id": "mobile.routes.planning.body",
+          "layerId": "mobile.routes.planning.body",
+          "sectionId": "rotalar.embedded",
+          "device": "mobile",
+          "binding": "rotalar.planning.description",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 1,
+          "label": "Rota planlama açıklaması",
+          "sourceText": "Rota önerileri, gulet seçenekleri ve birlikte planlama",
+          "semantic": "banner-body",
+          "source": {
+            "nodeId": "rotalar-mobile-image-07",
+            "sourceId": "rotalar-mobile-image-07",
+            "parentNodeId": "rotalar-mobile-image-07",
+            "parentBinding": "rotalar.device.planningImage",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/142fcc8d525384708583.png",
+            "viewport": {
+              "width": 390,
+              "height": 3303
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 203.0,
+              "y": 2905.0,
+              "width": 163.0,
+              "height": 35.0
+            },
+            "localRect": {
+              "x": 179.0,
+              "y": 112.0,
+              "width": 163.0,
+              "height": 35.0
+            },
+            "sourceText": "Rota önerileri, gulet seçenekleri ve birlikte planlama",
+            "text": "Rota önerileri, gulet seçenekleri ve birlikte planlama",
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#rotalar-mobile"
+          },
+          "original": {
+            "sourceText": "Rota önerileri, gulet seçenekleri ve birlikte planlama",
+            "kind": "banner-body",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 1140.518,
+              "y": 132.109,
+              "width": 149.321,
+              "height": 32.11
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "Rota önerileri, gulet seçenekleri ve birlikte planlama"
+          }
+        },
+        {
+          "id": "mobile.routes.planning.offer",
+          "layerId": "mobile.routes.planning.offer",
+          "sectionId": "rotalar.embedded",
+          "device": "mobile",
+          "binding": "rotalar.planning.primaryCta",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 2,
+          "label": "Teklif alma düğmesi metni",
+          "sourceText": "Teklif Alın",
+          "semantic": "cta-label",
+          "source": {
+            "nodeId": "rotalar-mobile-image-07",
+            "sourceId": "rotalar-mobile-image-07",
+            "parentNodeId": "rotalar-mobile-image-07",
+            "parentBinding": "rotalar.device.planningImage",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/142fcc8d525384708583.png",
+            "viewport": {
+              "width": 390,
+              "height": 3303
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 225.0,
+              "y": 2952.0,
+              "width": 74.0,
+              "height": 22.0
+            },
+            "localRect": {
+              "x": 201.0,
+              "y": 159.0,
+              "width": 74.0,
+              "height": 22.0
+            },
+            "sourceText": "Teklif Alın",
+            "text": "Teklif Alın",
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#rotalar-mobile"
+          },
+          "original": {
+            "sourceText": "Teklif Alın",
+            "kind": "cta-label",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 1160.672,
+              "y": 175.228,
+              "width": 67.79,
+              "height": 20.183
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "Teklif Alın"
+          }
+        },
+        {
+          "id": "mobile.routes.planning.whatsapp",
+          "layerId": "mobile.routes.planning.whatsapp",
+          "sectionId": "rotalar.embedded",
+          "device": "mobile",
+          "binding": "whatsappUrl",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 3,
+          "label": "WhatsApp simgesi ve etiketi",
+          "sourceText": "WhatsApp",
+          "semantic": "whatsapp-icon-label",
+          "source": {
+            "nodeId": "rotalar-mobile-image-07",
+            "sourceId": "rotalar-mobile-image-07",
+            "parentNodeId": "rotalar-mobile-image-07",
+            "parentBinding": "rotalar.device.planningImage",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/142fcc8d525384708583.png",
+            "viewport": {
+              "width": 390,
+              "height": 3303
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 323.0,
+              "y": 2948.0,
+              "width": 43.0,
+              "height": 31.0
+            },
+            "localRect": {
+              "x": 299.0,
+              "y": 155.0,
+              "width": 43.0,
+              "height": 31.0
+            },
+            "sourceText": "WhatsApp",
+            "text": "WhatsApp",
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#rotalar-mobile"
+          },
+          "original": {
+            "sourceText": "WhatsApp",
+            "kind": "whatsapp-icon-label",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 1250.448,
+              "y": 171.558,
+              "width": 39.391,
+              "height": 28.44
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "WhatsApp"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/rotalar/gocek-fethiye-gocek/",
+      "device": "mobile",
+      "designId": "rota-gocek-fethiye-mobile",
+      "sourceViewport": {
+        "width": 390.0,
+        "height": 2854.0
+      },
+      "layers": [
+        {
+          "id": "mobile.route.video.script",
+          "layerId": "mobile.route.video.script",
+          "sectionId": "rota-gocek-fethiye.embedded",
+          "device": "mobile",
+          "binding": "rota.video.title",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 0,
+          "label": "Rota videosu el yazısı metni",
+          "sourceText": "Keşfet Hisset Yaşa...",
+          "semantic": "handwritten-script",
+          "source": {
+            "nodeId": "rota-gocek-fethiye-mobile-image-01",
+            "sourceId": "rota-gocek-fethiye-mobile-image-01",
+            "parentNodeId": "rota-gocek-fethiye-mobile-image-01",
+            "parentBinding": "rota-gocek-fethiye.content.image",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/fbf55b8a78eb97729d48.png",
+            "viewport": {
+              "width": 390,
+              "height": 2854
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 28.0,
+              "y": 1016.0,
+              "width": 100.0,
+              "height": 78.0
+            },
+            "localRect": {
+              "x": 4.0,
+              "y": 148.0,
+              "width": 100.0,
+              "height": 78.0
+            },
+            "sourceText": "Keşfet Hisset Yaşa...",
+            "text": "Keşfet Hisset Yaşa...",
+            "font": {
+              "family": "Caveat"
+            },
+            "fill": "#FFFFFF",
+            "rotationDeg": -8,
+            "pageReference": "device-designs.json#rota-gocek-fethiye-mobile"
+          },
+          "original": {
+            "sourceText": "Keşfet Hisset Yaşa...",
+            "kind": "handwritten-script",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 12.825,
+              "y": 405.502,
+              "width": 91.608,
+              "height": 71.559
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "Keşfet Hisset Yaşa..."
+          }
+        },
+        {
+          "id": "mobile.route.video.play",
+          "layerId": "mobile.route.video.play",
+          "sectionId": "rota-gocek-fethiye.embedded",
+          "device": "mobile",
+          "binding": "rota.video.url",
+          "type": "image",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 1,
+          "label": "Rota videosu oynatma simgesi",
+          "sourceText": null,
+          "semantic": "play-icon",
+          "source": {
+            "nodeId": "rota-gocek-fethiye-mobile-image-01",
+            "sourceId": "rota-gocek-fethiye-mobile-image-01",
+            "parentNodeId": "rota-gocek-fethiye-mobile-image-01",
+            "parentBinding": "rota-gocek-fethiye.content.image",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/fbf55b8a78eb97729d48.png",
+            "viewport": {
+              "width": 390,
+              "height": 2854
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 136.0,
+              "y": 941.0,
+              "width": 66.0,
+              "height": 66.0
+            },
+            "localRect": {
+              "x": 112.0,
+              "y": 73.0,
+              "width": 66.0,
+              "height": 66.0
+            },
+            "sourceText": null,
+            "text": null,
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#rota-gocek-fethiye-mobile"
+          },
+          "original": {
+            "sourceText": null,
+            "kind": "play-icon",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 111.762,
+              "y": 336.695,
+              "width": 60.461,
+              "height": 60.55
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "play-icon"
+          }
+        },
+        {
+          "id": "mobile.route.map.sail",
+          "layerId": "mobile.route.map.sail",
+          "sectionId": "rota-gocek-fethiye.embedded",
+          "device": "mobile",
+          "binding": "routes.stops[].icon",
+          "type": "image",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 2,
+          "label": "Rota haritası yelkenli simgesi",
+          "sourceText": null,
+          "semantic": "sailboat-icon",
+          "source": {
+            "nodeId": "rota-gocek-fethiye-mobile-image-02",
+            "sourceId": "rota-gocek-fethiye-mobile-image-02",
+            "parentNodeId": "rota-gocek-fethiye-mobile-image-02",
+            "parentBinding": "rota-gocek-fethiye.device.stop1Image",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/b2f7b8b528c988f7c281.png",
+            "viewport": {
+              "width": 390,
+              "height": 2854
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 41.0,
+              "y": 1408.0,
+              "width": 43.0,
+              "height": 49.0
+            },
+            "localRect": {
+              "x": 17.0,
+              "y": 83.0,
+              "width": 43.0,
+              "height": 49.0
+            },
+            "sourceText": null,
+            "text": null,
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#rota-gocek-fethiye-mobile"
+          },
+          "original": {
+            "sourceText": null,
+            "kind": "sailboat-icon",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 347.194,
+              "y": 345.869,
+              "width": 39.391,
+              "height": 44.954
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "sailboat-icon"
+          }
+        },
+        {
+          "id": "mobile.route.map.pin1",
+          "layerId": "mobile.route.map.pin1",
+          "sectionId": "rota-gocek-fethiye.embedded",
+          "device": "mobile",
+          "binding": "routes.stops[0].icon",
+          "type": "image",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 3,
+          "label": "Göcek harita pini",
+          "sourceText": null,
+          "semantic": "map-pin",
+          "source": {
+            "nodeId": "rota-gocek-fethiye-mobile-image-02",
+            "sourceId": "rota-gocek-fethiye-mobile-image-02",
+            "parentNodeId": "rota-gocek-fethiye-mobile-image-02",
+            "parentBinding": "rota-gocek-fethiye.device.stop1Image",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/b2f7b8b528c988f7c281.png",
+            "viewport": {
+              "width": 390,
+              "height": 2854
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 51.0,
+              "y": 1456.0,
+              "width": 20.0,
+              "height": 26.0
+            },
+            "localRect": {
+              "x": 27.0,
+              "y": 131.0,
+              "width": 20.0,
+              "height": 26.0
+            },
+            "sourceText": null,
+            "text": null,
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#rota-gocek-fethiye-mobile"
+          },
+          "original": {
+            "sourceText": null,
+            "kind": "map-pin",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 356.355,
+              "y": 389.905,
+              "width": 18.322,
+              "height": 23.853
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "map-pin"
+          }
+        },
+        {
+          "id": "mobile.route.map.label1",
+          "layerId": "mobile.route.map.label1",
+          "sectionId": "rota-gocek-fethiye.embedded",
+          "device": "mobile",
+          "binding": "routes.stops[0].label",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 4,
+          "label": "Göcek harita etiketi",
+          "sourceText": "Göcek",
+          "semantic": "map-label",
+          "source": {
+            "nodeId": "rota-gocek-fethiye-mobile-image-02",
+            "sourceId": "rota-gocek-fethiye-mobile-image-02",
+            "parentNodeId": "rota-gocek-fethiye-mobile-image-02",
+            "parentBinding": "rota-gocek-fethiye.device.stop1Image",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/b2f7b8b528c988f7c281.png",
+            "viewport": {
+              "width": 390,
+              "height": 2854
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 34.0,
+              "y": 1483.0,
+              "width": 57.0,
+              "height": 25.0
+            },
+            "localRect": {
+              "x": 10.0,
+              "y": 158.0,
+              "width": 57.0,
+              "height": 25.0
+            },
+            "sourceText": "Göcek",
+            "text": "Göcek",
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#rota-gocek-fethiye-mobile"
+          },
+          "original": {
+            "sourceText": "Göcek",
+            "kind": "map-label",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 340.781,
+              "y": 414.676,
+              "width": 52.217,
+              "height": 22.936
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "Göcek"
+          }
+        },
+        {
+          "id": "mobile.route.map.pin2",
+          "layerId": "mobile.route.map.pin2",
+          "sectionId": "rota-gocek-fethiye.embedded",
+          "device": "mobile",
+          "binding": "routes.stops[1].icon",
+          "type": "image",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 5,
+          "label": "Fethiye harita pini",
+          "sourceText": null,
+          "semantic": "map-pin",
+          "source": {
+            "nodeId": "rota-gocek-fethiye-mobile-image-02",
+            "sourceId": "rota-gocek-fethiye-mobile-image-02",
+            "parentNodeId": "rota-gocek-fethiye-mobile-image-02",
+            "parentBinding": "rota-gocek-fethiye.device.stop1Image",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/b2f7b8b528c988f7c281.png",
+            "viewport": {
+              "width": 390,
+              "height": 2854
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 291.0,
+              "y": 1441.0,
+              "width": 19.0,
+              "height": 28.0
+            },
+            "localRect": {
+              "x": 267.0,
+              "y": 116.0,
+              "width": 19.0,
+              "height": 28.0
+            },
+            "sourceText": null,
+            "text": null,
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#rota-gocek-fethiye-mobile"
+          },
+          "original": {
+            "sourceText": null,
+            "kind": "map-pin",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 576.214,
+              "y": 376.144,
+              "width": 17.406,
+              "height": 25.688
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "map-pin"
+          }
+        },
+        {
+          "id": "mobile.route.map.label2",
+          "layerId": "mobile.route.map.label2",
+          "sectionId": "rota-gocek-fethiye.embedded",
+          "device": "mobile",
+          "binding": "routes.stops[1].label",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 6,
+          "label": "Fethiye harita etiketi",
+          "sourceText": "Fethiye",
+          "semantic": "map-label",
+          "source": {
+            "nodeId": "rota-gocek-fethiye-mobile-image-02",
+            "sourceId": "rota-gocek-fethiye-mobile-image-02",
+            "parentNodeId": "rota-gocek-fethiye-mobile-image-02",
+            "parentBinding": "rota-gocek-fethiye.device.stop1Image",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/b2f7b8b528c988f7c281.png",
+            "viewport": {
+              "width": 390,
+              "height": 2854
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 273.0,
+              "y": 1419.0,
+              "width": 61.0,
+              "height": 24.0
+            },
+            "localRect": {
+              "x": 249.0,
+              "y": 94.0,
+              "width": 61.0,
+              "height": 24.0
+            },
+            "sourceText": "Fethiye",
+            "text": "Fethiye",
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#rota-gocek-fethiye-mobile"
+          },
+          "original": {
+            "sourceText": "Fethiye",
+            "kind": "map-label",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 559.724,
+              "y": 355.961,
+              "width": 55.881,
+              "height": 22.018
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "Fethiye"
+          }
+        },
+        {
+          "id": "mobile.route.map.path",
+          "layerId": "mobile.route.map.path",
+          "sectionId": "rota-gocek-fethiye.embedded",
+          "device": "mobile",
+          "binding": "routes.stops[].path",
+          "type": "decor",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 7,
+          "label": "Haritadaki noktalı rota çizgisi",
+          "sourceText": null,
+          "semantic": "dotted-route-path",
+          "source": {
+            "nodeId": "rota-gocek-fethiye-mobile-image-02",
+            "sourceId": "rota-gocek-fethiye-mobile-image-02",
+            "parentNodeId": "rota-gocek-fethiye-mobile-image-02",
+            "parentBinding": "rota-gocek-fethiye.device.stop1Image",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/b2f7b8b528c988f7c281.png",
+            "viewport": {
+              "width": 390,
+              "height": 2854
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 82.0,
+              "y": 1427.0,
+              "width": 284.0,
+              "height": 72.0
+            },
+            "localRect": {
+              "x": 58.0,
+              "y": 102.0,
+              "width": 284.0,
+              "height": 72.0
+            },
+            "sourceText": null,
+            "text": null,
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#rota-gocek-fethiye-mobile"
+          },
+          "original": {
+            "sourceText": null,
+            "kind": "dotted-route-path",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 384.753,
+              "y": 363.3,
+              "width": 260.166,
+              "height": 66.055
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "dotted-route-path"
+          }
+        },
+        {
+          "id": "mobile.route.stop2.script",
+          "layerId": "mobile.route.stop2.script",
+          "sectionId": "rota-gocek-fethiye.embedded",
+          "device": "mobile",
+          "binding": "rota.stops[1].quote",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 8,
+          "label": "Rota durağı el yazısı notu",
+          "sourceText": "Sadece deniz değil...",
+          "semantic": "handwritten-note",
+          "source": {
+            "nodeId": "rota-gocek-fethiye-mobile-image-03",
+            "sourceId": "rota-gocek-fethiye-mobile-image-03",
+            "parentNodeId": "rota-gocek-fethiye-mobile-image-03",
+            "parentBinding": "rota-gocek-fethiye.device.stop2Image",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/56dca4efd4b5ff59611d.png",
+            "viewport": {
+              "width": 390,
+              "height": 2854
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 198
+            },
+            "rect": {
+              "x": 231.0,
+              "y": 1848.0,
+              "width": 135.0,
+              "height": 54.0
+            },
+            "localRect": {
+              "x": 207.0,
+              "y": 144.0,
+              "width": 135.0,
+              "height": 54.0
+            },
+            "sourceText": "Sadece deniz değil...",
+            "text": "Sadece deniz değil...",
+            "font": {
+              "family": "Caveat"
+            },
+            "fill": "#FFFFFF",
+            "rotationDeg": -8,
+            "pageReference": "device-designs.json#rota-gocek-fethiye-mobile"
+          },
+          "original": {
+            "sourceText": "Sadece deniz değil...",
+            "kind": "handwritten-note",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 843.709,
+              "y": 401.832,
+              "width": 123.671,
+              "height": 49.541
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "Sadece deniz değil..."
+          }
+        }
+      ]
+    },
+    {
+      "path": "/filo/",
+      "device": "mobile",
+      "designId": "filo-mobile",
+      "sourceViewport": {
+        "width": 390.0,
+        "height": 3031.0
+      },
+      "layers": [
+        {
+          "id": "mobile.fleet.zel.name",
+          "layerId": "mobile.fleet.zel.name",
+          "sectionId": "filo.embedded",
+          "device": "mobile",
+          "binding": "filo.device.gulet4Title",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": "device-collections",
+          "collectionBinding": "filo.device.gulet4Image",
+          "order": 0,
+          "label": "Zel gulet adı",
+          "sourceText": "Zel",
+          "semantic": "gulet-name",
+          "source": {
+            "nodeId": "filo-mobile-image-04",
+            "sourceId": "filo-mobile-image-04",
+            "parentNodeId": "filo-mobile-image-04",
+            "parentBinding": "filo.device.gulet4Image",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/fe11e6b307f77e781eff.png",
+            "viewport": {
+              "width": 390,
+              "height": 3031
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 198
+            },
+            "rect": {
+              "x": 24.0,
+              "y": 1850.0,
+              "width": 42.0,
+              "height": 31.0
+            },
+            "localRect": {
+              "x": 0.0,
+              "y": 154.0,
+              "width": 42.0,
+              "height": 31.0
+            },
+            "sourceText": "Zel",
+            "text": "Zel",
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#filo-mobile"
+          },
+          "original": {
+            "sourceText": "Zel",
+            "kind": "gulet-name",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 976.54,
+              "y": 411.006,
+              "width": 38.475,
+              "height": 28.44
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "Zel"
+          }
+        },
+        {
+          "id": "mobile.fleet.zel.cta",
+          "layerId": "mobile.fleet.zel.cta",
+          "sectionId": "filo.embedded",
+          "device": "mobile",
+          "binding": "filo.device.gulet4Cta",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": "device-collections",
+          "collectionBinding": "filo.device.gulet4Image",
+          "order": 1,
+          "label": "Zel detay düğmesi metni",
+          "sourceText": "Detayları İncele",
+          "semantic": "cta-label",
+          "source": {
+            "nodeId": "filo-mobile-image-04",
+            "sourceId": "filo-mobile-image-04",
+            "parentNodeId": "filo-mobile-image-04",
+            "parentBinding": "filo.device.gulet4Image",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/fe11e6b307f77e781eff.png",
+            "viewport": {
+              "width": 390,
+              "height": 3031
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 198
+            },
+            "rect": {
+              "x": 242.0,
+              "y": 1870.0,
+              "width": 78.0,
+              "height": 14.0
+            },
+            "localRect": {
+              "x": 218.0,
+              "y": 174.0,
+              "width": 78.0,
+              "height": 14.0
+            },
+            "sourceText": "Detayları İncele",
+            "text": "Detayları İncele",
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#filo-mobile"
+          },
+          "original": {
+            "sourceText": "Detayları İncele",
+            "kind": "cta-label",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 1176.245,
+              "y": 429.355,
+              "width": 71.454,
+              "height": 12.844
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "Detayları İncele"
+          }
+        },
+        {
+          "id": "mobile.fleet.zel.arrow",
+          "layerId": "mobile.fleet.zel.arrow",
+          "sectionId": "filo.embedded",
+          "device": "mobile",
+          "binding": "filo.device.gulet4Cta",
+          "type": "image",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": "device-collections",
+          "collectionBinding": "filo.device.gulet4Image",
+          "order": 2,
+          "label": "Zel detay oku",
+          "sourceText": null,
+          "semantic": "arrow-icon",
+          "source": {
+            "nodeId": "filo-mobile-image-04",
+            "sourceId": "filo-mobile-image-04",
+            "parentNodeId": "filo-mobile-image-04",
+            "parentBinding": "filo.device.gulet4Image",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/fe11e6b307f77e781eff.png",
+            "viewport": {
+              "width": 390,
+              "height": 3031
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 198
+            },
+            "rect": {
+              "x": 332.0,
+              "y": 1866.0,
+              "width": 27.0,
+              "height": 27.0
+            },
+            "localRect": {
+              "x": 308.0,
+              "y": 170.0,
+              "width": 27.0,
+              "height": 27.0
+            },
+            "sourceText": null,
+            "text": null,
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#filo-mobile"
+          },
+          "original": {
+            "sourceText": null,
+            "kind": "arrow-icon",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 1258.693,
+              "y": 425.685,
+              "width": 24.734,
+              "height": 24.77
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "arrow-icon"
+          }
+        },
+        {
+          "id": "mobile.fleet.getaway.name",
+          "layerId": "mobile.fleet.getaway.name",
+          "sectionId": "filo.embedded",
+          "device": "mobile",
+          "binding": "filo.device.gulet5Title",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": "device-collections",
+          "collectionBinding": "filo.device.gulet5Image",
+          "order": 3,
+          "label": "Getaway gulet adı",
+          "sourceText": "Getaway",
+          "semantic": "gulet-name",
+          "source": {
+            "nodeId": "filo-mobile-image-05",
+            "sourceId": "filo-mobile-image-05",
+            "parentNodeId": "filo-mobile-image-05",
+            "parentBinding": "filo.device.gulet5Image",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/94422ed800e98d7532a3.png",
+            "viewport": {
+              "width": 390,
+              "height": 3031
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 198
+            },
+            "rect": {
+              "x": 24.0,
+              "y": 2140.0,
+              "width": 103.0,
+              "height": 31.0
+            },
+            "localRect": {
+              "x": 0.0,
+              "y": 154.0,
+              "width": 103.0,
+              "height": 31.0
+            },
+            "sourceText": "Getaway",
+            "text": "Getaway",
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#filo-mobile"
+          },
+          "original": {
+            "sourceText": "Getaway",
+            "kind": "gulet-name",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 9.161,
+              "y": 651.371,
+              "width": 94.356,
+              "height": 28.44
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "Getaway"
+          }
+        },
+        {
+          "id": "mobile.fleet.getaway.cta",
+          "layerId": "mobile.fleet.getaway.cta",
+          "sectionId": "filo.embedded",
+          "device": "mobile",
+          "binding": "filo.device.gulet5Cta",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": "device-collections",
+          "collectionBinding": "filo.device.gulet5Image",
+          "order": 4,
+          "label": "Getaway detay düğmesi metni",
+          "sourceText": "Detayları İncele",
+          "semantic": "cta-label",
+          "source": {
+            "nodeId": "filo-mobile-image-05",
+            "sourceId": "filo-mobile-image-05",
+            "parentNodeId": "filo-mobile-image-05",
+            "parentBinding": "filo.device.gulet5Image",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/94422ed800e98d7532a3.png",
+            "viewport": {
+              "width": 390,
+              "height": 3031
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 198
+            },
+            "rect": {
+              "x": 242.0,
+              "y": 2160.0,
+              "width": 78.0,
+              "height": 14.0
+            },
+            "localRect": {
+              "x": 218.0,
+              "y": 174.0,
+              "width": 78.0,
+              "height": 14.0
+            },
+            "sourceText": "Detayları İncele",
+            "text": "Detayları İncele",
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#filo-mobile"
+          },
+          "original": {
+            "sourceText": "Detayları İncele",
+            "kind": "cta-label",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 208.866,
+              "y": 669.72,
+              "width": 71.454,
+              "height": 12.844
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "Detayları İncele"
+          }
+        },
+        {
+          "id": "mobile.fleet.getaway.arrow",
+          "layerId": "mobile.fleet.getaway.arrow",
+          "sectionId": "filo.embedded",
+          "device": "mobile",
+          "binding": "filo.device.gulet5Cta",
+          "type": "image",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": "device-collections",
+          "collectionBinding": "filo.device.gulet5Image",
+          "order": 5,
+          "label": "Getaway detay oku",
+          "sourceText": null,
+          "semantic": "arrow-icon",
+          "source": {
+            "nodeId": "filo-mobile-image-05",
+            "sourceId": "filo-mobile-image-05",
+            "parentNodeId": "filo-mobile-image-05",
+            "parentBinding": "filo.device.gulet5Image",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/94422ed800e98d7532a3.png",
+            "viewport": {
+              "width": 390,
+              "height": 3031
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 198
+            },
+            "rect": {
+              "x": 332.0,
+              "y": 2156.0,
+              "width": 27.0,
+              "height": 27.0
+            },
+            "localRect": {
+              "x": 308.0,
+              "y": 170.0,
+              "width": 27.0,
+              "height": 27.0
+            },
+            "sourceText": null,
+            "text": null,
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#filo-mobile"
+          },
+          "original": {
+            "sourceText": null,
+            "kind": "arrow-icon",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 291.313,
+              "y": 666.05,
+              "width": 24.734,
+              "height": 24.77
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "arrow-icon"
+          }
+        },
+        {
+          "id": "mobile.fleet.quote.title",
+          "layerId": "mobile.fleet.quote.title",
+          "sectionId": "filo.embedded",
+          "device": "mobile",
+          "binding": "filo.quote.title",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 6,
+          "label": "Gulet teklif başlığı",
+          "sourceText": "Seçelim",
+          "semantic": "quote-heading",
+          "source": {
+            "nodeId": "filo-mobile-image-06",
+            "sourceId": "filo-mobile-image-06",
+            "parentNodeId": "filo-mobile-image-06",
+            "parentBinding": "filo.device.quoteImage",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/8166a355db3e051c649d.png",
+            "viewport": {
+              "width": 390,
+              "height": 3031
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 24.0,
+              "y": 2617.0,
+              "width": 76.0,
+              "height": 39.0
+            },
+            "localRect": {
+              "x": 0.0,
+              "y": 96.0,
+              "width": 76.0,
+              "height": 39.0
+            },
+            "sourceText": "Seçelim",
+            "text": "Seçelim",
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#filo-mobile"
+          },
+          "original": {
+            "sourceText": "Seçelim",
+            "kind": "quote-heading",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 331.621,
+              "y": 598.161,
+              "width": 69.622,
+              "height": 35.78
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "Seçelim"
+          }
+        },
+        {
+          "id": "mobile.fleet.quote.body",
+          "layerId": "mobile.fleet.quote.body",
+          "sectionId": "filo.embedded",
+          "device": "mobile",
+          "binding": "filo.quote.body",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 7,
+          "label": "Gulet teklif açıklaması",
+          "sourceText": "…paylaşın. …rotayı.",
+          "semantic": "quote-copy-clipped",
+          "source": {
+            "nodeId": "filo-mobile-image-06",
+            "sourceId": "filo-mobile-image-06",
+            "parentNodeId": "filo-mobile-image-06",
+            "parentBinding": "filo.device.quoteImage",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/8166a355db3e051c649d.png",
+            "viewport": {
+              "width": 390,
+              "height": 3031
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 24.0,
+              "y": 2661.0,
+              "width": 80.0,
+              "height": 31.0
+            },
+            "localRect": {
+              "x": 0.0,
+              "y": 140.0,
+              "width": 80.0,
+              "height": 31.0
+            },
+            "sourceText": "…paylaşın. …rotayı.",
+            "text": "…paylaşın. …rotayı.",
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#filo-mobile"
+          },
+          "original": {
+            "sourceText": "…paylaşın. …rotayı.",
+            "kind": "quote-copy-clipped",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 331.621,
+              "y": 638.527,
+              "width": 73.286,
+              "height": 28.44
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "…paylaşın. …rotayı."
+          }
+        }
+      ]
+    },
+    {
+      "path": "/filo/eylul/",
+      "device": "mobile",
+      "designId": "eylul-mobile",
+      "sourceViewport": {
+        "width": 390.0,
+        "height": 4426.0
+      },
+      "layers": [
+        {
+          "id": "mobile.eylul.story.script",
+          "layerId": "mobile.eylul.story.script",
+          "sectionId": "eylul.embedded",
+          "device": "mobile",
+          "binding": "eylul.video.title",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 0,
+          "label": "Eylül videosu el yazısı metni",
+          "sourceText": "Keşfet Hisset Yaşa...",
+          "semantic": "handwritten-script",
+          "source": {
+            "nodeId": "eylul-mobile-image-01",
+            "sourceId": "eylul-mobile-image-01",
+            "parentNodeId": "eylul-mobile-image-01",
+            "parentBinding": "eylul.content.image",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/ecf0fac2ee2c7b174957.png",
+            "viewport": {
+              "width": 390,
+              "height": 4426
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 38.0,
+              "y": 951.0,
+              "width": 100.0,
+              "height": 78.0
+            },
+            "localRect": {
+              "x": 14.0,
+              "y": 128.0,
+              "width": 100.0,
+              "height": 78.0
+            },
+            "sourceText": "Keşfet Hisset Yaşa...",
+            "text": "Keşfet Hisset Yaşa...",
+            "font": {
+              "family": "Caveat"
+            },
+            "fill": "#FFFFFF",
+            "rotationDeg": -8,
+            "pageReference": "device-designs.json#eylul-mobile"
+          },
+          "original": {
+            "sourceText": "Keşfet Hisset Yaşa...",
+            "kind": "handwritten-script",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 666.906,
+              "y": 627.518,
+              "width": 91.608,
+              "height": 71.559
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "Keşfet Hisset Yaşa..."
+          }
+        },
+        {
+          "id": "mobile.eylul.story.play",
+          "layerId": "mobile.eylul.story.play",
+          "sectionId": "eylul.embedded",
+          "device": "mobile",
+          "binding": "eylul.video.url",
+          "type": "image",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 1,
+          "label": "Eylül videosu oynatma simgesi",
+          "sourceText": null,
+          "semantic": "play-icon",
+          "source": {
+            "nodeId": "eylul-mobile-image-01",
+            "sourceId": "eylul-mobile-image-01",
+            "parentNodeId": "eylul-mobile-image-01",
+            "parentBinding": "eylul.content.image",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/ecf0fac2ee2c7b174957.png",
+            "viewport": {
+              "width": 390,
+              "height": 4426
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 140.0,
+              "y": 927.0,
+              "width": 60.0,
+              "height": 60.0
+            },
+            "localRect": {
+              "x": 116.0,
+              "y": 104.0,
+              "width": 60.0,
+              "height": 60.0
+            },
+            "sourceText": null,
+            "text": null,
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#eylul-mobile"
+          },
+          "original": {
+            "sourceText": null,
+            "kind": "play-icon",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 760.346,
+              "y": 605.5,
+              "width": 54.965,
+              "height": 55.045
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "play-icon"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/deneyimler/",
+      "device": "mobile",
+      "designId": "deneyimler-mobile",
+      "sourceViewport": {
+        "width": 390.0,
+        "height": 3126.0
+      },
+      "layers": [
+        {
+          "id": "mobile.experiences.hero.script",
+          "layerId": "mobile.experiences.hero.script",
+          "sectionId": "deneyimler.embedded",
+          "device": "mobile",
+          "binding": "deneyimler.hero.handwritten",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 0,
+          "label": "Deneyimler başlığı el yazısı metni",
+          "sourceText": "Mavi, insana hep iyi gelir.",
+          "semantic": "handwritten-script",
+          "source": {
+            "nodeId": "deneyimler-mobile-image-00",
+            "sourceId": "deneyimler-mobile-image-00",
+            "parentNodeId": "deneyimler-mobile-image-00",
+            "parentBinding": "deneyimler.hero.image",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/5ea38d45da66831538ec.png",
+            "viewport": {
+              "width": 390,
+              "height": 3126
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 220
+            },
+            "rect": {
+              "x": 247.0,
+              "y": 466.0,
+              "width": 119.0,
+              "height": 70.0
+            },
+            "localRect": {
+              "x": 223.0,
+              "y": 73.0,
+              "width": 119.0,
+              "height": 70.0
+            },
+            "sourceText": "Mavi, insana hep iyi gelir.",
+            "text": "Mavi, insana hep iyi gelir.",
+            "font": {
+              "family": "Caveat"
+            },
+            "fill": "#FFFFFF",
+            "rotationDeg": -9,
+            "pageReference": "device-designs.json#deneyimler-mobile"
+          },
+          "original": {
+            "sourceText": "Mavi, insana hep iyi gelir.",
+            "kind": "handwritten-script",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 1180.826,
+              "y": 577.06,
+              "width": 109.013,
+              "height": 64.22
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "Mavi, insana hep iyi gelir."
+          }
+        },
+        {
+          "id": "mobile.experiences.video.play",
+          "layerId": "mobile.experiences.video.play",
+          "sectionId": "deneyimler.embedded",
+          "device": "mobile",
+          "binding": "deneyimler.video.url",
+          "type": "image",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 1,
+          "label": "Deneyim videosu oynatma simgesi",
+          "sourceText": null,
+          "semantic": "play-icon",
+          "source": {
+            "nodeId": "deneyimler-mobile-image-05",
+            "sourceId": "deneyimler-mobile-image-05",
+            "parentNodeId": "deneyimler-mobile-image-05",
+            "parentBinding": "deneyimler.device.videoImage",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/2981aa4807e93464989c.png",
+            "viewport": {
+              "width": 390,
+              "height": 3126
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 162.0,
+              "y": 2253.0,
+              "width": 59.0,
+              "height": 59.0
+            },
+            "localRect": {
+              "x": 138.0,
+              "y": 76.0,
+              "width": 59.0,
+              "height": 59.0
+            },
+            "sourceText": null,
+            "text": null,
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#deneyimler-mobile"
+          },
+          "original": {
+            "sourceText": null,
+            "kind": "play-icon",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 135.58,
+              "y": 820.177,
+              "width": 54.049,
+              "height": 54.128
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "play-icon"
+          }
+        },
+        {
+          "id": "mobile.experiences.video.copy",
+          "layerId": "mobile.experiences.video.copy",
+          "sectionId": "deneyimler.embedded",
+          "device": "mobile",
+          "binding": "deneyimler.video.title",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 2,
+          "label": "Deneyim videosu açıklaması",
+          "sourceText": "… keşfedin. … bizi bekleyen",
+          "semantic": "video-copy-clipped",
+          "source": {
+            "nodeId": "deneyimler-mobile-image-05",
+            "sourceId": "deneyimler-mobile-image-05",
+            "parentNodeId": "deneyimler-mobile-image-05",
+            "parentBinding": "deneyimler.device.videoImage",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/2981aa4807e93464989c.png",
+            "viewport": {
+              "width": 390,
+              "height": 3126
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 24.0,
+              "y": 2272.0,
+              "width": 94.0,
+              "height": 43.0
+            },
+            "localRect": {
+              "x": 0.0,
+              "y": 95.0,
+              "width": 94.0,
+              "height": 43.0
+            },
+            "sourceText": "… keşfedin. … bizi bekleyen",
+            "text": "… keşfedin. … bizi bekleyen",
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#deneyimler-mobile"
+          },
+          "original": {
+            "sourceText": "… keşfedin. … bizi bekleyen",
+            "kind": "video-copy-clipped",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 9.161,
+              "y": 837.608,
+              "width": 86.111,
+              "height": 39.449
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "… keşfedin. … bizi bekleyen"
+          }
+        },
+        {
+          "id": "mobile.experiences.plan.script",
+          "layerId": "mobile.experiences.plan.script",
+          "sectionId": "deneyimler.embedded",
+          "device": "mobile",
+          "binding": "deneyimler.plan.note",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 3,
+          "label": "Deneyim planlama el yazısı notu",
+          "sourceText": "Mavi, insana hep iyi gelir.",
+          "semantic": "handwritten-note",
+          "source": {
+            "nodeId": "deneyimler-mobile-image-06",
+            "sourceId": "deneyimler-mobile-image-06",
+            "parentNodeId": "deneyimler-mobile-image-06",
+            "parentBinding": "deneyimler.device.planImage",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/416502664fd1de094929.png",
+            "viewport": {
+              "width": 390,
+              "height": 3126
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 291.0,
+              "y": 2663.0,
+              "width": 75.0,
+              "height": 72.0
+            },
+            "localRect": {
+              "x": 267.0,
+              "y": 47.0,
+              "width": 75.0,
+              "height": 72.0
+            },
+            "sourceText": "Mavi, insana hep iyi gelir.",
+            "text": "Mavi, insana hep iyi gelir.",
+            "font": {
+              "family": "Caveat"
+            },
+            "fill": "#18334B",
+            "rotationDeg": -9,
+            "pageReference": "device-designs.json#deneyimler-mobile"
+          },
+          "original": {
+            "sourceText": "Mavi, insana hep iyi gelir.",
+            "kind": "handwritten-note",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 576.214,
+              "y": 793.572,
+              "width": 68.706,
+              "height": 66.055
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "Mavi, insana hep iyi gelir."
+          }
+        }
+      ]
+    },
+    {
+      "path": "/hakkimizda/",
+      "device": "mobile",
+      "designId": "hakkimizda-mobile",
+      "sourceViewport": {
+        "width": 390.0,
+        "height": 2328.0
+      },
+      "layers": [
+        {
+          "id": "mobile.about.content.script",
+          "layerId": "mobile.about.content.script",
+          "sectionId": "hakkimizda.embedded",
+          "device": "mobile",
+          "binding": "about.content.videoTitle",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 0,
+          "label": "Hakkımızda videosu el yazısı metni",
+          "sourceText": "Keşfet Hisset Yaşa...",
+          "semantic": "handwritten-script",
+          "source": {
+            "nodeId": "hakkimizda-mobile-image-01",
+            "sourceId": "hakkimizda-mobile-image-01",
+            "parentNodeId": "hakkimizda-mobile-image-01",
+            "parentBinding": "hakkimizda.content.image",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/584a72f9aff62daf5032.png",
+            "viewport": {
+              "width": 390,
+              "height": 2328
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 44.0,
+              "y": 968.0,
+              "width": 83.0,
+              "height": 71.0
+            },
+            "localRect": {
+              "x": 20.0,
+              "y": 136.0,
+              "width": 83.0,
+              "height": 71.0
+            },
+            "sourceText": "Keşfet Hisset Yaşa...",
+            "text": "Keşfet Hisset Yaşa...",
+            "font": {
+              "family": "Caveat"
+            },
+            "fill": "#FFFFFF",
+            "rotationDeg": -8,
+            "pageReference": "device-designs.json#hakkimizda-mobile"
+          },
+          "original": {
+            "sourceText": "Keşfet Hisset Yaşa...",
+            "kind": "handwritten-script",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 672.402,
+              "y": 875.223,
+              "width": 76.035,
+              "height": 65.137
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "Keşfet Hisset Yaşa..."
+          }
+        },
+        {
+          "id": "mobile.about.values.heading",
+          "layerId": "mobile.about.values.heading",
+          "sectionId": "hakkimizda.embedded",
+          "device": "mobile",
+          "binding": "about.values.title",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 1,
+          "label": "Değerler bölümü başlığı",
+          "sourceText": "…zu Şekillendiririz",
+          "semantic": "infographic-heading-clipped",
+          "source": {
+            "nodeId": "hakkimizda-mobile-image-02",
+            "sourceId": "hakkimizda-mobile-image-02",
+            "parentNodeId": "hakkimizda-mobile-image-02",
+            "parentBinding": "hakkimizda.device.valuesImage",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/402de472e82a2c9987ae.png",
+            "viewport": {
+              "width": 390,
+              "height": 2328
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 24.0,
+              "y": 1343.0,
+              "width": 144.0,
+              "height": 33.0
+            },
+            "localRect": {
+              "x": 0.0,
+              "y": 0.0,
+              "width": 144.0,
+              "height": 33.0
+            },
+            "sourceText": "…zu Şekillendiririz",
+            "text": "…zu Şekillendiririz",
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#hakkimizda-mobile"
+          },
+          "original": {
+            "sourceText": "…zu Şekillendiririz",
+            "kind": "infographic-heading-clipped",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 976.54,
+              "y": 750.453,
+              "width": 131.915,
+              "height": 30.275
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "…zu Şekillendiririz"
+          }
+        },
+        {
+          "id": "mobile.about.values.copy",
+          "layerId": "mobile.about.values.copy",
+          "sectionId": "hakkimizda.embedded",
+          "device": "mobile",
+          "binding": "about.values.description",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 2,
+          "label": "Değerler bölümü açıklaması",
+          "sourceText": "…lentileri ve keşfetmek istediği rotalar farklıdır.",
+          "semantic": "infographic-copy-clipped",
+          "source": {
+            "nodeId": "hakkimizda-mobile-image-02",
+            "sourceId": "hakkimizda-mobile-image-02",
+            "parentNodeId": "hakkimizda-mobile-image-02",
+            "parentBinding": "hakkimizda.device.valuesImage",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/402de472e82a2c9987ae.png",
+            "viewport": {
+              "width": 390,
+              "height": 2328
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 24.0,
+              "y": 1380.0,
+              "width": 145.0,
+              "height": 36.0
+            },
+            "localRect": {
+              "x": 0.0,
+              "y": 37.0,
+              "width": 145.0,
+              "height": 36.0
+            },
+            "sourceText": "…lentileri ve keşfetmek istediği rotalar farklıdır.",
+            "text": "…lentileri ve keşfetmek istediği rotalar farklıdır.",
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#hakkimizda-mobile"
+          },
+          "original": {
+            "sourceText": "…lentileri ve keşfetmek istediği rotalar farklıdır.",
+            "kind": "infographic-copy-clipped",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 976.54,
+              "y": 784.398,
+              "width": 132.831,
+              "height": 33.027
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "…lentileri ve keşfetmek istediği rotalar farklıdır."
+          }
+        },
+        {
+          "id": "mobile.about.values.map-icon",
+          "layerId": "mobile.about.values.map-icon",
+          "sectionId": "hakkimizda.embedded",
+          "device": "mobile",
+          "binding": "about.values[0].icon",
+          "type": "image",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 3,
+          "label": "Rota değerinin harita simgesi",
+          "sourceText": null,
+          "semantic": "map-pins-icon",
+          "source": {
+            "nodeId": "hakkimizda-mobile-image-02",
+            "sourceId": "hakkimizda-mobile-image-02",
+            "parentNodeId": "hakkimizda-mobile-image-02",
+            "parentBinding": "hakkimizda.device.valuesImage",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/402de472e82a2c9987ae.png",
+            "viewport": {
+              "width": 390,
+              "height": 2328
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 86.0,
+              "y": 1451.0,
+              "width": 48.0,
+              "height": 51.0
+            },
+            "localRect": {
+              "x": 62.0,
+              "y": 108.0,
+              "width": 48.0,
+              "height": 51.0
+            },
+            "sourceText": null,
+            "text": null,
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#hakkimizda-mobile"
+          },
+          "original": {
+            "sourceText": null,
+            "kind": "map-pins-icon",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 1033.337,
+              "y": 849.535,
+              "width": 43.972,
+              "height": 46.789
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "map-pins-icon"
+          }
+        },
+        {
+          "id": "mobile.about.values.route-title",
+          "layerId": "mobile.about.values.route-title",
+          "sectionId": "hakkimizda.embedded",
+          "device": "mobile",
+          "binding": "about.values[0].title",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 4,
+          "label": "Kişiye özel rota değeri başlığı",
+          "sourceText": "Size Özel Rotalar",
+          "semantic": "infographic-title",
+          "source": {
+            "nodeId": "hakkimizda-mobile-image-02",
+            "sourceId": "hakkimizda-mobile-image-02",
+            "parentNodeId": "hakkimizda-mobile-image-02",
+            "parentBinding": "hakkimizda.device.valuesImage",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/402de472e82a2c9987ae.png",
+            "viewport": {
+              "width": 390,
+              "height": 2328
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 142.0,
+              "y": 1456.0,
+              "width": 125.0,
+              "height": 19.0
+            },
+            "localRect": {
+              "x": 118.0,
+              "y": 113.0,
+              "width": 125.0,
+              "height": 19.0
+            },
+            "sourceText": "Size Özel Rotalar",
+            "text": "Size Özel Rotalar",
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#hakkimizda-mobile"
+          },
+          "original": {
+            "sourceText": "Size Özel Rotalar",
+            "kind": "infographic-title",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 1084.638,
+              "y": 854.122,
+              "width": 114.51,
+              "height": 17.431
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "Size Özel Rotalar"
+          }
+        },
+        {
+          "id": "mobile.about.values.route-copy",
+          "layerId": "mobile.about.values.route-copy",
+          "sectionId": "hakkimizda.embedded",
+          "device": "mobile",
+          "binding": "about.values[0].description",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 5,
+          "label": "Kişiye özel rota değeri açıklaması",
+          "sourceText": "İlgi alanlarınıza, beklentilerinize ve seyahat tarzınıza uygun benzersiz rotalar oluşturuyoruz.",
+          "semantic": "infographic-copy",
+          "source": {
+            "nodeId": "hakkimizda-mobile-image-02",
+            "sourceId": "hakkimizda-mobile-image-02",
+            "parentNodeId": "hakkimizda-mobile-image-02",
+            "parentBinding": "hakkimizda.device.valuesImage",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/402de472e82a2c9987ae.png",
+            "viewport": {
+              "width": 390,
+              "height": 2328
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 142.0,
+              "y": 1478.0,
+              "width": 144.0,
+              "height": 35.0
+            },
+            "localRect": {
+              "x": 118.0,
+              "y": 135.0,
+              "width": 144.0,
+              "height": 35.0
+            },
+            "sourceText": "İlgi alanlarınıza, beklentilerinize ve seyahat tarzınıza uygun benzersiz rotalar oluşturuyoruz.",
+            "text": "İlgi alanlarınıza, beklentilerinize ve seyahat tarzınıza uygun benzersiz rotalar oluşturuyoruz.",
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#hakkimizda-mobile"
+          },
+          "original": {
+            "sourceText": "İlgi alanlarınıza, beklentilerinize ve seyahat tarzınıza uygun benzersiz rotalar oluşturuyoruz.",
+            "kind": "infographic-copy",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 1084.638,
+              "y": 874.305,
+              "width": 131.915,
+              "height": 32.11
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "İlgi alanlarınıza, beklentilerinize ve seyahat tarzınıza uygun benzersiz rotalar oluşturuyoruz."
+          }
+        },
+        {
+          "id": "mobile.about.values.waves-icon",
+          "layerId": "mobile.about.values.waves-icon",
+          "sectionId": "hakkimizda.embedded",
+          "device": "mobile",
+          "binding": "about.values[1].icon",
+          "type": "image",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 6,
+          "label": "Deniz değeri dalga simgesi",
+          "sourceText": null,
+          "semantic": "waves-icon",
+          "source": {
+            "nodeId": "hakkimizda-mobile-image-02",
+            "sourceId": "hakkimizda-mobile-image-02",
+            "parentNodeId": "hakkimizda-mobile-image-02",
+            "parentBinding": "hakkimizda.device.valuesImage",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/402de472e82a2c9987ae.png",
+            "viewport": {
+              "width": 390,
+              "height": 2328
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 313.0,
+              "y": 1455.0,
+              "width": 50.0,
+              "height": 35.0
+            },
+            "localRect": {
+              "x": 289.0,
+              "y": 112.0,
+              "width": 50.0,
+              "height": 35.0
+            },
+            "sourceText": null,
+            "text": null,
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#hakkimizda-mobile"
+          },
+          "original": {
+            "sourceText": null,
+            "kind": "waves-icon",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 1241.287,
+              "y": 853.205,
+              "width": 45.804,
+              "height": 32.11
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "waves-icon"
+          }
+        },
+        {
+          "id": "mobile.about.together.script",
+          "layerId": "mobile.about.together.script",
+          "sectionId": "hakkimizda.embedded",
+          "device": "mobile",
+          "binding": "about.together.note",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 7,
+          "label": "Birlikte bölümü el yazısı notu",
+          "sourceText": "Daha fazla mavi, daha fazla siz...",
+          "semantic": "handwritten-note",
+          "source": {
+            "nodeId": "hakkimizda-mobile-image-03",
+            "sourceId": "hakkimizda-mobile-image-03",
+            "parentNodeId": "hakkimizda-mobile-image-03",
+            "parentBinding": "hakkimizda.device.togetherImage",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/7aa43531bd4a65d0b0a1.png",
+            "viewport": {
+              "width": 390,
+              "height": 2328
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 215.0,
+              "y": 1867.0,
+              "width": 151.0,
+              "height": 59.0
+            },
+            "localRect": {
+              "x": 191.0,
+              "y": 49.0,
+              "width": 151.0,
+              "height": 59.0
+            },
+            "sourceText": "Daha fazla mavi, daha fazla siz...",
+            "text": "Daha fazla mavi, daha fazla siz...",
+            "font": {
+              "family": "Caveat"
+            },
+            "fill": "#18334B",
+            "rotationDeg": -8,
+            "pageReference": "device-designs.json#hakkimizda-mobile"
+          },
+          "original": {
+            "sourceText": "Daha fazla mavi, daha fazla siz...",
+            "kind": "handwritten-note",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 184.132,
+              "y": 1035.772,
+              "width": 138.328,
+              "height": 54.128
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "Daha fazla mavi, daha fazla siz..."
+          }
+        }
+      ]
+    },
+    {
+      "path": "/iletisim/",
+      "device": "mobile",
+      "designId": "iletisim-mobile",
+      "sourceViewport": {
+        "width": 390.0,
+        "height": 2636.0
+      },
+      "layers": [
+        {
+          "id": "mobile.contact.cta.heading",
+          "layerId": "mobile.contact.cta.heading",
+          "sectionId": "iletisim.embedded",
+          "device": "mobile",
+          "binding": "contact.cta.title",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 0,
+          "label": "İletişim çağrısı başlığı",
+          "sourceText": "Yelkenlerinize … Açın",
+          "semantic": "cta-heading-clipped",
+          "source": {
+            "nodeId": "iletisim-mobile-image-02",
+            "sourceId": "iletisim-mobile-image-02",
+            "parentNodeId": "iletisim-mobile-image-02",
+            "parentBinding": "iletisim.device.ctaImage",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/6a79568ac5c3d07c0733.png",
+            "viewport": {
+              "width": 390,
+              "height": 2636
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 24.0,
+              "y": 2168.0,
+              "width": 148.0,
+              "height": 55.0
+            },
+            "localRect": {
+              "x": 0.0,
+              "y": 42.0,
+              "width": 148.0,
+              "height": 55.0
+            },
+            "sourceText": "Yelkenlerinize … Açın",
+            "text": "Yelkenlerinize … Açın",
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#iletisim-mobile"
+          },
+          "original": {
+            "sourceText": "Yelkenlerinize … Açın",
+            "kind": "cta-heading-clipped",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 331.621,
+              "y": 1029.35,
+              "width": 135.58,
+              "height": 50.458
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "Yelkenlerinize … Açın"
+          }
+        },
+        {
+          "id": "mobile.contact.cta.body",
+          "layerId": "mobile.contact.cta.body",
+          "sectionId": "iletisim.embedded",
+          "device": "mobile",
+          "binding": "contact.cta.body",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 1,
+          "label": "İletişim çağrısı açıklaması",
+          "sourceText": "…lerinizi anlıyor … yolculuk deneyimi …",
+          "semantic": "cta-copy-clipped",
+          "source": {
+            "nodeId": "iletisim-mobile-image-02",
+            "sourceId": "iletisim-mobile-image-02",
+            "parentNodeId": "iletisim-mobile-image-02",
+            "parentBinding": "iletisim.device.ctaImage",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/6a79568ac5c3d07c0733.png",
+            "viewport": {
+              "width": 390,
+              "height": 2636
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 24.0,
+              "y": 2229.0,
+              "width": 148.0,
+              "height": 50.0
+            },
+            "localRect": {
+              "x": 0.0,
+              "y": 103.0,
+              "width": 148.0,
+              "height": 50.0
+            },
+            "sourceText": "…lerinizi anlıyor … yolculuk deneyimi …",
+            "text": "…lerinizi anlıyor … yolculuk deneyimi …",
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#iletisim-mobile"
+          },
+          "original": {
+            "sourceText": "…lerinizi anlıyor … yolculuk deneyimi …",
+            "kind": "cta-copy-clipped",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 331.621,
+              "y": 1085.313,
+              "width": 135.58,
+              "height": 45.871
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "…lerinizi anlıyor … yolculuk deneyimi …"
+          }
+        },
+        {
+          "id": "mobile.contact.cta.action",
+          "layerId": "mobile.contact.cta.action",
+          "sectionId": "iletisim.embedded",
+          "device": "mobile",
+          "binding": "contact.cta.action",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 2,
+          "label": "İletişim düğmesi metni",
+          "sourceText": "İletişime Geçin",
+          "semantic": "cta-label-clipped",
+          "source": {
+            "nodeId": "iletisim-mobile-image-02",
+            "sourceId": "iletisim-mobile-image-02",
+            "parentNodeId": "iletisim-mobile-image-02",
+            "parentBinding": "iletisim.device.ctaImage",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/6a79568ac5c3d07c0733.png",
+            "viewport": {
+              "width": 390,
+              "height": 2636
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 24.0,
+              "y": 2290.0,
+              "width": 124.0,
+              "height": 25.0
+            },
+            "localRect": {
+              "x": 0.0,
+              "y": 164.0,
+              "width": 124.0,
+              "height": 25.0
+            },
+            "sourceText": "İletişime Geçin",
+            "text": "İletişime Geçin",
+            "font": null,
+            "fill": null,
+            "rotationDeg": 0,
+            "pageReference": "device-designs.json#iletisim-mobile"
+          },
+          "original": {
+            "sourceText": "İletişime Geçin",
+            "kind": "cta-label-clipped",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 331.621,
+              "y": 1141.276,
+              "width": 113.594,
+              "height": 22.936
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "İletişime Geçin"
+          }
+        },
+        {
+          "id": "mobile.contact.cta.script",
+          "layerId": "mobile.contact.cta.script",
+          "sectionId": "iletisim.embedded",
+          "device": "mobile",
+          "binding": "contact.cta.note",
+          "type": "text",
+          "status": "ready",
+          "editable": true,
+          "visible": true,
+          "managedBy": null,
+          "collectionBinding": null,
+          "order": 3,
+          "label": "İletişim çağrısı el yazısı notu",
+          "sourceText": "Aynı denizde daha güzel…",
+          "semantic": "handwritten-note",
+          "source": {
+            "nodeId": "iletisim-mobile-image-02",
+            "sourceId": "iletisim-mobile-image-02",
+            "parentNodeId": "iletisim-mobile-image-02",
+            "parentBinding": "iletisim.device.ctaImage",
+            "selector": null,
+            "asset": "assets/device-design-assets/images/6a79568ac5c3d07c0733.png",
+            "viewport": {
+              "width": 390,
+              "height": 2636
+            },
+            "assetViewport": {
+              "width": 342,
+              "height": 230
+            },
+            "rect": {
+              "x": 284.0,
+              "y": 2283.0,
+              "width": 82.0,
+              "height": 58.0
+            },
+            "localRect": {
+              "x": 260.0,
+              "y": 157.0,
+              "width": 82.0,
+              "height": 58.0
+            },
+            "sourceText": "Aynı denizde daha güzel…",
+            "text": "Aynı denizde daha güzel…",
+            "font": {
+              "family": "Caveat"
+            },
+            "fill": "#18334B",
+            "rotationDeg": -7,
+            "pageReference": "device-designs.json#iletisim-mobile"
+          },
+          "original": {
+            "sourceText": "Aynı denizde daha güzel…",
+            "kind": "handwritten-note",
+            "sourceAsset": null,
+            "confidence": "full-resolution manual visual review"
+          },
+          "replacement": {
+            "cleanAsset": "layer-clean/mobile-atlas-clean-v1.png",
+            "cleanAssetAvailable": true,
+            "cleanViewport": {
+              "width": 1299,
+              "height": 1211
+            },
+            "cleanRect": {
+              "x": 569.801,
+              "y": 1134.854,
+              "width": 75.118,
+              "height": 53.211
+            },
+            "atlasTransform": {
+              "source": [
+                1418,
+                1320
+              ],
+              "clean": [
+                1299,
+                1211
+              ],
+              "scaleX": 0.91607898,
+              "scaleY": 0.91742424
+            },
+            "behavior": "replace-embedded-atom"
+          },
+          "animation": {
+            "preserveParentAnimation": true
+          },
+          "accessibility": {
+            "label": "Aynı denizde daha güzel…"
+          }
+        }
+      ]
+    }
+  ]
+}

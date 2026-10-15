@@ -492,6 +492,10 @@
     if (Number.isFinite(size)) text.style.fontSize = `${size * (hostRect.width / Number(entry.sourceWidth||1024))}px`;
     group.append(text);
     overlayRoot.append(group);
+    const catalog = window.ForaVisualLayerCatalog;
+    const layerPath = location.pathname.endsWith('/index.html') ? location.pathname.slice(0, -10) : location.pathname;
+    const layer = catalog?.layerForMapping(layerPath || '/', mapping);
+    if (layer) catalog.bindOverlayAnimation(group, layer, anchors[0], catalog.fieldLayerState(field, layer));
   }
 
   function applyFields(entry, baselinePage, pageConfig) {
