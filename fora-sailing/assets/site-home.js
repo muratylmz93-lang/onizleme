@@ -1,5 +1,5 @@
-import { PHOTO, media } from './site-assets.js?v=20261015-99';
-import { renderRouteMap, initRouteMaps } from './site-route-map.js?v=20261015-99';
+import { PHOTO, media, fleetArtwork } from './site-assets.js?v=20261015-110';
+import { renderRouteMap, initRouteMaps } from './site-route-map.js?v=20261015-110';
 
 const text = (ctx, binding, fallback) => {
   const value = ctx?.get?.(binding, fallback);
@@ -65,7 +65,7 @@ function renderFleetCards(ctx) {
     const capacity = item.guestCapacity ?? item.capacity ?? fallback[index % fallback.length].guestCapacity;
     const cabins = item.cabins ?? item.cabinCount ?? fallback[index % fallback.length].cabins;
     return `<a class="home-fleet-card" href="${esc(url(ctx, destination))}" data-reveal data-cms-collection="gulets" data-entity-id="${esc(item.id || '')}">
-      ${img(ctx, item.image || fallback[index % fallback.length].image, `${name} guleti`, 'home-fleet-photo', '', 'image')}
+      ${fleetArtwork(ctx, item.image || fallback[index % fallback.length].image, img(ctx, item.image || fallback[index % fallback.length].image, `${name} guleti`, 'home-fleet-photo', '', 'image'))}
       <span class="home-card-copy"><strong data-cms-property="name">${esc(name)}</strong><span><span data-cms-property="guestCapacity">${esc(capacity)}</span> misafir <i aria-hidden="true"></i> <span data-cms-property="cabins">${esc(cabins)}</span> kabin</span></span>
 
     </a>`;

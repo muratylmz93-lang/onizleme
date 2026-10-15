@@ -57,6 +57,19 @@ export const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, char 
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
 }[char]));
 
+// Supplied desktop crops and the wide mobile crops show the same default boats.
+// A CMS replacement bypasses these defaults, so one image edit updates every view.
+const fleetDesktopCrops = Object.freeze({
+  'assets/native-fleet-eylul-v3.webp': 'assets/native-fleet-eylul-source.webp',
+  'assets/native-fleet-ata-v3.webp': 'assets/native-fleet-ata-source.webp',
+  'assets/native-fleet-miss-2-v3.webp': 'assets/native-fleet-miss-2-source.webp',
+});
+export function fleetArtwork(ctx, value, markup) {
+  const desktop = fleetDesktopCrops[value];
+  if (!desktop) return markup;
+  return `<picture style="display:contents"><source media="(min-width: 761px)" srcset="${escapeHTML(ctx.asset(desktop))}">${markup}</picture>`;
+}
+
 export function media(ctx, binding, key = 'hero', className = '', alt = '') {
   const fallback = PHOTO[key] || key || PHOTO.hero;
   const value = binding ? ctx.get(binding, fallback) : fallback;

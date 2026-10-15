@@ -1,0 +1,33 @@
+/* Desktop-only wave edges; absolute overlays do not change section geometry. */
+@media (min-width: 761px) {
+  #site-app .fora-home .home-story::before,
+  #site-app .fora-home .home-fleet::before,
+  #site-app .fora-home .home-reviews::before {
+    height: 5.5cqw;
+    clip-path: none;
+    -webkit-mask: url("home-edge-top110.svg") 0 0 / 100% 100% no-repeat;
+    mask: url("home-edge-top110.svg") 0 0 / 100% 100% no-repeat;
+  }
+
+  #site-app .fora-home .home-story::before { top: -2.5cqw; }
+
+  /* The source boundary rises on the left and falls toward the right. */
+  #site-app .fora-home .home-story::after {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 6cqw;
+    background: var(--home-ocean);
+    content: "";
+    pointer-events: none;
+    -webkit-mask: url("home-edge-slope110.svg") 0 0 / 100% 100% no-repeat;
+    mask: url("home-edge-slope110.svg") 0 0 / 100% 100% no-repeat;
+  }
+
+  /* The story pseudo now owns this transition, avoiding a second flat edge. */
+  #site-app .fora-home .home-routes::before { display: none; }
+  #site-app .fora-home .home-fleet::before { top: -1cqw; }
+  #site-app .fora-home .home-reviews::before { top: -1cqw; }
+}

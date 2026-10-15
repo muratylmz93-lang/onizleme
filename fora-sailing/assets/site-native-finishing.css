@@ -4,7 +4,33 @@
 .detail-contact-form .form-field-icon .icon{width:100%;height:100%}
 .detail-contact-form .has-field-icon input,.detail-contact-form .has-field-icon select,.detail-contact-form .has-field-icon textarea{padding-left:3cqw}
 .detail-contact-form .has-field-icon:has(textarea) .form-field-icon{top:1.5cqw;translate:none}
+#site-app .detail-contact-aside{background:transparent;isolation:isolate}
+#site-app .detail-contact-aside::before{content:'';position:absolute;z-index:-1;inset:-4cqw -5cqw -1cqw 0;background:linear-gradient(#002b4399,#002b43b8),url('native-route-sea-v2.webp') center/cover;mask-image:url('contact-panel-mask.svg');mask-size:100% 100%;mask-repeat:no-repeat;transform:none;display:block;pointer-events:none}
 @media(min-width:761px){
+  #site-app .home-story{min-height:33cqw}
+  #site-app .home-story-copy{width:37cqw;max-width:37cqw;align-self:start}
+  #site-app .home-story-copy>p:not(.home-eyebrow){max-width:37cqw}
+  #site-app .catalog-fleet__intro{background:transparent;isolation:isolate}
+  #site-app .catalog-fleet__intro::before{content:'';position:absolute;inset:4cqw 0 0;z-index:-1;background:linear-gradient(#f8f5edaa,#f8f5edaa),url('native-paper-foliage-v1.webp') center/100% 100%;pointer-events:none}
+  #site-app .catalog-card-grid--fleet{display:flex;flex-wrap:wrap;justify-content:center;gap:1.5cqw}
+  #site-app .catalog-card-grid--fleet .catalog-card{flex:0 0 calc((100% - 3cqw)/3);min-width:0}
+  #site-app .catalog-card-grid--fleet .catalog-card:nth-child(1){transform:rotate(-3deg)}
+  #site-app .catalog-card-grid--fleet .catalog-card:nth-child(2){transform:rotate(3deg)}
+  #site-app .catalog-card-grid--fleet .catalog-card:nth-child(3){transform:rotate(-3deg)}
+  #site-app .catalog-card-grid--fleet .catalog-card:nth-child(4),#site-app .catalog-card-grid--fleet .catalog-card:nth-child(5){flex-basis:44%;transform:rotate(1deg)}
+  #site-app .catalog-card-grid--fleet .catalog-card:nth-child(5){transform:rotate(-1deg)}
+  #site-app .catalog-fleet-quote__inner{display:block;padding-top:4.2cqw}
+  #site-app .catalog-fleet__quote .catalog-planning__title{max-width:50cqw;font-size:4.3cqw;line-height:.98;margin-bottom:1cqw}
+  #site-app .catalog-fleet-quote__inner .catalog-planning__copy{max-width:39cqw;font-size:1.45cqw;line-height:1.3;margin-bottom:1.2cqw}
+  #site-app .catalog-fleet-quote__note{position:absolute;right:4cqw;top:37%;width:16cqw;font-family:var(--font-note);font-size:3cqw;line-height:1;transform:rotate(-8deg)}
+  #site-app .home-fleet .home-section-heading>p:not(.home-eyebrow){max-width:19cqw}
+  #site-app .home-fleet-rail{top:7.5cqw;right:0;gap:.8cqw;padding-bottom:4cqw}
+  #site-app .home-fleet-card{flex-basis:19.2%}
+  #site-app .home-fleet-card:nth-child(4){transform:translateY(.5cqw) rotate(.8deg)}
+  #site-app .home-fleet-card:nth-child(5){flex-basis:17%;transform:translateY(2cqw) rotate(1.4deg)}
+  #site-app .home-review-photos{overflow:visible}
+  #site-app .home-review-photos img{flex-basis:32%;width:32%;height:13cqw}
+  #site-app .home-review-quote{transform:translateY(1.7cqw) rotate(-2deg)}
   #site-app .fora-detail--about .detail-hero-copy{width:90%;max-width:none}
   #site-app .fora-detail--about .detail-hero-copy h1{max-width:56cqw;font-size:6.6cqw}
   #site-app .fora-detail--about .detail-hero-description{max-width:42cqw}
@@ -53,6 +79,7 @@
   #site-app .fora-detail--contact .detail-contact-form-wrap{position:relative;width:85cqw;margin-inline:2.5cqw;padding-bottom:4cqw}
   #site-app .fora-detail--contact .detail-contact-form-wrap::before{content:'';position:absolute;top:1cqw;right:0;width:18cqw;height:18cqw;background:url('compass-stamp.png') center/contain no-repeat;opacity:.45;pointer-events:none}
   #site-app .fora-detail--contact .detail-contact-aside{width:100cqw;margin-inline:-5cqw;overflow:visible}
+  #site-app .fora-detail--contact .detail-contact-aside::before{inset:0 0 0;mask-image:url('wave-hero-mask.svg');border-radius:0 0 35% 38%/0 0 15% 20%}
   #site-app .fora-detail--contact .detail-contact-aside h2{width:85cqw;max-width:none;white-space:nowrap;font-size:6cqw}
   #site-app .fora-detail--contact .detail-contact-aside h2 br{display:none}
   #site-app .fora-detail--contact .detail-contact-section{padding-bottom:12cqw}

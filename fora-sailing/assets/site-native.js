@@ -1,7 +1,7 @@
-import { renderHome, initHome } from './site-home.js?v=20261015-99';
-import { subscribeContent, createContentContext, setupSEO, submitInquiry, trackEvent } from './site-content-runtime.js?v=20261015-99';
-import { PHOTO, escapeHTML as esc } from './site-assets.js?v=20261015-99';
-import { detailContent } from './site-detail-context.js?v=20261015-99';
+import { renderHome, initHome } from './site-home.js?v=20261015-110';
+import { subscribeContent, createContentContext, setupSEO, submitInquiry, trackEvent } from './site-content-runtime.js?v=20261015-110';
+import { PHOTO, escapeHTML as esc } from './site-assets.js?v=20261015-110';
+import { detailContent } from './site-detail-context.js?v=20261015-110';
 
 const PAGES = {
   home: { id:'ana-sayfa', path:'/', prefix:'home' },
@@ -173,7 +173,7 @@ function initMotion(ctx) {
     ['.home-story-main','right',30,0],['.home-story-side','',65,150],
     ['.detail-photo-main','right',25,0],['.detail-photo-inset','',45,150],
     ['.catalog-plan__photo','right',0,0],['.detail-together-photo','',25,0],
-    ['.detail-photo-cove','left',25,120],['.detail-gallery-current','',0,0],
+    ['.detail-photo-cove','left',25,120],['.detail-highlight-photo','',0,0],['.detail-highlight-sunset','',0,120],['.detail-related-card','',0,120],['.detail-gallery-current','',0,0],
     ['.detail-contact-photo','',0,120],['.detail-cta-photo','',25,0]
   ])main.querySelectorAll(selector).forEach(el=>{el.dataset.reveal=direction;el.style.setProperty('--reveal-duration','800ms');el.style.setProperty('--reveal-delay',`${delay}ms`);if(distance)el.dataset.parallax=distance;});
   for(const rail of main.querySelectorAll('.home-route-rail,.home-fleet-rail,.catalog-card-grid,.home-benefit-list,.detail-values-list')) [...rail.children].forEach((el,index)=>{if(el.matches('a,article,li')){el.setAttribute('data-reveal','');el.style.setProperty('--reveal-delay',`${index*100}ms`);}});
@@ -400,7 +400,7 @@ function initPreviewSelection(ctx) {
 async function render(context,meta) {
   const sequence=++renderSequence;
   let ctx=context;
-  const defaults=await import('./site-native-content.js?v=20261015-99');
+  const defaults=await import('./site-native-content.js?v=20261015-110');
   const normalized=defaults.normalizeNativeContent(context.content);
   baselinePromise ||= fetch(`${config}assets/cms-public.json`,{cache:'no-cache'}).then(response=>response.json()).then(data=>defaults.normalizeNativeContent(data.content||data)).catch(()=>normalized);
   const currentPath=document.querySelector('meta[name="fora-cms-page-path"]')?.content||(preview?pageInfo.path:`/${location.pathname.slice(config.length)}`);
@@ -408,7 +408,7 @@ async function render(context,meta) {
   ctx=createContentContext(detail.content,{basePath:config,includeDraft:params.get('cmsPreview')==='1'});
   ctx.detailEntity=detail.entity;ctx.detailCollection=detail.family;
   if(preview){const originalUrl=ctx.url;ctx.url=route=>previewRoute(ctx.basePath,route)||originalUrl(route);}
-  const templates=pageKey==='home'?null:await import('./site-pages.js?v=20261015-99');
+  const templates=pageKey==='home'?null:await import('./site-pages.js?v=20261015-110');
   const markup=pageKey==='home'?renderHome(ctx):await templates.renderPage(pageKey,ctx);
   if(sequence!==renderSequence)return;
   const y=scrollY;

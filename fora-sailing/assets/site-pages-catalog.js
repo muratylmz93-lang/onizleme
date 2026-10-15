@@ -1,4 +1,4 @@
-import { PHOTO, media, escapeHTML } from './site-assets.js?v=20261015-99';
+import { PHOTO, media, escapeHTML, fleetArtwork } from './site-assets.js?v=20261015-110';
 
 const esc = escapeHTML;
 const get = (ctx, key, fallback = '') => {
@@ -31,7 +31,8 @@ function card(ctx, type, item, i, fallbackPhoto, fallbackPath, kicker = '') {
   const catalogPath = type === 'routes' ? '/rotalar/' : type === 'gulets' ? '/filo/' : '';
   const destination = (item.path && item.path !== catalogPath ? item.path : item.inquiryUrl) || fallbackPath;
   const image = item.image || fallbackPhoto;
-  const img = media(ctx, '', image, 'catalog-card__image', name).replace('<img ', '<img data-cms-property="image" ');
+  const rawImg = media(ctx, '', image, 'catalog-card__image', name).replace('<img ', '<img data-cms-property="image" ');
+  const img = type === 'gulets' ? fleetArtwork(ctx, image, rawImg) : rawImg;
   return `<article class="catalog-card" data-reveal data-cms-collection="${esc(type)}" data-entity-id="${esc(item.id || '')}"><a class="catalog-card__link" href="${esc(href(ctx, destination))}"><div class="catalog-card__photo">${img}</div><div class="catalog-card__copy">${kicker ? `<span class="catalog-card__kicker">${esc(kicker)}</span>` : ''}<h3 data-cms-property="${type === 'experiences' ? 'title' : 'name'}">${esc(name)}</h3>${description ? `<p data-cms-property="description">${esc(description)}</p>` : ''}${type === 'gulets' ? `<span class="catalog-card__details" data-cms-binding="filo.cards.detailsLabel">${esc(get(ctx, 'filo.cards.detailsLabel', 'Detayları İncele'))}</span>` : ''}<span class="catalog-card__arrow" aria-label="Detayları incele">↗</span></div></a></article>`;
 }
 function routeFallbacks() { return [

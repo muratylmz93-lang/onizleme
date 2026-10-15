@@ -1,4 +1,4 @@
-import { PHOTO } from './site-assets.js?v=20261015-99';
+import { PHOTO } from './site-assets.js?v=20261015-110';
 
 const FIELD_PHOTOS = Object.freeze({
   'home.hero.image': { photo: 'hero' },
