@@ -1,4 +1,4 @@
-import { PHOTO, media, escapeHTML, fleetArtwork, routeArtwork, experienceArtwork } from './site-assets.js?v=20261016-245';
+import { PHOTO, media, escapeHTML, fleetArtwork, routeArtwork, experienceArtwork } from './site-assets.js?v=20261016-246';
 
 const esc = escapeHTML;
 const get = (ctx, key, fallback = '') => {

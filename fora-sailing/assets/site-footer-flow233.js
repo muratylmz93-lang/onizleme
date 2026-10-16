@@ -21,8 +21,17 @@ export function initFooterFlow233(root) {
     return result;
   };
   const intersects=(a,b)=>a.left<b.right-.75&&a.right>b.left+.75&&a.top<b.bottom-.75&&a.bottom>b.top+.75;
+  // Entrance transforms are temporary. Test only the settled design geometry;
+  // otherwise an invisible note shifted below the footer looks like long copy.
+  const entrancePending=()=>Array.from(footer.querySelectorAll('[data-reveal]')).some(element=>{
+    const box=element.getBoundingClientRect();
+    if(!box.width||!box.height)return false;
+    if(!element.classList.contains('is-revealed'))return true;
+    if(Number.parseFloat(getComputedStyle(element).opacity)<.999)return true;
+    return element.getAnimations?.().some(animation=>animation.pending||animation.playState==='running');
+  });
   const update=()=>{
-    frame=0;if(!active||!footer.isConnected)return;
+    frame=0;if(!active||!footer.isConnected||entrancePending())return;
     // Measure the original absolute layout every time, not the expanded flow result.
     // Removing and restoring the attribute in one task avoids a feedback threshold.
     footer.removeAttribute('data-footer-note-flow');
@@ -36,11 +45,13 @@ export function initFooterFlow233(root) {
   const schedule=()=>{if(active&&!frame)frame=requestAnimationFrame(update);};
   const observer=typeof ResizeObserver==='function'?new ResizeObserver(schedule):null;
   observer?.observe(footer);observer?.observe(note);
-  const mutation=new MutationObserver(schedule);mutation.observe(note,{childList:true,characterData:true,subtree:true});
+  const mutation=new MutationObserver(schedule);mutation.observe(footer,{childList:true,characterData:true,subtree:true,attributes:true,attributeFilter:['class']});
+  const motionEvents=['transitionend','transitioncancel','animationend','animationcancel'];
+  motionEvents.forEach(name=>footer.addEventListener(name,schedule));
   window.addEventListener('resize',schedule,{passive:true});
   document.fonts?.ready.then(schedule);schedule();
   return ()=>{
-    if(!active)return;active=false;cancelAnimationFrame(frame);observer?.disconnect();mutation.disconnect();window.removeEventListener('resize',schedule);
+    if(!active)return;active=false;cancelAnimationFrame(frame);observer?.disconnect();mutation.disconnect();motionEvents.forEach(name=>footer.removeEventListener(name,schedule));window.removeEventListener('resize',schedule);
     if(previous===null)footer.removeAttribute('data-footer-note-flow');else footer.setAttribute('data-footer-note-flow',previous);
   };
 }

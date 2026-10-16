@@ -1,5 +1,5 @@
-import { PHOTO } from './site-assets.js?v=20261016-245';
-import { BLOG_DEFAULT_PAGES, applyBlogDefaults236 } from './site-blog-content236.js?v=20261016-245';
+import { PHOTO } from './site-assets.js?v=20261016-246';
+import { BLOG_DEFAULT_PAGES, applyBlogDefaults236 } from './site-blog-content236.js?v=20261016-246';
 
 const FIELD_PHOTOS = Object.freeze({
   'home.hero.image': { photo: 'hero' },

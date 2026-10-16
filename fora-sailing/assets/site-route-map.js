@@ -1,4 +1,4 @@
-import { escapeHTML } from './site-assets.js?v=20261016-245';
+import { escapeHTML } from './site-assets.js?v=20261016-246';
 
 const esc = escapeHTML;
 const view = { width: 760, height: 220 };

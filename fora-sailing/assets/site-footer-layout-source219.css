@@ -234,3 +234,8 @@
 @media(max-width:760px){
  #site-app[data-page="fleet"] .site-footer .footer-tagline {margin-right:16cqw;}
 }
+
+/* 246: six source navigation links share the existing row with the social icons. */
+@media(max-width:760px){
+ #site-app[data-page="home"] .site-footer .footer-nav{max-width:39cqw;gap:.4cqw;transform:translateX(-1cqw);}
+}

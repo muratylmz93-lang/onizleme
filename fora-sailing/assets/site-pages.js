@@ -1,11 +1,11 @@
-import { renderCatalog, initCatalog } from './site-pages-catalog.js?v=20261016-245';
+import { renderCatalog, initCatalog } from './site-pages-catalog.js?v=20261016-246';
 const CATALOG = new Set(['routes', 'fleet', 'experiences']);
 let details,blogList,blogArticle;
 export async function renderPage(pageKey, ctx) {
-  if(pageKey==='blog'){blogList ||= await import('./site-blog-list236.js?v=20261016-245');return blogList.renderBlogList(ctx);}
-  if(pageKey==='blog-detail'){blogArticle ||= await import('./site-blog-article237.js?v=20261016-245');return blogArticle.renderBlogArticle(ctx);}
+  if(pageKey==='blog'){blogList ||= await import('./site-blog-list236.js?v=20261016-246');return blogList.renderBlogList(ctx);}
+  if(pageKey==='blog-detail'){blogArticle ||= await import('./site-blog-article237.js?v=20261016-246');return blogArticle.renderBlogArticle(ctx);}
   if (CATALOG.has(pageKey)) return renderCatalog(pageKey, ctx);
-  details ||= await import('./site-pages-detail.js?v=20261016-245');
+  details ||= await import('./site-pages-detail.js?v=20261016-246');
   return details.renderDetail(pageKey, ctx);
 }
 export function initPage(root, ctx, pageKey) {

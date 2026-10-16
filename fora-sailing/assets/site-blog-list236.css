@@ -451,3 +451,7 @@
 html[data-native-reduced-motion="true"] .bl236-button--gold,
 html[data-native-reduced-motion="true"] .bl236-button svg,
 html[data-native-reduced-motion="true"] .bl236-card__arrow svg{transform:none!important;transition-duration:150ms;}
+
+/* The listing cover keeps its own crop, independent of the article cover. */
+.bl236-hero img.bl236-hero__photo{object-position:center 47%;}
+@media(max-width:760px){.bl236-hero img.bl236-hero__photo{object-position:54% 45%;}}

@@ -1,5 +1,5 @@
-import { normalizeNativeContent } from './site-native-content.js?v=20261016-245';
-import { getBlogImage236 as blogImage236, getBlogMobileImage236 as blogMobileImage236 } from './site-blog-content236.js?v=20261016-245';
+import { normalizeNativeContent } from './site-native-content.js?v=20261016-246';
+import { getBlogImage236 as blogImage236, getBlogMobileImage236 as blogMobileImage236 } from './site-blog-content236.js?v=20261016-246';
 
 const DEFAULT_API_URL = '/api/public/content';
 const DEFAULT_STATIC_URL = '/assets/cms-public.json';

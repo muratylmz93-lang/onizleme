@@ -1,6 +1,6 @@
-import { PHOTO, media, homeFleetArtwork, homeRouteArtwork } from './site-assets.js?v=20261016-245';
-import { renderRouteMap, initRouteMaps } from './site-route-map.js?v=20261016-245';
-import { initHomeVideo217 } from './site-home-video217.js?v=20261016-245';
+import { PHOTO, media, homeFleetArtwork, homeRouteArtwork } from './site-assets.js?v=20261016-246';
+import { renderRouteMap, initRouteMaps } from './site-route-map.js?v=20261016-246';
+import { initHomeVideo217 } from './site-home-video217.js?v=20261016-246';
 
 const text = (ctx, binding, fallback) => {
   const value = ctx?.get?.(binding, fallback);
