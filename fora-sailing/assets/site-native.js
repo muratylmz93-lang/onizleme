@@ -1,7 +1,8 @@
-import { renderHome, initHome } from './site-home.js?v=20261016-180';
-import { subscribeContent, createContentContext, setupSEO, submitInquiry, trackEvent } from './site-content-runtime.js?v=20261016-180';
-import { PHOTO, escapeHTML as esc } from './site-assets.js?v=20261016-180';
-import { detailContent } from './site-detail-context.js?v=20261016-180';
+import { renderHome, initHome } from './site-home.js?v=20261016-200';
+import { subscribeContent, createContentContext, setupSEO, submitInquiry, trackEvent } from './site-content-runtime.js?v=20261016-200';
+import { PHOTO, escapeHTML as esc } from './site-assets.js?v=20261016-200';
+import { detailContent } from './site-detail-context.js?v=20261016-200';
+import { initAboutFlow207 } from './site-about-flow207.js?v=20261016-200';
 
 const PAGES = {
   home: { id:'ana-sayfa', path:'/', prefix:'home' },
@@ -413,7 +414,7 @@ function initPreviewSelection(ctx) {
 async function render(context,meta) {
   const sequence=++renderSequence;
   let ctx=context;
-  const defaults=await import('./site-native-content.js?v=20261016-180');
+  const defaults=await import('./site-native-content.js?v=20261016-200');
   const normalized=defaults.normalizeNativeContent(context.content);
   baselinePromise ||= fetch(`${config}assets/cms-public.json`,{cache:'no-cache'}).then(response=>response.json()).then(data=>defaults.normalizeNativeContent(data.content||data)).catch(()=>normalized);
   const currentPath=document.querySelector('meta[name="fora-cms-page-path"]')?.content||(preview?pageInfo.path:`/${location.pathname.slice(config.length)}`);
@@ -421,7 +422,7 @@ async function render(context,meta) {
   ctx=createContentContext(detail.content,{basePath:config,includeDraft:params.get('cmsPreview')==='1'});
   ctx.detailEntity=detail.entity;ctx.detailCollection=detail.family;
   if(preview){const originalUrl=ctx.url;ctx.url=route=>previewRoute(ctx.basePath,route)||originalUrl(route);}
-  const templates=pageKey==='home'?null:await import('./site-pages.js?v=20261016-180');
+  const templates=pageKey==='home'?null:await import('./site-pages.js?v=20261016-200');
   const markup=pageKey==='home'?renderHome(ctx):await templates.renderPage(pageKey,ctx);
   if(sequence!==renderSequence)return;
   const y=scrollY;
@@ -446,7 +447,7 @@ async function render(context,meta) {
   }
   const cleanupTemplate=pageKey==='home'?initHome(mount,ctx):templates.initPage?.(mount,ctx,pageKey);
   initForms(ctx);
-  const cleanups=[cleanupTemplate,initMenu(),initMotion(ctx),initVideo(ctx),initPreviewSelection(ctx)];
+  const cleanups=[cleanupTemplate,initMenu(),initMotion(ctx),initVideo(ctx),initPreviewSelection(ctx),initAboutFlow207(mount)];
   dispose=()=>cleanups.forEach(fn=>typeof fn==='function'&&fn());
   if(renderCount>1) scrollTo({top:y,behavior:'instant'});
   document.dispatchEvent(new CustomEvent('fora:rendered',{detail:{pageKey,revision:meta.revision,source:meta.source}}));

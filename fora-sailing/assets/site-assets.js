@@ -3,6 +3,8 @@ const photo = name => `assets/device-design-assets/images/${name}.png`;
 export const PHOTO = Object.freeze({
   hero: 'assets/hero-clean-base.png',
   heroAbout: 'assets/native-hero-about-v113.webp',
+  aboutStory: 'assets/native-about-main-web-source198.webp',
+  aboutStoryMobile: 'assets/native-about-main-mobile-source198.webp',
   heroContact: 'assets/native-hero-contact-v113.webp',
   aboutSide: 'assets/native-about-side-v2.webp',
   aboutTogether: 'assets/native-about-together-v2.webp',
@@ -160,10 +162,38 @@ export function experienceArtwork(ctx, value, markup, { canonicalEdit = false } 
   return `<picture style="display:contents"><source media="(max-width: 760px)" srcset="${escapeHTML(ctx.asset(crop))}">${markup}</picture>`;
 }
 
+const sourceHeroPhotos = Object.freeze({
+  'rotalar.hero.image': PHOTO.heroRoutes,
+  'filo.hero.image': PHOTO.heroFleet,
+  'deneyimler.hero.image': PHOTO.heroExperiences,
+  'hakkimizda.hero.image': PHOTO.heroAbout,
+  'rota-gocek-fethiye.hero.image': PHOTO.heroRouteDetail,
+  'eylul.hero.image': PHOTO.heroGuletDetail,
+  'iletisim.hero.image': PHOTO.heroContact,
+});
+const sourceMobileHeroPhotos = Object.freeze({
+  'rotalar.hero.image': 'assets/native-hero-routes-mobile-source195.webp',
+  'filo.hero.image': 'assets/native-hero-fleet-mobile-source195.webp',
+  'deneyimler.hero.image': 'assets/native-hero-experiences-mobile-source195.webp',
+});
+
+function isDefaultSourcePhoto(ctx, binding, value, expectedValue = sourceHeroPhotos[binding]) {
+  if (!expectedValue || value !== expectedValue) return false;
+  if (['image','coverImage','heroImage'].some(key => ctx.detailEntity?._canonicalEdits?.[key] === true)) return false;
+  const field = ctx.content?.pages?.flatMap(page => page.sections || []).flatMap(section => section.fields || []).find(field => field.binding === binding && !field.layerOnly);
+  return !field || (field.canonicalEdit !== true && field.value === field.defaultValue && value === field.value);
+}
+
 export function media(ctx, binding, key = 'hero', className = '', alt = '') {
   const fallback = key === '' ? '' : PHOTO[key] || key || PHOTO.hero;
   const value = binding ? ctx.get(binding, fallback) : fallback;
   if (value === '') return `<span hidden class="${escapeHTML(className)}"${binding ? ` data-cms-binding="${escapeHTML(binding)}"` : ''} aria-hidden="true"></span>`;
   const src = ctx.asset(value ?? fallback);
-  return `<img class="${escapeHTML(className)}"${binding ? ` data-cms-binding="${escapeHTML(binding)}"` : ''} src="${escapeHTML(src)}" alt="${escapeHTML(alt)}" loading="lazy" decoding="async">`;
+  const sourceHeroFit = isDefaultSourcePhoto(ctx, binding, value);
+  const sourceAboutFit = binding === 'hakkimizda.content.image' && isDefaultSourcePhoto(ctx, binding, value, PHOTO.aboutStory);
+  const markup = `<img class="${escapeHTML(className)}"${binding ? ` data-cms-binding="${escapeHTML(binding)}"` : ''}${sourceHeroFit ? ' data-source-hero-fit="true"' : ''}${sourceAboutFit ? ' data-source-artwork-fit="true"' : ''} src="${escapeHTML(src)}" alt="${escapeHTML(alt)}" loading="lazy" decoding="async">`;
+  const mobilePhoto = sourceHeroFit ? sourceMobileHeroPhotos[binding] : sourceAboutFit ? PHOTO.aboutStoryMobile : null;
+  return mobilePhoto
+    ? `<picture class="${sourceHeroFit ? 'source-hero-picture' : 'source-artwork-picture'}" style="display:contents"><source media="(max-width: 760px)" srcset="${escapeHTML(ctx.asset(mobilePhoto))}">${markup}</picture>`
+    : markup;
 }

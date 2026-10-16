@@ -1,0 +1,56 @@
+/* About Source 207: desktop photo and paper layers. Editable copy stays in flow. */
+@media (min-width:761px){
+  #site-app .fora-detail--about .detail-values-list p{
+    font-size:1.17cqw;
+    line-height:1.35;
+  }
+  #site-app .fora-detail--about .detail-values-list li:last-child{padding-right:0}
+  /* Reserve the same separation when a CMS description grows beyond the default. */
+  #site-app .fora-detail--about .detail-values{
+    padding-bottom:3.7cqw;
+  }
+  #site-app .fora-detail--about .detail-together{
+    overflow:visible;
+    isolation:isolate;
+  }
+  #site-app .fora-detail--about .detail-together::before{
+    content:"";
+    position:absolute;
+    z-index:-1;
+    pointer-events:none;
+    inset:-3cqw 0 auto;
+    height:5cqw;
+    background:var(--paper,#f6f3eb);
+    mask:none;
+    transform:none;
+    clip-path:none;
+    mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000' preserveAspectRatio='none'%3E%3Cpath fill='white' d='M0 0C100 220 200 370 300 360S400 270 500 290S600 360 700 320S900 180 1000 110V1000H0Z'/%3E%3C/svg%3E");
+    mask-size:100% 100%;
+    mask-repeat:no-repeat;
+  }
+  #site-app .fora-detail--about .detail-together::after{display:none}
+  #site-app .fora-detail--about .detail-together-grid>div:last-child{
+    position:relative;
+    left:1.3cqw;
+    top:-1.8cqw;
+  }
+  #site-app .fora-detail--about .detail-together-photo{
+    height:34.8cqw;
+    margin-top:-5.8cqw;
+    margin-bottom:-2cqw;
+    transform:none;
+    border:0;
+    border-radius:0;
+    box-shadow:none;
+    overflow:hidden;
+    clip-path:none;
+    mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000' preserveAspectRatio='none'%3E%3Cpath fill='white' d='M0 0C120 60 280 110 450 110S750 180 940 240C1000 270 1020 650 980 900L950 980C770 1020 560 990 350 950S100 940 0 1000Z'/%3E%3C/svg%3E");
+    mask-size:100% 100%;
+    mask-repeat:no-repeat;
+  }
+}
+@media(max-width:760px){
+  #site-app .fora-detail--about .detail-values>.container{
+    padding-bottom:var(--about-note-clearance207,0px);
+  }
+}

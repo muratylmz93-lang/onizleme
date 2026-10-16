@@ -1,5 +1,5 @@
-import { PHOTO, media, escapeHTML } from './site-assets.js?v=20261016-180';
-import { renderRouteMap, initRouteMaps } from './site-route-map.js?v=20261016-180';
+import { PHOTO, media, escapeHTML } from './site-assets.js?v=20261016-200';
+import { renderRouteMap, initRouteMaps } from './site-route-map.js?v=20261016-200';
 
 const esc = escapeHTML;
 const get = (ctx, key, fallback = '') => {
@@ -98,7 +98,7 @@ function routeDetail(ctx) {
 function about(ctx) {
   const p = 'hakkimizda';
   const icon = (_ctx, name) => {
-    const source = { 'local:sailboat': 'assets/icons/tabler/sailboat-fine.svg', 'geo-alt-fill': 'assets/icons/tabler/route-fine.svg', 'local:waves': 'assets/icons/tabler/sunset-2-fine.svg' }[name];
+    const source = { 'local:sailboat': 'assets/icons/source-sailboat193.svg', 'geo-alt-fill': 'assets/icons/source-route193.svg', 'local:waves': 'assets/icons/source-sea193.svg' }[name];
     return `<img class="detail-value-icon icon" src="${esc(ctx.asset(source))}" alt="" aria-hidden="true">`;
   };
   const togetherTitleKey=`${p}.together.title`;

@@ -1,0 +1,89 @@
+/* Source artwork motifs. Content, hit targets and motion remain native. */
+#site-app .home-story-play img,
+#site-app .home-story-play .icon,
+#site-app .catalog-story__play .icon,
+#site-app .detail-photo-play .icon { visibility: hidden; }
+#site-app .home-story-play::after,
+#site-app .catalog-story__play::after,
+#site-app .detail-photo-play::after {
+  content: "";
+  position: absolute;
+  left: 41%;
+  top: 29%;
+  width: 27%;
+  height: 43%;
+  background: #fff;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  pointer-events: none;
+}
+#site-app .fora-route-map__pin { fill: currentColor; stroke: none; }
+#site-app .fora-route-map__departure { fill:var(--route-map-gold); stroke:none; }
+#site-app .fora-route-map.is-pending .fora-route-map__departure { opacity:0; transition:opacity 250ms; }
+#site-app .fora-route-map[data-route-map-started="true"] .fora-route-map__departure { opacity:1; }
+@media (prefers-reduced-motion:reduce) {
+  #site-app .fora-route-map__departure { transition:none!important; }
+}
+#site-app .fora-route-map__boat-glyph { fill: currentColor; stroke: none; }
+#site-app .fora-route-map__mast { fill: none; stroke: currentColor; stroke-width: 2; }
+#site-app .fora-home .fora-route-map__path { stroke-width:.8; }
+#site-app .fora-home .fora-route-map.is-complete .fora-route-map__path { stroke-dasharray:2 2; }
+#site-app .fora-detail--route .fora-route-map.is-complete .fora-route-map__path { stroke-dasharray:3 3; }
+#site-app .fora-home .fora-route-map.is-pending .fora-route-map__stop { transition-duration:250ms,250ms; }
+#site-app .fora-detail--route .fora-route-map.is-pending .fora-route-map__stop { transition-duration:220ms,220ms; }
+
+@media (min-width: 761px) {
+  #site-app .fora-home .home-routes > .fora-route-map {
+    left: 55cqw;
+    right: auto;
+    top: 3.5cqw;
+    width: 22.25cqw;
+    height: 10.4cqw;
+    aspect-ratio: auto;
+  }
+  #site-app .fora-detail--route .detail-stops-inner .fora-route-map {
+    width: 83%;
+    height: 12cqw;
+    min-height: 0;
+    aspect-ratio: auto;
+    align-self: end;
+    margin-bottom: 1cqw;
+  }
+  #site-app .fora-detail--route .detail-stops-inner { min-height:17.13cqw; }
+  #site-app .fora-detail--route .fora-route-map__stop:nth-child(2) .fora-route-map__label {
+    position: absolute;
+    bottom: 100%;
+    margin-bottom: .5cqw;
+  }
+}
+@media (max-width: 760px) {
+  #site-app .fora-home .home-routes > .fora-route-map {
+    left: 56.5cqw;
+    right: auto;
+    top: 12.9cqw;
+    width: 33.6cqw;
+    height: 13cqw;
+    aspect-ratio: auto;
+  }
+  #site-app .fora-home .fora-route-map__stop:nth-child(2) { --stop-x: 66.6% !important; }
+  #site-app .fora-detail--route .fora-route-map__stop:nth-child(2) .fora-route-map__label {
+    position: absolute;
+    bottom: 100%;
+    margin-bottom: .6cqw;
+  }
+}
+#site-app .fora-home .fora-route-map__stop {
+  display: block;
+  width: max-content;
+  min-width: 0;
+  max-width: none;
+  line-height: 0;
+}
+#site-app .fora-home .fora-route-map__label {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  max-width: none;
+  margin-left: .6cqw;
+  transform: translateY(-50%);
+  white-space: nowrap;
+}

@@ -1,5 +1,5 @@
-import { PHOTO, media, homeFleetArtwork, homeRouteArtwork } from './site-assets.js?v=20261016-180';
-import { renderRouteMap, initRouteMaps } from './site-route-map.js?v=20261016-180';
+import { PHOTO, media, homeFleetArtwork, homeRouteArtwork } from './site-assets.js?v=20261016-200';
+import { renderRouteMap, initRouteMaps } from './site-route-map.js?v=20261016-200';
 
 const text = (ctx, binding, fallback) => {
   const value = ctx?.get?.(binding, fallback);
@@ -111,6 +111,9 @@ export function renderHome(ctx = {}) {
   const sourceHeroFit = (!heroImageField || (heroImageField.canonicalEdit !== true && heroImageField.value === heroImageField.defaultValue)) &&
     /(?:^|\/)hero-clean-base\.png(?:[?#]|$)/.test(String(ctx?.get?.('home.hero.image', PHOTO.hero) ?? PHOTO.hero).replaceAll('\\', '/'));
   const heroPhotoMarkup = media(ctx, 'home.hero.image', 'hero', 'home-hero-photo', 'Ege kıyılarında yelken açan gulet').replace(/^<img\b/, sourceHeroFit ? '<img data-source-hero-fit="true"' : '<img');
+  const heroResponsiveMarkup = sourceHeroFit && heroPhotoMarkup.startsWith('<img')
+    ? `<picture class="home-hero-source-picture" data-source-hero-fit="true"><source media="(max-width: 760px)" srcset="${esc(ctx?.asset?.('assets/native-home-hero-mobile-source190.webp') || 'assets/native-home-hero-mobile-source190.webp')}">${heroPhotoMarkup}</picture>`
+    : heroPhotoMarkup;
   const heroWaterMarkup = heroPhotoMarkup.replace('class="home-hero-photo"', 'class="home-hero-water-extension"').replace(/\balt="[^"]*"/, 'alt="" aria-hidden="true" style="display:none"');
   const heroTitle = esc(text(ctx, 'home.hero.title', 'Hayallerin\nRotası\nMavi Yolculuk')).replace(/\r?\n/g, '<br>');
   const phoneTitle = esc(text(ctx, 'home.hero.title', 'Hayallerin\nRotası\nMavi Yolculuk')).replace(/\r?\n/g, '<br>');
@@ -138,7 +141,7 @@ export function renderHome(ctx = {}) {
 
   return `<main class="fora-home" aria-label="Fora Sailing ana sayfa">
     <section class="home-hero" data-section-id="hero" aria-labelledby="home-hero-title">
-      ${heroPhotoMarkup}
+      ${heroResponsiveMarkup}
       ${heroWaterMarkup}
       <div class="home-hero-shade" aria-hidden="true"></div>
       <div class="home-hero-content">
@@ -186,7 +189,7 @@ export function renderHome(ctx = {}) {
         <p data-cms-binding="home.routes.description">${esc(text(ctx, 'home.routes.description', 'Her rota, yeni bir hikâye. Türkiye’nin en güzel koylarında unutulmaz bir mavi yolculuk sizi bekliyor.'))}</p>
         ${link(ctx, text(ctx, 'home.routes.link', '/rotalar/'), text(ctx, 'home.routes.linkLabel', 'Tüm Rotaları İncele'), 'home-text-link home-light-link', 'home.routes.linkLabel', 'home.routes.link', 'arrow-right')}
       </div>
-      ${renderRouteMap(ctx, { id: 'home-featured-routes', stops: ['Bodrum', 'Marmaris', 'Fethiye'], duration: 1600, showBoat: true })}
+      ${renderRouteMap(ctx, { id: 'home-featured-routes', stops: ['Bodrum', 'Marmaris', 'Fethiye'], duration: 1600 })}
       <div class="home-route-rail" data-drag-rail aria-label="Öne çıkan rotalar">${routeCards}</div>
       <aside class="home-phone" aria-label="Mobil site önizlemesi">
         <div class="home-phone-bezel">

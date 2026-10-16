@@ -1,0 +1,16 @@
+/* Source mobile route closing panel: natural copy and real button labels. */
+@media (max-width:760px) {
+  #site-app[data-page="routes"] .site-header .site-header-actions > .btn-gold { display:inline-flex; }
+  #site-app .catalog-routes__intro > .container:last-child { padding-bottom:0; }
+  #site-app .catalog-routes__intro .catalog-card-grid--routes { padding-bottom:0; }
+  #site-app .catalog-routes__planning { margin-top:-1.5cqw; }
+  #site-app .catalog-routes__planning .catalog-planning,
+  #site-app .catalog-routes__planning .catalog-planning__inner { min-height:30cqw; }
+  #site-app .catalog-routes__planning .catalog-planning__inner { padding-top:3.2cqw; padding-bottom:1.8cqw; }
+  #site-app .catalog-routes__planning .catalog-planning__copy { font-size:1.85cqw; line-height:1.14; }
+  #site-app .catalog-routes__planning .catalog-planning__inner .btn { min-height:4.4cqw; padding:.75cqw 2.5cqw; font-size:1.8cqw; }
+  #site-app[data-page="routes"] .site-footer { min-height:29cqw; }
+}
+@media (hover:none) and (pointer:coarse) {
+  #site-app .catalog-card__link:hover .catalog-card__image { transform:none; }
+}

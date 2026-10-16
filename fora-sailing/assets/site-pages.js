@@ -1,9 +1,9 @@
-import { renderCatalog, initCatalog } from './site-pages-catalog.js?v=20261016-180';
+import { renderCatalog, initCatalog } from './site-pages-catalog.js?v=20261016-200';
 const CATALOG = new Set(['routes', 'fleet', 'experiences']);
 let details;
 export async function renderPage(pageKey, ctx) {
   if (CATALOG.has(pageKey)) return renderCatalog(pageKey, ctx);
-  details ||= await import('./site-pages-detail.js?v=20261016-180');
+  details ||= await import('./site-pages-detail.js?v=20261016-200');
   return details.renderDetail(pageKey, ctx);
 }
 export function initPage(root, ctx, pageKey) {

@@ -1,4 +1,4 @@
-import { PHOTO } from './site-assets.js?v=20261016-180';
+import { PHOTO } from './site-assets.js?v=20261016-200';
 
 const FIELD_PHOTOS = Object.freeze({
   'home.hero.image': { photo: 'hero' },
@@ -22,7 +22,7 @@ const FIELD_PHOTOS = Object.freeze({
   'eylul.hero.image': { photo: 'heroGuletDetail' },
   'eylul.content.image': { photo: 'guletDeck' },
   'hakkimizda.hero.image': { photo: 'heroAbout' },
-  'hakkimizda.content.image': { photo: 'routeStory' },
+  'hakkimizda.content.image': { photo: 'aboutStory' },
   'hakkimizda.content.sideImage': { photo: 'aboutSide' },
   'hakkimizda.values.image': { photo: 'routeSea' },
   'hakkimizda.together.image': { photo: 'aboutTogether' },
@@ -171,6 +171,7 @@ const DEFAULT_FIELD_ROWS = Object.freeze([
   { pagePath: '/rotalar/', sectionId: 'planning', binding: 'rotalar.planning.description', type: 'text', label: 'Planlama açıklaması', value: 'Rota önerileri, gulet seçenekleri ve size özel mavi yolculuk planı için bizimle iletişime geçin.' },
   { pagePath: '/rotalar/', sectionId: 'planning', binding: 'rotalar.planning.image', type: 'image', label: 'Planlama fotoğrafı', value: '' },
   { pagePath: '/rotalar/', sectionId: 'planning', binding: 'rotalar.planning.note', type: 'textarea', label: 'Planlama el yazısı notu', value: 'Mavi yolculuk sizi bekliyor…' },
+  { pagePath: '/rotalar/', sectionId: 'planning', binding: 'rotalar.planning.whatsappLabel', type: 'text', label: 'Planlama WhatsApp düğmesi', value: 'WhatsApp ile İletişim' },
   { pagePath: '/filo/', sectionId: 'hero', binding: 'filo.hero.eyebrow', type: 'textarea', label: 'Üst başlık', value: 'EGE VE AKDENİZ’İN EN GÜZEL KOYLARINDA' },
   { pagePath: '/filo/', sectionId: 'hero', binding: 'filo.hero.title', type: 'text', label: 'Başlık', value: 'Denizdeki Evinizi Keşfedin' },
   { pagePath: '/filo/', sectionId: 'hero', binding: 'filo.hero.description', type: 'text', label: 'Açıklama', value: 'Her biri özel olarak seçilmiş gulet filomuzla, mavi yolculuğu en konforlu haliyle yaşayın.' },

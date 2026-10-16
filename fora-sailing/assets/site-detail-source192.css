@@ -1,0 +1,25 @@
+/* Phase 192 source fit: scoped detail collage and form geometry. */
+@media (min-width:761px) {
+  #site-app .fora-detail--about .detail-intro-art .detail-compass-stamp { top:1.2cqw; left:-10.5cqw; width:11.3cqw; height:12.3cqw; }
+  #site-app .fora-detail--about .detail-intro-art .detail-photo-main { top:.2cqw; }
+  #site-app .fora-detail--about .detail-intro-art .detail-photo-inset { top:.5cqw; }
+  #site-app .fora-detail--gulet .detail-intro-art .detail-photo-main { top:2.8cqw; }
+  #site-app .fora-detail--gulet .detail-intro-art .detail-photo-inset { top:4cqw; }
+  #site-app .fora-detail--gulet .detail-compass-stamp { top:9.5cqw; left:-11.4cqw; width:10cqw; height:10cqw; }
+  #site-app .fora-detail--gulet .detail-intro-art .detail-photo-play { left:36.1%; top:70%; }
+  #site-app .fora-detail--gulet .detail-gallery-main { overflow:visible; }
+  #site-app .fora-detail--gulet .detail-gallery-step { top:calc(100% + 5.3cqw); transform:translateY(-50%); z-index:5; }
+  #site-app .fora-detail--gulet .detail-gallery-step--prev { left:-2cqw; }
+  #site-app .fora-detail--gulet .detail-gallery-step--next { right:-2cqw; }
+}
+
+@media (max-width:760px) {
+  /* The supplied mobile collage leaves a cutout below the story link. */
+  #site-app .fora-detail--about .detail-intro-art .detail-photo-main:has([data-source-artwork-fit="true"]) {
+    clip-path:polygon(20% 0,100% 0,100% 100%,0 100%,0 22%,14% 22%);
+  }
+  #site-app .fora-detail--about .detail-intro-art .detail-photo-main:has([data-source-artwork-fit="true"])::after {
+    content:""; position:absolute; inset:0; z-index:2;
+    background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M0%2022H14L20%200%22%20fill%3D%22none%22%20stroke%3D%22white%22%20stroke-width%3D%221.2%22%2F%3E%3C%2Fsvg%3E") center/100% 100% no-repeat; pointer-events:none;
+  }
+}

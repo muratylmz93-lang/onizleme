@@ -1183,6 +1183,14 @@
                 "binding": "rotalar.planning.note",
                 "value": "Mavi yolculuk sizi bekliyor…",
                 "defaultValue": "Mavi yolculuk sizi bekliyor…"
+              },
+              {
+                "id": "native-rotalar.planning.whatsappLabel",
+                "label": "Planlama WhatsApp düğmesi",
+                "type": "text",
+                "binding": "rotalar.planning.whatsappLabel",
+                "value": "WhatsApp ile İletişim",
+                "defaultValue": "WhatsApp ile İletişim"
               }
             ]
           },
@@ -2323,8 +2331,8 @@
                 "label": "Bölüm görseli",
                 "type": "image",
                 "binding": "hakkimizda.content.image",
-                "value": "assets/native-route-story-v2.webp",
-                "defaultValue": "assets/native-route-story-v2.webp"
+                "value": "assets/native-about-main-web-source198.webp",
+                "defaultValue": "assets/native-about-main-web-source198.webp"
               },
               {
                 "id": "native-hakkimizda.content.sideImage",
