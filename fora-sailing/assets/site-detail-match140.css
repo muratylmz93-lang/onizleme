@@ -1,0 +1,172 @@
+/* Final source geometry for the four native detail pages. */
+#site-app .fora-detail .detail-hand-note { font-weight:400; }
+#site-app .fora-detail--route .detail-actions .btn-whatsapp,
+#site-app .fora-detail--gulet .detail-actions .btn-whatsapp { background:transparent; border:1px solid #fff; font-weight:400; }
+#site-app .fora-detail--route .detail-actions .btn-whatsapp:hover,
+#site-app .fora-detail--gulet .detail-actions .btn-whatsapp:hover { background:#006875; }
+#site-app .fora-detail--gulet .detail-specs { display:none; }
+#site-app .fora-detail--route .detail-highlights .detail-eyebrow { display:none; }
+#site-app .fora-detail--gulet .detail-gulet-form>label>span { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+#site-app .fora-detail input,#site-app .fora-detail select,#site-app .fora-detail textarea { font-weight:400; }
+#site-app .fora-detail .detail-compass-stamp { object-fit:cover; object-position:top; aspect-ratio:1; height:auto; }
+
+@media (min-width:761px) {
+  #site-app .fora-detail--gulet .detail-hero,
+  #site-app .fora-detail--gulet .detail-hero-copy { height:41.5cqw!important; min-height:41.5cqw!important; }
+  #site-app .fora-detail--gulet .detail-intro { min-height:30cqw; }
+  #site-app .fora-detail--gulet .detail-intro-copy { transform:translateY(-.5cqw); }
+  #site-app .fora-detail--gulet .detail-intro-art { transform:translateY(-2.4cqw); }
+  #site-app .fora-detail--route .detail-hero-description { max-width:30cqw; }
+  #site-app .fora-detail--route .detail-intro-copy>p:not(.detail-eyebrow) { max-width:36cqw; font-size:1.45cqw; line-height:1.3; }
+  #site-app .fora-detail--route .detail-intro-art .detail-photo-main { left:-2cqw; top:1.5cqw; width:39cqw; height:29cqw; transform:rotate(8deg); }
+  #site-app .fora-detail--route .detail-intro-art .detail-photo-inset { top:1cqw; right:3.5cqw; width:18cqw; height:14cqw; transform:rotate(-11deg); }
+  #site-app .fora-detail--route .detail-intro-art .detail-hand-note--photo { left:1cqw; right:auto; top:auto; bottom:5cqw; width:15cqw; max-width:15cqw; font-size:3cqw; line-height:.9; transform:rotate(-8deg); }
+  #site-app .fora-detail--route .detail-intro-art .detail-hand-note--inset { top:auto; bottom:0; right:-1cqw; width:16cqw; max-width:16cqw; font-size:2.8cqw; line-height:1; }
+  #site-app .fora-detail--route .detail-compass-stamp { left:auto; right:-1cqw; top:16cqw; width:14cqw; height:auto; opacity:.45; }
+  #site-app .fora-detail--route .detail-stops-copy h2 { max-width:35cqw; font-size:3.1cqw; }
+  #site-app .fora-detail--route .detail-highlights-grid { grid-template-columns:29% 22% 31% 18%; gap:0; }
+  #site-app .fora-detail--route .detail-highlight-copy { padding-inline:2cqw 1cqw; }
+  #site-app .fora-detail--route .detail-highlight-copy h2 { white-space:nowrap; font-size:3.1cqw; }
+  #site-app .fora-detail--route .detail-highlight-copy--last h2 { white-space:normal; font-size:3.1cqw; max-width:18cqw; }
+  #site-app .fora-detail--route .detail-highlight-copy p:not(.detail-eyebrow) { font-size:1.2cqw; line-height:1.4; }
+  #site-app .fora-detail--route .detail-highlight-photo { transform:rotate(-5deg); }
+  #site-app .fora-detail--route .detail-highlight-sunset { transform:rotate(-5deg); }
+  #site-app .fora-detail--route .detail-quote-grid { grid-template-columns:35% 1fr; gap:3cqw; }
+  #site-app .fora-detail--route .detail-quote h2 { width:24cqw; max-width:24cqw; font-size:4.1cqw; line-height:.98; }
+  #site-app .fora-detail--route .detail-quick-form { max-width:none; width:42cqw; padding:2.8cqw; border-radius:1cqw; }
+  #site-app .fora-detail--route .detail-quote-note { left:22cqw; top:2cqw; bottom:auto; width:17cqw; max-width:17cqw; font-size:2.8cqw!important; line-height:1; }
+
+  #site-app .fora-detail--gulet .detail-intro { overflow:visible; z-index:3; }
+  #site-app .fora-detail--gulet .detail-intro-grid { align-items:start; }
+  #site-app .fora-detail--gulet .detail-intro-copy>p:not(.detail-eyebrow) { max-width:29cqw; font-size:1.45cqw; line-height:1.3; }
+  #site-app .fora-detail--gulet .detail-intro-art .detail-photo-main { left:0; top:1.2cqw; width:35cqw; height:33.5cqw; transform:rotate(7.5deg); }
+  #site-app .fora-detail--gulet .detail-intro-art .detail-photo-inset { top:2cqw; right:-3.5cqw; width:19cqw; height:20cqw; border:.7cqw solid #fff; border-bottom-width:5cqw; transform:rotate(-10deg); }
+  #site-app .fora-detail--gulet .detail-intro-art .detail-photo-cove { top:23.5cqw; right:-4cqw; bottom:auto; width:19.5cqw; height:15cqw; transform:rotate(8deg); }
+  #site-app .fora-detail--gulet .detail-intro-art .detail-hand-note--photo { left:1cqw; right:auto; top:24cqw; bottom:auto; width:19cqw; max-width:19cqw; font-size:3.6cqw; line-height:.85; transform:rotate(-8deg); }
+  #site-app .fora-detail--gulet .detail-intro-art .detail-hand-note--inset { top:16cqw; right:-3cqw; bottom:auto; width:9.5cqw; max-width:9.5cqw; color:var(--text); font-size:2.4cqw; line-height:.95; transform:rotate(-10deg); }
+  #site-app .fora-detail--gulet .detail-compass-stamp { top:12cqw; left:-13cqw; width:17cqw; height:auto; opacity:.45; }
+  #site-app .fora-detail--gulet .detail-gallery-section { position:relative; z-index:2; padding-block:4cqw 0; }
+  #site-app .fora-detail--gulet .detail-gallery-grid { width:95cqw; max-width:none; margin-left:5cqw; margin-right:0; grid-template-columns:59.5cqw 1fr; gap:1cqw; }
+  #site-app .fora-detail--gulet .detail-gulet-quote { padding:4cqw 3cqw 1.5cqw; border-radius:0; gap:.5cqw; }
+  #site-app .fora-detail--gulet .detail-gulet-quote h2 { max-width:25cqw; font-size:4cqw; line-height:.94; }
+  #site-app .fora-detail--gulet .detail-gulet-quote>p { max-width:28cqw; font-size:1.4cqw; line-height:1.25; }
+  #site-app .fora-detail--gulet .detail-gulet-form { margin-top:.6cqw; }
+  #site-app .fora-detail--gulet .detail-related-grid { grid-template-columns:35% 23% 23%; gap:2cqw; }
+  #site-app .fora-detail--gulet .detail-related-card img { height:13.5cqw; }
+  #site-app .fora-detail--about .detail-intro-art .detail-compass-stamp { top:4cqw; left:-16cqw; width:16cqw; height:16cqw; }
+  #site-app .fora-detail--about .detail-intro-art .detail-photo-main { width:40cqw; height:29cqw; }
+  #site-app .fora-detail--about .detail-intro-art .detail-photo-inset { top:-1cqw; right:0; width:18cqw; height:16cqw; transform:rotate(-12deg); }
+  #site-app .fora-detail--about .detail-intro-art .detail-hand-note--inset { top:17cqw; right:0; width:12cqw; max-width:12cqw; font-size:2.6cqw; }
+  #site-app .fora-detail--about .detail-values-lead { max-width:60cqw; font-size:1.5cqw; line-height:1.3; }
+  #site-app .fora-detail--about .detail-values-list h3 { font-size:2cqw; }
+  #site-app .fora-detail--about .detail-values-list p { font-size:1.3cqw; line-height:1.3; }
+  #site-app .fora-detail--contact .detail-contact-form-wrap { max-width:52cqw; padding-top:1.8cqw; }
+  #site-app .fora-detail--contact .detail-contact-form-wrap h2 { width:54cqw; font-size:4.8cqw; margin-bottom:1cqw; }
+  #site-app .fora-detail--contact .detail-contact-form-wrap>p:not(.detail-eyebrow) { font-size:1.35cqw; line-height:1.25; }
+  #site-app .fora-detail--contact .detail-contact-form { margin-top:1.4cqw; }
+  #site-app .fora-detail--contact .detail-contact-aside { padding-top:2cqw; }
+  #site-app .fora-detail--contact .detail-contact-aside-copy { width:25cqw; max-width:25cqw; }
+  #site-app .fora-detail--contact .detail-contact-aside-copy h2 { font-size:4.8cqw; }
+}
+
+@media (max-width:760px) {
+  #site-app .fora-detail--route .detail-hero,
+  #site-app .fora-detail--route .detail-hero-copy { min-height:53cqw!important; height:53cqw!important; }
+  #site-app .fora-detail--route .detail-actions { gap:1cqw; }
+  #site-app .fora-detail--route .detail-intro-grid { width:86cqw; }
+  #site-app .fora-detail--route .detail-intro-art { min-height:38cqw; }
+  #site-app .fora-detail--route .detail-intro-art .detail-photo-main { left:2cqw; width:70cqw; height:34cqw; }
+  #site-app .fora-detail--gulet .detail-hero-copy { padding-top:12cqw; }
+  #site-app .fora-detail--gulet .detail-intro-grid { row-gap:0; }
+  #site-app .fora-detail--gulet .detail-intro-copy>p:not(.detail-eyebrow) { max-width:59cqw; }
+  #site-app .fora-detail--gulet .detail-intro-art { min-height:42.5cqw; }
+  #site-app .fora-detail--gulet .detail-intro-art .detail-photo-main { top:3.5cqw; left:1cqw; width:60cqw; height:40cqw; transform:rotate(2deg); }
+  #site-app .fora-detail--gulet .detail-intro-art .detail-photo-inset { top:-10.5cqw; right:0; width:30cqw; height:27cqw; border:.8cqw solid #fff; border-bottom-width:7cqw; transform:rotate(-8deg); }
+  #site-app .fora-detail--gulet .detail-intro-art .detail-photo-cove { top:19cqw; right:0; bottom:auto; width:30cqw; height:23cqw; transform:rotate(7deg); }
+  #site-app .fora-detail--gulet .detail-intro-art .detail-hand-note--photo { left:2cqw; right:auto; top:30cqw; bottom:auto; width:22cqw; max-width:22cqw; font-size:5cqw; line-height:.85; transform:rotate(-8deg); }
+  #site-app .fora-detail--gulet .detail-intro-art .detail-hand-note--inset { top:10cqw; right:0; bottom:auto; width:24cqw; max-width:24cqw; color:var(--text); font-size:3.5cqw; line-height:.9; transform:rotate(-8deg); }
+  #site-app .fora-detail--gulet .detail-gallery-grid { row-gap:.5cqw; }
+  #site-app .fora-detail--gulet .detail-gallery-column { width:88cqw; margin-inline:auto; }
+  #site-app .fora-detail--gulet .detail-gallery { padding:0; background:transparent; box-shadow:none; border-radius:0; }
+  #site-app .fora-detail--gulet .detail-gallery-categories { margin-bottom:2cqw; }
+  #site-app .fora-detail--gulet .detail-gallery-categories button { min-height:6cqw; padding:.6cqw 1cqw; font-size:2.3cqw; }
+  #site-app .fora-detail--gulet .detail-gallery-main { height:31cqw; }
+  #site-app .fora-detail--gulet .detail-gallery-thumbs img { height:12cqw; }
+  #site-app .fora-detail--gulet .detail-gulet-quote { padding:3cqw 6.5cqw 2cqw; }
+  #site-app .fora-detail--gulet .detail-related-grid>div:first-child { min-height:18cqw; }
+  #site-app .fora-detail--gulet .detail-related h2 { width:61cqw; font-size:5.2cqw; line-height:.96; }
+  #site-app .fora-detail--gulet .detail-related-grid>div:first-child>p:not(.detail-hand-note) { max-width:61cqw; font-size:2.15cqw; line-height:1.2; }
+  #site-app .fora-detail--gulet .detail-hand-note--related { top:1cqw; right:0; width:23cqw; max-width:23cqw; font-size:3.5cqw; line-height:1; }
+
+  #site-app .fora-detail--route .detail-intro-art .detail-hand-note--photo { top:auto; left:4cqw; right:auto; bottom:4cqw; width:23cqw; max-width:23cqw; font-size:5cqw; line-height:.9; transform:rotate(-8deg); }
+  #site-app .fora-detail--route .detail-intro-art .detail-hand-note--inset { top:auto; right:0; bottom:-1cqw; width:20cqw; max-width:20cqw; font-size:3.5cqw; line-height:.9; }
+  #site-app .fora-detail--route .detail-compass-stamp { top:9cqw; right:0; left:auto; width:15cqw; height:auto; opacity:.45; }
+  #site-app .fora-detail--route .detail-stops { padding-top:1cqw; }
+  #site-app .fora-detail--route .detail-highlight-copy h2 { font-size:5.2cqw; }
+  #site-app .fora-detail--route .detail-highlight-copy--last h2 { max-width:28cqw; font-size:5.2cqw; }
+  #site-app .fora-detail--route .detail-highlight-copy>p { max-width:35cqw; }
+  #site-app .fora-detail--route .detail-highlights-grid { position:relative; }
+  #site-app .fora-detail--route .detail-hand-note--highlight { position:absolute; left:71cqw; top:20cqw; width:20cqw; max-width:20cqw; padding:1cqw; color:var(--text); background:#fffdf7; font-size:3cqw; line-height:1; transform:rotate(7deg); }
+  #site-app .fora-detail--route .detail-highlights-grid { min-height:63cqw; }
+  #site-app .fora-detail--route .detail-quote-grid>div>p:not(.detail-quote-note) { margin-top:.6cqw; }
+  #site-app .fora-detail--gulet .detail-related-grid>div:first-child { min-height:14cqw; }
+  #site-app .fora-detail--gulet .detail-related-card>span { padding:.3cqw 1cqw; }
+  #site-app[data-page="gulet-detail"] .site-footer { min-height:18cqw; padding-block:1.5cqw; }
+  #site-app .fora-detail--about .detail-intro-art .detail-photo-main { transform:rotate(7deg); left:18cqw; }
+  #site-app .fora-detail--about .detail-intro-art .detail-compass-stamp { top:-42cqw; right:6cqw; left:auto; width:25cqw; height:25cqw; }
+  #site-app .fora-detail--about .detail-intro-art .detail-hand-note--photo { width:20cqw; max-width:20cqw; font-size:4.3cqw; }
+  #site-app .fora-detail--about .detail-hand-note--inset { max-width:20cqw; width:20cqw; }
+  #site-app .fora-detail--contact .detail-contact-photo { transform:rotate(9deg); top:13cqw; right:10cqw; width:45cqw; height:39cqw; }
+  #site-app .fora-detail--contact .detail-hand-note--aside { width:17cqw; max-width:17cqw; }
+}
+/* Gulet source footer band and related-card rhythm. */
+@media(min-width:761px) {
+  #site-app .fora-detail--gulet .detail-gallery-section { padding-bottom:1.4cqw; }
+  #site-app .fora-detail--gulet .detail-related { padding-block:4cqw 1.5cqw; }
+  #site-app .fora-detail--gulet .detail-related .detail-eyebrow { font-size:.9cqw; line-height:1.3; margin-bottom:.6cqw; }
+  #site-app .fora-detail--gulet .detail-related h2 { font-size:3.8cqw; line-height:.86; margin-bottom:1.4cqw; }
+  #site-app .fora-detail--gulet .detail-related-grid>div:first-child>p:not(.detail-hand-note):not(.detail-eyebrow) { max-width:28cqw; font-size:1.25cqw; line-height:1.2; margin-bottom:.8cqw; }
+  #site-app .fora-detail--gulet .detail-related .detail-text-link { margin-top:0; }
+  #site-app .fora-detail--gulet .detail-related-card img { height:11.5cqw; }
+  #site-app .fora-detail--gulet .detail-hand-note--related { position:absolute; left:78cqw; right:auto; top:5cqw; width:14cqw; max-width:14cqw; font-size:2.6cqw; line-height:1; }
+  #site-app[data-page="gulet-detail"] .site-footer { min-height:12.3cqw; }
+}
+@media(max-width:760px) {
+  #site-app .fora-detail--gulet .detail-intro-copy>.detail-eyebrow { margin-bottom:.3cqw; }
+  #site-app .fora-detail--gulet .detail-gallery-main { height:29cqw; }
+  #site-app .fora-detail--gulet .detail-gallery-step { top:auto; bottom:1cqw; transform:none; }
+  #site-app .fora-detail--gulet .detail-related .detail-eyebrow { font-size:1.6cqw; line-height:1.1; margin-bottom:.8cqw; }
+}
+/* Native date controls retain their real values beneath the source field shell. */
+#site-app .fora-detail .detail-field-shell { position:relative; display:flex; align-items:center; min-width:0; }
+#site-app .fora-detail .detail-field-icon { position:absolute; z-index:2; left:1cqw; top:50%; width:1.7cqw; height:1.7cqw; translate:0 -50%; pointer-events:none; color:#48677b; }
+#site-app .fora-detail .detail-date-placeholder { position:absolute; z-index:1; left:3.4cqw; right:.5cqw; top:50%; translate:0 -50%; font:400 1.05cqw/1.1 var(--font-body); color:#718295; pointer-events:none; white-space:nowrap; }
+#site-app .fora-detail .detail-field-shell[data-empty="false"] .detail-date-placeholder,
+#site-app .fora-detail .detail-field-shell:focus-within .detail-date-placeholder { visibility:hidden; }
+#site-app .fora-detail .detail-field-shell[data-empty="true"]:not(:focus-within) input[type="date"] { color:transparent; }
+#site-app .fora-detail .detail-field-shell input[type="date"]::-webkit-calendar-picker-indicator { position:absolute; inset:0; opacity:0; width:100%; height:100%; margin:0; cursor:pointer; }
+#site-app .fora-detail .detail-date-pair { border:1px solid #deddd8; border-radius:.5cqw; background:#fff; padding-left:2.5cqw; gap:0; }
+#site-app .fora-detail .detail-date-pair:focus-within { border-color:#c4a36e; box-shadow:0 0 0 1px #c4a36e; }
+#site-app .fora-detail .detail-date-pair input { position:relative; flex:1 1 50%; width:50%; min-width:0; background:transparent; border:0; box-shadow:none; padding:.6cqw .3cqw; min-height:3.5cqw; }
+#site-app .fora-detail .detail-quick-form .detail-field-shell select { padding-left:3.2cqw; }
+#site-app .fora-detail .detail-gulet-form .detail-field-shell input,
+#site-app .fora-detail .detail-gulet-form .detail-field-shell select,
+#site-app .fora-detail .detail-gulet-form .detail-field-shell textarea { width:100%; padding-left:3.2cqw; }
+#site-app .fora-detail .detail-gulet-form .detail-field-icon { color:#fff; }
+#site-app .fora-detail .detail-gulet-form .detail-date-placeholder { color:#fff; }
+#site-app .fora-detail .detail-gulet-form .detail-field-shell--message .detail-field-icon { top:1cqw; translate:none; }
+#site-app .fora-detail .detail-whatsapp-submit { display:flex; align-items:center; justify-content:center; gap:.7cqw; }
+#site-app .fora-detail .detail-whatsapp-mark { width:2.2cqw; height:2.2cqw; filter:invert(33%) sepia(68%) saturate(703%) hue-rotate(104deg) brightness(90%); }
+@media(max-width:760px) {
+  #site-app .fora-detail .detail-field-icon { left:2.2cqw; width:3.5cqw; height:3.5cqw; }
+  #site-app .fora-detail .detail-date-placeholder { left:8cqw; font-size:2.2cqw; }
+  #site-app .fora-detail .detail-date-pair { padding-left:6.5cqw; border-radius:1cqw; }
+  #site-app .fora-detail .detail-date-pair input { min-height:6cqw; padding:.5cqw .1cqw; font-size:2cqw; }
+  #site-app .fora-detail .detail-quick-form .detail-field-shell select,
+  #site-app .fora-detail .detail-gulet-form .detail-field-shell input,
+  #site-app .fora-detail .detail-gulet-form .detail-field-shell select,
+  #site-app .fora-detail .detail-gulet-form .detail-field-shell textarea { padding-left:8cqw; }
+  #site-app .fora-detail .detail-gulet-form .detail-field-shell--message .detail-field-icon { top:1.7cqw; }
+  #site-app .fora-detail .detail-whatsapp-submit { gap:1.5cqw; }
+  #site-app .fora-detail .detail-whatsapp-mark { width:4.2cqw; height:4.2cqw; }
+}

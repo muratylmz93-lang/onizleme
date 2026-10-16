@@ -1,4 +1,4 @@
-import { escapeHTML } from './site-assets.js?v=20261016-130';
+import { escapeHTML } from './site-assets.js?v=20261016-160';
 
 const esc = escapeHTML;
 const sprite = 'assets/icons/fora-icons.svg';
@@ -47,7 +47,7 @@ export function renderRouteMap(ctx = {}, { id, stops, duration = 1600, showBoat 
     const y = (point.y / view.height) * 100;
     return `<li class="fora-route-map__stop" style="--stop-x:${x.toFixed(2)}%;--stop-y:${y.toFixed(2)}%;--stop-delay:${index * 250}ms"><svg class="fora-route-map__pin" viewBox="0 0 24 24" aria-hidden="true"><use href="${assetUrl(sprite)}#fora-location"></use></svg><span class="fora-route-map__label">${esc(stop.label)}</span></li>`;
   }).join('');
-  const boat = showBoat ? `<g class="fora-route-map__boat" aria-hidden="true"><animateMotion class="fora-route-map__boat-motion" begin="indefinite" dur="1800ms" fill="freeze" rotate="auto"><mpath href="#${pathId}"></mpath></animateMotion><use href="${assetUrl(sprite)}#fora-sailboat" x="-12" y="-12" width="24" height="24"></use></g>` : '';
+  const boat = showBoat ? `<g class="fora-route-map__boat" aria-hidden="true"><animateMotion class="fora-route-map__boat-motion" begin="indefinite" dur="1800ms" fill="freeze" rotate="auto"><mpath href="#${pathId}"></mpath></animateMotion><use href="${assetUrl(sprite)}#fora-sailboat" x="-40" y="-72" width="80" height="80"></use></g>` : '';
 
   return `<div class="fora-route-map" data-route-map data-route-map-variant="${mapVariant}"${backgroundStyle} data-route-map-id="${esc(mapId)}" data-motion-duration="${durationMs}" data-show-boat="${showBoat ? 'true' : 'false'}" role="group" aria-label="Rota: ${esc(cleanStops.map((stop) => stop.label).join(' → '))}"><svg class="fora-route-map__drawing" viewBox="0 0 ${view.width} ${view.height}" preserveAspectRatio="none" aria-hidden="true"><path class="fora-route-map__track" d="${routePath}"></path><path id="${pathId}" class="fora-route-map__path" d="${routePath}"></path>${boat}</svg><ol class="fora-route-map__stops">${pins}</ol></div>`;
 }
@@ -57,6 +57,22 @@ export function initRouteMaps(root = document) {
   const descendants = root.querySelectorAll ? [...root.querySelectorAll('[data-route-map]')] : [];
   const maps = [...(root.matches?.('[data-route-map]') ? [root] : []), ...descendants];
   if (!maps.length) return null;
+
+  const preference = window.matchMedia?.('(prefers-reduced-motion: reduce)');
+  const parkBoat = (map) => {
+    const path = map.querySelector('.fora-route-map__path');
+    const boat = map.querySelector('.fora-route-map__boat');
+    if (!path || !boat || map.dataset.showBoat !== 'true') return;
+    if (boat.classList.contains('is-moving')) {
+      const motion = boat.querySelector('animateMotion');
+      motion?.setAttribute('fill', 'remove'); motion?.endElement?.();
+    }
+    boat.classList.remove('is-moving');
+    const mobile = window.matchMedia?.('(max-width: 760px)').matches ?? false;
+    const point = path.getPointAtLength(!mobile && !preference?.matches && startedMapIds.has(map.dataset.routeMapId) ? path.getTotalLength() : 0);
+    boat.setAttribute('transform', `translate(${point.x} ${point.y})`);
+    boat.classList.add('is-parked');
+  };
 
   const makeStatic = (map) => {
     const mapId = map.dataset.routeMapId;
@@ -71,9 +87,10 @@ export function initRouteMaps(root = document) {
     }
     map.classList.add('is-static', 'is-complete');
     map.querySelectorAll('.fora-route-map__stop').forEach((stop) => stop.classList.add('is-visible'));
+    parkBoat(map);
   };
 
-  const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+  const reduced = preference?.matches ?? false;
   if (reduced) {
     maps.forEach(makeStatic);
     return null;
@@ -126,10 +143,17 @@ export function initRouteMaps(root = document) {
         requestAnimationFrame(() => path.classList.add('is-drawn'));
       }
 
-      map.querySelectorAll('.fora-route-map__stop').forEach((stop) => stop.classList.add('is-visible'));
+      const stops = [...map.querySelectorAll('.fora-route-map__stop')];
+      stops.forEach((stop, index) => {
+        stop.style.setProperty('--stop-delay', `${Math.round(index * drawDuration / Math.max(1, stops.length - 1))}ms`);
+        stop.classList.add('is-visible');
+      });
       const boatMotion = map.querySelector('.fora-route-map__boat-motion');
+      if (mobile) parkBoat(map);
       if (!mobile && map.dataset.showBoat === 'true' && boatMotion?.beginElement) {
         const boat = map.querySelector('.fora-route-map__boat');
+        boat?.removeAttribute('transform'); boat?.classList.remove('is-parked');
+        boatMotion.setAttribute('fill', 'freeze');
         boat?.classList.add('is-moving');
         boatMotion.beginElement();
       }
@@ -142,9 +166,12 @@ export function initRouteMaps(root = document) {
   }, { threshold: [0, 0.2, 0.5, 1] });
 
   const nativeDisconnect = observer.disconnect.bind(observer);
+  const reduceChanged = () => { if (preference?.matches) maps.forEach(makeStatic); };
+  preference?.addEventListener?.('change', reduceChanged);
   observer.disconnect = () => {
     completionTimers.forEach((timer) => window.clearTimeout(timer));
     completionTimers.clear();
+    preference?.removeEventListener?.('change', reduceChanged);
     nativeDisconnect();
   };
 

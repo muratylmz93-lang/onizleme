@@ -1,5 +1,5 @@
-import { PHOTO, media, fleetArtwork, homeRouteArtwork } from './site-assets.js?v=20261016-130';
-import { renderRouteMap, initRouteMaps } from './site-route-map.js?v=20261016-130';
+import { PHOTO, media, homeFleetArtwork, homeRouteArtwork } from './site-assets.js?v=20261016-160';
+import { renderRouteMap, initRouteMaps } from './site-route-map.js?v=20261016-160';
 
 const text = (ctx, binding, fallback) => {
   const value = ctx?.get?.(binding, fallback);
@@ -27,7 +27,7 @@ const link = (ctx, href, label, className = '', binding = '', hrefBinding = '', 
 };
 
 function collectionRows(items, fallback) {
-  return Array.isArray(items) && items.length ? items : fallback;
+  return Array.isArray(items) ? items : fallback;
 }
 
 function renderRouteCards(ctx) {
@@ -39,13 +39,14 @@ function renderRouteCards(ctx) {
   ];
   const rows = collectionRows(ctx?.collections?.routes?.filter?.((item) => item?.featuredHome !== false), fallback).slice(0, 4);
   return rows.map((item, index) => {
-    const name = item.name || item.title || fallback[index % fallback.length].name;
-    const sourceProperty = item.homeImage != null ? 'homeImage' : 'image';
-    const source = item.homeImage ?? item.image ?? fallback[index % fallback.length].homeImage;
+    const name = item.name ?? item.title ?? fallback[index % fallback.length].name;
+    const canonicalImage = item._canonicalEdits?.image === true;
+    const sourceProperty = !canonicalImage && item.homeImage != null ? 'homeImage' : 'image';
+    const source = canonicalImage ? (item.image ?? '') : (item.homeImage ?? item.image ?? fallback[index % fallback.length].homeImage);
     const destination = item.homeUrl || item.inquiryUrl || item.path || fallback[index % fallback.length].homeUrl;
     return `<a class="home-route-card" href="${esc(url(ctx, destination))}" data-reveal data-cms-collection="routes" data-entity-id="${esc(item.id || '')}">
-      ${homeRouteArtwork(ctx, source, img(ctx, source, `${name} kıyıları`, 'home-route-photo', '', sourceProperty))}
-      <span class="home-card-copy"><strong data-cms-property="name">${esc(name)}</strong><span data-cms-property="description">${esc(item.shortDescription || item.description || 'Koylarda size özel bir mavi yolculuk.')}</span></span>
+      ${homeRouteArtwork(ctx, source, img(ctx, source, `${name} kıyıları`, 'home-route-photo', '', sourceProperty), { canonicalEdit: canonicalImage })}
+      <span class="home-card-copy"><strong data-cms-property="name">${esc(name)}</strong><span data-cms-property="description">${esc(item.shortDescription ?? item.description ?? 'Koylarda size özel bir mavi yolculuk.')}</span></span>
 
     </a>`;
   }).join('');
@@ -61,12 +62,12 @@ function renderFleetCards(ctx) {
   ];
   const rows = collectionRows(ctx?.collections?.gulets?.filter?.((item) => item?.featuredHome !== false), fallback).slice(0, 5);
   return rows.map((item, index) => {
-    const name = item.name || fallback[index % fallback.length].name;
+    const name = item.name ?? fallback[index % fallback.length].name;
     const destination = item.homeUrl || (item.path && item.path !== '/filo/' ? item.path : item.inquiryUrl) || '/iletisim/';
     const capacity = item.guestCapacity ?? item.capacity ?? fallback[index % fallback.length].guestCapacity;
     const cabins = item.cabins ?? item.cabinCount ?? fallback[index % fallback.length].cabins;
     return `<a class="home-fleet-card" href="${esc(url(ctx, destination))}" data-reveal data-cms-collection="gulets" data-entity-id="${esc(item.id || '')}">
-      ${fleetArtwork(ctx, item.image ?? fallback[index % fallback.length].image, img(ctx, item.image ?? fallback[index % fallback.length].image, `${name} guleti`, 'home-fleet-photo', '', 'image'))}
+      ${homeFleetArtwork(ctx, item.image ?? fallback[index % fallback.length].image, img(ctx, item.image ?? fallback[index % fallback.length].image, `${name} guleti`, 'home-fleet-photo', '', 'image'), { canonicalEdit: item._canonicalEdits?.image === true })}
       <span class="home-card-copy"><strong data-cms-property="name">${esc(name)}</strong><span><span data-cms-property="guestCapacity">${esc(capacity)}</span> misafir <i aria-hidden="true"></i> <span data-cms-property="cabins">${esc(cabins)}</span> kabin</span></span>
 
     </a>`;
@@ -111,6 +112,16 @@ export function renderHome(ctx = {}) {
   const routeRows = collectionRows(ctx?.collections?.routes?.filter?.((item) => item?.featuredHome !== false), []);
   const routeCards = renderRouteCards(ctx);
   const fleetCards = renderFleetCards(ctx);
+  const reviewRows = collectionRows(ctx?.collections?.reviews?.filter?.((item) => item?.featuredHome !== false), []);
+  const featuredReview = reviewRows[0] || null;
+  const reviewQuote = featuredReview?.quote ?? featuredReview?.text ?? text(ctx, 'home.reviews.quote', 'Hayatımızın en güzel tatiliydi. Fora Sailing ekibine teşekkür ederiz. Her şey mükemmeldi.');
+  const reviewAuthor = featuredReview?.author ?? featuredReview?.name ?? text(ctx, 'home.reviews.author', 'Ayşe K.');
+  const boundReviewLocation = ctx?.get?.('home.reviews.location', null);
+  const reviewLocation = featuredReview?.location ?? (boundReviewLocation == null ? '' : String(boundReviewLocation));
+  const reviewItemsAttr = esc(JSON.stringify(reviewRows.map((item) => ({ id: item.id || '', quote: item.quote ?? item.text ?? '', author: item.author ?? item.name ?? '', location: item.location ?? '' }))));
+  const reviewBindingAttrs = featuredReview ? ` data-cms-collection="reviews" data-entity-id="${esc(featuredReview.id || '')}"` : '';
+  const reviewQuoteProperty = featuredReview?.quote != null ? 'quote' : 'text';
+  const reviewAuthorProperty = featuredReview?.author != null ? 'author' : 'name';
   const benefits = [1, 2, 3, 4].map((index) => `<li data-reveal><img class="home-benefit-icon icon-source" src="${esc(ctx?.asset?.(`assets/icons/bootstrap/${['gem','people-fill','heart','leaf'][index - 1]}.svg`) || `assets/icons/bootstrap/${['gem','people-fill','heart','leaf'][index - 1]}.svg`)}" alt="" aria-hidden="true"><strong${bindingAttr(`home.benefits.item${index}.title`)}>${esc(text(ctx, `home.benefits.item${index}.title`, ['Lüks Konfor', 'Profesyonel Ekip', 'Kişiye Özel Rotalar', 'Doğal ve Sürdürülebilir'][index - 1]))}</strong><span${bindingAttr(`home.benefits.item${index}.description`)}>${esc(text(ctx, `home.benefits.item${index}.description`, ['Üst düzey donanım', 'Deneyimli kadro', 'Size özel planlama', 'Doğayı koruyan turizm'][index - 1]))}</span></li>`).join('');
 
   return `<main class="fora-home" aria-label="Fora Sailing ana sayfa">
@@ -149,6 +160,7 @@ export function renderHome(ctx = {}) {
       ${media(ctx, 'home.story.image', 'cove', 'home-story-main photo-frame', 'Turkuaz koy ve kayalık kıyılar')}
         ${media(ctx, 'home.story.sideImage', 'swimmer', 'home-story-side photo-frame', 'Turkuaz koyda yüzen misafir')}
         <a class="home-story-play" href="${esc(url(ctx, '/deneyimler/'))}" aria-label="Deneyimleri keşfet"><img src="${esc(ctx?.asset?.('assets/icons/play.svg') || 'assets/icons/play.svg')}" alt="" aria-hidden="true"></a>
+        <p class="home-hand home-story-photo-note script-note" data-cms-binding="home.story.photoNote">${esc(text(ctx, 'home.story.photoNote', 'Keşfet.\nHisset.\nYaşa…'))}</p>
       </div>
       <p class="home-hand home-story-note script-note" data-reveal${bindingAttr('home.story.note')}>${esc(text(ctx, 'home.story.note', 'Mavi sonsuzlukta\nsizi bekliyor'))}</p>
     </section>
@@ -174,6 +186,7 @@ export function renderHome(ctx = {}) {
               <h3 data-cms-binding="home.hero.title">${phoneTitle}</h3>
               <p data-cms-binding="home.hero.description">${esc(text(ctx, 'home.hero.description', 'Eşsiz koylar, turkuaz sular, unutulmaz anlar. Size özel gulet kiralama deneyimi.'))}</p>
               <a href="${esc(url(ctx, text(ctx, 'home.hero.offerUrl', '/iletisim/')))}" data-cms-href-binding="home.hero.offerUrl"><span data-cms-binding="home.hero.offerLabel">${esc(text(ctx, 'home.hero.offerLabel', 'Teklif Alın'))}</span></a>
+              <a class="home-phone-whatsapp" href="${esc(url(ctx, text(ctx, 'home.hero.whatsappUrl', 'https://wa.me/905496523538')))}" data-cms-href-binding="home.hero.whatsappUrl"><span data-cms-binding="home.hero.whatsappLabel">${esc(text(ctx, 'home.hero.whatsappLabel', 'WhatsApp ile İletişim'))}</span></a>
             </div>
             <div class="home-phone-story">
               ${media(ctx, 'home.story.image', 'cove', 'home-phone-story-photo', 'Turkuaz koy')}
@@ -195,6 +208,7 @@ export function renderHome(ctx = {}) {
         ${link(ctx, text(ctx, 'home.fleet.link', '/filo/'), text(ctx, 'home.fleet.linkLabel', 'Tüm Filoyu Gör'), 'home-text-link', 'home.fleet.linkLabel', 'home.fleet.link', 'arrow-right')}
       </div>
       <div class="home-fleet-rail" data-drag-rail aria-label="Öne çıkan guletler">${fleetCards}</div>
+      <p class="home-hand home-fleet-note script-note" data-reveal data-cms-binding="home.fleet.note">${esc(text(ctx, 'home.fleet.note', 'Sizin için özel…'))}</p>
     </section>
 
     <section class="home-offer" data-section-id="offer" aria-labelledby="home-offer-title">
@@ -216,7 +230,7 @@ export function renderHome(ctx = {}) {
       <p class="home-hand home-benefits-note script-note" data-reveal data-cms-binding="home.benefits.note">${esc(text(ctx, 'home.benefits.note', 'Aynı deniz,\ndaha güzel bir gelecek için…'))}</p>
     </section>
 
-    <section class="home-reviews section-paper" data-section-id="reviews" aria-labelledby="home-reviews-title">
+    <section class="home-reviews section-paper" data-section-id="reviews" data-review-items="${reviewItemsAttr}" aria-labelledby="home-reviews-title">
       <div class="home-reviews-copy" data-reveal>
         <p class="home-eyebrow" data-cms-binding="home.reviews.eyebrow">${esc(text(ctx, 'home.reviews.eyebrow', 'Gerçek deneyimler, gerçek mutluluklar'))}</p>
         <h2 id="home-reviews-title" data-cms-binding="home.reviews.title">${esc(text(ctx, 'home.reviews.title', 'Misafirlerimizin\nGözünden')).replace(/\r?\n/g, '<br>')}</h2>
@@ -225,15 +239,15 @@ export function renderHome(ctx = {}) {
       <figure class="home-review-quote" data-reveal>
         ${media(ctx, 'home.reviews.avatarImage', 'reviewAvatar', 'home-review-avatar', 'Misafir yorumu avatarı')}
         <div class="home-review-rating" aria-label="5 üzerinden 5 yıldız"><span aria-hidden="true">★★★★★</span></div>
-        <blockquote data-cms-binding="home.reviews.quote">“${esc(text(ctx, 'home.reviews.quote', 'Hayatımızın en güzel tatiliydi. Fora Sailing ekibine teşekkür ederiz. Her şey mükemmeldi.'))}”</blockquote>
-        <figcaption data-cms-binding="home.reviews.author">${esc(text(ctx, 'home.reviews.author', 'Ayşe K.'))}<span data-cms-binding="home.reviews.location">${esc(text(ctx, 'home.reviews.location', 'İstanbul'))}</span></figcaption>
+        <blockquote${reviewBindingAttrs}${featuredReview ? ` data-cms-property="${reviewQuoteProperty}" aria-live="polite"` : ' data-cms-binding="home.reviews.quote"'}>“${esc(reviewQuote)}”</blockquote>
+        <figcaption${reviewBindingAttrs}${featuredReview ? ` data-cms-property="${reviewAuthorProperty}"` : ' data-cms-binding="home.reviews.author"'}>${esc(reviewAuthor)}<span${featuredReview ? ' data-cms-property="location"' : ' data-cms-binding="home.reviews.location"'}>${esc(reviewLocation)}</span></figcaption>
       </figure>
       <div class="home-review-photos" data-drag-rail aria-label="Mavi yolculuktan fotoğraflar">
         ${renderExperiencePhotos(ctx)}
       </div>
-      <div class="home-review-controls" aria-label="Yorum fotoğrafları kontrolleri">
-        <button type="button" data-review-shift="-1" aria-label="Önceki fotoğraflar">‹</button>
-        <button type="button" data-review-shift="1" aria-label="Sonraki fotoğraflar">›</button>
+      <div class="home-review-controls" aria-label="Yorum kontrolleri">
+        <button type="button" data-review-shift="-1" aria-label="Önceki yorum"${reviewRows.length < 2 ? ' disabled' : ''}>‹</button>
+        <button type="button" data-review-shift="1" aria-label="Sonraki yorum"${reviewRows.length < 2 ? ' disabled' : ''}>›</button>
       </div>
     </section>
   </main>`;
@@ -244,18 +258,56 @@ export function initHome(root) {
   const cleanups = [];
   const routeObserver = initRouteMaps(root);
   if (routeObserver) cleanups.push(() => routeObserver.disconnect());
-  const reviewRail = root.querySelector('.home-review-photos');
-  if (reviewRail) {
-    root.querySelectorAll('[data-review-shift]').forEach((button) => {
-      const click = () => {
+  const reviewSection = root.querySelector('.home-reviews');
+  const reviewQuote = root.querySelector('.home-review-quote blockquote');
+  const reviewAuthor = root.querySelector('.home-review-quote figcaption');
+  let reviewRows = [];
+  try { reviewRows = JSON.parse(reviewSection?.getAttribute('data-review-items') || '[]'); } catch { reviewRows = []; }
+  if (reviewQuote && reviewAuthor && reviewRows.length > 1) {
+    let reviewIndex = 0;
+    const buttons = [...root.querySelectorAll('[data-review-shift]')];
+    const showReview = (nextIndex) => {
+      reviewIndex = Math.max(0, Math.min(reviewRows.length - 1, nextIndex));
+      const item = reviewRows[reviewIndex];
+      reviewQuote.textContent = `“${item.quote || ''}”`;
+      reviewAuthor.firstChild.textContent = item.author || '';
+      const location = reviewAuthor.querySelector('span');
+      if (location) location.textContent = item.location || '';
+      reviewQuote.dataset.entityId = item.id || '';
+      reviewAuthor.dataset.entityId = item.id || '';
+      buttons.forEach((button) => {
         const direction = Number(button.getAttribute('data-review-shift')) || 1;
-        const behavior = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
-        reviewRail.scrollBy({ left: direction * Math.max(reviewRail.clientWidth * 0.72, 120), behavior });
-      };
+        button.disabled = direction < 0 ? reviewIndex === 0 : reviewIndex === reviewRows.length - 1;
+      });
+    };
+    buttons.forEach((button) => {
+      const click = () => showReview(reviewIndex + (Number(button.getAttribute('data-review-shift')) || 1));
       button.addEventListener('click', click);
       cleanups.push(() => button.removeEventListener('click', click));
     });
+    let pointerStartX = null;
+    const pointerDown = (event) => {
+      if (event.pointerType === 'mouse' && event.button !== 0) return;
+      pointerStartX = event.clientX;
+    };
+    const pointerUp = (event) => {
+      if (pointerStartX == null) return;
+      const distance = event.clientX - pointerStartX;
+      pointerStartX = null;
+      if (Math.abs(distance) >= 36) showReview(reviewIndex + (distance < 0 ? 1 : -1));
+    };
+    const pointerCancel = () => { pointerStartX = null; };
+    const quoteCard = root.querySelector('.home-review-quote');
+    quoteCard?.addEventListener('pointerdown', pointerDown);
+    quoteCard?.addEventListener('pointerup', pointerUp);
+    quoteCard?.addEventListener('pointercancel', pointerCancel);
+    cleanups.push(() => {
+      quoteCard?.removeEventListener('pointerdown', pointerDown);
+      quoteCard?.removeEventListener('pointerup', pointerUp);
+      quoteCard?.removeEventListener('pointercancel', pointerCancel);
+    });
   }
+  /* Review photographs stay fixed; arrows control only real CMS review text. */
   root.querySelectorAll('[data-drag-rail]').forEach((rail) => {
     let startX = 0, startScroll = 0, dragging = false;
     let pointerId = null, suppressClick = false, suppressTimer = 0;

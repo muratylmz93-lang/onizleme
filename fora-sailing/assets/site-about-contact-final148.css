@@ -1,0 +1,79 @@
+/* About and Contact source-fit adjustments; import after the final 140 overrides. */
+@media (min-width: 761px) {
+  #site-app .fora-detail--about .detail-intro-art .detail-photo-main {
+    left: 1.4cqw;
+    transform: rotate(8deg);
+  }
+
+  #site-app .fora-detail--about .detail-intro-art .detail-compass-stamp {
+    left: -17cqw;
+    width: 14.5cqw;
+  }
+
+  #site-app .fora-detail--contact .detail-contact-aside {
+    padding-left: 8.8cqw;
+  }
+
+  #site-app .fora-detail--contact .detail-contact-photo {
+    left: 1cqw;
+  }
+
+  #site-app .fora-detail--contact .detail-contact-form .btn {
+    min-height: 4.3cqw;
+    font-size: 1.3cqw;
+  }
+}
+
+@media (max-width: 760px) {
+  #site-app .fora-detail--contact .detail-contact-photo {
+    right: 12cqw;
+    width: 46cqw;
+  }
+}
+
+@media (min-width: 761px) {
+  #site-app .fora-detail--about .detail-intro-art .detail-hand-note--inset {
+    right: -3.5cqw;
+    width: 10cqw;
+    max-width: 10cqw;
+  }
+
+  #site-app .fora-detail--contact .detail-contact-aside-copy .btn {
+    min-height: 4.3cqw;
+    padding-inline: 2.5cqw;
+    font-size: 1.5cqw;
+  }
+}
+
+@media (max-width: 760px) {
+  #site-app .fora-detail--contact .detail-contact-photo {
+    right: 12cqw;
+    width: 45cqw;
+    height: 39cqw;
+    top: 16cqw;
+    transform: rotate(8deg);
+  }
+
+  #site-app .fora-detail--contact .detail-contact-form input,
+  #site-app .fora-detail--contact .detail-contact-form select,
+  #site-app .fora-detail--contact .detail-contact-form textarea {
+    font-size: 2.9cqw;
+  }
+
+  #site-app .fora-detail--contact .detail-contact-form .btn {
+    font-size: 3cqw;
+  }
+}
+#site-app .fora-detail--contact .detail-contact-form-wrap {
+  background-image: url('compass-stamp.png');
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-size: 16cqw;
+}
+
+@media (max-width: 760px) {
+  #site-app .fora-detail--contact .detail-contact-form-wrap {
+    background-position: right 1cqw top;
+    background-size: 20cqw;
+  }
+}

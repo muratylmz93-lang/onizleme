@@ -144,7 +144,8 @@
   filter: drop-shadow(0 1px 2px rgba(7, 46, 64, .5));
 }
 
-.fora-route-map__boat.is-moving {
+.fora-route-map__boat.is-moving,
+.fora-route-map__boat.is-parked {
   opacity: 1;
 }
 
@@ -163,7 +164,7 @@
 }
 
 .fora-route-map.is-static .fora-route-map__boat {
-  opacity: 0;
+  opacity: 1;
 }
 
 @media (max-width: 760px) {

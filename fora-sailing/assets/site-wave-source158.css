@@ -1,0 +1,81 @@
+/* 158: photographic boundaries and paper decoration only. No content or flow metrics. */
+#site-app .catalog-routes { --source-hero-wave: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201000%201000%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20fill%3D%22white%22%20d%3D%22M0%200H1000V1000C900%201008%20800%20940%20680%20925S460%20980%20300%20960S100%20925%200%20870Z%22%2F%3E%3C%2Fsvg%3E"); --source-hero-tail: 2cqw; }
+#site-app .catalog-fleet { --source-hero-wave: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201000%201000%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20fill%3D%22white%22%20d%3D%22M0%200H1000V950C900%20910%20810%201030%20650%201000S410%20875%20280%20900S100%20910%200%20860Z%22%2F%3E%3C%2Fsvg%3E"); --source-hero-tail: 2cqw; }
+#site-app .catalog-experiences { --source-hero-wave: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201000%201000%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20fill%3D%22white%22%20d%3D%22M0%200H1000V995C850%20950%20720%20820%20600%20785S360%20850%20250%20830S75%20820%200%20780Z%22%2F%3E%3C%2Fsvg%3E"); --source-hero-tail: 5cqw; }
+#site-app .fora-detail--route { --source-hero-wave: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201000%201000%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20fill%3D%22white%22%20d%3D%22M0%200H1000V970C850%201030%20760%20920%20600%20925S340%201000%20210%20990S70%20985%200%20960Z%22%2F%3E%3C%2Fsvg%3E"); }
+#site-app .fora-detail--gulet { --source-hero-wave: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201000%201000%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20fill%3D%22white%22%20d%3D%22M0%200H1000V990C880%201010%20770%20925%20650%20920S390%20980%20230%20965S80%20955%200%20900Z%22%2F%3E%3C%2Fsvg%3E"); }
+#site-app .fora-detail--about { --source-hero-wave: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201000%201000%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20fill%3D%22white%22%20d%3D%22M0%200H1000V995C870%201005%20780%20935%20650%20920S430%20965%20270%20970S80%20985%200%20940Z%22%2F%3E%3C%2Fsvg%3E"); }
+#site-app .fora-detail--contact { --source-hero-wave: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201000%201000%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20fill%3D%22white%22%20d%3D%22M0%200H1000V1000C850%201030%20710%20960%20570%20950S310%20975%20160%20970S60%20970%200%20950Z%22%2F%3E%3C%2Fsvg%3E"); }
+/* A photograph mask never clips a custom heading, note or CTA. */
+#site-app .fora-detail .detail-hero,
+#site-app .catalog-hero { mask: none; clip-path: none; background-color: transparent; }
+#site-app .fora-detail .detail-hero-media { mask: var(--source-hero-wave) center/100% 100% no-repeat; }
+#site-app .catalog-hero { overflow: visible; z-index: 2; }
+#site-app .catalog-hero__photo,
+#site-app .catalog-hero__shade { bottom: calc(-1 * var(--source-hero-tail)); mask: var(--source-hero-wave) center/100% 100% no-repeat; }
+/* Keep the grain and move foliage to the edges. CMS photo elements stay separate. */
+#site-app .fora-detail .detail-intro,
+#site-app .fora-detail .detail-highlights,
+#site-app .fora-detail .detail-together,
+#site-app .fora-detail .detail-contact-section,
+#site-app .fora-detail .detail-gallery-section,
+#site-app .catalog-routes__intro,
+#site-app .catalog-fleet__intro,
+#site-app .catalog-experiences__intro,
+#site-app .catalog-experiences__plan {
+ background-color: var(--paper);
+ background-image: linear-gradient(color-mix(in srgb,var(--paper) 72%,transparent),color-mix(in srgb,var(--paper) 72%,transparent)), url('native-paper-foliage-v1.webp');
+ background-size: 100% 100%; background-position: center; background-repeat: no-repeat;
+}
+#site-app .catalog-fleet__intro::before { background: none; }
+#site-app .fora-detail--route .detail-stops::after { height: 1.8cqw; }
+#site-app .fora-detail .detail-hero-media,
+#site-app .catalog-hero__photo { background-color: var(--navy); }
+
+/* The source's sea bands curve at both edges. Apply the shape to the photo,
+   keeping headings, play buttons and editable notes outside the mask. */
+#site-app .catalog-story,
+#site-app .catalog-planning,
+#site-app .catalog-fleet-quote { background-color: transparent; }
+#site-app .catalog-story__photo,
+#site-app .catalog-planning__photo,
+#site-app .catalog-fleet-quote__photo { background-color: var(--navy); }
+#site-app .catalog-story__photo { mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201000%201000%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20fill%3D%22white%22%20d%3D%22M0%2080C150%20190%20260%20145%20430%2035S770%2035%201000%20135V1000C900%201000%20850%201000%20730%20920S500%20840%20340%20930S140%201010%200%20975Z%22%2F%3E%3C%2Fsvg%3E") center/100% 100% no-repeat; }
+#site-app .catalog-planning__photo,
+#site-app .catalog-planning__shade { mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201000%201000%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20fill%3D%22white%22%20d%3D%22M0%2050C180%20105%20290%20115%20420%2030S750%2040%201000%20130V1000H0Z%22%2F%3E%3C%2Fsvg%3E") center/100% 100% no-repeat; }
+#site-app .catalog-fleet-quote__photo,
+#site-app .catalog-fleet-quote__shade { mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201000%201000%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20fill%3D%22white%22%20d%3D%22M0%2020C180%200%20340%20165%20540%20130S830%2065%201000%200V1000H0Z%22%2F%3E%3C%2Fsvg%3E") center/100% 100% no-repeat; }
+#site-app .catalog-experiences__story::after,
+#site-app .catalog-routes__planning::after,
+#site-app .catalog-fleet__quote::after { display: none; }
+/* Static paper edges; existing text/container boxes retain their dimensions. */
+#site-app .detail-values::after,
+#site-app .detail-stops::after,
+#site-app .detail-related::after,
+#site-app .detail-quote::after,
+#site-app .detail-contact-cta::after,
+#site-app .catalog-experiences__story::after,
+#site-app .catalog-routes__planning::after,
+#site-app .catalog-fleet__quote::after {
+ top: -1px; height: 3.2cqw; background: var(--paper);
+ mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201000%20120%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20fill%3D%22white%22%20d%3D%22M0%200H1000V110C900%2078%20840%2033%20740%2045S530%20125%20400%2080S150%20110%200%2045Z%22%2F%3E%3C%2Fsvg%3E") center/100% 100% no-repeat;
+}
+#site-app .fora-detail--about .detail-values::after,
+#site-app .catalog-experiences__story::after { mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201000%20120%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20fill%3D%22white%22%20d%3D%22M0%200H1000V40C850%2092%20740%20110%20620%2075S410%2024%20300%2065S120%2088%200%20100Z%22%2F%3E%3C%2Fsvg%3E"); }
+#site-app .fora-detail--about .detail-together::before { mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201000%20120%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20fill%3D%22white%22%20d%3D%22M0%200H1000V110C900%2078%20840%2033%20740%2045S530%20125%20400%2080S150%20110%200%2045Z%22%2F%3E%3C%2Fsvg%3E") center/100% 100% no-repeat; }
+@media (max-width:760px) {
+ #site-app .catalog-routes { --source-hero-tail: 1cqw; }
+ #site-app .catalog-fleet { --source-hero-tail: 1cqw; }
+ #site-app .catalog-experiences { --source-hero-tail: 8cqw; --source-hero-wave: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201000%201000%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20fill%3D%22white%22%20d%3D%22M0%200H1000V1000C850%20955%20740%20900%20600%20910S310%20990%20160%20965S50%20945%200%20930Z%22%2F%3E%3C%2Fsvg%3E"); }
+ #site-app .catalog-story__photo { mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201000%201000%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20fill%3D%22white%22%20d%3D%22M0%200C150%20100%20260%2080%20430%200S770%200%201000%20100V1000H740C600%20920%20500%20840%20340%20930S140%201010%200%20975Z%22%2F%3E%3C%2Fsvg%3E"); }
+ #site-app .fora-detail .detail-intro,
+ #site-app .fora-detail .detail-highlights,
+ #site-app .fora-detail .detail-together,
+ #site-app .fora-detail .detail-contact-section,
+ #site-app .fora-detail .detail-gallery-section,
+ #site-app .catalog-routes__intro,
+ #site-app .catalog-fleet__intro,
+ #site-app .catalog-experiences__intro,
+ #site-app .catalog-experiences__plan { background-size: 130% 100%; }
+ #site-app .catalog-fleet__quote::after { height: 2.8cqw; }
+}

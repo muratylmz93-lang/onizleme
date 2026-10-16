@@ -145,3 +145,198 @@
   #site-app .fora-home .home-reviews { height: 18cqw; min-height: 18cqw; }
   #site-app .fora-home .home-review-quote { min-height: 15cqw; padding: .8cqw 1cqw; }
 }
+
+/* 140: restore the source water scene and loosen the native collage composition. */
+#site-app .fora-home .home-routes-scene { opacity: .56; }
+#site-app .fora-home .home-routes-water {
+  object-position: 50% 58%;
+  filter: saturate(1.02) brightness(.96);
+}
+#site-app .fora-home .home-routes::after {
+  background: linear-gradient(110deg, rgba(2,37,56,.34), rgba(2,37,56,0) 72%);
+}
+
+@media (min-width: 761px) {
+  #site-app .fora-home .home-story-photos { width: 49cqw; right: 5.8cqw; }
+  #site-app .fora-home .home-story-main { left: 1.2cqw; width: 80%; height: 84%; }
+  #site-app .fora-home .home-story-side { top: 9%; right: .5cqw; width: 29%; height: 58%; }
+  #site-app .fora-home .home-route-map { right: 22cqw; width: 36cqw; }
+  #site-app .fora-home .home-routes > .fora-route-map { right: 22cqw; width: 36cqw; }
+  #site-app .fora-home .home-fleet-card:nth-child(1) { transform: translateY(3.2cqw) rotate(-1.7deg); }
+  #site-app .fora-home .home-fleet-card:nth-child(2) { transform: translateY(1.5cqw) rotate(-.9deg); }
+  #site-app .fora-home .home-fleet-card:nth-child(3) { transform: translateY(-.5cqw) rotate(.3deg); }
+  #site-app .fora-home .home-fleet-card:nth-child(4) { transform: translateY(-.3cqw) rotate(.9deg); }
+  #site-app .fora-home .home-fleet-card:nth-child(5) { transform: translateY(3cqw) rotate(1.4deg); }
+  #site-app .fora-home .home-review-photos { gap: .75cqw; overflow: hidden; }
+}
+
+@media (max-width: 760px) {
+  #site-app .fora-home .home-routes-scene { opacity: .56; }
+  #site-app .fora-home .home-routes::after {
+    background: linear-gradient(180deg, rgba(2,37,56,.34), rgba(2,37,56,.015) 78%);
+  }
+  #site-app .fora-home .home-routes-water { object-position: 50% 58%; filter: saturate(1.02) brightness(.96); }
+  #site-app .fora-home .home-review-photos { overflow: hidden; }
+  #site-app .fora-home .home-routes > .fora-route-map { top: 12cqw; right: 2cqw; width: 45cqw; }
+  #site-app .fora-home .home-story-copy { width: 40cqw; }
+  #site-app .fora-home .home-story-copy h2 { font-size: 7.4cqw; }
+  #site-app .fora-home .home-story-copy > p:not(.home-eyebrow) { font-size: 2.3cqw; line-height: 1.27; }
+  #site-app .fora-home .home-story-photos { top: 25cqw; right: 4cqw; width: 48cqw; height: 32cqw; }
+  #site-app .fora-home .home-story-main { left: .5cqw; width: 77%; height: 92%; transform: rotate(7deg); }
+  #site-app .fora-home .home-story-side { top: 11%; right: 1.5cqw; width: 40%; height: 55%; }
+}
+
+/* Review navigation uses the quote card; the neighboring photo collage remains fixed. */
+#site-app .fora-home .home-review-quote { touch-action: pan-y; }
+
+/* 148: measured source layout. Text, photos and controls stay editable DOM. */
+#site-app .fora-home .home-button-outline { background: transparent; font-weight: 500; }
+#site-app .fora-home .home-button-outline .home-link-icon { order: -1; filter: invert(61%) sepia(37%) saturate(757%) hue-rotate(89deg) brightness(101%) contrast(91%); }
+#site-app .fora-home .home-story-main,
+#site-app .fora-home .home-story-side { padding: 0; }
+#site-app .fora-home .home-story-compass { height: auto; mix-blend-mode: multiply; filter: grayscale(1) brightness(.7) contrast(3); opacity: .6; }
+#site-app .fora-home .home-hand { font-weight: 400; }
+#site-app .fora-home .home-story-copy > p:not(.home-eyebrow) { font-weight: 400; }
+#site-app .fora-home .home-offer::before { content: ''; position: absolute; z-index: 0; left: 0; top: -14cqw; width: 52cqw; height: 14cqw; background: linear-gradient(#e7dacc, #f5c384 75%, #ebae61); clip-path: polygon(0 12%,24% 0,53% 2%,100% 28%,100% 100%,0 100%); }
+#site-app .fora-home .home-story-photo-note { position: absolute; z-index: 2; color: white; bottom: 5cqw; left: 5cqw; width: 11cqw; transform: rotate(8deg); text-align: center; font-size: 2.8cqw; }
+#site-app .fora-home .home-fleet-note { position: absolute; top: 2.5cqw; right: 2cqw; width: 12cqw; transform: rotate(-8deg); text-align: center; }
+#site-app .fora-home .home-review-quote {
+  background: #fff; box-shadow: 0 .7cqw 2cqw rgba(7,42,60,.12);
+  grid-template-rows: auto auto auto;
+}
+#site-app .fora-home .home-review-avatar { grid-column: 1; grid-row: 1 / span 2; }
+#site-app .fora-home .home-review-quote blockquote { grid-column: 2; grid-row: 1; font-family: var(--home-sans); }
+#site-app .fora-home .home-review-rating { grid-column: 2; grid-row: 2; }
+#site-app .fora-home .home-review-quote figcaption { grid-column: 2; grid-row: 3; font-weight: 400; }
+
+@media (min-width: 761px) {
+  #site-app .fora-home .home-hero { height: 61.8cqw; min-height: 61.8cqw; margin-bottom: -6.8cqw; mask: none; clip-path: none; }
+  #site-app .fora-home .home-hero-photo { height: 100%; object-fit: fill; }
+  #site-app .fora-home .home-hero-note { top: 31cqw; width: 11cqw; font-size: 3.2cqw; }
+  #site-app .fora-home .home-discover { bottom: 7.5cqw; }
+  #site-app .fora-home .home-story { background: none; }
+  #site-app .fora-home .home-story::before { top: -4.5cqw; height: calc(100% + 4.5cqw); mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000' preserveAspectRatio='none'%3E%3Cpath fill='white' d='M0 0C180 145 260 150 400 95S630 45 750 155S920 245 1000 300V1000H0Z'/%3E%3C/svg%3E") center/100% 100% no-repeat; clip-path: none; background: linear-gradient(#f8f5edaa,#f8f5edaa), url('native-paper-foliage-v1.webp') center/100% 100%; }
+  #site-app .fora-home .home-proof { top: 36.3cqw; width: 43cqw; }
+  #site-app .fora-home .home-proof strong { font-size: 2.3cqw; }
+  #site-app .fora-home .home-proof li>span { margin-left: 2.8cqw; font-size: .8cqw; white-space: nowrap; }
+  #site-app .fora-home .home-story-copy h2 { font-size: 4.7cqw; }
+  #site-app .fora-home .home-story-copy > p:not(.home-eyebrow) { max-width: 35cqw; font-size: 1.4cqw; line-height: 1.3; }
+  #site-app .fora-home .home-story-compass { top: 3.3cqw; left: 36.5cqw; width: 11cqw; }
+  #site-app .fora-home .home-story-compass-alt { display: none; }
+  #site-app .fora-home .home-story-photos { top: 1.6cqw; right: 7cqw; width: 46cqw; height: 34cqw; }
+  #site-app .fora-home .home-story-main { left: 1cqw; width: 84%; height: 92%; border-width: .45cqw; border-radius: .7cqw; }
+  #site-app .fora-home .home-story-side { top: 6%; right: -.8cqw; width: 31%; height: 48%; border-width: .5cqw; transform: rotate(-5deg); }
+  #site-app .fora-home .home-story-play { width: 8cqw; height: 8cqw; left: 41%; top: 50%; }
+  #site-app .fora-home .home-story-note { right: 2cqw; bottom: 5cqw; font-size: 2.6cqw; }
+  #site-app .fora-home .home-route-rail { width: 75%; gap: 1.2cqw; padding-inline: 3.8cqw; padding-top: 1.8cqw; }
+  #site-app .fora-home .home-route-card { flex-basis: 16.1cqw; transform: rotate(-2deg); }
+  #site-app .fora-home .home-route-photo { height: 11.8cqw; }
+  #site-app .fora-home .home-route-card .home-card-copy { min-height: 7.6cqw; }
+  #site-app .fora-home .home-route-card .home-card-copy>span { max-width: 12cqw; }
+  #site-app .fora-home .home-phone { width: 22cqw; right: 2cqw; top: -4.5cqw; transform: rotate(7deg); }
+  #site-app .fora-home .home-phone-hero { padding-top: 2.5cqw; }
+  #site-app .fora-home .home-phone-brand { max-width: 50%; width: 9cqw; }
+  #site-app .fora-home .home-phone-hero h3 { margin-top: 5.5cqw; font-size: 2.25cqw; }
+  #site-app .fora-home .home-phone-hero .home-phone-whatsapp { display: flex; justify-content: center; border: 1px solid #fff9; background: transparent; color: white; margin-top: .6cqw; }
+  #site-app .fora-home .home-fleet .home-section-heading h2 { font-size: 4.7cqw; }
+  #site-app .fora-home .home-fleet .home-section-heading > p:not(.home-eyebrow) { max-width: 30cqw; font-size: 1.4cqw; line-height: 1.3; }
+  #site-app .fora-home .home-fleet-rail { top: 6.9cqw; left: 20.3cqw; gap: .65cqw; padding: 2cqw .4cqw 4cqw; }
+  #site-app .fora-home .home-fleet-card:nth-child(n) { flex: 0 0 16.1cqw; }
+  #site-app .fora-home .home-fleet-card:nth-child(1) { transform: translateY(3cqw) rotate(-2deg); }
+  #site-app .fora-home .home-fleet-card:nth-child(2) { transform: translateY(1.4cqw) rotate(-2deg); }
+  #site-app .fora-home .home-fleet-card:nth-child(3) { transform: rotate(-2deg); }
+  #site-app .fora-home .home-fleet-card:nth-child(4) { transform: translateY(-1.6cqw) rotate(-2deg); }
+  #site-app .fora-home .home-fleet-card:nth-child(5) { flex-basis: 14.2cqw; transform: translateY(1.2cqw) rotate(-2deg); }
+  #site-app .fora-home .home-fleet-photo { height: 11.2cqw; }
+  #site-app .fora-home .home-fleet-card:nth-child(2) .home-fleet-photo { height: 12.4cqw; }
+  #site-app .fora-home .home-fleet-card:nth-child(3) .home-fleet-photo { height: 12.9cqw; }
+  #site-app .fora-home .home-fleet-card:nth-child(4) .home-fleet-photo { height: 14.1cqw; }
+  #site-app .fora-home .home-fleet-card:nth-child(5) .home-fleet-photo { height: 12.7cqw; }
+  #site-app .fora-home .home-offer { overflow: visible; }
+  #site-app .fora-home .home-offer-photo { position: absolute; left: 0; bottom: -4cqw; width: 52cqw; height: 36cqw; object-fit: contain; object-position: left bottom; clip-path: polygon(0 0,100% 8%,83% 100%,0 91%); }
+  #site-app .fora-home .home-offer-copy { padding-top: 5cqw; padding-bottom: 0; align-self: start; }
+  #site-app .fora-home .home-offer-copy h2 { max-width: 33cqw; font-size: 3.6cqw; }
+  #site-app .fora-home .home-benefits { z-index: 2; min-height: 15.8cqw; background: var(--home-ocean); }
+  #site-app .fora-home .home-benefits h2 { transform: translateY(1.8cqw); }
+  #site-app .fora-home .home-benefit-list { transform: translateY(.5cqw); }
+  #site-app .fora-home .home-benefit-photo { top: -3cqw; height: calc(100% + 3cqw); }
+  #site-app .fora-home .home-reviews { min-height: 19.6cqw; }
+  #site-app .fora-home .home-benefits::before { content: ''; display: block; position: absolute; z-index: 0; inset: 0; height: 100%; mask: none; background: var(--home-ocean); clip-path: polygon(0 0,15% 12%,38% 20%,65% 20%,82% 38%,100% 100%,0 100%); }
+  #site-app .fora-home .home-review-quote { min-height: 14.1cqw; padding: 2cqw 1.8cqw; transform: rotate(-2deg); }
+  #site-app .fora-home .home-review-quote blockquote { font-size: 1.12cqw; line-height: 1.32; }
+  #site-app .fora-home .home-review-rating { font-size: 1.65cqw; margin-top: .6cqw; }
+  #site-app .fora-home .home-review-quote figcaption { margin-top: .6cqw; font-size: 1.05cqw; }
+}
+
+@media (max-width: 760px) {
+  #site-app .fora-home .home-hero { height: 72.6cqw; min-height: 72.6cqw; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000' preserveAspectRatio='none'%3E%3Cpath fill='white' d='M0 0H1000V1000C850 960 740 940 570 950S160 975 0 900Z'/%3E%3C/svg%3E") center/100% 100% no-repeat; clip-path: none; }
+  #site-app .fora-home .home-hero-content { top: 13.2cqw; }
+  #site-app .fora-home .home-hero .home-eyebrow { font-size: 1.45cqw; font-weight: 500; }
+  #site-app .fora-home .home-hero h1 { font-size: 7.9cqw; line-height: .82; }
+  #site-app .fora-home .home-hero-description { margin-top: 1.3cqw; font-size: 2.2cqw; }
+  #site-app .fora-home .home-hero-actions { width: 39cqw; margin-top: 1.8cqw; gap: 1.5cqw; }
+  #site-app .fora-home .home-hero-actions .home-button { min-height: 5.6cqw; font-size: 1.8cqw; }
+  #site-app .fora-home .home-proof { left: 0; width: 90cqw; bottom: 5.5cqw; }
+  #site-app .fora-home .home-proof li { min-height: 7cqw; padding-inline: 3cqw; }
+  #site-app .fora-home .home-proof li:first-child { padding-left: 1.8cqw; }
+  #site-app .fora-home .home-proof strong { font-size: 3.9cqw; font-weight: 400; }
+  #site-app .fora-home .home-proof-icon { width: 4.3cqw; height: 4.3cqw; }
+  #site-app .fora-home .home-proof li > span { margin-left: 4.8cqw; font-size: 1.45cqw; white-space: nowrap; }
+  #site-app .fora-home .home-hero { background: linear-gradient(#08415d, #06334a); }
+  #site-app .fora-home .home-hero-photo { height: auto; object-fit: contain; object-position: 50% 0; }
+  #site-app .fora-home .home-hero-note { top: 30cqw; right: 3cqw; width: 15cqw; font-weight: 400; }
+  #site-app .fora-home .home-story { height: 41.7cqw; padding-top: .7cqw; background: none; }
+  #site-app .fora-home .home-story::before { display: block; top: 0; height: calc(100% + 23cqw); background: linear-gradient(#f8f5edaa,#f8f5edaa), url('native-paper-foliage-v1.webp') center/100% 100%; clip-path: none; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000' preserveAspectRatio='none'%3E%3Cpath fill='white' d='M0 0H1000V1000C810 890 670 800 500 730S170 650 0 580Z'/%3E%3C/svg%3E") center/100% 100% no-repeat; }
+  #site-app .fora-home .home-routes::before { display: none; }
+  #site-app .fora-home .home-story-copy { width: 40cqw; }
+  #site-app .fora-home .home-story-copy h2 { font-size: 6.4cqw; line-height: .9; }
+  #site-app .fora-home .home-story-copy > p:not(.home-eyebrow) { font-size: 2.05cqw; line-height: 1.3; }
+  #site-app .fora-home .home-story-copy .home-text-link { transform: none; margin-top: .5cqw; font-weight: 500; }
+  #site-app .fora-home .home-story-compass { top: 1.2cqw; left: 51.5cqw; width: 13cqw; }
+  #site-app .fora-home .home-story-compass-alt { top: -.6cqw; left: 67cqw; width: 18cqw; }
+  #site-app .fora-home .home-story-photos { top: 20.4cqw; right: 4cqw; width: 49cqw; height: 33cqw; }
+  #site-app .fora-home .home-story-main { left: -.7cqw; width: 78%; height: 98%; border-width: .8cqw; transform: rotate(5deg); }
+  #site-app .fora-home .home-story-side { top: 8%; right: .2cqw; width: 33%; height: 50%; transform: rotate(-5deg); }
+  #site-app .fora-home .home-story-play { top: 53%; left: 39%; width: 8.5cqw; height: 8.5cqw; }
+  #site-app .fora-home .home-story-note { top: 49cqw; right: 2.5cqw; bottom: auto; width: 15cqw; max-width: none; font-size: 3.3cqw; font-weight: 400; }
+  #site-app .fora-home .home-story-photo-note { bottom: 2cqw; left: 1cqw; width: 14cqw; font-size: 4cqw; transform: rotate(5deg); }
+  #site-app .fora-home .home-fleet-note { display: none; }
+  #site-app .fora-home .home-routes>.home-section-heading>p:not(.home-eyebrow) { max-width: 51cqw; font-size: 2cqw; line-height: 1.25; }
+  #site-app .fora-home .home-routes>.fora-route-map { width: 36cqw; }
+  #site-app .fora-home .home-route-note { top: 25cqw; left: 60cqw; width: 18cqw; font-size: 2.7cqw; }
+  #site-app .fora-home .home-route-rail { scroll-padding-inline: 6.5cqw; }
+  #site-app .fora-home .home-route-card { flex-basis: 61cqw; height: 25.5cqw; }
+  #site-app .fora-home .home-route-photo { height: 15cqw; }
+  #site-app .fora-home .home-route-card .home-card-copy { padding: 1.2cqw 2.3cqw; }
+  #site-app .fora-home .home-route-card .home-card-copy strong { font-size: 2.3cqw; }
+  #site-app .fora-home .home-route-card .home-card-copy>span { max-width: 25cqw; font-size: 1.9cqw; }
+  #site-app .fora-home .home-fleet { padding-top: 3.4cqw; }
+  #site-app .fora-home .home-fleet .home-section-heading { width: 72cqw; }
+  #site-app .fora-home .home-fleet .home-section-heading h2 { font-size: 6.1cqw; }
+  #site-app .fora-home .home-fleet .home-section-heading>p:not(.home-eyebrow) { max-width: 48cqw; font-size: 2.1cqw; line-height: 1.3; white-space: pre-line; }
+  #site-app .fora-home .home-fleet-rail { top: 10.5cqw; left: 37.5cqw; gap: 1.7cqw; padding-top: 2.5cqw; padding-bottom: 3cqw; }
+  #site-app .fora-home .home-fleet-card { flex-basis: 29cqw; transform: rotate(-2deg); }
+  #site-app .fora-home .home-fleet-photo { height: 18cqw; }
+  #site-app .fora-home .home-fleet-card .home-card-copy { min-height: 8cqw; }
+  #site-app .fora-home .home-fleet-card .home-card-copy strong { font-size: 2.7cqw; }
+  #site-app .fora-home .home-offer-photo { position: absolute; left: 0; top: -26cqw; width: 59cqw; height: 57cqw; transform: none; object-fit: contain; object-position: left bottom; clip-path: polygon(0 0,100% 10%,85% 100%,0 88%); }
+  #site-app .fora-home .home-offer::before { top: -23cqw; width: 59cqw; height: 23cqw; }
+  #site-app .fora-home .home-offer-note { bottom: 15cqw; left: 28%; width: 23cqw; }
+  #site-app .fora-home .home-offer-copy { padding: 1.2cqw 3.8cqw 0 6cqw; }
+  #site-app .fora-home .home-offer-copy>.home-eyebrow { font-size: 1.35cqw; white-space: nowrap; }
+  #site-app .fora-home .home-offer-copy h2 { max-width: 30cqw; font-size: 4.6cqw; line-height: .99; margin-bottom: 1cqw; }
+  #site-app .fora-home .home-offer-copy>p:not(.home-eyebrow) { font-size: 1.9cqw; line-height: 1.25; }
+  #site-app .fora-home .home-offer-copy .home-button { min-height: 5.2cqw; }
+  #site-app .fora-home .home-reviews { height: 20.3cqw; min-height: 20.3cqw; grid-template-columns: 31% 36.5% 1fr; gap: 1.3cqw; padding: 1.2cqw 6.7cqw; }
+  #site-app .fora-home .home-reviews-copy { align-self: center; }
+  #site-app .fora-home .home-reviews-copy h2 { font-size: 4cqw; }
+  #site-app .fora-home .home-reviews-copy>.home-eyebrow { font-size: 1.7cqw; line-height: 1.2; }
+  #site-app .fora-home .home-reviews-copy .home-text-link { font-size: 1.65cqw; white-space: nowrap; font-weight: 500; }
+  #site-app .fora-home .home-review-quote { min-height: 15.2cqw; padding: 1.5cqw 1.7cqw; grid-template-columns: 5.4cqw 1fr; column-gap: 1cqw; border-radius: .8cqw; }
+  #site-app .fora-home .home-review-avatar { width: 5.4cqw; height: 5.4cqw; }
+  #site-app .fora-home .home-review-quote blockquote { font-size: 1.45cqw; line-height: 1.25; }
+  #site-app .fora-home .home-review-rating { margin-top: .5cqw; margin-bottom: 0; font-size: 2cqw; }
+  #site-app .fora-home .home-review-quote figcaption { margin-top: .5cqw; font-size: 1.4cqw; }
+  #site-app .fora-home .home-review-photos { gap: .5cqw; }
+  #site-app .fora-home .home-review-photos img { height: 13.6cqw; }
+}

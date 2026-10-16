@@ -1,5 +1,5 @@
-import { PHOTO, media, escapeHTML } from './site-assets.js?v=20261016-130';
-import { renderRouteMap, initRouteMaps } from './site-route-map.js?v=20261016-map1';
+import { PHOTO, media, escapeHTML } from './site-assets.js?v=20261016-160';
+import { renderRouteMap, initRouteMaps } from './site-route-map.js?v=20261016-160';
 
 const esc = escapeHTML;
 const get = (ctx, key, fallback = '') => {
@@ -8,7 +8,20 @@ const get = (ctx, key, fallback = '') => {
 };
 const href = (ctx, path) => /^(?:https?:|mailto:|tel:|#)/i.test(String(path || '')) ? String(path) : (ctx?.url?.(path || '/iletisim/') || path || '/iletisim/');
 const bind = key => key ? ` data-cms-binding="${esc(key)}"` : '';
-const text = (ctx, key, fallback, tag = 'p', className = '') => `<${tag}${bind(key)}${className ? ` class="${esc(className)}"` : ''}>${esc(get(ctx, key, fallback)).replace(/\n/g, '<br>')}</${tag}>`;
+const sourceHeadingDefaults = Object.freeze({
+  'rota-gocek-fethiye.content.title': 'Koyların Ritminde\nBir Yolculuk',
+  'rota-gocek-fethiye.stops.title': 'Rota Üzerindeki\nÖne Çıkan Duraklar',
+  'rota-gocek-fethiye.quote.title': 'Bu Rota İçin\nTeklif Alın',
+  'eylul.content.title': 'Mavide Size Ait\nBir Yaşam',
+  'eylul.related.title': 'Diğer Guletlerimizi\nKeşfedin',
+  'hakkimizda.content.title': 'Yaşam Tarzı\nBir Yolculuk',
+});
+const text = (ctx, key, fallback, tag = 'p', className = '') => {
+  const value = get(ctx, key, fallback);
+  const displayValue = /^h[1-6]$/.test(tag) && sourceHeadingDefaults[key] && isUntouchedDefault(ctx, key, value, fallback)
+    ? sourceHeadingDefaults[key] : value;
+  return `<${tag}${bind(key)}${className ? ` class="${esc(className)}"` : ''}>${esc(displayValue).replace(/\r?\n/g, '<br>')}</${tag}>`;
+};
 const section = (id, cls, content) => `<section class="detail-section ${esc(cls)}" data-section-id="${esc(id)}">${content}</section>`;
 const note = (ctx, key, className = '') => {
   const value = get(ctx, key, '');
@@ -141,7 +154,7 @@ function gulet(ctx) {
     ${hero(ctx,p,'Eylül','Maviyle iç içe, özgür ve huzurlu bir yolculuk. Eylül, Akdeniz’in en özel koylarında size ait bir yaşam sunuyor.','boat',false,{hideWhatsappDesktop:true})}
     ${section('content','detail-intro detail-intro--gulet',`<div class="container detail-intro-grid"><div class="detail-intro-copy"><p class="detail-eyebrow detail-eyebrow--ink"${bind(`${p}.content.eyebrow`)}>${esc(get(ctx,`${p}.content.eyebrow`,'EYLÜL GULETİ'))}</p>${text(ctx,`${p}.content.title`,'Mavide Size Ait Bir Yaşam','h2')}${text(ctx,`${p}.content.description`,'Geniş güvertesi, zarif tasarımı ve sıcak atmosferiyle Eylül, denizin ritminde sakin ve konforlu bir yolculuk sunar. Güneşin, rüzgârın ve masmavi koyların eşlik ettiği bu özel deneyim, size Akdeniz’in gerçek ruhunu hissettirir.') }<ul class="detail-specs"><li>${icon(ctx,'people-fill')}<span data-cms-collection="gulets" data-entity-id="${esc(activeGuletId)}" data-cms-property="guestCapacity">${esc(capacity)} misafir</span></li><li>${icon(ctx,'gem')}<span data-cms-collection="gulets" data-entity-id="${esc(activeGuletId)}" data-cms-property="cabins">${esc(cabins)} kabin</span></li></ul></div><div class="detail-intro-art">${compass(ctx)}${mediaCard(ctx,defaultEntity?`${p}.content.image`:'',introImage,`${item.name||'Eylül'} guletinin güvertesi`,'detail-photo-main',defaultEntity?'':` data-cms-collection="gulets" data-entity-id="${esc(activeGuletId)}" data-cms-property="image"`)}${media(ctx,defaultEntity?`${p}.content.insetImage`:'',defaultEntity?'routeCove':(item.gallery?.[1]??item.image??PHOTO.routeCove),'detail-photo-inset','Kayalık kıyıda turkuaz koy')}${media(ctx,defaultEntity?`${p}.content.sideImage`:'', 'cabin', 'detail-photo-cove', 'Eylül guletinin kamarası')}<span class="detail-photo-play" aria-hidden="true">▶</span>${note(ctx,'eylul.content.note','detail-hand-note--photo')}${note(ctx,'eylul.content.insetNote','detail-hand-note--inset')}</div></div>`)}
     ${section('gallery','detail-gallery-section',`<div class="container detail-gallery-grid"><div class="detail-gallery-column">${gallery(ctx)}</div><aside class="detail-gulet-quote section-sea" data-section-id="quote">${text(ctx,`${p}.quote.title`,'Eylül İçin Teklif Alın','h2')}${text(ctx,`${p}.quote.description`,'Hayalinizdeki mavi yolculuk bir adım uzağınızda.')}<form class="detail-gulet-form" data-form="gulet-quote"><input type="hidden" name="guletId" value="${esc(activeGuletId)}"><label><span${bind(`${p}.quote.dateLabel`)}>${esc(get(ctx,`${p}.quote.dateLabel`,'Tarih Seçin'))}</span><input type="date" name="startDate"></label><label><span${bind(`${p}.quote.guestsLabel`)}>${esc(get(ctx,`${p}.quote.guestsLabel`,'Kişi Sayısı'))}</span><select name="guests"><option value="">${esc(get(ctx,`${p}.quote.guestsLabel`,'Misafir Sayısı'))}</option>${[2,4,6,8,10,12].map(n=>`<option value="${n}">${n} kişi</option>`).join('')}</select></label><label><span${bind(`${p}.quote.messageLabel`)}>${esc(get(ctx,`${p}.quote.messageLabel`,'Mesajınız'))}</span><textarea name="message" rows="2" placeholder="İsteğe bağlı"></textarea></label><button class="btn btn-gold" type="submit"><span${bind(`${p}.quote.submitLabel`)}>${esc(get(ctx,`${p}.quote.submitLabel`,'WhatsApp ile İletişim'))}</span></button></form></aside></div>`)}
-    ${section('related','detail-related section-sea',`<div class="container detail-related-grid"><div>${text(ctx,`${p}.related.title`,'Diğer Guletlerimizi Keşfedin','h2')}${text(ctx,`${p}.related.description`,'Her gulet, yeni bir hikâye. Türkiye’nin en güzel koylarında sizi bekleyen diğer guletlerimizi inceleyin.') }${note(ctx,'eylul.related.note','detail-hand-note--related')}<a class="detail-text-link detail-text-link--light" href="${esc(href(ctx,'/filo/'))}"><span${bind(`${p}.related.linkLabel`)}>${esc(get(ctx,`${p}.related.linkLabel`,'Tüm Gulet Filomuz'))}</span><span aria-hidden="true">→</span></a></div>${String(get(ctx,`${p}.related.guletIds`,'ata,getaway')).split(',').map(id=>id.trim()).filter(Boolean).map(id=>(ctx?.collections?.gulets||[]).find(row=>row.id===id&&row.id!==activeGuletId)).filter(Boolean).map(row=>`<a class="detail-related-card" data-cms-collection="gulets" data-entity-id="${esc(row.id)}" href="${esc(href(ctx,(row.path && row.path !== '/filo/' ? row.path : row.inquiryUrl)||'/filo/'))}">${media(ctx,'',row.image??PHOTO.boat,'detail-related-image',row.name||'Gulet fotoğrafı')}<span data-cms-property="name">${esc(row.name||'Gulet')}</span></a>`).join('')}</div>`)}
+    ${section('related','detail-related section-sea',`<div class="container detail-related-grid"><div>${text(ctx,`${p}.related.eyebrow`,"GULET FİLOMUZ","p","detail-eyebrow")}${text(ctx,`${p}.related.title`,'Diğer Guletlerimizi Keşfedin','h2')}${text(ctx,`${p}.related.description`,'Her gulet, yeni bir hikâye. Türkiye’nin en güzel koylarında sizi bekleyen diğer guletlerimizi inceleyin.') }${note(ctx,'eylul.related.note','detail-hand-note--related')}<a class="detail-text-link detail-text-link--light" href="${esc(href(ctx,'/filo/'))}"><span${bind(`${p}.related.linkLabel`)}>${esc(get(ctx,`${p}.related.linkLabel`,'Tüm Gulet Filomuz'))}</span><span aria-hidden="true">→</span></a></div>${String(get(ctx,`${p}.related.guletIds`,'ata,getaway')).split(',').map(id=>id.trim()).filter(Boolean).map(id=>(ctx?.collections?.gulets||[]).find(row=>row.id===id&&row.id!==activeGuletId)).filter(Boolean).map(row=>`<a class="detail-related-card" data-cms-collection="gulets" data-entity-id="${esc(row.id)}" href="${esc(href(ctx,(row.path && row.path !== '/filo/' ? row.path : row.inquiryUrl)||'/filo/'))}">${media(ctx,'',row.image??PHOTO.boat,'detail-related-image',row.name||'Gulet fotoğrafı')}<span data-cms-property="name">${esc(row.name||'Gulet')}</span></a>`).join('')}</div>`)}
   </main>`;
 }
 
@@ -158,9 +171,77 @@ function contact(ctx) {
 const renderers = { about, 'route-detail': routeDetail, 'gulet-detail': gulet, contact };
 export function renderDetail(pageKey, ctx = {}) { return (renderers[pageKey] || about)(ctx); }
 
-export function initDetail(root) {
+function initDetailControls(root, ctx) {
+  const cleanups = [];
+  const mark = name => {
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('viewBox', '0 0 24 24'); svg.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('fill', 'none'); svg.setAttribute('stroke', 'currentColor');
+    svg.setAttribute('stroke-width', '1.6'); svg.setAttribute('stroke-linecap', 'round'); svg.setAttribute('stroke-linejoin', 'round');
+    svg.classList.add('detail-field-icon');
+    const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+    use.setAttribute('href', (ctx.asset?.('assets/icons/fora-icons.svg') || 'assets/icons/fora-icons.svg') + '#fora-' + name);
+    svg.append(use); return svg;
+  };
+  const placeholder = (binding, fallback) => {
+    const span = document.createElement('span');
+    span.className = 'detail-date-placeholder'; span.dataset.cmsBinding = binding;
+    span.setAttribute('aria-hidden', 'true'); span.textContent = get(ctx, binding, fallback);
+    return span;
+  };
+  const widgets = [];
+  const range = root.querySelector('.detail-quick-form .detail-date-pair');
+  if (range) {
+    range.classList.add('detail-field-shell');
+    range.prepend(mark('calendar'), placeholder('rota-gocek-fethiye.quote.datePlaceholder', 'Başlangıç - Bitiş Tarihi'));
+    widgets.push(range);
+  }
+  const guletForm = root.querySelector('.detail-gulet-form');
+  for (const [name, type] of [['startDate','calendar'],['guests','users'],['message','message']]) {
+    const input = guletForm?.elements.namedItem(name); if (!input) continue;
+    const shell = document.createElement('div');
+    shell.className = 'detail-field-shell' + (name === 'message' ? ' detail-field-shell--message' : '');
+    input.before(shell); shell.append(mark(type), input);
+    if (name === 'startDate') {
+      input.setAttribute('aria-label', get(ctx, 'eylul.quote.dateLabel', 'Tarih Seçin'));
+      shell.append(placeholder('eylul.quote.dateLabel', 'Tarih Seçin')); widgets.push(shell);
+    }
+    if (name === 'message') {
+      const label = get(ctx, 'eylul.quote.messageLabel', 'Mesajınız');
+      input.placeholder = label === 'Mesajınız' ? 'Mesajınız (isteğe bağlı)' : label;
+    }
+  }
+  const guests = root.querySelector('.detail-quick-form select[name="guests"]');
+  if (guests) {
+    const shell = document.createElement('div'); shell.className = 'detail-field-shell';
+    guests.before(shell); shell.append(mark('users'), guests);
+  }
+  const submit = guletForm?.querySelector('button[type="submit"]');
+  if (submit) {
+    const image = document.createElement('img');
+    image.src = ctx.asset?.('assets/icons/bootstrap/whatsapp.svg') || 'assets/icons/bootstrap/whatsapp.svg';
+    image.className = 'icon-source detail-whatsapp-mark'; image.alt = ''; image.setAttribute('aria-hidden', 'true');
+    submit.prepend(image); submit.classList.add('detail-whatsapp-submit');
+  }
+  for (const widget of widgets) {
+    const inputs = [...widget.querySelectorAll('input[type="date"]')];
+    const sync = () => { widget.dataset.empty = String(inputs.every(input => !input.value)); };
+    const reset = () => queueMicrotask(sync);
+    for (const input of inputs) {
+      input.addEventListener('input', sync); input.addEventListener('change', sync);
+      cleanups.push(() => { input.removeEventListener('input', sync); input.removeEventListener('change', sync); });
+    }
+    widget.closest('form')?.addEventListener('reset', reset);
+    cleanups.push(() => widget.closest('form')?.removeEventListener('reset', reset));
+    sync();
+  }
+  return () => cleanups.forEach(remove => remove());
+}
+
+export function initDetail(root, ctx = {}) {
   if (!root) return () => {};
   const cleanups=[];
+  cleanups.push(initDetailControls(root, ctx));
   const routeObserver=initRouteMaps(root);
   if(routeObserver) cleanups.push(()=>routeObserver.disconnect());
   root.querySelectorAll('[data-gallery]').forEach(galleryRoot => {
