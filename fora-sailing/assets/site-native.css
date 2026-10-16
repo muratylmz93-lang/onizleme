@@ -1,4 +1,14 @@
-@import url('site-route-map.css?v=20261016-200');
+@import url('site-route-map.css?v=20261016-245');
+/* CMS reduction keeps layout transforms (photo rotation, menu position, rails) intact. */
+html[data-native-reduced-motion="true"]{scroll-behavior:auto!important}
+html[data-native-reduced-motion="true"] *,html[data-native-reduced-motion="true"] *::before,html[data-native-reduced-motion="true"] *::after{animation:none!important;transition-duration:150ms!important;transition-delay:0ms!important;scroll-behavior:auto!important}
+html[data-native-reduced-motion="true"] .camera-drift,html[data-native-reduced-motion="true"] .hero-title-line>span{transform:none!important}
+html[data-native-reduced-motion="true"] .hero-title-line>span,html[data-native-reduced-motion="true"] .motion-ready [data-reveal],html.motion-ready[data-native-reduced-motion="true"] [data-reveal]{opacity:1!important}
+html[data-native-reduced-motion="true"] [data-reveal],html[data-native-reduced-motion="true"] [data-parallax]{translate:none!important}
+html.motion-ready[data-native-reduced-motion="true"] [data-reveal="note"]{mask:none!important}
+html[data-native-reduced-motion="true"] #site-app :is(.btn,.home-button,.home-route-card,.home-fleet-card,.catalog-card__link,.detail-related-card):hover{transform:none!important}
+html[data-native-reduced-motion="true"] #site-app .catalog-card__link:hover .catalog-card__image,html[data-native-reduced-motion="true"] .button-arrow,html[data-native-reduced-motion="true"] .btn-whatsapp:hover :is(.icon,.whatsapp-mark){transform:none!important}
+html[data-native-reduced-motion="true"] :is(.catalog-story__play,.home-story-play,.detail-photo-play):hover{scale:none!important}
 @font-face{font-family:'Playfair Display';src:url('fonts/PlayfairDisplay.ttf') format('truetype');font-style:normal;font-weight:400 900;font-display:swap}
 @font-face{font-family:Inter;src:url('fonts/Inter.ttf') format('truetype');font-style:normal;font-weight:100 900;font-display:swap}
 @font-face{font-family:Caveat;src:url('fonts/Caveat.ttf') format('truetype');font-style:normal;font-weight:400 700;font-display:swap}

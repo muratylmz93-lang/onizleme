@@ -1,5 +1,5 @@
-import { PHOTO, media, escapeHTML } from './site-assets.js?v=20261016-200';
-import { renderRouteMap, initRouteMaps } from './site-route-map.js?v=20261016-200';
+import { PHOTO, media, escapeHTML } from './site-assets.js?v=20261016-245';
+import { renderRouteMap, initRouteMaps } from './site-route-map.js?v=20261016-245';
 
 const esc = escapeHTML;
 const get = (ctx, key, fallback = '') => {
@@ -242,7 +242,7 @@ export function initDetail(root, ctx = {}) {
   if (!root) return () => {};
   const cleanups=[];
   cleanups.push(initDetailControls(root, ctx));
-  const routeObserver=initRouteMaps(root);
+  const routeObserver=initRouteMaps(root,{shouldReduceMotion:ctx.motionPreferences?.reduced,subscribeMotionChange:ctx.motionPreferences?.subscribe});
   if(routeObserver) cleanups.push(()=>routeObserver.disconnect());
   root.querySelectorAll('[data-gallery]').forEach(galleryRoot => {
     const main=galleryRoot.querySelector('.detail-gallery-current');

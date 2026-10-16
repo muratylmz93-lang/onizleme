@@ -1,4 +1,5 @@
-import { normalizeNativeContent } from './site-native-content.js?v=20261016-200';
+import { normalizeNativeContent } from './site-native-content.js?v=20261016-245';
+import { getBlogImage236 as blogImage236, getBlogMobileImage236 as blogMobileImage236 } from './site-blog-content236.js?v=20261016-245';
 
 const DEFAULT_API_URL = '/api/public/content';
 const DEFAULT_STATIC_URL = '/assets/cms-public.json';
@@ -109,7 +110,7 @@ function inferBasePath(options = {}) {
     if (configured) return normalizeBasePath(configured);
   }
   const path = typeof location !== 'undefined' ? location.pathname : '/';
-  const marker = path.search(/\/(?:rotalar|filo|deneyimler|hakkimizda|iletisim)(?:\/|$)/);
+  const marker = path.search(/\/(?:rotalar|filo|deneyimler|hakkimizda|iletisim|blog)(?:\/|$)/);
   if (marker > 0) return normalizeBasePath(path.slice(0, marker));
   return '/';
 }
@@ -137,12 +138,15 @@ export function createContentContext(content, options = {}) {
     gulets: sortedCollection(normalizedContent?.gulets, includeDraft),
     experiences: sortedCollection(normalizedContent?.experiences, includeDraft),
     reviews: sortedCollection(normalizedContent?.reviews, includeDraft),
+    blog: sortedCollection(normalizedContent?.blog, includeDraft),
   };
 
   return {
     content: normalizedContent,
     collections,
     basePath,
+    getBlogImage236(post, usage='article') { return blogImage236(post,usage); },
+    getBlogMobileImage236(post) { return blogMobileImage236(post); },
     get(binding, fallback = '') {
       if (!binding || !bindings.has(binding)) return fallback;
       const value = bindings.get(binding);

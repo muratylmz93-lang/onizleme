@@ -1,4 +1,5 @@
-import { PHOTO } from './site-assets.js?v=20261016-200';
+import { PHOTO } from './site-assets.js?v=20261016-245';
+import { BLOG_DEFAULT_PAGES, applyBlogDefaults236 } from './site-blog-content236.js?v=20261016-245';
 
 const FIELD_PHOTOS = Object.freeze({
   'home.hero.image': { photo: 'hero' },
@@ -75,6 +76,7 @@ const LEGACY_EXPERIENCE_TITLES = Object.freeze({
   'koylarda-yuzme': { previous: 'Koylarda yüzme', current: 'Koylarda Yüzme Molası' },
 });const NATIVE_CONTENT_VERSION = 80;
 const LEGACY_TEXT_DEFAULTS = Object.freeze({
+  'home.footer.tagline': { previous:'Bir sonraki hikâyeniz mavide başlasın.', current:'Daha güzel bir dünya için, daha fazla mavi…' },
   'home.story.description': { previous: "Fora Sailing ile Ege ve Akdeniz'in en özel koylarında, size özel rotalarla özgürlüğü keşfedin.\nBu bir tatilden çok daha fazlası, bu bir yaşam tarzı.", current: "Fora Sailing ile Ege ve Akdeniz'in en özel koylarında, size özel rotalarla özgürlüğü keşfedin. Bu bir tatilden çok daha fazlası, bu bir yaşam tarzı." },
   'rotalar.hero.eyebrow': { previous: 'MAVİ YOLCULUK • FORA SAILING', current: 'EGE VE AKDENİZ’İN EN ÖZEL KOYLARINA' },
   'rotalar.hero.description': { previous: 'Turkuaz koylar, tarihi limanlar ve büyüleyici adalar. Fora Sailing ile Ege ve Akdeniz’in en özel rotalarında mavi bir yolculuğa çıkın.', current: 'Turkuaz koylar, tarihi limanlar ve büyüleyici adalar… Fora Sailing ile Ege ve Akdeniz’in en özel rotalarında mavi bir yolculuğa çıkın.' },
@@ -102,6 +104,7 @@ const LEGACY_TEXT_DEFAULTS = Object.freeze({
 // Native template fallbacks that have no field in older CMS snapshots. These
 // are presentation defaults only; existing CMS values always win.
 const DEFAULT_FIELD_ROWS = Object.freeze([
+  { pagePath: '/', sectionId: 'hero', binding: 'home.hero.video', type: 'video', label: 'Ana sayfa kapak videosu', value: '' },
   { pagePath: '/rotalar/gocek-fethiye-gocek/', sectionId: 'quote', binding: 'rota-gocek-fethiye.quote.datePlaceholder', type: 'text', label: 'Tarih aralığı boş alan metni', value: 'Başlangıç - Bitiş Tarihi' },
   { pagePath: '/hakkimizda/', sectionId: 'hero', binding: 'hakkimizda.hero.description', type: 'textarea', label: 'Kapak açıklaması', value: 'Ege ve Akdeniz’in eşsiz koylarında, denizle, doğayla ve insanla kurulan derin bir bağın peşindeyiz. Fora Sailing, mavi yolculuğu bir tatilden çok, bir yaşam tarzı olarak görür.' },
   { pagePath: '/hakkimizda/', sectionId: 'together', binding: 'hakkimizda.together.description', type: 'textarea', label: 'Birlikte yolculuk açıklaması', value: 'Yeni yerler keşfetmek, farklı kültürlerle tanışmak, doğayla yeniden bağ kurmak ve sevdiklerinizle kaliteli zaman geçirmek… Fora Sailing ile her yolculuk, bu değerleri bir araya getirir.' },
@@ -327,12 +330,14 @@ const DEFAULT_FIELD_ROWS = Object.freeze([
 
 ]);
 
-const DEFAULT_FIELDS = Object.freeze([...new Map(DEFAULT_FIELD_ROWS.map(field => [`${field.pagePath}|${field.binding}`, field])).values()]);
+const BLOG_FIELD_ROWS = BLOG_DEFAULT_PAGES.flatMap(page=>page.sections.flatMap(section=>section.fields.map(field=>({...field,pagePath:page.path,sectionId:section.id}))));
+const DEFAULT_FIELDS = Object.freeze([...new Map([...DEFAULT_FIELD_ROWS,...BLOG_FIELD_ROWS].map(field => [`${field.pagePath}|${field.binding}`, field])).values()]);
 
 const PAGE_PREFIXES = Object.freeze({
   '/': 'home', '/rotalar/': 'rotalar', '/filo/': 'filo', '/deneyimler/': 'deneyimler',
   '/hakkimizda/': 'hakkimizda', '/rotalar/gocek-fethiye-gocek/': 'rota-gocek-fethiye',
   '/filo/eylul/': 'eylul', '/iletisim/': 'iletisim',
+  '/blog/':'blog', '/blog/gocekte-mavi-yolculuk/':'blog-article',
 });
 const NATIVE_EXTRA_BINDINGS = Object.freeze({
   '/': [
@@ -379,6 +384,7 @@ export function normalizeNativeContent(content, options = {}) {
   const legacyCopyMigration = !Number.isFinite(storedVersion) || storedVersion < NATIVE_CONTENT_VERSION;
   if (!normalized.settings || typeof normalized.settings !== 'object' || Array.isArray(normalized.settings)) normalized.settings = {};
   normalized.settings.nativeContentVersion = Math.max(NATIVE_CONTENT_VERSION, Number.isFinite(storedVersion) ? storedVersion : 0);
+  if (options.includeDefaultFields !== false) applyBlogDefaults236(normalized);
   const photos = options.photos || PHOTO;
   const defaults = options.includeDefaultFields === false ? [] : DEFAULT_FIELDS;
   for (const page of normalized.pages || []) {

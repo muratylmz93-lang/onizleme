@@ -115,6 +115,14 @@
                 "defaultValue": "WhatsApp ile İletişim"
               },
               {
+                "id": "native-home.hero.video",
+                "label": "Ana sayfa kapak videosu",
+                "type": "video",
+                "binding": "home.hero.video",
+                "value": "",
+                "defaultValue": ""
+              },
+              {
                 "id": "native-home.proof.experienceValue",
                 "label": "Deneyim değeri",
                 "type": "text",
@@ -648,8 +656,8 @@
                 "id": "tagline",
                 "label": "Tagline",
                 "type": "textarea",
-                "value": "Bir sonraki hikâyeniz mavide başlasın.",
-                "defaultValue": "Bir sonraki hikâyeniz mavide başlasın.",
+                "value": "Daha güzel bir dünya için, daha fazla mavi…",
+                "defaultValue": "Daha güzel bir dünya için, daha fazla mavi…",
                 "binding": "home.footer.tagline"
               },
               {
@@ -2850,6 +2858,481 @@
           "robots": "noindex,nofollow",
           "ogImage": ""
         }
+      },
+      {
+        "id": "blog",
+        "path": "/blog/",
+        "title": "Mavi Yolculuk Rehberi",
+        "visible": true,
+        "status": "published",
+        "seo": {
+          "title": "Mavi Yolculuk Rehberi | Fora Sailing",
+          "description": "Gulet tatili, Ege ve Akdeniz rotaları için planlama rehberleri."
+        },
+        "sections": [
+          {
+            "id": "hero",
+            "label": "Blog kapağı",
+            "visible": true,
+            "fields": [
+              {
+                "id": "native-blog.hero.title",
+                "binding": "blog.hero.title",
+                "label": "Başlık",
+                "type": "text",
+                "value": "Mavi Yolculuk Rehberi",
+                "defaultValue": "Mavi Yolculuk Rehberi"
+              },
+              {
+                "id": "native-blog.hero.description",
+                "binding": "blog.hero.description",
+                "label": "Açıklama",
+                "type": "text",
+                "value": "Gulet tatili, Ege ve Akdeniz rotaları için planlama rehberleri.",
+                "defaultValue": "Gulet tatili, Ege ve Akdeniz rotaları için planlama rehberleri."
+              },
+              {
+                "id": "native-blog.hero.image",
+                "binding": "blog.hero.image",
+                "label": "Kapak fotoğrafı",
+                "type": "image",
+                "value": "assets/blog236/blog-hero.webp",
+                "defaultValue": "assets/blog236/blog-hero.webp"
+              },
+              {
+                "id": "native-blog.hero.note",
+                "binding": "blog.hero.note",
+                "label": "El yazısı not",
+                "type": "text",
+                "value": "Yola\nçıkmadan\nönce…",
+                "defaultValue": "Yola\nçıkmadan\nönce…"
+              },
+              {
+                "id": "native-blog.hero.breadcrumb",
+                "binding": "blog.hero.breadcrumb",
+                "label": "Gezinme yolu",
+                "type": "text",
+                "value": "Ana Sayfa / Blog",
+                "defaultValue": "Ana Sayfa / Blog"
+              }
+            ]
+          },
+          {
+            "id": "list",
+            "label": "Rehber listesi",
+            "visible": true,
+            "fields": [
+              {
+                "id": "native-blog.list.searchPlaceholder",
+                "binding": "blog.list.searchPlaceholder",
+                "label": "Arama alanı",
+                "type": "text",
+                "value": "Rehberlerde ara",
+                "defaultValue": "Rehberlerde ara"
+              },
+              {
+                "id": "native-blog.list.title",
+                "binding": "blog.list.title",
+                "label": "Liste başlığı",
+                "type": "text",
+                "value": "Son Rehberler",
+                "defaultValue": "Son Rehberler"
+              },
+              {
+                "id": "native-blog.list.allLabel",
+                "binding": "blog.list.allLabel",
+                "label": "Tüm rehberler bağlantısı",
+                "type": "text",
+                "value": "Tüm Rehberleri Gör",
+                "defaultValue": "Tüm Rehberleri Gör"
+              },
+              {
+                "id": "native-blog.list.readLabel",
+                "binding": "blog.list.readLabel",
+                "label": "Okuma düğmesi",
+                "type": "text",
+                "value": "Rehberi Oku",
+                "defaultValue": "Rehberi Oku"
+              },
+              {
+                "id": "native-blog.list.nextLabel",
+                "binding": "blog.list.nextLabel",
+                "label": "Sonraki sayfa",
+                "type": "text",
+                "value": "Sonraki",
+                "defaultValue": "Sonraki"
+              },
+              {
+                "id": "native-blog.list.topicsTitle",
+                "binding": "blog.list.topicsTitle",
+                "label": "Konu başlığı",
+                "type": "text",
+                "value": "Konulara Göre Keşfet",
+                "defaultValue": "Konulara Göre Keşfet"
+              },
+              {
+                "id": "native-blog.list.routesTitle",
+                "binding": "blog.list.routesTitle",
+                "label": "Rota başlığı",
+                "type": "text",
+                "value": "Rota Rehberleri",
+                "defaultValue": "Rota Rehberleri"
+              },
+              {
+                "id": "native-blog.list.editorialTitle",
+                "binding": "blog.list.editorialTitle",
+                "label": "Editör başlığı",
+                "type": "text",
+                "value": "İçeriklerimiz Nasıl Hazırlanır?",
+                "defaultValue": "İçeriklerimiz Nasıl Hazırlanır?"
+              },
+              {
+                "id": "native-blog.list.editorialDescription",
+                "binding": "blog.list.editorialDescription",
+                "label": "Editör açıklaması",
+                "type": "text",
+                "value": "Rehberlerimiz, bölge deneyimimiz, saha bilgimiz ve güncel kaynaklar ışığında hazırlanır.",
+                "defaultValue": "Rehberlerimiz, bölge deneyimimiz, saha bilgimiz ve güncel kaynaklar ışığında hazırlanır."
+              },
+              {
+                "id": "native-blog.list.offerTitle",
+                "binding": "blog.list.offerTitle",
+                "label": "Yan teklif başlığı",
+                "type": "text",
+                "value": "Hayalinizdeki rota için\nsize özel bir plan hazırlayalım.",
+                "defaultValue": "Hayalinizdeki rota için\nsize özel bir plan hazırlayalım."
+              },
+              {
+                "id": "native-blog.list.offerImage",
+                "binding": "blog.list.offerImage",
+                "label": "Yan teklif fotoğrafı",
+                "type": "image",
+                "value": "assets/blog236/gocek-feature.webp",
+                "defaultValue": "assets/blog236/gocek-feature.webp"
+              },
+              {
+                "id": "native-blog.list.answersTitle",
+                "binding": "blog.list.answersTitle",
+                "label": "Kısa cevaplar başlığı",
+                "type": "text",
+                "value": "Mavi Yolculuk Hakkında Kısa Cevaplar",
+                "defaultValue": "Mavi Yolculuk Hakkında Kısa Cevaplar"
+              },
+              {
+                "id": "native-blog.list.answer1Title",
+                "binding": "blog.list.answer1Title",
+                "label": "Birinci soru",
+                "type": "text",
+                "value": "Mavi yolculuk nedir?",
+                "defaultValue": "Mavi yolculuk nedir?"
+              },
+              {
+                "id": "native-blog.list.answer1Text",
+                "binding": "blog.list.answer1Text",
+                "label": "Birinci cevap",
+                "type": "text",
+                "value": "Guletle koylar arasında konaklamalı yapılan, doğayla iç içe bir deniz tatilidir.",
+                "defaultValue": "Guletle koylar arasında konaklamalı yapılan, doğayla iç içe bir deniz tatilidir."
+              },
+              {
+                "id": "native-blog.list.answer2Title",
+                "binding": "blog.list.answer2Title",
+                "label": "İkinci soru",
+                "type": "text",
+                "value": "Gulet seçerken neye bakılmalı?",
+                "defaultValue": "Gulet seçerken neye bakılmalı?"
+              },
+              {
+                "id": "native-blog.list.answer2Text",
+                "binding": "blog.list.answer2Text",
+                "label": "İkinci cevap",
+                "type": "text",
+                "value": "Kişi sayısı, kabin sayısı, konfor seviyesi ve planlanan rota ile uyumu dikkate alınmalıdır.",
+                "defaultValue": "Kişi sayısı, kabin sayısı, konfor seviyesi ve planlanan rota ile uyumu dikkate alınmalıdır."
+              },
+              {
+                "id": "native-blog.list.answer3Title",
+                "binding": "blog.list.answer3Title",
+                "label": "Üçüncü soru",
+                "type": "text",
+                "value": "Rota nasıl belirlenir?",
+                "defaultValue": "Rota nasıl belirlenir?"
+              },
+              {
+                "id": "native-blog.list.answer3Text",
+                "binding": "blog.list.answer3Text",
+                "label": "Üçüncü cevap",
+                "type": "text",
+                "value": "Başlangıç limanı, süre, ilgi alanları ve hava koşulları göz önünde bulundurularak belirlenir.",
+                "defaultValue": "Başlangıç limanı, süre, ilgi alanları ve hava koşulları göz önünde bulundurularak belirlenir."
+              }
+            ]
+          },
+          {
+            "id": "cta",
+            "label": "Kapanış teklifi",
+            "visible": true,
+            "fields": [
+              {
+                "id": "native-blog.cta.title",
+                "binding": "blog.cta.title",
+                "label": "Başlık",
+                "type": "text",
+                "value": "Okuduklarınızı\nBir Yolculuğa Dönüştürün.",
+                "defaultValue": "Okuduklarınızı\nBir Yolculuğa Dönüştürün."
+              },
+              {
+                "id": "native-blog.cta.description",
+                "binding": "blog.cta.description",
+                "label": "Açıklama",
+                "type": "text",
+                "value": "Hayalinizdeki mavi yolculuk için şimdi plan yapın.",
+                "defaultValue": "Hayalinizdeki mavi yolculuk için şimdi plan yapın."
+              },
+              {
+                "id": "native-blog.cta.image",
+                "binding": "blog.cta.image",
+                "label": "Fotoğraf",
+                "type": "image",
+                "value": "assets/blog236/cta-deck.webp",
+                "defaultValue": "assets/blog236/cta-deck.webp"
+              },
+              {
+                "id": "native-blog.cta.offerLabel",
+                "binding": "blog.cta.offerLabel",
+                "label": "Teklif düğmesi",
+                "type": "text",
+                "value": "Teklif Alın",
+                "defaultValue": "Teklif Alın"
+              },
+              {
+                "id": "native-blog.cta.offerUrl",
+                "binding": "blog.cta.offerUrl",
+                "label": "Teklif bağlantısı",
+                "type": "url",
+                "value": "/iletisim/",
+                "defaultValue": "/iletisim/"
+              },
+              {
+                "id": "native-blog.cta.routesLabel",
+                "binding": "blog.cta.routesLabel",
+                "label": "Rotalar düğmesi",
+                "type": "text",
+                "value": "Rotaları Keşfet",
+                "defaultValue": "Rotaları Keşfet"
+              },
+              {
+                "id": "native-blog.cta.routesUrl",
+                "binding": "blog.cta.routesUrl",
+                "label": "Rotalar bağlantısı",
+                "type": "url",
+                "value": "/rotalar/",
+                "defaultValue": "/rotalar/"
+              },
+              {
+                "id": "native-blog.cta.note",
+                "binding": "blog.cta.note",
+                "label": "El yazısı not",
+                "type": "text",
+                "value": "Mavi,\nyaşatır…",
+                "defaultValue": "Mavi,\nyaşatır…"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "blog-makale",
+        "path": "/blog/gocekte-mavi-yolculuk/",
+        "title": "Göcek’te Mavi Yolculuk: Koylar ve Rota Planlama",
+        "visible": true,
+        "status": "published",
+        "seo": {
+          "title": "Göcek’te Mavi Yolculuk | Fora Sailing"
+        },
+        "sections": [
+          {
+            "id": "hero",
+            "label": "Makale kapağı",
+            "visible": true,
+            "fields": [
+              {
+                "id": "native-blog-article.hero.image",
+                "binding": "blog-article.hero.image",
+                "label": "Üst kapak fotoğrafı",
+                "type": "image",
+                "value": "assets/blog236/blog-hero.webp",
+                "defaultValue": "assets/blog236/blog-hero.webp"
+              },
+              {
+                "id": "native-blog-article.hero.note",
+                "binding": "blog-article.hero.note",
+                "label": "El yazısı not",
+                "type": "text",
+                "value": "Yola\nçıkmadan\nönce…",
+                "defaultValue": "Yola\nçıkmadan\nönce…"
+              }
+            ]
+          },
+          {
+            "id": "content",
+            "label": "Makale ortak alanları",
+            "visible": true,
+            "fields": [
+              {
+                "id": "native-blog-article.article.tocTitle",
+                "binding": "blog-article.article.tocTitle",
+                "label": "İçindekiler başlığı",
+                "type": "text",
+                "value": "İçindekiler",
+                "defaultValue": "İçindekiler"
+              },
+              {
+                "id": "native-blog-article.article.faqTitle",
+                "binding": "blog-article.article.faqTitle",
+                "label": "Sorular başlığı",
+                "type": "text",
+                "value": "Sık Sorulan Sorular",
+                "defaultValue": "Sık Sorulan Sorular"
+              },
+              {
+                "id": "native-blog-article.article.aboutTitle",
+                "binding": "blog-article.article.aboutTitle",
+                "label": "Yazar başlığı",
+                "type": "text",
+                "value": "Bu rehber hakkında",
+                "defaultValue": "Bu rehber hakkında"
+              },
+              {
+                "id": "native-blog-article.article.sourcesTitle",
+                "binding": "blog-article.article.sourcesTitle",
+                "label": "Kaynaklar başlığı",
+                "type": "text",
+                "value": "Kaynaklar ve Güncellik",
+                "defaultValue": "Kaynaklar ve Güncellik"
+              },
+              {
+                "id": "native-blog-article.article.sourcesDescription",
+                "binding": "blog-article.article.sourcesDescription",
+                "label": "Kaynaklar açıklaması",
+                "type": "text",
+                "value": "Rota bilgileri, rezervasyon öncesinde ekiple teyit edilmelidir.",
+                "defaultValue": "Rota bilgileri, rezervasyon öncesinde ekiple teyit edilmelidir."
+              },
+              {
+                "id": "native-blog-article.article.relatedTitle",
+                "binding": "blog-article.article.relatedTitle",
+                "label": "İlgili yazılar başlığı",
+                "type": "text",
+                "value": "İlgili Rehberler",
+                "defaultValue": "İlgili Rehberler"
+              },
+              {
+                "id": "native-blog-article.article.routeTitle",
+                "binding": "blog-article.article.routeTitle",
+                "label": "Rota teklifi başlığı",
+                "type": "text",
+                "value": "Göcek rotanızı birlikte planlayalım.",
+                "defaultValue": "Göcek rotanızı birlikte planlayalım."
+              },
+              {
+                "id": "native-blog-article.article.routeDescription",
+                "binding": "blog-article.article.routeDescription",
+                "label": "Rota teklifi açıklaması",
+                "type": "text",
+                "value": "Tatil sürenize ve tercihlerinize göre size en uygun rotayı oluşturalım.",
+                "defaultValue": "Tatil sürenize ve tercihlerinize göre size en uygun rotayı oluşturalım."
+              },
+              {
+                "id": "native-blog-article.article.routeLabel",
+                "binding": "blog-article.article.routeLabel",
+                "label": "Rota teklifi düğmesi",
+                "type": "text",
+                "value": "Rota İçin Bilgi Alın",
+                "defaultValue": "Rota İçin Bilgi Alın"
+              },
+              {
+                "id": "native-blog-article.article.routeUrl",
+                "binding": "blog-article.article.routeUrl",
+                "label": "Rota teklifi bağlantısı",
+                "type": "url",
+                "value": "/iletisim/?rota=gocek-fethiye",
+                "defaultValue": "/iletisim/?rota=gocek-fethiye"
+              }
+            ]
+          },
+          {
+            "id": "cta",
+            "label": "Makale kapanış teklifi",
+            "visible": true,
+            "fields": [
+              {
+                "id": "native-blog-article.cta.title",
+                "binding": "blog-article.cta.title",
+                "label": "Başlık",
+                "type": "text",
+                "value": "Hayalinizdeki Rotayı\nBirlikte Planlayalım.",
+                "defaultValue": "Hayalinizdeki Rotayı\nBirlikte Planlayalım."
+              },
+              {
+                "id": "native-blog-article.cta.description",
+                "binding": "blog-article.cta.description",
+                "label": "Açıklama",
+                "type": "text",
+                "value": "Göcek ve çevresindeki özel rotalar için size özel plan yapalım.",
+                "defaultValue": "Göcek ve çevresindeki özel rotalar için size özel plan yapalım."
+              },
+              {
+                "id": "native-blog-article.cta.image",
+                "binding": "blog-article.cta.image",
+                "label": "Fotoğraf",
+                "type": "image",
+                "value": "assets/blog236/cta-deck.webp",
+                "defaultValue": "assets/blog236/cta-deck.webp"
+              },
+              {
+                "id": "native-blog-article.cta.offerLabel",
+                "binding": "blog-article.cta.offerLabel",
+                "label": "Teklif düğmesi",
+                "type": "text",
+                "value": "Teklif Alın",
+                "defaultValue": "Teklif Alın"
+              },
+              {
+                "id": "native-blog-article.cta.offerUrl",
+                "binding": "blog-article.cta.offerUrl",
+                "label": "Teklif bağlantısı",
+                "type": "url",
+                "value": "/iletisim/",
+                "defaultValue": "/iletisim/"
+              },
+              {
+                "id": "native-blog-article.cta.routesLabel",
+                "binding": "blog-article.cta.routesLabel",
+                "label": "Rotalar düğmesi",
+                "type": "text",
+                "value": "Rotaları Keşfet",
+                "defaultValue": "Rotaları Keşfet"
+              },
+              {
+                "id": "native-blog-article.cta.routesUrl",
+                "binding": "blog-article.cta.routesUrl",
+                "label": "Rotalar bağlantısı",
+                "type": "url",
+                "value": "/rotalar/",
+                "defaultValue": "/rotalar/"
+              },
+              {
+                "id": "native-blog-article.cta.note",
+                "binding": "blog-article.cta.note",
+                "label": "El yazısı not",
+                "type": "text",
+                "value": "Mavi,\nyaşatır…",
+                "defaultValue": "Mavi,\nyaşatır…"
+              }
+            ]
+          }
+        ]
       }
     ],
     "gulets": [
@@ -3050,7 +3533,328 @@
         "description": "Turkuaz sularda yüzün, bakir doğayla buluşun."
       }
     ],
-    "blog": [],
+    "blog": [
+      {
+        "id": "gocekte-mavi-yolculuk",
+        "slug": "gocekte-mavi-yolculuk",
+        "path": "/blog/gocekte-mavi-yolculuk/",
+        "title": "Göcek’te Mavi Yolculuk: Koylar ve Rota Planlama",
+        "category": "Rota Rehberi",
+        "categoryKey": "rotalar",
+        "excerpt": "Turkuaz koyları, sakin limanları ve doğal güzellikleriyle Göcek’te unutulmaz bir rota için bilmeniz gerekenler.",
+        "image": "assets/blog237/gocek-cover.webp",
+        "author": "Fora Sailing Editör Ekibi",
+        "authorBio": "Mavi yolculuk, rota planlama ve gulet tatili hakkında güncel bilgiler paylaşır.",
+        "updatedAt": "2026-10-16",
+        "publishedAt": "2026-10-16",
+        "readMinutes": 7,
+        "featured": true,
+        "published": true,
+        "status": "published",
+        "sortOrder": 0,
+        "sections": [
+          {
+            "id": "kisaca",
+            "type": "summary",
+            "title": "Kısaca",
+            "text": "Göcek’te rota, seyahat süresi, misafir tercihleri ve hava koşulları birlikte değerlendirilerek planlanır. Gulet seçimi de kabin sayısı ve yaşam alanları dikkate alınarak yapılır.",
+            "items": [
+              {
+                "title": "Rotayı süreye göre belirleyin.",
+                "text": "Kaç gününüz olduğuna göre en uygun rota planını yapın."
+              },
+              {
+                "title": "Tekne ve misafir ihtiyaçlarını eşleştirin.",
+                "text": "Kabin düzeni, konfor ve beklentilerinize uygun guleti seçin."
+              },
+              {
+                "title": "Hava koşullarına göre esnek plan yapın.",
+                "text": "Mevsim ve rüzgar durumunu göz önünde bulundurun."
+              }
+            ]
+          },
+          {
+            "id": "gocekte-mavi-yolculuk",
+            "tocTitle": "Göcek’te mavi yolculuk",
+            "type": "text",
+            "title": "Göcek’te Mavi Yolculuk Nasıldır?",
+            "text": "Göcek, sakin koyları, berrak denizi ve doğal güzellikleriyle mavi yolculuk için özel bir başlangıç noktasıdır. Kısa mesafelerde birbirinden güzel koylara ulaşarak, deniz, doğa ve huzur dolu bir tatil deneyimi yaşanır. Rota, misafirlerin ilgi alanlarına göre esnek şekilde planlanabilir."
+          },
+          {
+            "id": "rota-nasil-planlanir",
+            "tocTitle": "Rota nasıl planlanır?",
+            "type": "text",
+            "title": "Rota Nasıl Planlanır?",
+            "text": "Göcek çıkışlı rotalar, tatil süresi, misafirlerin beklentileri ve hava koşulları birlikte değerlendirilerek oluşturulur. Kısa süreli rotalarda yakın koylar, daha uzun tatillerde ise çevredeki popüler destinasyonlar dahil edilebilir."
+          },
+          {
+            "id": "planlama-tablosu",
+            "type": "table",
+            "columns": [
+              "Planlama Başlığı",
+              "Dikkat Edilecekler"
+            ],
+            "rows": [
+              [
+                "Süre",
+                "Başlangıç ve dönüş planı, tatil süresi"
+              ],
+              [
+                "Misafirler",
+                "İlgi alanları, yaş grubu, konfor beklentileri"
+              ],
+              [
+                "Koylar",
+                "Hava ve deniz durumu, popülerlik"
+              ],
+              [
+                "Esneklik",
+                "Hava koşullarına göre alternatif rotalar"
+              ]
+            ]
+          },
+          {
+            "id": "guvertede-mola",
+            "type": "image",
+            "image": "assets/blog237/gocek-deck.webp",
+            "caption": "Gulet ile Göcek koylarında huzurlu bir mola — temsili görsel"
+          },
+          {
+            "id": "gulet-secimi",
+            "tocTitle": "Gulet seçimi",
+            "type": "text",
+            "title": "Gulet Seçerken Nelere Bakmalı?",
+            "text": "Gulet seçiminde kişi sayısı, kabin düzeni, yaşam alanlarının konforu ve seyahat beklentileriniz önemlidir. Doğru gulet seçimi, mavi yolculuk deneyiminizin daha keyifli ve konforlu geçmesini sağlar.",
+            "link": "/filo/",
+            "linkLabel": "Rota için gulet seçeneklerini inceleyin"
+          },
+          {
+            "id": "yaniniza-alacaklariniz",
+            "tocTitle": "Yanınıza alacaklarınız",
+            "type": "essentials",
+            "title": "Yanınıza Alacaklarınız",
+            "text": "Mavi yolculukta yanınıza alacağınız temel eşyalar, tatilinizi daha konforlu hale getirir.",
+            "items": [
+              {
+                "icon": "sun",
+                "title": "Güneş koruması",
+                "text": "Şapka, güneş gözlüğü ve güneş kremi"
+              },
+              {
+                "icon": "shirt",
+                "title": "Rahat kıyafet",
+                "text": "Denize ve tekne yaşamına uygun, hafif giysiler"
+              },
+              {
+                "icon": "bag",
+                "title": "Kişisel ihtiyaçlar",
+                "text": "Düzenli kullandığınız ilaçlar ve kişisel eşyalar"
+              }
+            ]
+          }
+        ],
+        "faqs": [
+          {
+            "id": "rota",
+            "question": "Rota önceden kesinleşir mi?",
+            "answer": "Rota; tatil süresi, misafir tercihleri ve hava koşulları birlikte değerlendirilerek planlanır. Rota bilgilerini rezervasyon öncesinde ekibimizle teyit edin."
+          },
+          {
+            "id": "gulet",
+            "question": "Gulet seçimi nasıl yapılır?",
+            "answer": "Kişi sayısı, kabin düzeni, yaşam alanlarının konforu ve seyahat beklentileri birlikte değerlendirilir."
+          },
+          {
+            "id": "bilgiler",
+            "question": "Tatil öncesinde hangi bilgiler paylaşılmalı?",
+            "answer": "Tatil sürenizi, misafir sayısını ve tercihlerinizi paylaşarak size uygun rota ve guleti birlikte planlayabilirsiniz."
+          }
+        ],
+        "sources": [
+          {
+            "label": "İlgili rota bilgileri",
+            "url": "/rotalar/gocek-fethiye-gocek/"
+          },
+          {
+            "label": "Meteoroloji Genel Müdürlüğü",
+            "url": "https://www.mgm.gov.tr/"
+          }
+        ],
+        "relatedIds": [
+          "gulet-tatiline-giderken-yaniniza-ne-almalisiniz",
+          "ailece-mavi-yolculuk-nasil-planlanir",
+          "gulet-secerken-nelere-dikkat-etmelisiniz"
+        ],
+        "seo": {
+          "title": "Göcek’te Mavi Yolculuk: Koylar ve Rota Planlama | Fora Sailing",
+          "description": "Turkuaz koyları, sakin limanları ve doğal güzellikleriyle Göcek’te unutulmaz bir rota için bilmeniz gerekenler."
+        },
+        "introduction": "Göcek çıkışlı gulet tatilinizi planlarken rota, koy ve tekne seçimi için bilmeniz gerekenler.",
+        "imageCaption": "Göcek koylarında mavi yolculuk — temsili görsel"
+      },
+      {
+        "id": "gulet-tatiline-giderken-yaniniza-ne-almalisiniz",
+        "slug": "gulet-tatiline-giderken-yaniniza-ne-almalisiniz",
+        "path": "/blog/gulet-tatiline-giderken-yaniniza-ne-almalisiniz/",
+        "title": "Gulet Tatiline Giderken Yanınıza Ne Almalısınız?",
+        "category": "Tatil Planlama",
+        "categoryKey": "tatil-planlama",
+        "excerpt": "Mavi yolculukta daha konforlu bir deneyim için yanınıza almanız gerekenler.",
+        "image": "assets/blog236/card-01.webp",
+        "author": "Fora Sailing Editör Ekibi",
+        "authorBio": "Mavi yolculuk, rota planlama ve gulet tatili hakkında güncel bilgiler paylaşır.",
+        "updatedAt": "2026-10-12",
+        "publishedAt": "2026-10-12",
+        "readMinutes": 5,
+        "featured": false,
+        "published": true,
+        "status": "published",
+        "sortOrder": 1,
+        "sections": [],
+        "faqs": [],
+        "sources": [],
+        "relatedIds": [],
+        "seo": {
+          "title": "Gulet Tatiline Giderken Yanınıza Ne Almalısınız? | Fora Sailing",
+          "description": "Mavi yolculukta daha konforlu bir deneyim için yanınıza almanız gerekenler."
+        }
+      },
+      {
+        "id": "bodrum-gokova-rotasinda-sizi-neler-bekliyor",
+        "slug": "bodrum-gokova-rotasinda-sizi-neler-bekliyor",
+        "path": "/blog/bodrum-gokova-rotasinda-sizi-neler-bekliyor/",
+        "title": "Bodrum–Gökova Rotasında Sizi Neler Bekliyor?",
+        "category": "Rota Rehberi",
+        "categoryKey": "rotalar",
+        "excerpt": "Sakin koylar, tarihi duraklar ve eşsiz doğasıyla Bodrum–Gökova rotasının öne çıkanları.",
+        "image": "assets/blog236/card-02.webp",
+        "author": "Fora Sailing Editör Ekibi",
+        "authorBio": "Mavi yolculuk, rota planlama ve gulet tatili hakkında güncel bilgiler paylaşır.",
+        "updatedAt": "2026-10-08",
+        "publishedAt": "2026-10-08",
+        "readMinutes": 6,
+        "featured": false,
+        "published": true,
+        "status": "published",
+        "sortOrder": 2,
+        "sections": [],
+        "faqs": [],
+        "sources": [],
+        "relatedIds": [],
+        "seo": {
+          "title": "Bodrum–Gökova Rotasında Sizi Neler Bekliyor? | Fora Sailing",
+          "description": "Sakin koylar, tarihi duraklar ve eşsiz doğasıyla Bodrum–Gökova rotasının öne çıkanları."
+        }
+      },
+      {
+        "id": "ailece-mavi-yolculuk-nasil-planlanir",
+        "slug": "ailece-mavi-yolculuk-nasil-planlanir",
+        "path": "/blog/ailece-mavi-yolculuk-nasil-planlanir/",
+        "title": "Ailece Mavi Yolculuk Nasıl Planlanır?",
+        "category": "Ailece Seyahat",
+        "categoryKey": "ailece-seyahat",
+        "excerpt": "Çocuklarla gulet tatili için pratik öneriler, uygun rotalar ve dikkat edilmesi gerekenler.",
+        "image": "assets/blog236/card-03.webp",
+        "author": "Fora Sailing Editör Ekibi",
+        "authorBio": "Mavi yolculuk, rota planlama ve gulet tatili hakkında güncel bilgiler paylaşır.",
+        "updatedAt": "2026-10-04",
+        "publishedAt": "2026-10-04",
+        "readMinutes": 6,
+        "featured": false,
+        "published": true,
+        "status": "published",
+        "sortOrder": 3,
+        "sections": [],
+        "faqs": [],
+        "sources": [],
+        "relatedIds": [],
+        "seo": {
+          "title": "Ailece Mavi Yolculuk Nasıl Planlanır? | Fora Sailing",
+          "description": "Çocuklarla gulet tatili için pratik öneriler, uygun rotalar ve dikkat edilmesi gerekenler."
+        }
+      },
+      {
+        "id": "gulet-secerken-nelere-dikkat-etmelisiniz",
+        "slug": "gulet-secerken-nelere-dikkat-etmelisiniz",
+        "path": "/blog/gulet-secerken-nelere-dikkat-etmelisiniz/",
+        "title": "Gulet Seçerken Nelere Dikkat Etmelisiniz?",
+        "category": "Gulet Rehberi",
+        "categoryKey": "gulet-tatili",
+        "excerpt": "Kabin, konfor, rota uyumu ve tekne özellikleri hakkında bilmeniz gerekenler.",
+        "image": "assets/blog236/card-04.webp",
+        "author": "Fora Sailing Editör Ekibi",
+        "authorBio": "Mavi yolculuk, rota planlama ve gulet tatili hakkında güncel bilgiler paylaşır.",
+        "updatedAt": "2026-09-28",
+        "publishedAt": "2026-09-28",
+        "readMinutes": 7,
+        "featured": false,
+        "published": true,
+        "status": "published",
+        "sortOrder": 4,
+        "sections": [],
+        "faqs": [],
+        "sources": [],
+        "relatedIds": [],
+        "seo": {
+          "title": "Gulet Seçerken Nelere Dikkat Etmelisiniz? | Fora Sailing",
+          "description": "Kabin, konfor, rota uyumu ve tekne özellikleri hakkında bilmeniz gerekenler."
+        }
+      },
+      {
+        "id": "marmaris-datca-ilk-yolculugunuz-icin-rota-rehberi",
+        "slug": "marmaris-datca-ilk-yolculugunuz-icin-rota-rehberi",
+        "path": "/blog/marmaris-datca-ilk-yolculugunuz-icin-rota-rehberi/",
+        "title": "Marmaris–Datça: İlk Yolculuğunuz İçin Rota Rehberi",
+        "category": "Rota Rehberi",
+        "categoryKey": "rotalar",
+        "excerpt": "İlk mavi yolculuğunuz için ideal duraklar, koylar ve pratik bilgiler.",
+        "image": "assets/blog236/card-05.webp",
+        "author": "Fora Sailing Editör Ekibi",
+        "authorBio": "Mavi yolculuk, rota planlama ve gulet tatili hakkında güncel bilgiler paylaşır.",
+        "updatedAt": "2026-09-20",
+        "publishedAt": "2026-09-20",
+        "readMinutes": 6,
+        "featured": false,
+        "published": true,
+        "status": "published",
+        "sortOrder": 5,
+        "sections": [],
+        "faqs": [],
+        "sources": [],
+        "relatedIds": [],
+        "seo": {
+          "title": "Marmaris–Datça: İlk Yolculuğunuz İçin Rota Rehberi | Fora Sailing",
+          "description": "İlk mavi yolculuğunuz için ideal duraklar, koylar ve pratik bilgiler."
+        }
+      },
+      {
+        "id": "mavi-yolculuk-icin-hangi-donemi-secmelisiniz",
+        "slug": "mavi-yolculuk-icin-hangi-donemi-secmelisiniz",
+        "path": "/blog/mavi-yolculuk-icin-hangi-donemi-secmelisiniz/",
+        "title": "Mavi Yolculuk İçin Hangi Dönemi Seçmelisiniz?",
+        "category": "Deniz Yaşamı",
+        "categoryKey": "deniz-yasami",
+        "excerpt": "Mevsimlere göre hava, deniz koşulları ve rotalar hakkında kapsamlı rehber.",
+        "image": "assets/blog236/card-06.webp",
+        "author": "Fora Sailing Editör Ekibi",
+        "authorBio": "Mavi yolculuk, rota planlama ve gulet tatili hakkında güncel bilgiler paylaşır.",
+        "updatedAt": "2026-09-14",
+        "publishedAt": "2026-09-14",
+        "readMinutes": 5,
+        "featured": false,
+        "published": true,
+        "status": "published",
+        "sortOrder": 6,
+        "sections": [],
+        "faqs": [],
+        "sources": [],
+        "relatedIds": [],
+        "seo": {
+          "title": "Mavi Yolculuk İçin Hangi Dönemi Seçmelisiniz? | Fora Sailing",
+          "description": "Mevsimlere göre hava, deniz koşulları ve rotalar hakkında kapsamlı rehber."
+        }
+      }
+    ],
     "faqs": [],
     "menus": [
       {
@@ -3082,6 +3886,13 @@
         "label": "İletişim",
         "url": "/iletisim/",
         "sortOrder": 5
+      },
+      {
+        "id": "blog",
+        "label": "Blog",
+        "url": "/blog/",
+        "visible": true,
+        "sortOrder": 4.5
       }
     ],
     "settings": {
@@ -3113,7 +3924,8 @@
         "headingFont": "Playfair Display",
         "bodyFont": "Inter"
       },
-      "nativeContentVersion": 80
+      "nativeContentVersion": 80,
+      "blogContentVersion": 1
     }
   },
   "revision": 38,

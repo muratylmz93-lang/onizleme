@@ -1,0 +1,29 @@
+/* 216 candidate: four mobile default hero photographs. No imports or copy rules.
+   Main photographs keep their intrinsic aspect ratio; the lower decorative
+   layer repeats only the same image's sea below the boat, behind the mask.
+   CMS custom/canonical/blank images never receive data-source-hero-fit=true. */
+@media (max-width:760px) {
+  #site-app .fora-detail--about .detail-hero-media:has(>img[data-source-hero-fit="true"][src*="native-hero-about-v113.webp"]) {
+    --hero216-photo:url('native-hero-about-v113.webp'); --hero216-width:125%; --hero216-left:-15cqw; --hero216-top:-.5cqw;
+  }
+  #site-app .fora-detail--route .detail-hero-media:has(>img[data-source-hero-fit="true"][src*="native-hero-route-source146.webp"]) {
+    --hero216-photo:url('native-hero-route-source146.webp'); --hero216-width:113%; --hero216-left:-10.5cqw; --hero216-top:-1.5cqw;
+  }
+  #site-app .fora-detail--gulet .detail-hero-media:has(>img[data-source-hero-fit="true"][src*="native-hero-gulet-source146.webp"]) {
+    --hero216-photo:url('native-hero-gulet-source146.webp'); --hero216-width:121%; --hero216-left:-15.1cqw; --hero216-top:0px;
+  }
+  #site-app .fora-detail--contact .detail-hero-media:has(>img[data-source-hero-fit="true"][src*="native-hero-contact-v113.webp"]) {
+    --hero216-photo:url('native-hero-contact-v113.webp'); --hero216-width:119%; --hero216-left:-7.7cqw; --hero216-top:-.7cqw;
+  }
+  #site-app .fora-detail .detail-hero-media:has(>img[data-source-hero-fit="true"])::before {
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background-image:var(--hero216-photo);
+    background-size:var(--hero216-width) calc(100% + 20px);
+    background-position:left var(--hero216-left) bottom;
+    background-repeat:no-repeat;
+  }
+  #site-app .fora-detail .detail-hero-media>img[data-source-hero-fit="true"] {
+    position:absolute; width:var(--hero216-width); max-width:none; height:auto;
+    left:var(--hero216-left); top:var(--hero216-top); object-fit:contain; object-position:center;
+  }
+}

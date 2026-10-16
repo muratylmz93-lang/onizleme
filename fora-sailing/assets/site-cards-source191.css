@@ -82,7 +82,7 @@
 
   #site-app .catalog-card-grid--experiences { gap:1.4cqw; }
   #site-app .catalog-card-grid--experiences .catalog-card__link { border-width:.75cqw; border-radius:.7cqw; }
-  #site-app .catalog-card-grid--experiences .catalog-card__copy { display:block; min-height:8.5cqw; padding:.8cqw 7.2cqw .65cqw 1.5cqw; }
+  #site-app .catalog-card-grid--experiences .catalog-card__copy { display:block; min-height:8.5cqw; padding:.8cqw 11cqw .65cqw 1.5cqw; }
   #site-app .catalog-card-grid--experiences .catalog-card__copy h3 { font-size:3.15cqw; line-height:1.05; margin-bottom:.3cqw; }
   #site-app .catalog-card-grid--experiences .catalog-card__copy p { font-size:2.3cqw; line-height:1.13; margin:0; }
   #site-app .catalog-card-grid--experiences .catalog-card:nth-child(1) .catalog-card__photo,

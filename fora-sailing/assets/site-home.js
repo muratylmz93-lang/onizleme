@@ -1,5 +1,6 @@
-import { PHOTO, media, homeFleetArtwork, homeRouteArtwork } from './site-assets.js?v=20261016-200';
-import { renderRouteMap, initRouteMaps } from './site-route-map.js?v=20261016-200';
+import { PHOTO, media, homeFleetArtwork, homeRouteArtwork } from './site-assets.js?v=20261016-245';
+import { renderRouteMap, initRouteMaps } from './site-route-map.js?v=20261016-245';
+import { initHomeVideo217 } from './site-home-video217.js?v=20261016-245';
 
 const text = (ctx, binding, fallback) => {
   const value = ctx?.get?.(binding, fallback);
@@ -111,6 +112,8 @@ export function renderHome(ctx = {}) {
   const sourceHeroFit = (!heroImageField || (heroImageField.canonicalEdit !== true && heroImageField.value === heroImageField.defaultValue)) &&
     /(?:^|\/)hero-clean-base\.png(?:[?#]|$)/.test(String(ctx?.get?.('home.hero.image', PHOTO.hero) ?? PHOTO.hero).replaceAll('\\', '/'));
   const heroPhotoMarkup = media(ctx, 'home.hero.image', 'hero', 'home-hero-photo', 'Ege kıyılarında yelken açan gulet').replace(/^<img\b/, sourceHeroFit ? '<img data-source-hero-fit="true"' : '<img');
+  const heroVideoValue = text(ctx, 'home.hero.video', '').trim();
+  const heroVideoMarkup = heroVideoValue ? `<video class="home-hero-video" data-cms-binding="home.hero.video" data-video-src="${esc(ctx?.asset?.(heroVideoValue) || '')}" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>` : '';
   const heroResponsiveMarkup = sourceHeroFit && heroPhotoMarkup.startsWith('<img')
     ? `<picture class="home-hero-source-picture" data-source-hero-fit="true"><source media="(max-width: 760px)" srcset="${esc(ctx?.asset?.('assets/native-home-hero-mobile-source190.webp') || 'assets/native-home-hero-mobile-source190.webp')}">${heroPhotoMarkup}</picture>`
     : heroPhotoMarkup;
@@ -143,6 +146,7 @@ export function renderHome(ctx = {}) {
     <section class="home-hero" data-section-id="hero" aria-labelledby="home-hero-title">
       ${heroResponsiveMarkup}
       ${heroWaterMarkup}
+      ${heroVideoMarkup}
       <div class="home-hero-shade" aria-hidden="true"></div>
       <div class="home-hero-content">
         <p class="home-eyebrow home-light" data-reveal${bindingAttr('home.hero.eyebrow')}>${esc(text(ctx, 'home.hero.eyebrow', 'Türkiye’nin en güzel kıyılarında'))}</p>
@@ -270,10 +274,12 @@ export function renderHome(ctx = {}) {
   </main>`;
 }
 
-export function initHome(root) {
+export function initHome(root, ctx, shouldReduceMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches) {
   if (!root) return () => {};
   const cleanups = [];
-  const routeObserver = initRouteMaps(root);
+  const heroVideoCleanup = initHomeVideo217(root, { shouldReduceMotion, subscribeMotionChange: ctx.motionPreferences?.subscribe });
+  if (heroVideoCleanup) cleanups.push(heroVideoCleanup);
+  const routeObserver = initRouteMaps(root, { shouldReduceMotion, subscribeMotionChange: ctx.motionPreferences?.subscribe });
   if (routeObserver) cleanups.push(() => routeObserver.disconnect());
   const reviewSection = root.querySelector('.home-reviews');
   const reviewQuote = root.querySelector('.home-review-quote blockquote');

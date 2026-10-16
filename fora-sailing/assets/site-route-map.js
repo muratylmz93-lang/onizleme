@@ -1,4 +1,4 @@
-import { escapeHTML } from './site-assets.js?v=20261016-200';
+import { escapeHTML } from './site-assets.js?v=20261016-245';
 
 const esc = escapeHTML;
 const view = { width: 760, height: 220 };
@@ -53,12 +53,13 @@ export function renderRouteMap(ctx = {}, { id, stops, duration = 1600, showBoat 
 }
 
 /** Animate each route once when at least 20% of it enters the viewport. */
-export function initRouteMaps(root = document) {
+export function initRouteMaps(root = document, { shouldReduceMotion, subscribeMotionChange } = {}) {
   const descendants = root.querySelectorAll ? [...root.querySelectorAll('[data-route-map]')] : [];
   const maps = [...(root.matches?.('[data-route-map]') ? [root] : []), ...descendants];
   if (!maps.length) return null;
 
   const preference = window.matchMedia?.('(prefers-reduced-motion: reduce)');
+  const reduce = () => (preference?.matches ?? false) || shouldReduceMotion?.() === true;
   const parkBoat = (map) => {
     const path = map.querySelector('.fora-route-map__path');
     const boat = map.querySelector('.fora-route-map__boat');
@@ -69,7 +70,7 @@ export function initRouteMaps(root = document) {
     }
     boat.classList.remove('is-moving');
     const mobile = window.matchMedia?.('(max-width: 760px)').matches ?? false;
-    const point = path.getPointAtLength(!mobile && !preference?.matches && startedMapIds.has(map.dataset.routeMapId) ? path.getTotalLength() : 0);
+    const point = path.getPointAtLength(!mobile && !reduce() && startedMapIds.has(map.dataset.routeMapId) ? path.getTotalLength() : 0);
     boat.setAttribute('transform', `translate(${point.x} ${point.y})`);
     boat.classList.add('is-parked');
   };
@@ -90,7 +91,7 @@ export function initRouteMaps(root = document) {
     parkBoat(map);
   };
 
-  const reduced = preference?.matches ?? false;
+  const reduced = reduce();
   if (reduced) {
     maps.forEach(makeStatic);
     return null;
@@ -124,6 +125,7 @@ export function initRouteMaps(root = document) {
       if (!entry.isIntersecting || entry.intersectionRatio < 0.2) return;
       const map = entry.target;
       observer.unobserve(map);
+      if (reduce()) { makeStatic(map); return; }
       const mapId = map.dataset.routeMapId;
       if ((mapId && startedMapIds.has(mapId)) || map.dataset.routeMapStarted === 'true') {
         makeStatic(map);
@@ -166,12 +168,14 @@ export function initRouteMaps(root = document) {
   }, { threshold: [0, 0.2, 0.5, 1] });
 
   const nativeDisconnect = observer.disconnect.bind(observer);
-  const reduceChanged = () => { if (preference?.matches) maps.forEach(makeStatic); };
+  const reduceChanged = () => { if (reduce()) maps.forEach(makeStatic); };
   preference?.addEventListener?.('change', reduceChanged);
+  const unsubscribeMotion = subscribeMotionChange?.(reduceChanged);
   observer.disconnect = () => {
     completionTimers.forEach((timer) => window.clearTimeout(timer));
     completionTimers.clear();
     preference?.removeEventListener?.('change', reduceChanged);
+    unsubscribeMotion?.();
     nativeDisconnect();
   };
 

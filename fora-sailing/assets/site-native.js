@@ -1,8 +1,11 @@
-import { renderHome, initHome } from './site-home.js?v=20261016-200';
-import { subscribeContent, createContentContext, setupSEO, submitInquiry, trackEvent } from './site-content-runtime.js?v=20261016-200';
-import { PHOTO, escapeHTML as esc } from './site-assets.js?v=20261016-200';
-import { detailContent } from './site-detail-context.js?v=20261016-200';
-import { initAboutFlow207 } from './site-about-flow207.js?v=20261016-200';
+import { renderHome, initHome } from './site-home.js?v=20261016-245';
+import { subscribeContent, createContentContext, setupSEO, submitInquiry, trackEvent } from './site-content-runtime.js?v=20261016-245';
+import { PHOTO, escapeHTML as esc } from './site-assets.js?v=20261016-245';
+import { detailContent } from './site-detail-context.js?v=20261016-245';
+import { initAboutFlow207 } from './site-about-flow207.js?v=20261016-245';
+import { initHeroOverflow226 } from './site-hero-overflow226.js?v=20261016-245';
+import { createMotionPreferences231 } from './site-motion-preferences231.js?v=20261016-245';
+import { initFooterFlow233 } from './site-footer-flow233.js?v=20261016-245';
 
 const PAGES = {
   home: { id:'ana-sayfa', path:'/', prefix:'home' },
@@ -13,6 +16,8 @@ const PAGES = {
   'route-detail': { id:'rota-gocek-fethiye', path:'/rotalar/gocek-fethiye-gocek/', prefix:'rota-gocek-fethiye' },
   'gulet-detail': { id:'eylul', path:'/filo/eylul/', prefix:'eylul' },
   contact: { id:'iletisim', path:'/iletisim/', prefix:'iletisim' },
+  blog: { id:'blog', path:'/blog/', prefix:'blog' },
+  'blog-detail': { id:'blog-makale', path:'/blog/gocekte-mavi-yolculuk/', prefix:'blog-article' },
 };
 const config = document.querySelector('meta[name="fora-cms-site-base"]')?.content || new URL('../',import.meta.url).pathname;
 const params = new URLSearchParams(location.search);
@@ -20,7 +25,6 @@ const preview = location.pathname.includes('/native-preview/');
 const pageKey = preview ? (PAGES[params.get('page')] ? params.get('page') : 'home') : (document.body.dataset.page || 'home');
 const pageInfo = PAGES[pageKey];
 const mount = document.querySelector('#site-app');
-const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
 const mobilePreference = matchMedia('(max-width: 760px)');
 const seen = new Set();
 const counted = new Set();
@@ -39,9 +43,11 @@ function previewRoute(basePath,route) {
   if(!preview || typeof route!=='string' || /^(?:https?:|mailto:|tel:|#)/.test(route))return null;
   const input=new URL(route.startsWith('/')?route:`/${route}`,location.origin);
   const item=Object.entries(PAGES).find(([,page])=>page.path===input.pathname);
-  if(!item)return null;
+  const blogSlug=/^\/blog\/([\p{L}\p{N}_-]+)\/$/u.exec(input.pathname)?.[1];
+  if(!item&&!blogSlug)return null;
   const output=new URL(`${basePath}native-preview/`,location.origin);
-  output.searchParams.set('page',item[0]);
+  output.searchParams.set('page',item?.[0]||'blog-detail');
+  if(blogSlug)output.searchParams.set('post',blogSlug);
   if(params.get('cmsPreview')==='1')output.searchParams.set('cmsPreview','1');
   input.searchParams.forEach((value,key)=>{if(key!=='page')output.searchParams.set(key,value);});
   output.hash=input.hash;
@@ -54,7 +60,7 @@ function brandUrl(ctx, path, fallback) {
 function navigation(ctx, mobile = false) {
   const fallback=[{label:'Rotalar',url:'/rotalar/'},{label:'Gulet Filosu',url:'/filo/'},{label:'Deneyimler',url:'/deneyimler/'},{label:'Hakkımızda',url:'/hakkimizda/'},{label:'İletişim',url:'/iletisim/'}];
   const links=(Array.isArray(ctx.content.menus)?ctx.content.menus:fallback).filter(item=>item.visible!==false).slice().sort((a,b)=>Number(a.sortOrder??a.order??0)-Number(b.sortOrder??b.order??0));
-  return links.map((item,index) => `<a href="${esc(routeUrl(ctx,item.url||'/'))}" data-cms-menu-id="${esc(item.id||'')}" style="--i:${index}"${pageInfo.path===item.url?' aria-current="page"':''}>${esc(item.label)}</a>`).join('');
+  return links.map((item,index) => `<a href="${esc(routeUrl(ctx,item.url||'/'))}" data-cms-menu-id="${esc(item.id||'')}" style="--i:${index}"${(pageInfo.path===item.url || pageKey==='blog-detail'&&String(item.url).replace(/\/$/,'')==='/blog')?' aria-current="page"':''}>${esc(item.label)}</a>`).join('');
 }
 function button(ctx, href, label, className='btn-gold', binding='') {
   return `<a class="btn ${className}" href="${esc(href)}"${binding?` data-cms-binding="${esc(binding)}"`:''}>${esc(label)}${icon(ctx,'arrow-right','button-arrow')}</a>`;
@@ -69,6 +75,7 @@ function header(ctx) {
 }
 function footer(ctx) {
   const brand = ctx.content.settings?.brand || {};
+  const footerNoteBinding = pageKey.startsWith('blog')?'home.footer.tagline':'home.footer.note';
   const copyright = ctx.get('home.footer.copyright','© 2026 Fora Sailing. Tüm hakları saklıdır.');
   const whatsapp = ctx.url(ctx.content.settings?.contact?.whatsapp || 'https://wa.me/905496523538');
   const social = ['instagram','youtube','facebook','whatsapp'].map(name=>{
@@ -76,7 +83,7 @@ function footer(ctx) {
     const image=`<img class="icon-source" src="${esc(ctx.asset(`assets/icons/bootstrap/${name}.svg`))}" alt="" width="20" height="20">`;
     return target?`<a href="${esc(ctx.url(target))}" aria-label="${esc(name==='whatsapp'?'WhatsApp ile iletişim':name)}">${image}</a>`:`<span aria-hidden="true">${image}</span>`;
   }).join('');
-  return `<footer class="site-footer" data-section-id="footer"><img class="footer-water" src="${esc(ctx.asset('assets/native-footer-sea-v1.webp'))}" alt="" loading="lazy"><div class="footer-top" data-reveal><a class="footer-brand" href="${esc(routeUrl(ctx,'/'))}"><img src="${esc(brandUrl(ctx,brand.footerLogo,'assets/brand/fora-sailing.png'))}" alt="Fora Sailing" loading="lazy" width="240" height="96"></a><nav class="footer-nav" aria-label="Alt menü">${navigation(ctx)}</nav><div class="footer-socials">${social}</div></div><p class="footer-note script-note" data-reveal data-cms-binding="home.footer.note">${esc(ctx.get('home.footer.note','Mavi\nYaşatır…')).replace(/\n/g,'<br>')}</p><div class="footer-bottom" data-reveal><small data-cms-binding="home.footer.copyright">${esc(copyright)}</small><small class="footer-tagline" data-cms-binding="home.footer.tagline">${esc(ctx.get('home.footer.tagline','Daha güzel bir dünya için, daha fazla mavi…'))}</small><a class="footer-credit" href="${esc(ctx.url(brand.creditUrl || 'https://mydijital.com.tr/'))}" target="_blank" rel="noopener" aria-label="Web tasarım MY Dijital"><span>Web Tasarım</span><img src="${esc(brandUrl(ctx,brand.creditLogo,'assets/brand/mydijital.png'))}" alt="MY Dijital" loading="lazy"></a></div></footer><aside class="site-contact-dock" aria-label="Hızlı iletişim">${button(ctx,routeUrl(ctx,'/iletisim/'),'Teklif Alın')}<a class="btn btn-whatsapp" href="${esc(whatsapp)}">${icon(ctx,'message')}WhatsApp</a></aside>`;
+  return `<footer class="site-footer" data-section-id="footer"><img class="footer-water" src="${esc(ctx.asset('assets/native-footer-sea-v1.webp'))}" alt="" loading="lazy"><div class="footer-top" data-reveal><a class="footer-brand" href="${esc(routeUrl(ctx,'/'))}"><img src="${esc(brandUrl(ctx,brand.footerLogo,'assets/brand/fora-sailing.png'))}" alt="Fora Sailing" loading="lazy" width="240" height="96"></a><nav class="footer-nav" aria-label="Alt menü">${navigation(ctx)}</nav><div class="footer-socials">${social}</div></div><p class="footer-note script-note" data-reveal data-cms-binding="${footerNoteBinding}">${esc(ctx.get(footerNoteBinding,'Mavi\nYaşatır…')).replace(/\n/g,'<br>')}</p><div class="footer-bottom" data-reveal><small data-cms-binding="home.footer.copyright">${esc(copyright)}</small><small class="footer-tagline" data-cms-binding="home.footer.tagline">${esc(ctx.get('home.footer.tagline','Daha güzel bir dünya için, daha fazla mavi…'))}</small><a class="footer-credit" href="${esc(ctx.url(brand.creditUrl || 'https://mydijital.com.tr/'))}" target="_blank" rel="noopener" aria-label="Web tasarım MY Dijital"><span>Web Tasarım</span><img src="${esc(brandUrl(ctx,brand.creditLogo,'assets/brand/mydijital.png'))}" alt="MY Dijital" loading="lazy"></a></div></footer><aside class="site-contact-dock" aria-label="Hızlı iletişim">${button(ctx,routeUrl(ctx,'/iletisim/'),'Teklif Alın')}<a class="btn btn-whatsapp" href="${esc(whatsapp)}">${icon(ctx,'message')}WhatsApp</a></aside>`;
 }
 
 function applySectionState(ctx) {
@@ -107,14 +114,27 @@ function initMenu() {
   const toggle = mount.querySelector('.menu-toggle');
   const backdrop = mount.querySelector('.menu-backdrop');
   let previousFocus = null;
+  let focusFrame = 0;
   const setOpen = open => {
+    cancelAnimationFrame(focusFrame);
     if(open) previousFocus = document.activeElement;
     menu.classList.toggle('is-open',open);
     backdrop.classList.toggle('is-open',open);
     menu.inert = !open;
     toggle.setAttribute('aria-expanded',String(open));
     document.body.style.overflow = open ? 'hidden' : '';
-    if(open) menu.querySelector('button').focus(); else previousFocus?.focus();
+    if(open) {
+      const deadline=performance.now()+500;
+      const focusVisibleLink=()=>{
+        focusFrame=0;
+        if(!menu.isConnected||!menu.classList.contains('is-open'))return;
+        const target=menu.querySelector('nav a')||menu.querySelector('button');
+        if(getComputedStyle(target).visibility==='visible')target.focus({preventScroll:true});
+        else if(performance.now()<deadline)focusFrame=requestAnimationFrame(focusVisibleLink);
+      };
+      focusFrame=requestAnimationFrame(focusVisibleLink);
+    }
+    else previousFocus?.focus();
   };
   toggle.addEventListener('click',()=>setOpen(!menu.classList.contains('is-open')));
   backdrop.addEventListener('click',()=>setOpen(false));
@@ -130,7 +150,7 @@ function initMenu() {
     }
   };
   document.addEventListener('keydown',keydown);
-  return ()=>{document.removeEventListener('keydown',keydown);document.body.style.overflow='';};
+  return ()=>{cancelAnimationFrame(focusFrame);document.removeEventListener('keydown',keydown);document.body.style.overflow='';};
 }
 
 function initIcons(ctx) {
@@ -161,14 +181,16 @@ function initIcons(ctx) {
   }
 }
 
-function initMotion(ctx) {
+function initMotion(ctx, preferences) {
   const main = mount.querySelector('main');
   const hero = main.querySelector('[data-section-id=hero]');
-  const heroImage = hero?.querySelector('img.home-hero-photo,img.catalog-hero__image,img.detail-hero-image');
+  const heroImage = hero?.querySelector('img.home-hero-photo,img.catalog-hero__image,img.detail-hero-image,img.blog-hero-photo');
+  const homeHeroVideo = pageKey==='home' ? hero?.querySelector('video.home-hero-video') : null;
+  const hasConfiguredHeroVideo = Boolean(homeHeroVideo?.dataset.videoSrc);
   const title = hero?.querySelector('h1');
   const header = mount.querySelector('.site-header');
   const dock = mount.querySelector('.site-contact-dock');
-  const reduce = () => motionPreference.matches || ctx.content.settings?.motion?.scrollAnimations===false;
+  const reduce = preferences.reduced;
   main.querySelector('.home-story-photos')?.removeAttribute('data-reveal');
   for(const [selector,direction,distance,delay] of [
     ['.home-story-main','right',30,0],['.home-story-side','',65,150],
@@ -179,7 +201,7 @@ function initMotion(ctx) {
   ])main.querySelectorAll(selector).forEach(el=>{el.dataset.reveal=direction;el.style.setProperty('--reveal-duration','800ms');el.style.setProperty('--reveal-delay',`${delay}ms`);if(distance)el.dataset.parallax=distance;});
   for(const rail of main.querySelectorAll('.home-route-rail,.home-fleet-rail,.catalog-card-grid,.home-benefit-list,.detail-values-list')) [...rail.children].forEach((el,index)=>{if(el.matches('a,article,li')){el.setAttribute('data-reveal','');el.style.setProperty('--reveal-delay',`${index*100}ms`);}});
   main.querySelectorAll('.detail-gallery-thumbs>button').forEach((el,index)=>{el.setAttribute('data-reveal','');el.style.setProperty('--reveal-duration','800ms');el.style.setProperty('--reveal-delay',`${index*120}ms`);});
-  const description=hero?.querySelector('.home-hero-description,.catalog-hero__description,.detail-hero-description');
+  const description=hero?.querySelector('.home-hero-description,.catalog-hero__description,.detail-hero-description,.bl236-hero__description');
   if(description){description.setAttribute('data-reveal','');description.style.setProperty('--reveal-x',mobilePreference.matches?'0px':'25px');description.style.setProperty('--reveal-distance',mobilePreference.matches?'12px':'0px');description.style.setProperty('--reveal-duration',mobilePreference.matches?'450ms':'650ms');}
   hero?.querySelectorAll('.home-hero-actions,.catalog-hero__actions,.detail-actions').forEach(el=>{el.setAttribute('data-reveal','');el.style.setProperty('--reveal-distance','15px');el.style.setProperty('--reveal-duration','500ms');});
 
@@ -201,6 +223,7 @@ function initMotion(ctx) {
   document.documentElement.classList.add('motion-ready');
   const heroEntrances=[];
   const countFrames = new Set();
+  const countTargets = new Map();
   const countObserver = new IntersectionObserver(entries=>{
     entries.forEach(entry=>{
       if(!entry.isIntersecting)return;
@@ -219,7 +242,7 @@ function initMotion(ctx) {
       const frame=requestAnimationFrame(tick);countFrames.add(frame);
     });
   },{threshold:.5});
-  main.querySelectorAll('.home-proof strong[data-cms-binding]').forEach(el=>countObserver.observe(el));
+  main.querySelectorAll('.home-proof strong[data-cms-binding]').forEach(el=>{countTargets.set(el,el.textContent);countObserver.observe(el);});
   mount.querySelectorAll('[data-reveal]').forEach((el,index)=>{
     const section=el.closest('[data-section-id]')?.dataset.sectionId||'shell';
     el.dataset.revealKey=`${pageKey}:${section}:${el.dataset.cmsBinding||index}`;
@@ -245,26 +268,57 @@ function initMotion(ctx) {
     title.removeAttribute('data-reveal');title.classList.add('is-revealed');
     title.innerHTML=lines.map((line,index)=>`<span class="hero-title-line" style="--line-index:${index}"><span>${esc(line.words.join(' '))}</span></span>`).join('');
   };
-  if(heroImage && pageKey==='home') heroImage.classList.add('camera-drift');
-  if(heroImage && pageKey!=='home' && renderCount===1) heroImage.classList.add('photo-settle');
+  if(heroImage && pageKey==='home' && !hasConfiguredHeroVideo) heroImage.classList.add('camera-drift');
+  if(heroImage && pageKey!=='home' && renderCount===1 && !reduce()) heroImage.classList.add('photo-settle');
+  if(reduce()) {
+    const headerInner=header.querySelector('.site-header-inner');
+    if(headerInner)headerInner.style.animation='none';
+    const discover=main.querySelector('.home-discover');
+    if(discover)discover.style.animation='none';
+  }
   if(heroImage){heroImage.loading='eager';heroImage.fetchPriority='high';}
   let alive=true;
   const ready=()=>{
     if(!alive)return;
     makeTitleLines();
     hero?.classList.add('hero-ready');
+    hero?.dispatchEvent(new CustomEvent('fora:hero-ready'));
     heroEntrances.forEach((el,index)=>{
       el.style.setProperty('--reveal-delay',`${Math.min(index,4)*100}ms`);
       el.classList.add('is-revealed');seen.add(el.dataset.revealKey);
     });
   };
-  Promise.allSettled([document.fonts.ready,heroImage?.decode?.()]).then(ready);
+  const heroVideoReady = hasConfiguredHeroVideo && !reduce() ? new Promise((resolve) => {
+    let settled = false;
+    let timeout;
+    const finish = () => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timeout);
+      homeHeroVideo.removeEventListener('loadeddata', finish);
+      homeHeroVideo.removeEventListener('error', finish);
+      unsubscribeMotion?.();
+      resolve();
+    };
+    const motionChanged = () => { if (reduce()) finish(); };
+    timeout = setTimeout(finish, 1500);
+    homeHeroVideo.addEventListener('loadeddata', finish, { once: true });
+    homeHeroVideo.addEventListener('error', finish, { once: true });
+    const unsubscribeMotion = preferences.subscribe(motionChanged);
+  }) : Promise.resolve();
+  Promise.allSettled([document.fonts.ready,heroImage?.decode?.(),heroVideoReady]).then(ready);
   let heroVisible = false;
-  const updateCamera=()=>heroImage?.classList.toggle('is-playing',heroVisible && !reduce() && document.visibilityState==='visible');
+  const updateCamera=()=>{
+    if(hasConfiguredHeroVideo && homeHeroVideo?.dataset.failed!=='true') {
+      heroImage?.classList.remove('is-playing');
+      return;
+    }
+    heroImage?.classList.toggle('is-playing',heroVisible && !reduce() && document.visibilityState==='visible');
+  };
   const heroObserver = new IntersectionObserver(entries=>{
     const visible=entries[0]?.isIntersecting;
     heroVisible=visible;updateCamera();
-    for(const video of hero?.querySelectorAll('video')||[]) {
+    for(const video of hero?.querySelectorAll('video:not(.home-hero-video)')||[]) {
       if(visible && !reduce() && document.visibilityState==='visible') video.play().catch(()=>{});else video.pause();
     }
   },{threshold:0});
@@ -287,7 +341,7 @@ function initMotion(ctx) {
       const progress=Math.min(1,Math.max(0,y/500));
       if(title){title.style.translate=`0 ${-60*progress}px`;title.style.opacity=String(1-progress);}
       if(heroImage && pageKey!=='home') heroImage.style.translate=`0 ${-45*progress}px`;
-      if(heroImage && pageKey==='home') heroImage.style.scale=String(1+.08*progress);
+      if(heroImage && pageKey==='home' && (!hasConfiguredHeroVideo || homeHeroVideo?.dataset.failed==='true')) heroImage.style.scale=String(1+.08*progress);
       main.querySelectorAll('[data-parallax]').forEach(el=>{
         const rect=el.getBoundingClientRect();
         const progress=Math.min(1,Math.max(0,(innerHeight-rect.top)/(innerHeight+rect.height)));
@@ -304,10 +358,25 @@ function initMotion(ctx) {
   };
   const onScroll=()=>{if(!frame)frame=requestAnimationFrame(scrollUpdate);};
   addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);
-  motionPreference.addEventListener('change',onScroll);
+  const motionChanged = () => {
+    if(reduce()) {
+      observer.disconnect();countObserver.disconnect();countFrames.forEach(cancelAnimationFrame);countFrames.clear();
+      countTargets.forEach((text,element)=>{element.textContent=text;});
+      mount.querySelectorAll('[data-reveal]').forEach(el=>{el.classList.add('is-revealed');seen.add(el.dataset.revealKey);});
+      title?.querySelectorAll('.hero-title-line>span').forEach(el=>{el.style.animation='none';});
+      const headerInner=header.querySelector('.site-header-inner');
+      if(headerInner)headerInner.style.animation='none';
+      const discover=main.querySelector('.home-discover');
+      if(discover)discover.style.animation='none';
+      heroImage?.classList.remove('photo-settle');
+      hero?.querySelectorAll('video:not(.home-hero-video)').forEach(video=>video.pause());
+    }
+    updateCamera();scrollUpdate();
+  };
+  const unsubscribeMotion = preferences.subscribe(motionChanged);
   document.addEventListener('visibilitychange',updateCamera);
   scrollUpdate();
-  return ()=>{alive=false;observer.disconnect();countObserver.disconnect();countFrames.forEach(cancelAnimationFrame);heroObserver.disconnect();removeEventListener('scroll',onScroll);removeEventListener('resize',onScroll);motionPreference.removeEventListener('change',onScroll);document.removeEventListener('visibilitychange',updateCamera);if(frame)cancelAnimationFrame(frame);};
+  return ()=>{alive=false;observer.disconnect();countObserver.disconnect();countFrames.forEach(cancelAnimationFrame);heroObserver.disconnect();removeEventListener('scroll',onScroll);removeEventListener('resize',onScroll);unsubscribeMotion();document.removeEventListener('visibilitychange',updateCamera);if(frame)cancelAnimationFrame(frame);};
 }
 
 function initForms(ctx) {
@@ -366,7 +435,7 @@ function initForms(ctx) {
   }
 }
 
-function initVideo(ctx) {
+function initVideo(ctx, preferences) {
   let dialog=null, previousFocus=null, previousOverflow='';
   for(const item of mount.querySelectorAll('.home-story-play,.detail-photo-play')) {
     const artwork=item.closest('.home-story-art,.detail-intro-art');
@@ -388,13 +457,14 @@ function initVideo(ctx) {
     event.preventDefault();const video=trigger.dataset.videoSrc;const source=video||trigger.dataset.imageSrc;if(!source)return;
     if(dialog)close();previousFocus=trigger;previousOverflow=document.body.style.overflow;
     dialog=document.createElement('div');dialog.className='video-modal';dialog.setAttribute('role','dialog');dialog.setAttribute('aria-modal','true');dialog.setAttribute('aria-label',video?'Fora Sailing video':'Fora Sailing fotoğraf');
-    dialog.innerHTML=`<button type="button" aria-label="Önizlemeyi kapat">${icon(ctx,'close')}</button>${video?`<video src="${esc(ctx.asset(source))}" controls playsinline autoplay></video>`:`<div class="scene-preview"><img class="camera-drift is-playing" src="${esc(source)}" alt="Mavi yolculuk manzarası"></div>`}`;
+    dialog.innerHTML=`<button type="button" aria-label="Önizlemeyi kapat">${icon(ctx,'close')}</button>${video?`<video src="${esc(ctx.asset(source))}" controls playsinline${preferences.reduced()?'':' autoplay'}></video>`:`<div class="scene-preview"><img class="camera-drift is-playing" src="${esc(source)}" alt="Mavi yolculuk manzarası"></div>`}`;
     document.body.append(dialog);document.body.style.overflow='hidden';requestAnimationFrame(()=>dialog?.classList.add('is-open'));
     dialog.querySelector('button').focus();dialog.querySelector('button').addEventListener('click',close);dialog.addEventListener('click',ev=>{if(ev.target===dialog)close();});
   };
   const keydown=event=>{if(event.key==='Escape')close();if(event.key==='Tab'&&dialog){const controls=[...dialog.querySelectorAll('button,video[controls]')];if(controls.length===1){event.preventDefault();controls[0].focus();}}};
   mount.addEventListener('click',click);document.addEventListener('keydown',keydown);
-  return ()=>{mount.removeEventListener('click',click);document.removeEventListener('keydown',keydown);close();};
+  const unsubscribeMotion = preferences.subscribe(()=>{if(preferences.reduced())dialog?.querySelector('video')?.pause();});
+  return ()=>{unsubscribeMotion();mount.removeEventListener('click',click);document.removeEventListener('keydown',keydown);close();};
 }
 
 function initPreviewSelection(ctx) {
@@ -405,8 +475,10 @@ function initPreviewSelection(ctx) {
     if(!target)return;
     event.preventDefault();event.stopPropagation();
     const entity=target.closest('[data-cms-collection]');
+    const selectedEntity=entity?.dataset.cmsCollection==='blog'&&!target.dataset.cmsProperty?null:entity;
     const isPhoto=target.tagName==='IMG';
-    parent.postMessage({type:'FORA_CMS_SELECT',pageId:pageInfo.id,sectionId:target.closest('[data-section-id]')?.dataset.sectionId,binding:target.dataset.cmsBinding,collection:entity?.dataset.cmsCollection,entityId:entity?.dataset.entityId,property:target.dataset.cmsProperty,propertyType:isPhoto?'image':'text',currentValue:isPhoto?target.getAttribute('src'):target.innerText,label:isPhoto?target.alt:target.innerText?.slice(0,80)},location.origin);
+    const isVideo=target.tagName==='VIDEO';
+    parent.postMessage({type:'FORA_CMS_SELECT',pageId:pageInfo.id,sectionId:target.closest('[data-section-id]')?.dataset.sectionId,binding:target.dataset.cmsBinding,collection:selectedEntity?.dataset.cmsCollection,entityId:selectedEntity?.dataset.entityId,property:target.dataset.cmsProperty,propertyType:isPhoto?'image':isVideo?'video':'text',currentValue:isPhoto?target.getAttribute('src'):isVideo?(target.dataset.videoSrc||''):target.innerText,label:isPhoto?target.alt:isVideo?'Ana sayfa kapak videosu':target.innerText?.slice(0,80)},location.origin);
   };
   mount.addEventListener('click',click,true);return()=>mount.removeEventListener('click',click,true);
 }
@@ -414,15 +486,19 @@ function initPreviewSelection(ctx) {
 async function render(context,meta) {
   const sequence=++renderSequence;
   let ctx=context;
-  const defaults=await import('./site-native-content.js?v=20261016-200');
+  const defaults=await import('./site-native-content.js?v=20261016-245');
   const normalized=defaults.normalizeNativeContent(context.content);
   baselinePromise ||= fetch(`${config}assets/cms-public.json`,{cache:'no-cache'}).then(response=>response.json()).then(data=>defaults.normalizeNativeContent(data.content||data)).catch(()=>normalized);
   const currentPath=document.querySelector('meta[name="fora-cms-page-path"]')?.content||(preview?pageInfo.path:`/${location.pathname.slice(config.length)}`);
   const detail=detailContent(normalized,{pageKey,path:currentPath,query:params,baseline:await baselinePromise,includeDraft:params.get('cmsPreview')==='1'});
   ctx=createContentContext(detail.content,{basePath:config,includeDraft:params.get('cmsPreview')==='1'});
   ctx.detailEntity=detail.entity;ctx.detailCollection=detail.family;
+  if(pageKey==='blog-detail'){
+    const requested=preview?(params.get('post')||'gocekte-mavi-yolculuk'):currentPath.replace(/^\/blog\//,'').replace(/\/+$/,'');
+    ctx.blogPost=ctx.collections.blog.find(post=>post.slug===requested||post.id===requested||String(post.path||'').replace(/\/+$/,'')===currentPath.replace(/\/+$/,''))||null;
+  }
   if(preview){const originalUrl=ctx.url;ctx.url=route=>previewRoute(ctx.basePath,route)||originalUrl(route);}
-  const templates=pageKey==='home'?null:await import('./site-pages.js?v=20261016-200');
+  const templates=pageKey==='home'?null:await import('./site-pages.js?v=20261016-245');
   const markup=pageKey==='home'?renderHome(ctx):await templates.renderPage(pageKey,ctx);
   if(sequence!==renderSequence)return;
   const y=scrollY;
@@ -440,14 +516,21 @@ async function render(context,meta) {
     const page=seoContent.pages.find(page=>page.id===pageInfo.id);
     if(page){page.path=detail.entity.path||currentPath;page.title=detail.entity.name||detail.entity.title;page.seo={...page.seo,...detail.entity.seo,title:detail.entity.seo?.title||page.title,description:detail.entity.seo?.description||detail.entity.shortDescription||detail.entity.description||''};}
   }
+  if(pageKey==='blog-detail'&&ctx.blogPost){
+    seoContent=structuredClone(ctx.content);
+    const page=seoContent.pages.find(page=>page.id===pageInfo.id);
+    if(page){const post=ctx.blogPost;page.path=post.path||`/blog/${post.slug}/`;page.title=post.title||'';page.seo={...post.seo,title:post.seo?.title||post.title||'',description:post.seo?.description||post.excerpt||'',ogImage:post.seo?.ogImage||post.image||''};}
+  }
   setupSEO(seoContent,pageInfo.id,{basePath:config});
   for(const saved of values) {
     const form=[...mount.querySelectorAll('form')].find(form=>(form.dataset.form||form.dataset.inquiryForm)===saved.key);
     for(const savedInput of saved.values){const input=[...form?.elements||[]].find(input=>input.name===savedInput.name);if(input){input.value=savedInput.value;input.checked=savedInput.checked;}}
   }
-  const cleanupTemplate=pageKey==='home'?initHome(mount,ctx):templates.initPage?.(mount,ctx,pageKey);
+  const preferences=createMotionPreferences231(ctx.content.settings?.motion);
+  ctx.motionPreferences=preferences;
+  const cleanupTemplate=pageKey==='home'?initHome(mount,ctx,preferences.reduced):templates.initPage?.(mount,ctx,pageKey);
   initForms(ctx);
-  const cleanups=[cleanupTemplate,initMenu(),initMotion(ctx),initVideo(ctx),initPreviewSelection(ctx),initAboutFlow207(mount)];
+  const cleanups=[cleanupTemplate,initMenu(),initMotion(ctx,preferences),initVideo(ctx,preferences),initPreviewSelection(ctx),initAboutFlow207(mount),initHeroOverflow226(mount),initFooterFlow233(mount),()=>preferences.dispose()];
   dispose=()=>cleanups.forEach(fn=>typeof fn==='function'&&fn());
   if(renderCount>1) scrollTo({top:y,behavior:'instant'});
   document.dispatchEvent(new CustomEvent('fora:rendered',{detail:{pageKey,revision:meta.revision,source:meta.source}}));

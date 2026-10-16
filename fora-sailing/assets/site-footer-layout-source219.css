@@ -1,0 +1,236 @@
+/* Source 219: live footer content layout. Official brand proportions and MY credit stay intact. */
+#site-app .site-footer .footer-brand img {width:auto;height:5.3cqw;max-width:100%;max-height:none;object-fit:contain;object-position:left center;}
+#site-app .site-footer .footer-credit img {width:7cqw;height:auto;max-height:1.7cqw;object-fit:contain;}
+#site-app .site-footer .footer-brand,#site-app .site-footer .footer-nav,#site-app .site-footer .footer-socials {min-width:0;}
+#site-app .site-footer .footer-nav a {white-space:normal;overflow-wrap:anywhere;}
+@media(min-width:761px){
+ #site-app[data-page] .site-footer {padding-top:var(--brand-top219,1.63cqw);padding-bottom:0;}
+ #site-app .site-footer .footer-top {display:grid;grid-template-columns:var(--nav-start219,21.7cqw) var(--nav-slot219,44.6cqw) minmax(0,1fr);gap:0;min-height:0;align-items:center;}
+ #site-app .site-footer .footer-brand {width:auto;justify-self:start;}
+ #site-app .site-footer .footer-nav {display:flex;flex-wrap:wrap;justify-content:flex-start;gap:1.5cqw 2.8cqw;max-width:100%;width:max-content;transform:translateY(var(--nav-dy219,1cqw));}
+ #site-app .site-footer .footer-nav:has(>a:nth-child(5):last-child) {display:grid;grid-template-columns:repeat(4,minmax(0,max-content)) 2cqw minmax(0,max-content);}
+ #site-app .site-footer .footer-nav:has(>a:nth-child(5):last-child)>a:last-child {grid-column:6;}
+ #site-app .site-footer .footer-nav a {font-size:.95cqw;line-height:1.3;white-space:normal;}
+ #site-app .site-footer .footer-socials {justify-self:start;flex-wrap:wrap;gap:2.15cqw;margin:0;transform:translateY(var(--nav-dy219,1cqw));}
+ #site-app .site-footer .footer-socials .icon-source {width:1.55cqw;height:1.55cqw;}
+ #site-app .site-footer .footer-bottom {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start;column-gap:2cqw;row-gap:0;margin-top:var(--bottom-gap219,3.125cqw);padding-top:1cqw;font-size:1cqw;}
+ #site-app .site-footer .footer-bottom small {line-height:1.3;min-width:0;overflow-wrap:anywhere;}
+ #site-app .site-footer .footer-tagline {justify-self:end;text-align:right;}
+ #site-app .site-footer .footer-credit {grid-row:2;grid-column:1/-1;justify-self:end;gap:.6cqw;font-size:.85cqw;}
+ #site-app .site-footer .footer-note {top:auto;bottom:2cqw;right:1.2cqw;width:11.5cqw;max-width:11.5cqw;font-size:2.5cqw;}
+ #site-app[data-page="home"] .site-footer {--brand-top219:4.4cqw;--nav-start219:23.15cqw;--nav-slot219:38.3cqw;--nav-dy219:.7cqw;--bottom-gap219:4.36cqw;}
+ #site-app[data-page="home"] .site-footer .footer-brand img {height:5.22cqw;}
+ #site-app[data-page="home"] .site-footer .footer-nav:has(>a:nth-child(5):last-child) {display:flex;justify-content:space-between;width:31cqw;gap:.8cqw;}
+ #site-app[data-page="home"] .site-footer .footer-socials {gap:2.5cqw;}
+ #site-app[data-page="home"] .site-footer .footer-socials .icon-source {width:1.4cqw;height:1.4cqw;}
+ #site-app[data-page="fleet"] .site-footer {--brand-top219:.36cqw;--nav-start219:24.83cqw;--nav-slot219:44.8cqw;--nav-dy219:.7cqw;}
+ #site-app[data-page="experiences"] .site-footer {--brand-top219:3.83cqw;--nav-start219:21.7cqw;--nav-slot219:44.9cqw;--nav-dy219:.4cqw;--bottom-gap219:1.71cqw;}
+ /* Moving the actual brand to its Source anchor permits the original 212 curve, 20px lower. */
+ #site-app[data-page="experiences"] .site-footer::before,#site-app[data-page="experiences"] .site-footer::after {mask-position:0 2.170139cqw;}
+ #site-app[data-page="about"] .site-footer {--brand-top219:2.05cqw;--nav-start219:24.72cqw;--nav-slot219:43.2cqw;--bottom-gap219:3.23cqw;}
+ #site-app[data-page="route-detail"] .site-footer {--brand-top219:1.6cqw;--nav-start219:21.7cqw;--nav-slot219:45.46cqw;--nav-dy219:.5cqw;--bottom-gap219:2.58cqw;}
+ #site-app[data-page="gulet-detail"] .site-footer {--brand-top219:.96cqw;--nav-start219:21.03cqw;--nav-slot219:40.9cqw;--nav-dy219:.8cqw;--bottom-gap219:2.257cqw;}
+ #site-app[data-page="gulet-detail"] .site-footer .footer-brand {translate:-.9cqw 0;}
+ #site-app[data-page="gulet-detail"] .site-footer .footer-brand img {height:4.45cqw;}
+ #site-app[data-page="contact"] .site-footer {--brand-top219:.72cqw;--nav-start219:22.76cqw;--nav-slot219:47.96cqw;--nav-dy219:.3cqw;--bottom-gap219:3.34cqw;}
+ #site-app[data-page="contact"] .site-footer .footer-brand {translate:-1.5cqw 0;}
+}
+@media(max-width:760px){
+ #site-app[data-page] .site-footer {padding-top:var(--brand-top219,4cqw);padding-bottom:0;}
+ #site-app .site-footer .footer-top {display:grid;grid-template-columns:27.2cqw minmax(0,1fr);align-items:center;gap:0;min-height:0;}
+ #site-app .site-footer .footer-brand {grid-row:1;grid-column:1;width:auto;align-self:start;}
+ #site-app .site-footer .footer-brand img {height:6.4cqw;width:auto;max-height:none;max-width:24cqw;}
+ #site-app .site-footer .footer-nav {grid-row:1;grid-column:2;display:flex;flex-wrap:wrap;justify-content:space-between;gap:1cqw;width:100%;max-width:none;transform:translateY(-.7cqw);}
+ #site-app .site-footer .footer-nav a {font-size:1.5cqw;line-height:1.3;white-space:normal;}
+ #site-app .site-footer .footer-socials {grid-row:2;grid-column:1/-1;justify-self:center;justify-content:center;gap:3.3cqw;margin:-.4cqw 0 0;transform:none;}
+ #site-app .site-footer .footer-socials .icon-source {width:2.5cqw;height:2.5cqw;}
+ #site-app .site-footer .footer-bottom {display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:.5cqw 2cqw;margin:2.7cqw 12cqw 0 0;padding-top:1.6cqw;font-size:1.5cqw;}
+ #site-app .site-footer .footer-bottom small {line-height:1.3;min-width:0;overflow-wrap:anywhere;}
+ #site-app .site-footer .footer-bottom small:first-child {grid-row:1;grid-column:1/-1;justify-self:center;}
+ #site-app .site-footer .footer-tagline {grid-row:2;grid-column:1;justify-self:start;text-align:left;}
+ #site-app .site-footer .footer-credit {grid-row:2;grid-column:2;justify-self:end;gap:.5cqw;font-size:1cqw;white-space:normal;}
+ #site-app .site-footer .footer-credit img {width:8cqw;max-height:1.85cqw;}
+ #site-app .site-footer .footer-note {top:auto;bottom:3cqw;right:1cqw;max-width:17cqw;width:17cqw;font-size:4.2cqw;}
+ #site-app[data-page="home"] .site-footer {--brand-top219:4cqw;}
+ #site-app[data-page="home"] .site-footer .footer-top {grid-template-columns:25.5cqw 39cqw minmax(0,1fr);}
+ #site-app[data-page="home"] .site-footer .footer-brand img {height:5.4cqw;}
+ #site-app[data-page="home"] .site-footer .footer-nav {grid-row:1;grid-column:2;max-width:39cqw;font-size:1.2cqw;transform:none;gap:.5cqw;}
+ #site-app[data-page="home"] .site-footer .footer-nav a {font-size:1.2cqw;}
+ #site-app[data-page="home"] .site-footer .footer-socials {grid-row:1;grid-column:3;justify-self:start;gap:1.9cqw;margin:0;}
+ #site-app[data-page="home"] .site-footer .footer-socials .icon-source {width:2cqw;height:2cqw;}
+ #site-app[data-page="home"] .site-footer .footer-bottom {grid-template-columns:minmax(0,1fr) minmax(0,1fr);margin-top:3.1cqw;padding-top:2.1cqw;font-size:1.35cqw;}
+ #site-app[data-page="home"] .site-footer .footer-bottom small:first-child {grid-column:1;justify-self:start;}
+ #site-app[data-page="home"] .site-footer .footer-tagline {grid-row:1;grid-column:2;justify-self:end;text-align:right;}
+ #site-app[data-page="home"] .site-footer .footer-credit {grid-row:2;grid-column:1/-1;}
+ #site-app[data-page="routes"] .site-footer {--brand-top219:4.1cqw;}
+ #site-app[data-page="routes"] .site-footer .footer-brand img {height:6.5cqw;}
+ #site-app[data-page="routes"] .site-footer .footer-nav {display:grid;grid-template-columns:repeat(4,minmax(0,max-content));align-self:start;justify-content:start;gap:1.8cqw 4.2cqw;margin-top:4.5cqw;transform:none;}
+ #site-app[data-page="routes"] .site-footer .footer-nav a {font-size:1.7cqw;}
+ #site-app[data-page="routes"] .site-footer .footer-nav> a:last-child:nth-child(5) {grid-column:3;}
+ #site-app[data-page="routes"] .site-footer .footer-socials {margin-top:3.6cqw;gap:4cqw;}
+ #site-app[data-page="routes"] .site-footer .footer-socials .icon-source {width:2.8cqw;height:2.8cqw;}
+ #site-app[data-page="routes"] .site-footer .footer-bottom {grid-template-columns:minmax(0,1fr);margin:1.2cqw 12cqw 0 0;padding-top:2.5cqw;}
+ #site-app[data-page="routes"] .site-footer .footer-bottom small:first-child,#site-app[data-page="routes"] .site-footer .footer-tagline {grid-column:1;justify-self:center;text-align:center;}
+ #site-app[data-page="routes"] .site-footer .footer-credit {grid-row:3;grid-column:1;justify-self:end;}
+ #site-app[data-page="fleet"] .site-footer {--brand-top219:5.9cqw;}
+ #site-app[data-page="fleet"] .site-footer .footer-socials {translate:-5cqw 0;}
+ #site-app[data-page="about"] .site-footer {--brand-top219:5.4cqw;}
+ #site-app[data-page="experiences"] .site-footer {--brand-top219:2.7cqw;}
+ #site-app[data-page="experiences"] .site-footer .footer-brand img {height:6.3cqw;}
+ #site-app[data-page="experiences"] .site-footer .footer-nav,#site-app[data-page="gulet-detail"] .site-footer .footer-nav,#site-app[data-page="route-detail"] .site-footer .footer-nav {grid-row:2;grid-column:1/-1;width:max-content;max-width:100%;display:flex;justify-content:flex-start;gap:1cqw 3cqw;transform:none;margin-top:3cqw;}
+ #site-app[data-page="experiences"] .site-footer .footer-nav:has(>a:nth-child(5):last-child),#site-app[data-page="gulet-detail"] .site-footer .footer-nav:has(>a:nth-child(5):last-child),#site-app[data-page="route-detail"] .site-footer .footer-nav:has(>a:nth-child(5):last-child) {display:grid;grid-template-columns:repeat(4,minmax(0,max-content)) 3.5cqw minmax(0,max-content);column-gap:4.5cqw;}
+ #site-app[data-page="experiences"] .site-footer .footer-nav> a:last-child:nth-child(5),#site-app[data-page="gulet-detail"] .site-footer .footer-nav> a:last-child:nth-child(5),#site-app[data-page="route-detail"] .site-footer .footer-nav> a:last-child:nth-child(5) {grid-column:6;}
+ #site-app[data-page="experiences"] .site-footer .footer-nav a,#site-app[data-page="gulet-detail"] .site-footer .footer-nav a {font-size:1.65cqw;}
+ #site-app[data-page="experiences"] .site-footer .footer-socials,#site-app[data-page="gulet-detail"] .site-footer .footer-socials {grid-row:1;grid-column:2;justify-self:start;margin:0 0 0 27cqw;gap:3.6cqw;}
+ #site-app[data-page="experiences"] .site-footer .footer-bottom {margin-top:2cqw;padding-top:1.9cqw;}
+ #site-app[data-page="experiences"] .site-footer .footer-bottom small:first-child,#site-app[data-page="gulet-detail"] .site-footer .footer-bottom small:first-child {justify-self:start;}
+ #site-app[data-page="gulet-detail"] .site-footer {--brand-top219:5.4cqw;}
+ #site-app[data-page="gulet-detail"] .site-footer .footer-brand img {height:5.1cqw;}
+ #site-app[data-page="gulet-detail"] .site-footer .footer-nav {margin-top:2cqw;}
+ #site-app[data-page="gulet-detail"] .site-footer .footer-socials {transform:translateY(1cqw);}
+ #site-app[data-page="gulet-detail"] .site-footer .footer-bottom {margin-top:1cqw;padding-top:.5cqw;font-size:1.35cqw;row-gap:0;}
+ #site-app[data-page="route-detail"] .site-footer {--brand-top219:0cqw;}
+ #site-app[data-page="route-detail"] .site-footer .footer-top {margin-top:-.5cqw;}
+ #site-app[data-page="route-detail"] .site-footer .footer-nav {margin-top:1.5cqw;}
+ #site-app[data-page="route-detail"] .site-footer .footer-nav:has(>a:nth-child(5):last-child) {column-gap:3.5cqw;}
+ #site-app[data-page="route-detail"] .site-footer .footer-nav a {font-size:1.4cqw;}
+ #site-app[data-page="route-detail"] .site-footer .footer-socials {grid-row:2;grid-column:2;justify-self:start;margin:1.5cqw 0 0 40cqw;gap:1.9cqw;}
+ #site-app[data-page="route-detail"] .site-footer .footer-bottom {margin-top:2cqw;padding-top:1.5cqw;}
+ #site-app[data-page="contact"] .site-footer {--brand-top219:.6cqw;}
+ #site-app[data-page="contact"] .site-footer .footer-top {display:flex;flex-direction:column;gap:0;}
+ #site-app[data-page="contact"] .site-footer .footer-brand {align-self:center;}
+ #site-app[data-page="contact"] .site-footer .footer-brand img {height:12cqw;max-width:32cqw;object-position:center;}
+ #site-app[data-page="contact"] .site-footer .footer-nav {width:100%;max-width:none;justify-content:space-between;gap:2cqw;margin-top:1cqw;transform:none;}
+ #site-app[data-page="contact"] .site-footer .footer-nav a {font-size:2.15cqw;}
+ #site-app[data-page="contact"] .site-footer .footer-socials {gap:4.5cqw;margin-top:1.5cqw;}
+ #site-app[data-page="contact"] .site-footer .footer-socials .icon-source {width:3.3cqw;height:3.3cqw;}
+ #site-app[data-page="contact"] .site-footer .footer-bottom {grid-template-columns:minmax(0,1fr) minmax(0,1fr);margin-top:2.7cqw;padding-top:6cqw;}
+ #site-app[data-page="contact"] .site-footer .footer-bottom small:first-child {grid-column:1;justify-self:start;}
+ #site-app[data-page="contact"] .site-footer .footer-tagline {grid-row:1;grid-column:2;justify-self:end;max-width:31cqw;text-align:right;}
+ #site-app[data-page="contact"] .site-footer .footer-credit {grid-row:2;grid-column:1/-1;margin-top:1cqw;}
+ /* Source places the lower half of the related cards over the same sea colour used on web. */
+ #site-app .fora-detail--gulet .detail-related::before {background:var(--detail-navy,#032e44);clip-path:inset(calc(100% - var(--closing-tail212) - 11.5cqw) 0 0);}
+ #site-app .fora-detail--gulet .detail-related-grid {position:relative;z-index:2;}
+}
+
+/* Source page bottoms at the supplied 809/1024 and 390 widths; only the final band changes. */
+@media(min-width:761px){
+ #site-app[data-page="home"] .site-footer {min-height:19.853cqw;}
+ #site-app[data-page="routes"] .site-footer {min-height:14.72015cqw;}
+ #site-app[data-page="fleet"] .site-footer {min-height:13.34381cqw;}
+ #site-app[data-page="experiences"] .site-footer {min-height:13.8855cqw;}
+ #site-app[data-page="about"] .site-footer {min-height:13.86872cqw;}
+ #site-app[data-page="route-detail"] .site-footer {min-height:15.37629cqw;}
+ #site-app[data-page="gulet-detail"] .site-footer {min-height:11.30982cqw!important;}
+ #site-app[data-page="contact"] .site-footer {min-height:14.00146cqw;}
+}
+@media(max-width:760px){
+ #site-app[data-page="home"] .site-footer {min-height:19.64744cqw;}
+ #site-app[data-page="routes"] .site-footer {min-height:29.00641cqw;}
+ #site-app[data-page="fleet"] .site-footer {min-height:21.82292cqw;}
+ #site-app[data-page="experiences"] .site-footer {min-height:20.64503cqw;}
+ #site-app[data-page="about"] .site-footer {min-height:21.81891cqw;}
+ #site-app[data-page="route-detail"] .site-footer {min-height:18.80248cqw;}
+ #site-app[data-page="gulet-detail"] .site-footer {min-height:18.49359cqw;}
+ #site-app[data-page="contact"] .site-footer {min-height:37.05128cqw;}
+ #site-app[data-page="routes"] .site-footer .footer-bottom {margin-top:1cqw;}
+}
+
+/* Keep the extra live MY credit clear of the Source note, with natural rows for long CMS copy. */
+#site-app .site-footer .footer-credit {line-height:1.2;}
+@media(min-width:761px){
+ #site-app .site-footer .footer-socials {transform:translateY(calc(var(--nav-dy219,1cqw) + var(--social-adjust219,0cqw)));}
+ #site-app[data-page="home"] .site-footer {--social-adjust219:-.14cqw;}
+ #site-app[data-page="routes"] .site-footer {--social-adjust219:.27cqw;}
+ #site-app[data-page="fleet"] .site-footer {--social-adjust219:.46cqw;}
+ #site-app[data-page="experiences"] .site-footer {--social-adjust219:-.11cqw;}
+ #site-app[data-page="about"] .site-footer {--social-adjust219:-.27cqw;}
+ #site-app[data-page="route-detail"] .site-footer {--social-adjust219:-.2cqw;}
+ #site-app[data-page="gulet-detail"] .site-footer {--social-adjust219:-.08cqw;}
+ #site-app[data-page="contact"] .site-footer {--social-adjust219:.85cqw;}
+ #site-app[data-page="fleet"] .site-footer .footer-nav,#site-app[data-page="about"] .site-footer .footer-nav,#site-app[data-page="contact"] .site-footer .footer-nav {column-gap:3.1cqw;}
+ #site-app[data-page="route-detail"] .site-footer .footer-nav {column-gap:2.98cqw;}
+ #site-app[data-page="gulet-detail"] .site-footer .footer-nav {column-gap:2.56cqw;}
+}
+@media(max-width:760px){
+ #site-app[data-page="about"] .site-footer .footer-bottom small:first-child,#site-app[data-page="route-detail"] .site-footer .footer-bottom small:first-child {justify-self:start;}
+ #site-app[data-page="routes"] .site-footer .footer-bottom,#site-app[data-page="fleet"] .site-footer .footer-bottom {margin-right:0;}
+ #site-app[data-page="routes"] .site-footer .footer-credit,#site-app[data-page="fleet"] .site-footer .footer-credit {margin-right:14cqw;}
+}
+
+@media(min-width:761px){
+ /* Contact's Source sail tip is y1384, above the nominal footer box, not y1400. */
+ #site-app[data-page="contact"] .site-footer {--brand-top219:0cqw;--nav-dy219:1.54cqw;--bottom-gap219:4.078cqw;}
+ #site-app[data-page="contact"] .site-footer .footer-top {margin-top:-.936cqw;}
+ #site-app[data-page="contact"] .site-footer .footer-brand img {height:6.3cqw;}
+}
+@media(max-width:760px){
+ #site-app[data-page="experiences"] .site-footer .footer-bottom {margin-top:1.9cqw;}
+ #site-app[data-page="gulet-detail"] .site-footer .footer-bottom {margin-top:.9cqw;}
+}
+
+@media(max-width:760px){
+ /* These gaps preserve the Source positions of the five existing links; no Blog node is created. */
+ #site-app[data-page="home"] .site-footer .footer-nav {margin-left:.6cqw;max-width:32cqw;}
+ #site-app[data-page="home"] .site-footer .footer-nav a {font-size:1.25cqw;}
+ #site-app[data-page="home"] .site-footer .footer-socials {gap:2.55cqw;}
+ #site-app[data-page="fleet"] .site-footer .footer-top {grid-template-columns:34.615cqw minmax(0,1fr);}
+ #site-app[data-page="about"] .site-footer .footer-top {grid-template-columns:28.6325cqw minmax(0,1fr);}
+ #site-app[data-page="fleet"] .site-footer .footer-nav:has(>a:nth-child(5):last-child),#site-app[data-page="about"] .site-footer .footer-nav:has(>a:nth-child(5):last-child),#site-app[data-page="contact"] .site-footer .footer-nav:has(>a:nth-child(5):last-child) {display:grid;grid-template-columns:repeat(4,minmax(0,max-content)) 3cqw minmax(0,max-content);width:max-content;max-width:100%;justify-content:start;column-gap:2.85cqw;}
+ #site-app[data-page="fleet"] .site-footer .footer-nav>a:last-child:nth-child(5),#site-app[data-page="about"] .site-footer .footer-nav>a:last-child:nth-child(5),#site-app[data-page="contact"] .site-footer .footer-nav>a:last-child:nth-child(5) {grid-column:6;}
+ #site-app[data-page="fleet"] .site-footer .footer-nav:has(>a:nth-child(5):last-child) {grid-template-columns:repeat(4,minmax(0,max-content)) 6.5cqw minmax(0,max-content);column-gap:3.2cqw;}
+ #site-app[data-page="fleet"] .site-footer .footer-nav a {font-size:1.65cqw;}
+ #site-app[data-page="experiences"] .site-footer .footer-nav {margin-left:1.5cqw;}
+ #site-app[data-page="experiences"] .site-footer .footer-nav:has(>a:nth-child(5):last-child) {column-gap:4.7cqw;}
+ #site-app[data-page="gulet-detail"] .site-footer .footer-nav {margin-left:.7cqw;}
+ #site-app[data-page="gulet-detail"] .site-footer .footer-nav:has(>a:nth-child(5):last-child) {column-gap:4.2cqw;}
+ #site-app[data-page="route-detail"] .site-footer .footer-nav {margin-left:2.1cqw;}
+ #site-app[data-page="route-detail"] .site-footer .footer-nav:has(>a:nth-child(5):last-child) {column-gap:4.2cqw;}
+ #site-app[data-page="route-detail"] .site-footer .footer-socials {margin-left:37.3cqw;}
+ #site-app[data-page="contact"] .site-footer .footer-nav:has(>a:nth-child(5):last-child) {grid-template-columns:repeat(4,minmax(0,max-content)) 6.75cqw minmax(0,max-content);column-gap:5.7cqw;margin-left:4.4cqw;max-width:calc(100% - 4.4cqw);}
+}
+
+/* 221 grows real mobile copy. Reuse only the measured, empty footer top spacing. */
+@media(max-width:760px){
+ #site-app[data-page="about"] .site-footer {--brand-top219:2.68766cqw;min-height:19.10657cqw;}
+ #site-app[data-page="route-detail"] .site-footer {min-height:18.005cqw;}
+ #site-app[data-page="route-detail"] .site-footer .footer-top {margin-top:-1.38586cqw;}
+ #site-app[data-page="gulet-detail"] .site-footer {--brand-top219:2.74375cqw;min-height:15.83734cqw;}
+ #site-app[data-page="contact"] .site-footer {--brand-top219:0cqw;min-height:35.62901cqw;}
+ #site-app[data-page="contact"] .site-footer .footer-top {margin-top:-.909188cqw;}
+ #site-app .fora-detail--gulet .detail-related::before {clip-path:inset(calc(100% - var(--closing-tail212) - 14.15625cqw) 0 0);}
+ #site-app[data-page="about"] .site-footer::before,#site-app[data-page="about"] .site-footer::after {mask-position:0 -1.4cqw;}
+ #site-app[data-page="route-detail"] .site-footer::before,#site-app[data-page="route-detail"] .site-footer::after {mask-position:0 -.885862cqw;}
+ #site-app[data-page="gulet-detail"] .site-footer::before,#site-app[data-page="gulet-detail"] .site-footer::after {mask-position:0 -2.951389cqw;}
+ #site-app[data-page="contact"] .site-footer::before,#site-app[data-page="contact"] .site-footer::after {mask-position:0 -1.575855cqw;}
+}
+
+@media(max-width:760px){
+ #site-app[data-page="route-detail"] .site-footer::after {background-position:0 -.885862cqw;}
+ #site-app[data-page="gulet-detail"] .site-footer::after {background-position:0 -2.951389cqw;}
+}
+
+/* Keep the signature with the copyright, and end the slogan before the handwritten note. */
+@media(min-width:761px){
+ #site-app .site-footer .footer-bottom {width:82cqw;max-width:100%;}
+ #site-app .site-footer .footer-credit {justify-self:start;}
+}
+@media(max-width:760px){
+ #site-app .site-footer .footer-bottom {grid-template-columns:minmax(0,1fr) minmax(0,1fr);}
+ #site-app .site-footer .footer-credit {grid-row:2;grid-column:1;justify-self:start;margin-right:0;}
+ #site-app .site-footer .footer-tagline {grid-row:2;grid-column:2;justify-self:end;text-align:right;padding-right:4cqw;}
+ #site-app[data-page="home"] .site-footer .footer-tagline,#site-app[data-page="contact"] .site-footer .footer-tagline {grid-row:1;}
+ #site-app[data-page="home"] .site-footer .footer-credit,#site-app[data-page="contact"] .site-footer .footer-credit {grid-row:2;grid-column:1;justify-self:start;}
+ #site-app[data-page="routes"] .site-footer .footer-bottom {grid-template-columns:minmax(0,1fr);}
+ #site-app[data-page="routes"] .site-footer .footer-tagline {grid-row:2;grid-column:1;padding-right:0;}
+ #site-app[data-page="routes"] .site-footer .footer-credit {grid-row:3;grid-column:1;justify-self:start;margin-right:0;}
+}
+/* 233 opts in only if the measured custom note would collide or leave the footer. */
+#site-app .site-footer[data-footer-note-flow="true"] {display:flex;flex-direction:column;}
+#site-app .site-footer[data-footer-note-flow="true"] .footer-top {order:1;}
+#site-app .site-footer[data-footer-note-flow="true"] .footer-bottom {order:2;}
+#site-app .site-footer[data-footer-note-flow="true"] .footer-note {position:static;order:3;align-self:flex-end;transform:none;translate:none;rotate:none;width:auto;max-width:100%;margin:2cqw 0;overflow-wrap:anywhere;text-align:right;line-height:1.2;}
+
+@media(max-width:760px){
+ #site-app[data-page="fleet"] .site-footer .footer-tagline {margin-right:16cqw;}
+}

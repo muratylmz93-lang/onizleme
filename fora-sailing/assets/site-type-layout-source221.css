@@ -1,0 +1,56 @@
+/* 221 typography/layout candidate. Shared CMS copy and selected font families
+   remain authoritative. No generated text, fixed text heights or clipping. */
+#site-app .fora-detail--about .detail-actions .btn-whatsapp .whatsapp-mark,
+#site-app .fora-detail--route .detail-actions .btn-whatsapp .whatsapp-mark,
+#site-app .fora-detail--contact .detail-contact-aside .btn-whatsapp img[src*="whatsapp.svg"] {
+  filter:invert(61%) sepia(37%) saturate(757%) hue-rotate(89deg) brightness(101%) contrast(91%);
+}
+@media (min-width:761px) {
+  /* Keep actual text ranges left of the existing, rotated inset photograph. */
+  #site-app .fora-detail--about .detail-together-grid>div:last-child { width:24cqw; max-width:24cqw; }
+  #site-app .fora-detail--about .detail-together-grid>div:last-child h2 {
+    font-size:3.4cqw; line-height:.98; letter-spacing:-.05em;
+  }
+  #site-app .fora-detail--about .detail-together-grid>div:last-child>p:not(.detail-eyebrow) { max-width:22cqw; }
+  #site-app .fora-detail--route .detail-highlight-copy:not(.detail-highlight-copy--last) h2 { font-size:2.8cqw; }
+}
+@media (max-width:760px) {
+  #site-app .fora-detail .detail-hero-media[data-source-hero-overflow="true"]:has(>img[data-source-hero-fit="true"])::before { content:none; }
+  #site-app .fora-detail .detail-hero-media[data-source-hero-overflow="true"]>img[data-source-hero-fit="true"] {
+    inset:0; width:100%; height:100%; object-fit:cover; object-position:52% 48%;
+  }
+  #site-app .fora-detail--about .detail-hero-copy { width:87%; }
+  #site-app .fora-detail--about .detail-hero-copy h1 {
+    font-size:7.4cqw; line-height:.94; margin-top:.7cqw; margin-bottom:2.2cqw;
+  }
+  #site-app .fora-detail--about .detail-intro-copy { margin-left:1.5cqw; }
+  #site-app .fora-detail--about .detail-intro-copy>p:not(.detail-eyebrow) { max-width:51cqw; }
+  #site-app .fora-detail--about .detail-together-grid>div:last-child>p:not(.detail-eyebrow) {
+    max-width:52cqw;
+  }
+  #site-app .fora-detail--route .detail-hero,
+  #site-app .fora-detail--route .detail-hero-copy { height:auto!important; min-height:53cqw!important; }
+  #site-app .fora-detail--route .detail-hero-description {
+    max-width:50cqw; font-size:2.25cqw; line-height:1.2;
+  }
+  #site-app .fora-detail--route .detail-intro-copy>p:not(.detail-eyebrow) { max-width:54cqw; line-height:1.15; margin-bottom:0; }
+  #site-app .fora-detail--gulet .detail-hero-copy { width:88%; }
+  #site-app .fora-detail--gulet .detail-hero-description {
+    max-width:46cqw; font-size:2.55cqw; line-height:1.25;
+  }
+  #site-app .fora-detail--gulet .detail-intro-copy { margin-left:1.4cqw; }
+  #site-app .fora-detail--gulet .detail-gulet-quote>p {
+    max-width:42cqw; line-height:1.2;
+  }
+  #site-app .fora-detail--contact .detail-hero-copy { width:86%; }
+  #site-app .fora-detail--contact .detail-hero-copy h1 {
+    font-size:7.2cqw; line-height:.94; margin-top:1cqw; margin-bottom:2.1cqw;
+  }
+  #site-app .fora-detail--contact .detail-contact-form-wrap h2 { font-size:6.7cqw; line-height:.94; }
+  #site-app .fora-detail--contact .detail-contact-form-wrap>p:not(.detail-eyebrow) {
+    font-size:2.8cqw; line-height:1.3;
+  }
+  #site-app .fora-detail .detail-hero-copy h1,
+  #site-app .fora-detail .detail-hero-description,
+  #site-app .fora-detail .detail-intro-copy>p:not(.detail-eyebrow) { overflow-wrap:break-word; }
+}
