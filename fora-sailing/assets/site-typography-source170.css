@@ -1,0 +1,108 @@
+/* Source typography pass 170. Review candidate; imported only by QA addStyleTag.
+   Preserve CMS font-family variables and text/bindings. No generated text, masks,
+   fixed text heights, clipping, layout transforms, or animation overrides. */
+/* Preserve the established display weight. Source Eylül ink density is closer
+   to the existing 500 than to a blanket 400; A/B evidence is retained in QA. */
+
+@media (min-width: 761px) {
+  /* Home: source three-line baselines are slightly farther apart. The subtitle
+     margin gives back that space, keeping the existing actions in their row. */
+  #site-app .fora-home .home-hero h1 { line-height: .88; }
+  #site-app .fora-home .home-hero-description { margin-top: .9cqw; }
+  #site-app .fora-home .home-story-copy h2 { font-size: 5cqw; line-height: .96; }
+  #site-app .fora-home .home-routes > .home-section-heading h2 { font-size: 3.9cqw; }
+  #site-app .fora-home .home-routes > .home-section-heading h2::first-line { font-size: 4.4cqw; }
+
+  #site-app .catalog-routes .catalog-hero h1 {
+    font-size: 7.4cqw;
+    position: relative;
+    top: -.8cqw;
+  }
+  #site-app .catalog-fleet .catalog-hero h1 {
+    line-height: .94;
+    position: relative;
+    top: -.8cqw;
+  }
+  #site-app .catalog-experiences .catalog-hero h1 {
+    font-size: 6.6cqw;
+    position: relative;
+    top: -.4cqw;
+  }
+  #site-app .fora-detail--about .detail-hero-copy h1 {
+    position: relative;
+    top: .6cqw;
+  }
+  #site-app .fora-detail--route .detail-hero-copy h1 {
+    font-size: 6.2cqw;
+    letter-spacing: -.03em;
+    line-height: .98;
+    position: relative;
+    top: .4cqw;
+  }
+  #site-app .fora-detail--gulet .detail-hero-copy h1 {
+    letter-spacing: -.01em;
+    position: relative;
+    top: -.7cqw;
+  }
+  #site-app .fora-detail--contact .detail-hero-copy h1 {
+    font-size: 6.85cqw;
+    line-height: .92;
+    letter-spacing: -.04em;
+    position: relative;
+    top: .7cqw;
+  }
+  #site-app .fora-detail--about .detail-values h2 {
+    font-size: 3.95cqw;
+    line-height: .98;
+  }
+  #site-app .fora-detail--about .detail-values h2::first-line { font-size: 4.05cqw; }
+  #site-app .fora-detail--about .detail-together-grid > div:last-child h2 { font-size: 3.8cqw; }
+  #site-app .fora-detail--route .detail-intro-copy h2::first-line { letter-spacing: -.045em; }
+  #site-app .catalog-fleet__quote .catalog-planning__title { font-size: 4.2cqw; }
+  #site-app .catalog-experiences .catalog-plan__copy .catalog-title { font-size: 4.65cqw; }
+}
+
+@media (max-width: 760px) {
+  #site-app .fora-home .home-hero h1 {
+    line-height: .88;
+    position: relative;
+    top: -.8cqw;
+  }
+  #site-app .fora-home .home-hero-description { margin-top: 0; }
+  #site-app .fora-home .home-routes > .home-section-heading h2 { font-size: 4.9cqw; }
+  #site-app .fora-home .home-routes > .home-section-heading h2::first-line { font-size: 5.45cqw; }
+  #site-app .fora-home .home-offer-copy h2 { font-size: 4.6cqw; }
+  #site-app .fora-home .home-offer-copy h2::first-line { font-size: 5cqw; }
+  #site-app .fora-home .home-reviews-copy h2 { font-size: 3.9cqw; }
+
+  #site-app .catalog-routes .catalog-hero h1 {
+    font-size: 8.1cqw;
+    line-height: .96;
+    position: relative;
+    top: 1.8cqw;
+  }
+  #site-app .catalog-fleet .catalog-hero h1 {
+    font-size: 6.3cqw;
+    position: relative;
+    left: 3cqw;
+  }
+  #site-app .catalog-experiences .catalog-hero h1 { font-size: 7.8cqw; }
+  #site-app .fora-detail--about .detail-hero-copy h1 { font-size: 7.8cqw; }
+  #site-app .fora-detail--route .detail-hero-copy h1 {
+    font-size: 6.7cqw;
+    position: relative;
+    top: -.8cqw;
+  }
+  #site-app .fora-detail--gulet .detail-hero-copy h1 { font-size: 12.2cqw; }
+  #site-app .fora-detail--contact .detail-hero-copy h1 { font-size: 7.6cqw; }
+  #site-app .fora-detail--about .detail-values h2 {
+    font-size: 5.7cqw;
+    letter-spacing: -.05em;
+    line-height: .94;
+  }
+  #site-app .fora-detail--about .detail-values h2::first-line { font-size: 5.8cqw; }
+  #site-app .fora-detail--about .detail-together h2 { font-size: 5.9cqw; }
+  #site-app .fora-detail--gulet .detail-related h2 { font-size: 4.4cqw; }
+  #site-app .catalog-routes__planning .catalog-planning__title { max-width: 39cqw; }
+  #site-app .catalog-experiences .catalog-plan__copy .catalog-title { font-size: 5cqw; }
+}

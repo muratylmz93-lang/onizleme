@@ -1,0 +1,36 @@
+/* QA candidate for the mobile Contact form and closing copy. Not imported. */
+@media (max-width: 760px) {
+  #site-app .fora-detail--contact .detail-contact-form textarea {
+    height: 11.5cqw;
+    min-height: 11.5cqw;
+    resize: vertical;
+  }
+
+  #site-app .fora-detail--contact .detail-contact-form .btn {
+    min-height: 7cqw;
+    padding-block: 1.6cqw;
+    font-size: 2.8cqw;
+  }
+
+  #site-app .fora-detail--contact .detail-contact-aside-copy {
+    margin-left: 2cqw;
+  }
+
+  #site-app .fora-detail--contact .detail-contact-aside .btn {
+    min-height: 7.5cqw;
+    padding-inline: 2.3cqw;
+    font-size: 2.2cqw;
+  }
+
+  #site-app .fora-detail--contact .detail-contact-cta {
+    min-height: 44.5cqw;
+  }
+
+  #site-app .fora-detail--contact .detail-contact-cta-copy {
+    padding-left: 8cqw;
+  }
+
+  #site-app .fora-detail--contact .detail-contact-cta p {
+    max-width: 36cqw;
+  }
+}

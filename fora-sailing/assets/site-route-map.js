@@ -1,4 +1,4 @@
-import { escapeHTML } from './site-assets.js?v=20261016-160';
+import { escapeHTML } from './site-assets.js?v=20261016-180';
 
 const esc = escapeHTML;
 const sprite = 'assets/icons/fora-icons.svg';

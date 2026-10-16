@@ -1,0 +1,32 @@
+/* Source-matched static Home section contour. No animated waves. */
+@media (min-width: 761px) {
+ #site-app .fora-home .home-story::after { display: none; }
+ #site-app .fora-home .home-story::before {
+   height: calc(100% + 12cqw);
+   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000' preserveAspectRatio='none'%3E%3Cpath fill='white' d='M0 0C180 145 260 150 400 95S630 45 750 155S920 245 1000 300V1000C740 940 260 790 0 705Z'/%3E%3C/svg%3E");
+ }
+ #site-app .fora-home .home-routes-scene { top: -6cqw; opacity: 1; background: var(--navy); }
+ #site-app .fora-home .home-routes-water { opacity: .56; }
+}
+@media (min-width: 761px) {
+  #site-app .fora-home .home-routes { z-index: auto; }
+  #site-app .fora-home .home-route-rail,
+  #site-app .fora-home .home-phone { z-index: 5; }
+  #site-app .fora-home .home-fleet { overflow: visible; }
+  #site-app .fora-home .home-fleet::before,
+  #site-app .fora-home .home-fleet::after {
+    content: ""; position: absolute; left: 0; right: 0; top: -11cqw;
+    height: 15.5cqw; z-index: 3; pointer-events: none;
+    clip-path: none; mask-size: 100% 100%; mask-repeat: no-repeat;
+  }
+  #site-app .fora-home .home-fleet::before {
+    background: var(--navy);
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 809 125.4' preserveAspectRatio='none'%3E%3Cpath fill='white' d='M0 0H809V119C738 102 684 107 620 116C565 124 504 124 449 116C389 108 341 94 300 73C247 48 212 22 170 0Z'/%3E%3C/svg%3E");
+  }
+  #site-app .fora-home .home-fleet::after {
+    background: linear-gradient(#f8f5edaa,#f8f5edaa),url('native-paper-foliage-v1.webp') center/100% 100%;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 809 125.4' preserveAspectRatio='none'%3E%3Cpath fill='white' d='M0 0H170C212 22 247 48 300 73C341 94 389 108 449 116C504 124 565 124 620 116C684 107 738 102 809 119V125.4H0Z'/%3E%3C/svg%3E");
+  }
+  #site-app .fora-home .home-fleet .home-section-heading,
+  #site-app .fora-home .home-fleet-rail { z-index: 4; }
+}

@@ -1,4 +1,8 @@
 /* 158: photographic boundaries and paper decoration only. No content or flow metrics. */
+/* The shade is a child of the masked photo. Keep it above the image inside
+   that photo's own stack; a negative child z-index hid it behind the image. */
+#site-app .catalog-hero__photo { isolation:isolate; }
+#site-app .catalog-hero__photo .catalog-hero__shade { z-index:1; bottom:0; mask:none; pointer-events:none; }
 #site-app .catalog-routes { --source-hero-wave: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201000%201000%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20fill%3D%22white%22%20d%3D%22M0%200H1000V1000C900%201008%20800%20940%20680%20925S460%20980%20300%20960S100%20925%200%20870Z%22%2F%3E%3C%2Fsvg%3E"); --source-hero-tail: 2cqw; }
 #site-app .catalog-fleet { --source-hero-wave: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201000%201000%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20fill%3D%22white%22%20d%3D%22M0%200H1000V950C900%20910%20810%201030%20650%201000S410%20875%20280%20900S100%20910%200%20860Z%22%2F%3E%3C%2Fsvg%3E"); --source-hero-tail: 2cqw; }
 #site-app .catalog-experiences { --source-hero-wave: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201000%201000%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20fill%3D%22white%22%20d%3D%22M0%200H1000V995C850%20950%20720%20820%20600%20785S360%20850%20250%20830S75%20820%200%20780Z%22%2F%3E%3C%2Fsvg%3E"); --source-hero-tail: 5cqw; }

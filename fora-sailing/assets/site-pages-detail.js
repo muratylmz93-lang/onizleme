@@ -1,5 +1,5 @@
-import { PHOTO, media, escapeHTML } from './site-assets.js?v=20261016-160';
-import { renderRouteMap, initRouteMaps } from './site-route-map.js?v=20261016-160';
+import { PHOTO, media, escapeHTML } from './site-assets.js?v=20261016-180';
+import { renderRouteMap, initRouteMaps } from './site-route-map.js?v=20261016-180';
 
 const esc = escapeHTML;
 const get = (ctx, key, fallback = '') => {

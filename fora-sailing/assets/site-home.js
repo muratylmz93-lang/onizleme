@@ -1,5 +1,5 @@
-import { PHOTO, media, homeFleetArtwork, homeRouteArtwork } from './site-assets.js?v=20261016-160';
-import { renderRouteMap, initRouteMaps } from './site-route-map.js?v=20261016-160';
+import { PHOTO, media, homeFleetArtwork, homeRouteArtwork } from './site-assets.js?v=20261016-180';
+import { renderRouteMap, initRouteMaps } from './site-route-map.js?v=20261016-180';
 
 const text = (ctx, binding, fallback) => {
   const value = ctx?.get?.(binding, fallback);
@@ -76,30 +76,42 @@ function renderFleetCards(ctx) {
 
 function renderExperiencePhotos(ctx) {
   const fallback = [
-    { title: 'Turkuaz kıyı manzarası', image: PHOTO.reviewCoast },
-    { title: 'Gulette açık havada yemek', image: PHOTO.reviewLunch },
-    { title: 'Ege kıyılarında bir koy', image: PHOTO.reviewCove },
+    { id: 'ailece-mavi-yolculuk', title: 'Ege kıyılarında bir koy', image: PHOTO.reviewCove },
+    { id: 'size-ozel-gulet-tatili', title: 'Gulette açık havada yemek', image: PHOTO.reviewLunch },
+    { id: 'guvertede-gun-batimi', title: 'Turkuaz kıyı manzarası', image: PHOTO.reviewCoast },
   ];
-  const sourceDefaults = [
+  const filename = value => String(value).replaceAll('\\', '/').split(/[?#]/)[0].split('/').pop();
+  const sourceDefaults = new Set([
     'assets/device-design-assets/images/801af00a1f876234ffc4.png',
     'assets/device-design-assets/images/f0fab493786f234da45a.png',
     'assets/device-design-assets/images/a1b9d9776943aaa37574.png',
-  ];
+    'assets/device-design-assets/images/3ba42991d5da4bc676fb.png',
+    PHOTO.experiencesFamily, PHOTO.experiencesPrivate, PHOTO.experiencesWine, PHOTO.experiencesSwimmer,
+    PHOTO.reviewCove, PHOTO.reviewLunch, PHOTO.reviewCoast,
+  ].map(filename));
   const rows = collectionRows(ctx?.collections?.experiences?.filter?.((item) => item?.featuredHome !== false), fallback).slice(0, 3);
   return rows.map((item, index) => {
     const title = item.title || item.name || fallback[index % fallback.length].title;
-    if (item.image === '') return img(ctx, '', title, '', '', 'image');
-    const originalImage = item.image == null ? '' : String(item.image).replaceAll('\\', '/').split('?')[0];
-    const originalFilename = originalImage.slice(originalImage.lastIndexOf('/') + 1);
-    const defaultFilename = sourceDefaults[index].slice(sourceDefaults[index].lastIndexOf('/') + 1);
-    const selectedImage = item.image == null || originalFilename === defaultFilename
-      ? fallback[index % fallback.length].image
-      : item.image;
-    return img(ctx, selectedImage, title, '', '', 'image');
+    const canonicalImage = item._canonicalEdits?.image === true;
+    const sourceDefault = !canonicalImage && item.image !== '' &&
+      (item.image == null || sourceDefaults.has(filename(item.image)));
+    const selectedImage = sourceDefault ? fallback[index % fallback.length].image : (item.image ?? '');
+    const className = 'home-review-photo' + (sourceDefault ? ' home-review-photo--source' : '');
+    return img(ctx, selectedImage, title, className, '', 'image').replace(
+      /^<(img|span)\b/,
+      `<$1 data-cms-collection="experiences" data-entity-id="${esc(item.id || '')}"`,
+    );
   }).join('');
 }
 
 export function renderHome(ctx = {}) {
+  // Reuse the resolved canonical image markup for the decorative water tail.
+  // The original image stays first for initMotion; blank media stays a span.
+  const heroImageField = ctx?.content?.pages?.flatMap(page => page.sections || []).flatMap(section => section.fields || []).find(field => field.binding === 'home.hero.image' && !field.layerOnly);
+  const sourceHeroFit = (!heroImageField || (heroImageField.canonicalEdit !== true && heroImageField.value === heroImageField.defaultValue)) &&
+    /(?:^|\/)hero-clean-base\.png(?:[?#]|$)/.test(String(ctx?.get?.('home.hero.image', PHOTO.hero) ?? PHOTO.hero).replaceAll('\\', '/'));
+  const heroPhotoMarkup = media(ctx, 'home.hero.image', 'hero', 'home-hero-photo', 'Ege kıyılarında yelken açan gulet').replace(/^<img\b/, sourceHeroFit ? '<img data-source-hero-fit="true"' : '<img');
+  const heroWaterMarkup = heroPhotoMarkup.replace('class="home-hero-photo"', 'class="home-hero-water-extension"').replace(/\balt="[^"]*"/, 'alt="" aria-hidden="true" style="display:none"');
   const heroTitle = esc(text(ctx, 'home.hero.title', 'Hayallerin\nRotası\nMavi Yolculuk')).replace(/\r?\n/g, '<br>');
   const phoneTitle = esc(text(ctx, 'home.hero.title', 'Hayallerin\nRotası\nMavi Yolculuk')).replace(/\r?\n/g, '<br>');
   const configuredBrandLogo = typeof ctx?.content?.settings?.brand?.headerLogo === 'string'
@@ -126,7 +138,8 @@ export function renderHome(ctx = {}) {
 
   return `<main class="fora-home" aria-label="Fora Sailing ana sayfa">
     <section class="home-hero" data-section-id="hero" aria-labelledby="home-hero-title">
-      ${media(ctx, 'home.hero.image', 'hero', 'home-hero-photo', 'Ege kıyılarında yelken açan gulet')}
+      ${heroPhotoMarkup}
+      ${heroWaterMarkup}
       <div class="home-hero-shade" aria-hidden="true"></div>
       <div class="home-hero-content">
         <p class="home-eyebrow home-light" data-reveal${bindingAttr('home.hero.eyebrow')}>${esc(text(ctx, 'home.hero.eyebrow', 'Türkiye’nin en güzel kıyılarında'))}</p>
@@ -245,6 +258,7 @@ export function renderHome(ctx = {}) {
       <div class="home-review-photos" data-drag-rail aria-label="Mavi yolculuktan fotoğraflar">
         ${renderExperiencePhotos(ctx)}
       </div>
+      <p class="home-reviews-note script-note" data-reveal="note" data-cms-binding="home.reviews.photoNote">${esc(text(ctx, 'home.reviews.photoNote', 'Güzel anlar\nhiç bitmesin…'))}</p>
       <div class="home-review-controls" aria-label="Yorum kontrolleri">
         <button type="button" data-review-shift="-1" aria-label="Önceki yorum"${reviewRows.length < 2 ? ' disabled' : ''}>‹</button>
         <button type="button" data-review-shift="1" aria-label="Sonraki yorum"${reviewRows.length < 2 ? ' disabled' : ''}>›</button>

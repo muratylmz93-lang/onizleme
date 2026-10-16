@@ -1,0 +1,22 @@
+/* Source review collage: original photo assets keep their intrinsic proportions. */
+#site-app .fora-home .home-review-photos {
+  align-items:flex-start;
+  gap:.3cqw;
+  overflow:visible;
+}
+#site-app .fora-home .home-review-photos img.home-review-photo--source {
+  height:auto;
+  max-height:15.7cqw;
+  flex:0 0 32%;
+  width:32%;
+  border:0;
+  border-radius:0;
+  object-fit:contain;
+}
+#site-app .fora-home .home-review-photos img.home-review-photo--source:nth-child(1) { transform:rotate(-2deg); }
+#site-app .fora-home .home-review-photos img.home-review-photo--source:nth-child(2) { transform:rotate(1deg); }
+#site-app .fora-home .home-review-photos img.home-review-photo--source:nth-child(3) { transform:rotate(2deg); }
+@media(max-width:760px) {
+  #site-app .fora-home .home-review-photos { gap:.3cqw; }
+  #site-app .fora-home .home-review-photos img.home-review-photo--source { max-height:12cqw; }
+}

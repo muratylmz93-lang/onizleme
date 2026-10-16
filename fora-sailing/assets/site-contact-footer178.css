@@ -1,0 +1,12 @@
+/* Contact source scene geometry and sea behind the centered white brand. */
+@media(max-width:760px) {
+ #site-app .fora-detail--contact .detail-contact-cta-copy { padding-top:6cqw; }
+ #site-app .fora-detail--contact .detail-cta-photo { object-fit:fill; }
+ #site-app .fora-detail--contact .detail-contact-aside .detail-hand-note--aside { bottom:-7cqw; width:17cqw; max-width:17cqw; font-size:3.3cqw; }
+ #site-app .fora-detail--contact .detail-contact-cta::before { content:""; position:absolute; inset:0; z-index:1; pointer-events:none; background:linear-gradient(90deg,#012e4566,transparent 62%); }
+}
+@media(max-width:760px) {
+ #site-app[data-page="contact"] .site-footer .footer-water {
+   top:-85%; height:230%;
+ }
+}

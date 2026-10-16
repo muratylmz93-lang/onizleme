@@ -1,0 +1,96 @@
+/* Source note placement, 171. Text and Caveat remain supplied by the CMS.
+   Absolute note geometry only: section flow and motion are preserved. */
+#site-app .fora-home .home-hand,
+#site-app .fora-detail .detail-hand-note,
+#site-app .catalog-hero__note,
+#site-app .catalog-intro__note,
+#site-app .catalog-planning__note,
+#site-app .catalog-fleet-quote__note,
+#site-app .catalog-story__note { font-family:var(--font-note,Caveat,cursive); font-weight:400; }
+#site-app .catalog-routes__planning .catalog-planning__shade {
+  background:linear-gradient(90deg,rgba(7,46,64,0) 0%,rgba(7,46,64,.02) 38%,rgba(7,46,64,.58) 58%,rgba(7,46,64,.78) 100%);
+}
+@media(min-width:761px) {
+  #site-app .fora-home .home-hero-note { top:31cqw; right:3cqw; width:11cqw; font-size:3.5cqw; line-height:.95; transform:rotate(-16deg); }
+  #site-app .fora-home .home-story-photo-note { left:5cqw; bottom:5cqw; width:10cqw; font-size:2.8cqw; line-height:.88; transform:rotate(-9deg); }
+  #site-app .fora-home .home-story-note { right:2cqw; bottom:6cqw; width:12cqw; max-width:12cqw; font-size:2.4cqw; line-height:.95; transform:rotate(-9deg); }
+  #site-app .fora-home .home-route-note { top:10cqw; left:44cqw; right:auto; width:15cqw; font-size:2.3cqw; transform:rotate(-13deg); }
+  #site-app .fora-home .home-route-footer-note { bottom:1.7cqw; width:12cqw; font-size:2.5cqw; transform:rotate(-9deg); }
+  #site-app .fora-home .home-fleet-note { right:3cqw; top:3cqw; width:12cqw; font-size:2.5cqw; transform:rotate(-12deg); }
+  #site-app .fora-home .home-offer-note { left:23cqw; bottom:8cqw; width:18cqw; color:#173e56; font-size:2.8cqw; line-height:.95; transform:rotate(-11deg); }
+  #site-app .fora-home .home-benefits-note { top:18%; right:3cqw; width:16cqw; font-size:2.4cqw; line-height:.95; transform:rotate(-8deg); }
+  #site-app .catalog-hero__note { width:12cqw; max-width:12cqw; right:3cqw; font-size:3cqw; line-height:.92; transform:rotate(-13deg); }
+  #site-app .catalog-routes .catalog-hero__note { width:9cqw; max-width:9cqw; right:2.5cqw; top:auto; bottom:4cqw; }
+  #site-app .catalog-routes__stamp .catalog-intro__note { right:0; bottom:7cqw; width:15cqw; max-width:15cqw; font-size:2.6cqw; line-height:.95; transform:rotate(-14deg); }
+  #site-app .catalog-fleet .catalog-hero__note { right:3cqw; width:10cqw; max-width:10cqw; bottom:5cqw; }
+  #site-app .catalog-fleet__quote .catalog-fleet-quote__inner .catalog-fleet-quote__note { right:3cqw; width:12cqw; max-width:12cqw; font-size:2.8cqw; transform:rotate(-14deg); }
+  #site-app .catalog-experiences .catalog-hero__note { right:2cqw; top:15cqw; width:13cqw; max-width:13cqw; font-size:2.8cqw; transform:rotate(-11deg); }
+  #site-app .catalog-experiences__side-note { right:16cqw; width:17cqw; font-size:2.6cqw; transform:rotate(-14deg); }
+  #site-app .catalog-experiences__note { left:7cqw; width:21cqw; font-weight:400; transform:rotate(-13deg); }
+  #site-app .catalog-experiences__sea-note { right:3cqw; width:15cqw; font-size:2.4cqw; line-height:.96; transform:rotate(-13deg); }
+  #site-app .catalog-story__note { right:3cqw; bottom:4cqw; width:15cqw; max-width:15cqw; font-size:2.9cqw; line-height:.93; transform:rotate(-13deg); }
+  #site-app .catalog-plan__note { right:-11cqw; width:10cqw; font-size:2.6cqw; line-height:.95; transform:rotate(-13deg); }
+  #site-app .catalog-routes__cards-note { right:1.2cqw; width:12cqw; font-size:2.5cqw; transform:rotate(-15deg); }
+  #site-app .catalog-routes__planning-note { right:2cqw; bottom:4cqw; width:11cqw; font-size:2.7cqw; transform:rotate(-14deg); }
+  #site-app .fora-detail .detail-hand-note--hero { top:auto; right:2.8cqw; bottom:5.5cqw; width:13cqw; max-width:13cqw; font-size:3cqw; line-height:.95; transform:rotate(-14deg); }
+  #site-app .fora-detail--gulet .detail-hand-note--hero { width:11cqw; max-width:11cqw; bottom:4cqw; }
+  #site-app .fora-detail .detail-intro-art .detail-hand-note--photo { width:10cqw; max-width:10cqw; line-height:.88; transform:rotate(-12deg); }
+  #site-app .fora-detail--route .detail-intro-art .detail-hand-note--photo { left:3cqw; bottom:5cqw; font-size:3cqw; }
+  #site-app .fora-detail--gulet .detail-intro-art .detail-hand-note--photo { width:14cqw; max-width:14cqw; font-size:3.6cqw; }
+  #site-app .fora-detail--about .detail-intro-art .detail-hand-note--inset { width:12cqw; max-width:12cqw; font-size:2.5cqw; line-height:.95; transform:rotate(-14deg); }
+  #site-app .fora-detail--route .detail-intro-art .detail-hand-note--inset { right:-1cqw; width:12cqw; max-width:12cqw; font-size:2.5cqw; transform:rotate(-14deg); }
+  #site-app .fora-detail--gulet .detail-intro-art .detail-hand-note--inset { width:11cqw; max-width:11cqw; line-height:.95; transform:rotate(-14deg); }
+  #site-app .fora-detail--route .detail-stops .detail-hand-note--stops { right:1cqw; width:14cqw; max-width:14cqw; top:20%; color:#fff8e9; font-size:2.6cqw; transform:rotate(-14deg); }
+  #site-app .fora-detail--gulet .detail-related .detail-hand-note--related { color:#fff8e9; opacity:1; width:12cqw; max-width:12cqw; transform:rotate(-14deg); }
+  #site-app .fora-detail--about .detail-values .detail-hand-note--values { color:#fff8e9; width:18cqw; max-width:18cqw; font-size:2.6cqw; transform:rotate(-14deg); }
+  #site-app .fora-detail--about .detail-together .detail-hand-note--together { left:29cqw; top:5cqw; width:22cqw; max-width:22cqw; font-size:2.8cqw; transform:rotate(-14deg); }
+  #site-app .fora-detail--about .detail-together .detail-hand-note--inset { top:auto; bottom:1cqw; right:1cqw; width:12cqw; max-width:12cqw; padding:.5cqw; background:#fffdf7; font-size:2.2cqw; line-height:.95; transform:rotate(-12deg); }
+  #site-app .fora-detail--route .detail-highlights-grid { position:relative; }
+  #site-app .fora-detail--route .detail-highlight-copy .detail-hand-note--highlight { position:absolute; left:16cqw; right:auto; top:14cqw; bottom:auto; width:13cqw; max-width:13cqw; margin:0; padding:1cqw; background:#fffdf7; font-size:1.9cqw!important; line-height:.95!important; transform:rotate(-12deg); }
+  #site-app .fora-detail--route .detail-quote-note { left:22cqw; width:13cqw; max-width:13cqw; color:#fff8e9!important; font-size:2.8cqw!important; line-height:.95; transform:rotate(-14deg); }
+  #site-app .fora-home .home-reviews-note { position:absolute; z-index:3; right:4.5cqw; bottom:3.5cqw; width:11cqw; margin:0; padding:.5cqw; color:#173e56; background:#fffdf7; font-size:2.3cqw; font-weight:400; line-height:.95; text-align:center; transform:rotate(-10deg); }
+  #site-app .fora-detail--contact .detail-contact-aside .detail-hand-note--aside { right:-.5cqw; bottom:-10cqw; width:10cqw; max-width:10cqw; padding:.5cqw; background:#fffdf7; font-size:2.8cqw; line-height:.95; transform:rotate(-14deg); }
+  #site-app .fora-detail--contact .detail-contact-cta .detail-hand-note--cta { left:65cqw; bottom:4cqw; width:19cqw; max-width:19cqw; font-size:2.8cqw; line-height:.95; transform:rotate(-13deg); }
+}
+@media(max-width:760px) {
+  #site-app .fora-home .home-hero-note { top:31cqw; right:3cqw; width:13cqw; font-size:4cqw; line-height:.95; transform:rotate(-16deg); }
+  #site-app .fora-home .home-story-photo-note { left:1cqw; bottom:2.5cqw; width:12cqw; font-size:3.9cqw; line-height:.9; transform:rotate(-10deg); }
+  #site-app .fora-home .home-story-note { top:41cqw; right:2.5cqw; width:14cqw; max-width:14cqw; font-size:3.2cqw; line-height:.95; transform:rotate(-13deg); }
+  #site-app .fora-home .home-route-note { left:59cqw; top:25cqw; width:18cqw; font-size:2.8cqw; transform:rotate(-13deg); }
+  #site-app .fora-home .home-offer-note { left:28cqw; bottom:16cqw; width:21cqw; color:#173e56; font-size:3.4cqw; line-height:.95; transform:rotate(-12deg); }
+  #site-app .fora-home .home-benefits-note { right:3cqw; width:21cqw; font-size:2.7cqw; line-height:.95; transform:rotate(-10deg); }
+  #site-app .catalog-hero__note { right:3cqw; width:14cqw; max-width:14cqw; font-size:3.7cqw; line-height:.92; transform:rotate(-14deg); }
+  #site-app .catalog-routes .catalog-hero__note { top:auto; bottom:3.5cqw; width:14cqw; max-width:14cqw; }
+  #site-app .catalog-fleet .catalog-hero__note { top:auto; bottom:4cqw; width:14cqw; max-width:14cqw; }
+  #site-app .catalog-experiences .catalog-hero__note { top:19cqw; bottom:auto; width:15cqw; max-width:15cqw; }
+  #site-app .catalog-routes__stamp .catalog-intro__note { right:0; width:24cqw; max-width:24cqw; font-size:3.9cqw; transform:rotate(-14deg); }
+  #site-app .catalog-fleet__quote .catalog-fleet-quote__inner .catalog-fleet-quote__note { right:2cqw; bottom:5cqw; width:13cqw; max-width:13cqw; font-size:3.2cqw; transform:rotate(-15deg); }
+  #site-app .catalog-experiences__side-note { right:0; top:17cqw; width:23cqw; font-size:3.7cqw; line-height:1; transform:rotate(-14deg); }
+  #site-app .catalog-experiences__note { right:2cqw; width:24cqw; font-size:3.7cqw; line-height:.95; font-weight:400; transform:rotate(-14deg); }
+  #site-app .catalog-experiences__sea-note { right:3cqw; bottom:10cqw; width:23cqw; font-size:3.6cqw; line-height:.95; transform:rotate(-14deg); }
+  #site-app .catalog-story__note { right:3cqw; bottom:4cqw; width:20cqw; max-width:20cqw; font-size:3.7cqw; line-height:.95; transform:rotate(-14deg); }
+  #site-app .catalog-plan__note { width:10cqw; font-size:3.2cqw; line-height:.95; transform:rotate(-14deg); }
+  #site-app .catalog-routes__cards-note { width:19cqw; font-size:3.2cqw; line-height:.95; transform:rotate(-14deg); }
+  #site-app .catalog-routes__planning-note { right:2cqw; width:14cqw; font-size:3.2cqw; line-height:.95; transform:rotate(-14deg); }
+  #site-app .fora-detail .detail-hand-note--hero { top:auto; right:3cqw; bottom:15cqw; width:17cqw; max-width:17cqw; font-size:3.7cqw; line-height:.95; transform:rotate(-14deg); }
+  #site-app .fora-detail--about .detail-hand-note--hero { bottom:6cqw; }
+  #site-app .fora-detail--contact .detail-hand-note--hero { bottom:5cqw; width:14cqw; max-width:14cqw; }
+  #site-app .fora-detail--gulet .detail-hand-note--hero { bottom:4cqw; width:15cqw; max-width:15cqw; }
+  #site-app .fora-detail .detail-intro-art .detail-hand-note--photo { line-height:.88; transform:rotate(-13deg); }
+  #site-app .fora-detail--route .detail-intro-art .detail-hand-note--photo { left:10cqw; width:20cqw; max-width:20cqw; font-size:5cqw; }
+  #site-app .fora-detail--gulet .detail-intro-art .detail-hand-note--photo { left:3cqw; top:28cqw; width:22cqw; max-width:22cqw; font-size:5cqw; }
+  #site-app .fora-detail--about .detail-intro-art .detail-hand-note--inset { width:17cqw; max-width:17cqw; font-size:3.5cqw; line-height:.95; transform:rotate(-14deg); }
+  #site-app .fora-detail--gulet .detail-intro-art .detail-hand-note--inset { right:0; top:10cqw; width:20cqw; max-width:20cqw; font-size:3.4cqw; line-height:.95; transform:rotate(-14deg); }
+  #site-app .fora-detail--route .detail-intro-art .detail-hand-note--inset { right:0; width:18cqw; max-width:18cqw; font-size:3.2cqw; line-height:.95; transform:rotate(-14deg); }
+  #site-app .fora-detail--route .detail-stops .detail-hand-note--stops { right:2cqw; width:21cqw; max-width:21cqw; font-size:3.5cqw; color:#fff8e9; transform:rotate(-14deg); }
+  #site-app .fora-detail--about .detail-values .detail-hand-note--values { width:23cqw; max-width:23cqw; font-size:2.8cqw; color:#fff8e9; transform:rotate(-14deg); }
+  #site-app .fora-detail--about .detail-together .detail-hand-note--together { left:57cqw; width:29cqw; max-width:29cqw; font-size:3.6cqw; transform:rotate(-14deg); }
+  #site-app .fora-detail--about .detail-together .detail-hand-note--inset { right:9cqw; bottom:-1cqw; width:22cqw; max-width:22cqw; padding:.5cqw; background:#fffdf7; font-size:3.2cqw; line-height:.95; transform:rotate(-12deg); }
+  #site-app .fora-detail--gulet .detail-related .detail-hand-note--related { color:#173e56; width:23cqw; max-width:23cqw; font-size:3.4cqw; transform:rotate(-14deg); }
+  #site-app .fora-detail--contact .detail-contact-aside .detail-hand-note--aside { right:3cqw; bottom:-9cqw; width:14cqw; max-width:14cqw; padding:.5cqw; background:#fffdf7; font-size:3.4cqw; line-height:.95; transform:rotate(-14deg); }
+  #site-app .fora-detail--route .detail-quote-note { width:32cqw; max-width:32cqw; white-space:nowrap; color:#fff8e9!important; transform:translate(-16cqw,-3cqw) rotate(-14deg) scale(1.15); }
+  #site-app .fora-home .home-reviews-note { position:absolute; z-index:3; right:4cqw; bottom:1.8cqw; width:10cqw; margin:0; padding:.4cqw; color:#173e56; background:#fffdf7; font-size:2.4cqw; font-weight:400; line-height:.95; text-align:center; transform:rotate(-10deg); }
+  #site-app .fora-detail--contact .detail-contact-cta .detail-hand-note--cta { right:13cqw; width:24cqw; max-width:24cqw; font-size:3.5cqw; line-height:.95; transform:rotate(-14deg); }
+}
+#site-app .footer-note { transform:rotate(-14deg); }
+#site-app .fora-home .home-phone-story p { font-weight:400; }

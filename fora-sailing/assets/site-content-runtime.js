@@ -1,4 +1,4 @@
-import { normalizeNativeContent } from './site-native-content.js?v=20261016-160';
+import { normalizeNativeContent } from './site-native-content.js?v=20261016-180';
 
 const DEFAULT_API_URL = '/api/public/content';
 const DEFAULT_STATIC_URL = '/assets/cms-public.json';
@@ -136,6 +136,7 @@ export function createContentContext(content, options = {}) {
     routes: sortedCollection(normalizedContent?.routes, includeDraft),
     gulets: sortedCollection(normalizedContent?.gulets, includeDraft),
     experiences: sortedCollection(normalizedContent?.experiences, includeDraft),
+    reviews: sortedCollection(normalizedContent?.reviews, includeDraft),
   };
 
   return {
@@ -170,7 +171,7 @@ export function createContentContext(content, options = {}) {
 
 function sortedCollection(items, includeDraft = false) {
   if (!Array.isArray(items)) return [];
-  const visible = includeDraft ? items : items.filter(item => item?.published !== false && item?.isPublished !== false && item?.isDraft !== true && String(item?.status || '').toLowerCase() !== 'draft');
+  const visible = includeDraft ? items : items.filter(item => item?.published !== false && item?.isPublished !== false && item?.visible !== false && item?.isDraft !== true && String(item?.status || '').toLowerCase() !== 'draft');
   return [...visible].sort((a, b) => Number(a?.sortOrder ?? a?.order ?? 0) - Number(b?.sortOrder ?? b?.order ?? 0));
 }
 

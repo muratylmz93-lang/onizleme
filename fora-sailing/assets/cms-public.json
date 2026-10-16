@@ -607,6 +607,14 @@
                 "defaultValue": "Gerçek deneyimler, gerçek mutluluklar"
               },
               {
+                "id": "native-home.reviews.photoNote",
+                "label": "Yorum fotoğrafları notu",
+                "type": "textarea",
+                "binding": "home.reviews.photoNote",
+                "value": "Güzel anlar\nhiç bitmesin…",
+                "defaultValue": "Güzel anlar\nhiç bitmesin…"
+              },
+              {
                 "id": "native-home.reviews.linkLabel",
                 "label": "Yorumlar bağlantı metni",
                 "type": "text",

@@ -1,4 +1,4 @@
-import { PHOTO } from './site-assets.js?v=20261016-160';
+import { PHOTO } from './site-assets.js?v=20261016-180';
 
 const FIELD_PHOTOS = Object.freeze({
   'home.hero.image': { photo: 'hero' },
@@ -150,6 +150,7 @@ const DEFAULT_FIELD_ROWS = Object.freeze([
   { pagePath: '/', sectionId: 'benefits', binding: 'home.benefits.item4.description', type: 'textarea', label: 'Avantaj 4 açıklaması', value: 'Doğayı koruyan turizm' },
   { pagePath: '/', sectionId: 'benefits', binding: 'home.benefits.image', type: 'image', label: 'Kıyı fotoğrafı', value: '' },
   { pagePath: '/', sectionId: 'reviews', binding: 'home.reviews.eyebrow', type: 'text', label: 'Yorumlar üst başlığı', value: 'Gerçek deneyimler, gerçek mutluluklar' },
+  { pagePath: '/', sectionId: 'reviews', binding: 'home.reviews.photoNote', type: 'textarea', label: 'Yorum fotoğrafları notu', value: 'Güzel anlar\nhiç bitmesin…' },
   { pagePath: '/', sectionId: 'reviews', binding: 'home.reviews.linkLabel', type: 'text', label: 'Yorumlar bağlantı metni', value: 'Tüm Yorumları Gör' },
   { pagePath: '/', sectionId: 'reviews', binding: 'home.reviews.link', type: 'url', label: 'Yorumlar bağlantısı', value: 'iletisim/' },
   { pagePath: '/', sectionId: 'reviews', binding: 'home.reviews.location', type: 'text', label: 'Yorum konumu', value: 'İstanbul' },

@@ -31,6 +31,7 @@
 .fora-home .home-light { color: #fffdf7; }
 .fora-home .home-eyebrow { margin-bottom: 1.15cqw; font-size: 1.02cqw; font-weight: 700; letter-spacing: .2em; line-height: 1.2; text-transform: uppercase; }
 .fora-home .home-hand { font-family: Caveat, cursive; font-size: 2.7cqw; font-weight: 500; line-height: .95; white-space: pre-line; }
+.fora-home .home-reviews-note { position: absolute; }
 .fora-home .home-text-link { display: inline-flex; align-items: center; gap: .65em; padding: .35em 0 .2em; border-bottom: 1px solid currentColor; color: var(--home-ink); font-size: 1.27cqw; font-weight: 650; text-decoration: none; }
 .fora-home .home-light-link { color: var(--home-gold); }
 .fora-home .home-button { display: inline-flex; min-height: 4.2cqw; align-items: center; justify-content: center; padding: 0 2.2cqw; border: 1px solid transparent; border-radius: 99px; font-size: 1.24cqw; font-weight: 700; text-decoration: none; transition: background-color .2s ease, color .2s ease, transform .2s ease; }

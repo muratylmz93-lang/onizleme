@@ -1,0 +1,16 @@
+/* QA-only decorative candidate; inject after site-contact-source172.css. */
+@media (max-width: 760px) {
+  #site-app .fora-detail--contact .detail-cta-photo {
+    object-position: 50% 100%;
+  }
+
+  #site-app .fora-detail--contact .detail-contact-cta-copy {
+    padding-top: 13cqw;
+  }
+
+  #site-app .fora-detail--contact .detail-contact-cta::after {
+    background:
+      linear-gradient(180deg, rgba(1, 28, 45, .72) 0%, rgba(1, 28, 45, .32) 9%, rgba(1, 28, 45, 0) 24%),
+      linear-gradient(90deg, rgba(1, 28, 45, .9), rgba(1, 28, 45, .3) 74%);
+  }
+}
