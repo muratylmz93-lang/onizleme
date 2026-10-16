@@ -1133,8 +1133,8 @@
                 "label": "Planlama fotoğrafı",
                 "type": "image",
                 "binding": "rotalar.planning.image",
-                "value": "assets/native-about-together-v2.webp",
-                "defaultValue": "assets/native-about-together-v2.webp"
+                "value": "assets/device-design-assets/images/1108a6975deea6b4dfee.png",
+                "defaultValue": "assets/device-design-assets/images/1108a6975deea6b4dfee.png"
               }
             ]
           },
@@ -1354,6 +1354,14 @@
                 "binding": "rota-gocek-fethiye.stops.description",
                 "value": "Göcek’ten başlayıp Fethiye’ye uzanan bu rotada, birbirinden özel koylar ve büyüleyici manzaralar sizi bekliyor.",
                 "defaultValue": "Göcek’ten başlayıp Fethiye’ye uzanan bu rotada, birbirinden özel koylar ve büyüleyici manzaralar sizi bekliyor."
+              },
+              {
+                "id": "native-rota-gocek-fethiye.stops.mapImage",
+                "label": "Rota çizgisi altındaki koy fotoğrafı",
+                "type": "image",
+                "binding": "rota-gocek-fethiye.stops.mapImage",
+                "value": "assets/native-route-sea-v2.webp",
+                "defaultValue": "assets/native-route-sea-v2.webp"
               },
               {
                 "id": "native-rota-gocek-fethiye.stops.linkLabel",
@@ -2181,16 +2189,16 @@
                 "label": "Açıklama",
                 "type": "text",
                 "binding": "hakkimizda.hero.description",
-                "value": "Ege ve Akdeniz’in eşsiz koylarında, denizle, doğayla ve insanla kurulan derin bir bağın peşindeyiz.",
-                "defaultValue": "Ege ve Akdeniz’in eşsiz koylarında, denizle, doğayla ve insanla kurulan derin bir bağın peşindeyiz."
+                "value": "Ege ve Akdeniz’in eşsiz koylarında, denizle, doğayla ve insanla kurulan derin bir bağın peşindeyiz. Fora Sailing, mavi yolculuğu bir tatilden çok, bir yaşam tarzı olarak görür.",
+                "defaultValue": "Ege ve Akdeniz’in eşsiz koylarında, denizle, doğayla ve insanla kurulan derin bir bağın peşindeyiz. Fora Sailing, mavi yolculuğu bir tatilden çok, bir yaşam tarzı olarak görür."
               },
               {
                 "id": "image",
                 "label": "Giriş görseli",
                 "type": "image",
                 "binding": "hakkimizda.hero.image",
-                "value": "assets/native-hero-filo-v1.webp",
-                "defaultValue": "assets/native-hero-filo-v1.webp"
+                "value": "assets/native-hero-about-v113.webp",
+                "defaultValue": "assets/native-hero-about-v113.webp"
               },
               {
                 "id": "eyebrow",
@@ -2277,6 +2285,14 @@
                 "binding": "hakkimizda.content.secondDescription",
                 "value": "Denizin dinginliği, doğanın sadeliği ve samimi misafirperverlik anlayışımızla, her yolculuğun size özel olmasına özen gösteriyoruz.",
                 "defaultValue": "Denizin dinginliği, doğanın sadeliği ve samimi misafirperverlik anlayışımızla, her yolculuğun size özel olmasına özen gösteriyoruz."
+              },
+              {
+                "id": "native-hakkimizda.content.insetNote",
+                "label": "Küçük fotoğraf yanı notu",
+                "type": "textarea",
+                "binding": "hakkimizda.content.insetNote",
+                "value": "Mavi\nSonsuzlukta\nSizi Bekliyor…",
+                "defaultValue": "Mavi\nSonsuzlukta\nSizi Bekliyor…"
               },
               {
                 "id": "native-hakkimizda.content.note",
@@ -2399,8 +2415,8 @@
                 "label": "Açıklama",
                 "type": "text",
                 "binding": "hakkimizda.together.description",
-                "value": "Yeni yerler keşfetmek, farklı kültürlerle tanışmak, doğayla yeniden bağ kurmak ve sevdiklerinizle kaliteli zaman geçirmek…",
-                "defaultValue": "Yeni yerler keşfetmek, farklı kültürlerle tanışmak, doğayla yeniden bağ kurmak ve sevdiklerinizle kaliteli zaman geçirmek…"
+                "value": "Yeni yerler keşfetmek, farklı kültürlerle tanışmak, doğayla yeniden bağ kurmak ve sevdiklerinizle kaliteli zaman geçirmek… Fora Sailing ile her yolculuk, bu değerleri bir araya getirir.",
+                "defaultValue": "Yeni yerler keşfetmek, farklı kültürlerle tanışmak, doğayla yeniden bağ kurmak ve sevdiklerinizle kaliteli zaman geçirmek… Fora Sailing ile her yolculuk, bu değerleri bir araya getirir."
               },
               {
                 "id": "native-hakkimizda.together.insetImage",
@@ -2526,8 +2542,8 @@
                 "label": "Giriş görseli",
                 "type": "image",
                 "binding": "iletisim.hero.image",
-                "value": "assets/native-hero-filo-v1.webp",
-                "defaultValue": "assets/native-hero-filo-v1.webp"
+                "value": "assets/native-hero-contact-v113.webp",
+                "defaultValue": "assets/native-hero-contact-v113.webp"
               },
               {
                 "id": "eyebrow",
@@ -2580,8 +2596,8 @@
                 "label": "Bölüm metni",
                 "type": "text",
                 "binding": "iletisim.content.description",
-                "value": "Hayalinizdeki mavi yolculuğu birlikte planlayabilmemiz için aşağıdaki formu doldurun.",
-                "defaultValue": "Hayalinizdeki mavi yolculuğu birlikte planlayabilmemiz için aşağıdaki formu doldurun."
+                "value": "Hayalinizdeki mavi yolculuğu birlikte planlayabilmemiz için aşağıdaki formu doldurun. Ekibimiz en kısa sürede sizinle iletişime geçsin.",
+                "defaultValue": "Hayalinizdeki mavi yolculuğu birlikte planlayabilmemiz için aşağıdaki formu doldurun. Ekibimiz en kısa sürede sizinle iletişime geçsin."
               },
               {
                 "id": "image",
@@ -2927,7 +2943,7 @@
     "experiences": [
       {
         "id": "ailece-mavi-yolculuk",
-        "title": "Ailece mavi yolculuk",
+        "title": "Ailece Mavi Yolculuk",
         "image": "assets/device-design-assets/images/801af00a1f876234ffc4.png",
         "status": "published",
         "sortOrder": 1,
@@ -2936,7 +2952,7 @@
       },
       {
         "id": "size-ozel-gulet-tatili",
-        "title": "Size özel gulet tatili",
+        "title": "Size Özel Gulet Tatili",
         "image": "assets/device-design-assets/images/f0fab493786f234da45a.png",
         "status": "published",
         "sortOrder": 2,
@@ -2945,7 +2961,7 @@
       },
       {
         "id": "guvertede-gun-batimi",
-        "title": "Guvertede gün batımı",
+        "title": "Güvertede Gün Batımı",
         "image": "assets/device-design-assets/images/a1b9d9776943aaa37574.png",
         "status": "published",
         "sortOrder": 3,
@@ -2954,7 +2970,7 @@
       },
       {
         "id": "koylarda-yuzme",
-        "title": "Koylarda yüzme",
+        "title": "Koylarda Yüzme Molası",
         "image": "assets/device-design-assets/images/3ba42991d5da4bc676fb.png",
         "status": "published",
         "sortOrder": 4,

@@ -1,0 +1,84 @@
+/* Source-matched catalog refinements; scoped to the native site app. */
+#site-app .catalog-routes, #site-app .catalog-fleet, #site-app .catalog-experiences { --catalog-frame:#fffdf8; }
+
+/* Web source boards are 1024px wide. Route cards use ~13px gutters and ~140px photos. */
+@media (min-width:761px) {
+  #site-app .catalog-routes__intro .catalog-title { max-width:59cqw; font-size:5.35cqw; line-height:.94; letter-spacing:-.045em; }
+  #site-app .catalog-routes__intro .catalog-copy { max-width:43cqw; font-size:1.42cqw; line-height:1.34; }
+  #site-app .catalog-routes__listing .catalog-card-grid--routes { width:88cqw; margin-inline:auto; gap:1.3cqw; }
+  #site-app .catalog-card-grid--routes .catalog-card__photo { height:13.8cqw; }
+  #site-app .catalog-card-grid--routes .catalog-card__copy { min-height:7.2cqw; padding:1cqw 4.3cqw 1cqw 1.4cqw; }
+  #site-app .catalog-card-grid--routes .catalog-card__copy h3 { font-size:1.75cqw; }
+  #site-app .catalog-card-grid--routes .catalog-card__copy p { font-size:1.3cqw; }
+  #site-app .catalog-fleet__intro .catalog-title { max-width:48cqw; font-size:5.1cqw; line-height:.96; }
+  #site-app .catalog-fleet__intro .catalog-copy { font-size:1.38cqw; line-height:1.3; }
+  #site-app .catalog-card-grid--experiences .catalog-card__link { border:.55cqw solid var(--catalog-frame); border-radius:.35cqw; box-shadow:0 .35cqw 1.1cqw rgba(21,39,42,.12); }
+  #site-app .catalog-card-grid--experiences .catalog-card__copy { padding-left:1.2cqw; padding-right:3.8cqw; }
+}
+
+/* Mobile references are 713–737px wide and are compared at 390px. */
+@media (max-width:760px) {
+  #site-app .catalog-routes__intro .catalog-title { font-size:7.15cqw; line-height:.96; max-width:84cqw; }
+  #site-app .catalog-routes__intro .catalog-copy { max-width:80cqw; font-size:2.55cqw; line-height:1.22; }
+  #site-app .catalog-card-grid--routes .catalog-card__photo { height:auto; aspect-ratio:6.2 / 1; }
+  #site-app .catalog-card-grid--routes .catalog-card__copy { min-height:11.3cqw; padding:.8cqw 9cqw .9cqw 2.5cqw; }
+  #site-app .catalog-card-grid--routes .catalog-card__copy h3 { font-size:3.75cqw; line-height:1.02; }
+  #site-app .catalog-card-grid--routes .catalog-card__copy p { font-size:2.8cqw; line-height:1.12; }
+  #site-app .catalog-card-grid--fleet .catalog-card__photo { height:auto; aspect-ratio:4.2 / 1; }
+  #site-app .catalog-card-grid--fleet .catalog-card__image { object-fit:fill; object-position:center; }
+  #site-app .catalog-card-grid--fleet .catalog-card__copy h3 { font-size:4.1cqw; }
+  #site-app .catalog-card-grid--experiences { width:64cqw; margin-left:6cqw; margin-right:auto; gap:2.35cqw; }
+  #site-app .catalog-card-grid--experiences .catalog-card__link { border:.85cqw solid var(--catalog-frame); border-radius:.8cqw; box-shadow:0 .8cqw 1.8cqw rgba(21,39,42,.11); }
+  #site-app .catalog-card-grid--experiences .catalog-card__photo { height:auto; aspect-ratio:3.45 / 1; }
+  #site-app .catalog-card-grid--experiences .catalog-card__copy { min-height:12cqw; padding:1.1cqw 8cqw 1.25cqw 2cqw; }
+  #site-app .catalog-card-grid--experiences .catalog-card__copy h3 { font-size:3.05cqw; line-height:1.05; }
+  #site-app .catalog-card-grid--experiences .catalog-card__copy p { font-size:2.25cqw; line-height:1.18; }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  #site-app .catalog-card__link, #site-app .catalog-card__image { transition-duration:.01ms; }
+}
+
+
+/* Source 120 mobile vertical rhythm: normalize route/planning and experience stack. */
+@media (max-width:760px) {
+  #site-app .catalog-routes__planning .catalog-planning { height:31.5cqw; min-height:31.5cqw; }
+  #site-app .catalog-card-grid--routes .catalog-card__copy { min-height:10.8cqw; }
+  #site-app .catalog-card-grid--experiences { gap:2.2cqw; }
+  #site-app .catalog-card-grid--experiences .catalog-card__copy { min-height:8.3cqw; }
+}
+
+/* Source-derived mobile fleet lower-edge masks (boundary126). */
+@media (max-width:760px) {
+  #site-app .catalog-card-grid--fleet .catalog-card__photo { background:var(--catalog-paper,#f6f1e7); height:auto; overflow:hidden; }
+  #site-app .catalog-card-grid--fleet .catalog-card__image { object-fit:cover; object-position:center; }
+  #site-app .catalog-card-grid--fleet .catalog-card:nth-child(1) .catalog-card__photo { aspect-ratio:4.186207; }
+  #site-app .catalog-card-grid--fleet .catalog-card:nth-child(1) .catalog-card__image { clip-path:polygon(0 0, 100% 0, 100% 90.345%, 98.847% 90.345%, 95.552% 91.034%, 92.257% 91.724%, 88.962% 92.414%, 85.667% 93.103%, 82.372% 93.793%, 79.077% 94.483%, 75.783% 95.172%, 72.488% 95.862%, 69.193% 96.552%, 65.898% 97.241%, 62.603% 97.931%, 59.308% 98.621%, 56.013% 99.310%, 52.718% 99.310%, 49.423% 99.310%, 46.129% 99.310%, 42.834% 98.621%, 39.539% 97.931%, 36.244% 97.241%, 32.949% 96.552%, 29.654% 95.172%, 26.359% 93.793%, 23.064% 93.103%, 19.769% 91.724%, 16.474% 91.034%, 13.180% 90.345%, 9.885% 90.345%, 6.590% 89.655%, 3.295% 89.655%, 0.000% 88.966%, 0 88.966%); }
+  #site-app .catalog-card-grid--fleet .catalog-card:nth-child(2) .catalog-card__photo { aspect-ratio:4.398551; }
+  #site-app .catalog-card-grid--fleet .catalog-card:nth-child(2) .catalog-card__image { clip-path:polygon(0 0, 100% 0, 100% 89.855%, 98.847% 89.855%, 95.552% 90.580%, 92.257% 91.304%, 88.962% 92.029%, 85.667% 92.754%, 82.372% 93.478%, 79.077% 94.203%, 75.783% 94.928%, 72.488% 95.652%, 69.193% 96.377%, 65.898% 97.101%, 62.603% 97.101%, 59.308% 97.826%, 56.013% 98.551%, 52.718% 98.551%, 49.423% 98.551%, 46.129% 98.551%, 42.834% 97.826%, 39.539% 97.101%, 36.244% 96.377%, 32.949% 95.652%, 29.654% 94.203%, 26.359% 92.754%, 23.064% 92.029%, 19.769% 91.304%, 16.474% 89.855%, 13.180% 89.130%, 9.885% 88.406%, 6.590% 88.406%, 3.295% 87.681%, 0.000% 87.681%, 0 87.681%); }
+  #site-app .catalog-card-grid--fleet .catalog-card:nth-child(3) .catalog-card__photo { aspect-ratio:4.430657; }
+  #site-app .catalog-card-grid--fleet .catalog-card:nth-child(3) .catalog-card__image { clip-path:polygon(0 0, 100% 0, 100% 89.781%, 98.847% 89.781%, 95.552% 90.511%, 92.257% 91.241%, 88.962% 91.971%, 85.667% 92.701%, 82.372% 93.431%, 79.077% 94.161%, 75.783% 94.891%, 72.488% 95.620%, 69.193% 96.350%, 65.898% 97.080%, 62.603% 97.080%, 59.308% 97.810%, 56.013% 98.540%, 52.718% 98.540%, 49.423% 98.540%, 46.129% 98.540%, 42.834% 97.810%, 39.539% 97.080%, 36.244% 96.350%, 32.949% 95.620%, 29.654% 94.161%, 26.359% 92.701%, 23.064% 91.971%, 19.769% 90.511%, 16.474% 89.781%, 13.180% 89.051%, 9.885% 88.321%, 6.590% 88.321%, 3.295% 87.591%, 0.000% 87.591%, 0 87.591%); }
+  #site-app .catalog-card-grid--fleet .catalog-card:nth-child(4) .catalog-card__photo { aspect-ratio:4.742188; }
+  #site-app .catalog-card-grid--fleet .catalog-card:nth-child(4) .catalog-card__image { clip-path:polygon(0 0, 100% 0, 100% 89.844%, 98.847% 89.844%, 95.552% 90.625%, 92.257% 90.625%, 88.962% 91.406%, 85.667% 92.188%, 82.372% 93.750%, 79.077% 94.531%, 75.783% 95.312%, 72.488% 96.094%, 69.193% 96.094%, 65.898% 96.875%, 62.603% 97.656%, 59.308% 97.656%, 56.013% 98.438%, 52.718% 98.438%, 49.423% 98.438%, 46.129% 98.438%, 42.834% 97.656%, 39.539% 97.656%, 36.244% 96.875%, 32.949% 96.094%, 29.654% 94.531%, 26.359% 93.750%, 23.064% 92.188%, 19.769% 90.625%, 16.474% 89.844%, 13.180% 89.844%, 9.885% 89.062%, 6.590% 88.281%, 3.295% 87.500%, 0.000% 87.500%, 0 87.500%); }
+  #site-app .catalog-card-grid--fleet .catalog-card:nth-child(5) .catalog-card__photo { aspect-ratio:4.856; }
+  #site-app .catalog-card-grid--fleet .catalog-card:nth-child(5) .catalog-card__image { clip-path:polygon(0 0, 100% 0, 100% 90.400%, 98.847% 90.400%, 95.552% 91.200%, 92.257% 92.000%, 88.962% 92.800%, 85.667% 93.600%, 82.372% 94.400%, 79.077% 95.200%, 75.783% 96.000%, 72.488% 96.800%, 69.193% 97.600%, 65.898% 98.400%, 62.603% 98.400%, 59.308% 99.200%, 56.013% 99.200%, 52.718% 99.200%, 49.423% 99.200%, 46.129% 99.200%, 42.834% 98.400%, 39.539% 97.600%, 36.244% 96.800%, 32.949% 96.000%, 29.654% 94.400%, 26.359% 92.800%, 23.064% 91.200%, 19.769% 90.400%, 16.474% 89.600%, 13.180% 88.800%, 9.885% 88.000%, 6.590% 87.200%, 3.295% 86.400%, 0.000% 85.600%, 0 85.600%); }
+  #site-app .catalog-card-grid--fleet { width:84cqw; margin-left:8.5cqw; margin-right:0; }
+  #site-app .catalog-card-grid--fleet { margin-top:3cqw; }
+  #site-app .catalog-fleet__intro .catalog-copy { width:66cqw; max-width:66cqw; font-size:2.5cqw; line-height:1.22; }
+  #site-app .catalog-fleet .catalog-hero__description, #site-app .catalog-experiences .catalog-hero__description { width:53cqw; max-width:53cqw; }
+  #site-app .catalog-fleet .catalog-hero__actions .btn, #site-app .catalog-experiences .catalog-hero__actions .btn { width:34cqw; min-width:34cqw; justify-content:center; }
+  #site-app .catalog-routes__planning .catalog-planning__shade { background:linear-gradient(90deg,rgba(7,46,64,0) 0%,rgba(7,46,64,.03) 43%,rgba(7,46,64,.74) 57%,rgba(7,46,64,.92) 100%); }
+  #site-app .catalog-routes__planning .catalog-planning__image { object-fit:cover; object-position:left center; }
+  #site-app .catalog-routes__planning .catalog-planning { height:auto; min-height:34cqw; }
+  #site-app .catalog-routes__planning .catalog-planning__inner { height:auto; min-height:34cqw; box-sizing:border-box; padding:4cqw 0 2.5cqw; justify-content:flex-end; }
+  #site-app .catalog-routes__planning .catalog-planning__inner > div { width:49%; max-width:49%; margin-left:auto; display:flex; flex-direction:column; align-items:flex-start; gap:.7cqw; }
+  #site-app .catalog-routes__planning .catalog-planning__title { max-width:100%; font-size:4.8cqw; line-height:.96; margin:0 0 .4cqw; }
+  #site-app .catalog-routes__planning .catalog-planning__copy { font-size:2.15cqw; line-height:1.14; margin:0; }
+  #site-app .catalog-routes__planning .catalog-planning__inner .btn { display:flex; width:max-content; max-width:100%; min-height:5.3cqw; margin:0; padding:1cqw 2.5cqw; font-size:2cqw; }
+  #site-app .catalog-routes__planning .catalog-planning__inner .btn + .btn { margin-top:.8cqw; }
+  #site-app .catalog-fleet__quote .catalog-fleet-quote { height:auto; min-height:26cqw; }
+  #site-app .catalog-fleet__quote .catalog-fleet-quote__inner { height:auto; min-height:26cqw; box-sizing:border-box; justify-content:center; padding-top:4cqw!important; padding-bottom:1cqw!important; gap:.8cqw; }
+  #site-app .catalog-experiences .catalog-hero { height:auto; min-height:55cqw; }
+  #site-app .catalog-experiences .catalog-hero__inner { height:auto; min-height:55cqw; box-sizing:border-box; padding-top:13cqw; padding-bottom:3cqw; }
+  #site-app .catalog-experiences .catalog-hero__description { font-size:2.2cqw; line-height:1.22; }
+}

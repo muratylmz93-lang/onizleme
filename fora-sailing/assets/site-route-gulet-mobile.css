@@ -1,8 +1,28 @@
 /* Portrait source alignment for route and Eylül pages. Loaded after the shared detail stylesheet. */
 @media (max-width: 760px) {
   /* The route source reads from one full-width copy block into its photo collage. */
-  .fora-detail--route .detail-hero { min-height: 51.3cqw; }
-  .fora-detail--route .detail-hero-copy h1 { max-width: 64cqw; font-size: 7cqw; }
+  #site-app .fora-detail--route .detail-hero { min-height: 55cqw; }
+  #site-app .fora-detail--route .detail-hero-copy h1 {
+    max-width: 64cqw;
+    margin-bottom: 1cqw;
+    font-size: 6.6cqw;
+    line-height: .92;
+  }
+  #site-app .fora-detail--route .detail-hero-description { margin-bottom: 1cqw; }
+  #site-app .fora-detail--route .detail-actions .btn { min-height: 5.4cqw; }
+  #site-app .fora-detail--route .detail-intro-art .detail-hand-note--photo {
+    top: auto;
+    right: auto;
+    bottom: 4cqw;
+    left: 8cqw;
+    width: 39cqw;
+    max-width: 39cqw;
+    text-align: left;
+    line-height: .9;
+    transform: rotate(-7deg);
+    z-index: 4;
+  }
+  #site-app .fora-detail--route .detail-highlights .detail-eyebrow { display: none; }
   .fora-detail--route .detail-intro {
     min-height: 0;
     padding-block: 2.5cqw;

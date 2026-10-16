@@ -20,7 +20,7 @@
 
   const mode = body.dataset.previewMode === 'mobil' ? 'mobil' : 'web';
   const siteBase = new URL('../', script.src);
-  const release = new URL(script.src).searchParams.get('v') || '20261015-110';
+  const release = new URL(script.src).searchParams.get('v') || '20261016-130';
   const query = new URLSearchParams(location.search);
   const requestedPath = query.get('page') || '/';
   let currentPage = pages.find(page => page.path === requestedPath) || pages[0];

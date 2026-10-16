@@ -1,0 +1,211 @@
+/* Source alignment pass 113: route and Eylül only. Loaded after the shared detail styles. */
+
+.fora-detail--gulet .detail-gallery-thumbs button > span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (min-width: 761px) {
+  #site-app .fora-detail--route .detail-hero,
+  #site-app .fora-detail--gulet .detail-hero,
+  #site-app .fora-detail--route .detail-hero-copy,
+  #site-app .fora-detail--gulet .detail-hero-copy {
+    height: 37.5cqw !important;
+    min-height: 37.5cqw !important;
+  }
+  #site-app .fora-detail--route .detail-hero-copy h1 {
+    max-width: 58cqw;
+    font-size: 6.2cqw;
+    line-height: .94;
+  }
+  #site-app .fora-detail--route .detail-hero-copy { transform: translateY(-3.4cqw); }
+  /* Source intro title is two lines; let only the heading use the available edge
+     before the artwork instead of wrapping into three short lines. */
+  #site-app .fora-detail--route .detail-intro-copy h2 {
+    width: 43cqw;
+    max-width: none;
+    font-size: 4.65cqw;
+    letter-spacing: -.025em;
+    line-height: .98;
+  }
+  #site-app .fora-detail--route .detail-intro-copy { transform: translateY(-.4cqw); }
+  #site-app .fora-detail--route .detail-intro-art { min-height: 30cqw; }
+  #site-app .fora-detail--route .detail-intro-art .detail-photo-main {
+    left: -4cqw;
+    top: 1.5cqw;
+    height: 32.5cqw;
+  }
+  #site-app .fora-detail--route .detail-intro-art .detail-photo-inset {
+    right: .8cqw;
+    width: 17cqw;
+    height: 15cqw;
+  }
+  #site-app .fora-detail--route .detail-intro { overflow: visible; z-index: 2; }
+  #site-app .fora-detail--route .detail-stops { z-index: 1; }
+  .fora-detail--route .detail-intro-grid { padding-block: 0; }
+  .fora-detail--route .detail-intro-art .detail-photo-main {
+    width: 48cqw;
+    height: 29cqw;
+    transform: rotate(-3deg);
+  }
+  .fora-detail--route .detail-stops {
+    overflow: visible;
+    padding-block: .8cqw;
+  }
+  .fora-detail--route .detail-stops-copy h2 {
+    max-width: 34cqw;
+    font-size: 3.2cqw;
+    line-height: 1.02;
+    margin-block: 0 .8cqw;
+  }
+  .fora-detail--route .detail-highlights-grid {
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
+    grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr) minmax(0, 1.6fr) minmax(0, 1fr);
+    align-items: center;
+    column-gap: 2.7cqw;
+  }
+  #site-app .fora-detail--route .detail-highlights-grid > .detail-highlight-sunset { grid-column: 3; }
+  #site-app .fora-detail--route .detail-highlights-grid > .detail-highlight-copy--last { grid-column: 4; }
+  .fora-detail--route .detail-highlights-grid > .detail-highlight-photo,
+  .fora-detail--route .detail-highlights-grid > .detail-highlight-sunset {
+    height: 23cqw;
+    min-height: 0;
+  }
+  .fora-detail--route .detail-highlight-photo { transform: rotate(-1.5deg); }
+  .fora-detail--route .detail-highlight-sunset { transform: rotate(1.5deg); }
+  .fora-detail--route .detail-quote-grid { align-items: center; }
+  .fora-detail--route .detail-quote { min-height: 21cqw; }
+  #site-app .fora-detail--route .detail-quote-note {
+    left: 22cqw;
+    max-width: 13cqw;
+    font-size: 2.4cqw !important;
+  }
+  .fora-detail--route .detail-quick-form {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+    max-width: 44cqw;
+  }
+  .fora-detail--route .detail-quick-form > label:first-of-type { grid-column: 1; }
+  .fora-detail--route .detail-quick-form > label:nth-of-type(2) { grid-column: 2; }
+  .fora-detail--route .detail-quick-form > .btn { grid-column: 1 / -1; }
+
+  .fora-detail--gulet .detail-hero-copy h1 {
+    max-width: 35cqw;
+    font-size: 9cqw;
+    line-height: .9;
+  }
+  .fora-detail--gulet .detail-intro-copy h2 {
+    max-width: 46cqw;
+    font-size: 5cqw;
+    line-height: .98;
+  }
+  .fora-detail--gulet .detail-intro-art .detail-photo-main {
+    width: 49cqw;
+    height: 32cqw;
+    transform: rotate(-5deg);
+  }
+  .fora-detail--gulet .detail-intro-art .detail-photo-inset {
+    width: 23cqw;
+    height: 15cqw;
+    transform: rotate(4deg);
+  }
+  .fora-detail--gulet .detail-intro-art .detail-photo-cove {
+    width: 23cqw;
+    height: 15cqw;
+    transform: rotate(-3deg);
+  }
+  .fora-detail--gulet .detail-gallery-grid {
+    grid-template-columns: minmax(0, 1.55fr) minmax(280px, .9fr);
+    gap: 3cqw;
+    align-items: stretch;
+  }
+  .fora-detail--gulet .detail-gallery-main { height: 22.5cqw; }
+  .fora-detail--gulet .detail-gallery-thumbs img { height: 9cqw; }
+  .fora-detail--gulet .detail-gulet-quote { min-height: 36cqw; }
+  .fora-detail--gulet .detail-gulet-quote h2 {
+    max-width: 31cqw;
+    font-size: 4cqw;
+    line-height: .98;
+  }
+  .fora-detail--gulet .detail-gulet-form { gap: .9cqw; }
+  .fora-detail--gulet .detail-gulet-form label,
+  .fora-detail--gulet .detail-gulet-form input,
+  .fora-detail--gulet .detail-gulet-form select,
+  .fora-detail--gulet .detail-gulet-form textarea { font-size: 1.15cqw; }
+  .fora-detail--gulet .detail-related-grid > .detail-related-card:nth-child(2) { transform: rotate(-1.4deg); }
+  .fora-detail--gulet .detail-related-grid > .detail-related-card:nth-child(3) { transform: rotate(1.4deg); }
+  .fora-detail--gulet .detail-related-card img { height: 13cqw; }
+}
+
+@media (max-width: 760px) {
+  /* The route rows keep their source copy/photo order and regain the angled photo frames. */
+  .fora-detail--route .detail-intro-art .detail-photo-main { transform: rotate(-5deg); }
+  .fora-detail--route .detail-intro-art .detail-photo-inset { transform: rotate(-12deg); }
+  .fora-detail--route .detail-stops { padding-top: 1cqw; }
+  .fora-detail--route .detail-stops-copy h2 {
+    line-height: 1.04;
+    margin: 0;
+  }
+  .fora-detail--route .detail-highlights-grid > .detail-highlight-photo,
+  .fora-detail--route .detail-highlights-grid > .detail-highlight-sunset {
+    height: 26.5cqw;
+    min-height: 0;
+  }
+  .fora-detail--route .detail-highlight-copy h2,
+  .fora-detail--route .detail-highlight-copy--last h2 {
+    max-width: 34cqw;
+    font-size: 5cqw;
+    line-height: .98;
+  }
+  .fora-detail--route .detail-highlight-copy > p { font-size: 2.15cqw; line-height: 1.2; }
+  .fora-detail--route .detail-highlight-photo { transform: rotate(-2deg); }
+  .fora-detail--route .detail-highlight-sunset { transform: rotate(2deg); }
+  .fora-detail--route .detail-quote-grid { gap: .5cqw; }
+  .fora-detail--route .detail-quick-form { padding: .6cqw; }
+
+  /* Keep the gallery-label bindings accessible while matching the unlabeled source thumbnails. */
+  .fora-detail--gulet .detail-intro-art .detail-photo-main { transform: rotate(-4deg); }
+  .fora-detail--gulet .detail-intro-art .detail-photo-inset { transform: rotate(4deg); }
+  .fora-detail--gulet .detail-intro-art .detail-photo-cove { transform: rotate(-2deg); }
+  .fora-detail--gulet .detail-gallery-grid { gap: 1.5cqw; }
+  .fora-detail--gulet .detail-gallery-section { padding-bottom: 0; }
+  .fora-detail--gulet .detail-gallery-thumbs img { height: 8cqw; }
+  .fora-detail--gulet .detail-gulet-form {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1cqw;
+  }
+  .fora-detail--gulet .detail-gulet-form > label:nth-of-type(1),
+  .fora-detail--gulet .detail-gulet-form > label:nth-of-type(2),
+  .fora-detail--gulet .detail-gulet-form > label:nth-of-type(3),
+  .fora-detail--gulet .detail-gulet-form > .btn { grid-column: 1; }
+  .fora-detail--gulet .detail-gulet-form > label > span {
+    display: block !important;
+    position: absolute !important;
+    clip-path: inset(50%) !important;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  .fora-detail--gulet .detail-gulet-form input,
+  .fora-detail--gulet .detail-gulet-form select { min-height: 7cqw; }
+  .fora-detail--gulet .detail-gulet-form textarea { min-height: 9cqw; }
+  .fora-detail--gulet .detail-gulet-quote { padding: 3cqw 5cqw; }
+  .fora-detail--gulet .detail-gulet-quote h2 { max-width: 64cqw; }
+  .fora-detail--gulet .detail-related-grid > .detail-related-card:nth-child(2) { transform: rotate(-1deg); }
+  .fora-detail--gulet .detail-related-grid > .detail-related-card:nth-child(3) { transform: rotate(1deg); }
+}

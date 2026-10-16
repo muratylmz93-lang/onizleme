@@ -1,5 +1,5 @@
-import { PHOTO, media, fleetArtwork } from './site-assets.js?v=20261015-110';
-import { renderRouteMap, initRouteMaps } from './site-route-map.js?v=20261015-110';
+import { PHOTO, media, fleetArtwork, homeRouteArtwork } from './site-assets.js?v=20261016-130';
+import { renderRouteMap, initRouteMaps } from './site-route-map.js?v=20261016-130';
 
 const text = (ctx, binding, fallback) => {
   const value = ctx?.get?.(binding, fallback);
@@ -17,7 +17,8 @@ const url = (ctx, value) => {
 
 const bindingAttr = (binding) => binding ? ` data-cms-binding="${esc(binding)}"` : '';
 const img = (ctx, src, alt, className = '', binding = '', property = '') => {
-  const resolved = ctx?.asset?.(src || PHOTO.hero) || src || PHOTO.hero;
+  if (src === '') return `<span hidden class="${esc(className)}"${bindingAttr(binding)}${property ? ` data-cms-property="${esc(property)}"` : ''} aria-hidden="true"></span>`;
+  const resolved = ctx?.asset?.(src ?? PHOTO.hero) || src || PHOTO.hero;
   return `<img class="${esc(className)}"${bindingAttr(binding)}${property ? ` data-cms-property="${esc(property)}"` : ''} src="${esc(resolved)}" alt="${esc(alt)}" loading="lazy" decoding="async">`;
 };
 const link = (ctx, href, label, className = '', binding = '', hrefBinding = '', iconName = '') => {
@@ -39,11 +40,11 @@ function renderRouteCards(ctx) {
   const rows = collectionRows(ctx?.collections?.routes?.filter?.((item) => item?.featuredHome !== false), fallback).slice(0, 4);
   return rows.map((item, index) => {
     const name = item.name || item.title || fallback[index % fallback.length].name;
-    const sourceProperty = item.homeImage ? 'homeImage' : 'image';
-    const source = item.homeImage || item.image || fallback[index % fallback.length].homeImage;
+    const sourceProperty = item.homeImage != null ? 'homeImage' : 'image';
+    const source = item.homeImage ?? item.image ?? fallback[index % fallback.length].homeImage;
     const destination = item.homeUrl || item.inquiryUrl || item.path || fallback[index % fallback.length].homeUrl;
     return `<a class="home-route-card" href="${esc(url(ctx, destination))}" data-reveal data-cms-collection="routes" data-entity-id="${esc(item.id || '')}">
-      ${img(ctx, source, `${name} kıyıları`, 'home-route-photo', '', sourceProperty)}
+      ${homeRouteArtwork(ctx, source, img(ctx, source, `${name} kıyıları`, 'home-route-photo', '', sourceProperty))}
       <span class="home-card-copy"><strong data-cms-property="name">${esc(name)}</strong><span data-cms-property="description">${esc(item.shortDescription || item.description || 'Koylarda size özel bir mavi yolculuk.')}</span></span>
 
     </a>`;
@@ -65,7 +66,7 @@ function renderFleetCards(ctx) {
     const capacity = item.guestCapacity ?? item.capacity ?? fallback[index % fallback.length].guestCapacity;
     const cabins = item.cabins ?? item.cabinCount ?? fallback[index % fallback.length].cabins;
     return `<a class="home-fleet-card" href="${esc(url(ctx, destination))}" data-reveal data-cms-collection="gulets" data-entity-id="${esc(item.id || '')}">
-      ${fleetArtwork(ctx, item.image || fallback[index % fallback.length].image, img(ctx, item.image || fallback[index % fallback.length].image, `${name} guleti`, 'home-fleet-photo', '', 'image'))}
+      ${fleetArtwork(ctx, item.image ?? fallback[index % fallback.length].image, img(ctx, item.image ?? fallback[index % fallback.length].image, `${name} guleti`, 'home-fleet-photo', '', 'image'))}
       <span class="home-card-copy"><strong data-cms-property="name">${esc(name)}</strong><span><span data-cms-property="guestCapacity">${esc(capacity)}</span> misafir <i aria-hidden="true"></i> <span data-cms-property="cabins">${esc(cabins)}</span> kabin</span></span>
 
     </a>`;
@@ -85,13 +86,15 @@ function renderExperiencePhotos(ctx) {
   ];
   const rows = collectionRows(ctx?.collections?.experiences?.filter?.((item) => item?.featuredHome !== false), fallback).slice(0, 3);
   return rows.map((item, index) => {
-    const originalImage = String(item.image || '').replaceAll('\\', '/').split('?')[0];
+    const title = item.title || item.name || fallback[index % fallback.length].title;
+    if (item.image === '') return img(ctx, '', title, '', '', 'image');
+    const originalImage = item.image == null ? '' : String(item.image).replaceAll('\\', '/').split('?')[0];
     const originalFilename = originalImage.slice(originalImage.lastIndexOf('/') + 1);
     const defaultFilename = sourceDefaults[index].slice(sourceDefaults[index].lastIndexOf('/') + 1);
-    const selectedImage = !originalImage || originalFilename === defaultFilename
+    const selectedImage = item.image == null || originalFilename === defaultFilename
       ? fallback[index % fallback.length].image
       : item.image;
-    return img(ctx, selectedImage, item.title || item.name || fallback[index % fallback.length].title, '', '', 'image');
+    return img(ctx, selectedImage, title, '', '', 'image');
   }).join('');
 }
 

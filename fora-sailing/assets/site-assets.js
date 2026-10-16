@@ -2,6 +2,8 @@
 const photo = name => `assets/device-design-assets/images/${name}.png`;
 export const PHOTO = Object.freeze({
   hero: 'assets/hero-clean-base.png',
+  heroAbout: 'assets/native-hero-about-v113.webp',
+  heroContact: 'assets/native-hero-contact-v113.webp',
   aboutSide: 'assets/native-about-side-v2.webp',
   aboutTogether: 'assets/native-about-together-v2.webp',
   guletDeck: 'assets/native-gulet-deck-v2.webp',
@@ -64,15 +66,58 @@ const fleetDesktopCrops = Object.freeze({
   'assets/native-fleet-ata-v3.webp': 'assets/native-fleet-ata-source.webp',
   'assets/native-fleet-miss-2-v3.webp': 'assets/native-fleet-miss-2-source.webp',
 });
-export function fleetArtwork(ctx, value, markup) {
+const fleetMobileCrops = Object.freeze({
+  'assets/native-fleet-eylul-v3.webp': 'assets/native-fleet-eylul-mobile-source121.webp',
+  'assets/native-fleet-ata-v3.webp': 'assets/native-fleet-ata-mobile-source121.webp',
+  'assets/native-fleet-miss-2-v3.webp': 'assets/native-fleet-miss-2-mobile-source121.webp',
+  'assets/native-fleet-zel-v3.webp': 'assets/native-fleet-zel-mobile-source121.webp',
+  'assets/native-fleet-getaway-v3.webp': 'assets/native-fleet-getaway-mobile-source121.webp',
+});
+export function fleetArtwork(ctx, value, markup, { mobile = false } = {}) {
   const desktop = fleetDesktopCrops[value];
-  if (!desktop) return markup;
-  return `<picture style="display:contents"><source media="(min-width: 761px)" srcset="${escapeHTML(ctx.asset(desktop))}">${markup}</picture>`;
+  const phone = mobile ? fleetMobileCrops[value] : '';
+  if (!desktop && !phone) return markup;
+  const sources = (desktop ? `<source media="(min-width: 761px)" srcset="${escapeHTML(ctx.asset(desktop))}">` : '')
+    + (phone ? `<source media="(max-width: 760px)" srcset="${escapeHTML(ctx.asset(phone))}">` : '');
+  return `<picture style="display:contents">${sources}${markup}</picture>`;
+}
+
+// These photo-only bands preserve the corrected mobile source pixels. A custom
+// CMS image uses the same new source on desktop and mobile without another field.
+const routeMobileCrops = Object.freeze({
+  'assets/native-route-bodrum-gokova-v2.webp': 'assets/native-route-bodrum-gokova-mobile-source115.webp',
+  'assets/native-route-marmaris-datca-v2.webp': 'assets/native-route-marmaris-datca-mobile-source115.webp',
+  'assets/native-route-kemer-kekova-v2.webp': 'assets/native-route-kemer-kekova-mobile-source115.webp',
+  'assets/native-route-marmaris-fethiye-v2.webp': 'assets/native-route-marmaris-fethiye-mobile-source115.webp',
+  'assets/native-route-gocek-fethiye-v2.webp': 'assets/native-route-gocek-fethiye-mobile-source115.webp',
+  'assets/native-route-bodrum-yunan-adalari-v2.webp': 'assets/native-route-bodrum-yunan-adalari-mobile-source115.webp',
+});
+export function routeArtwork(ctx, value, markup) {
+  const mobile = routeMobileCrops[value];
+  if (!mobile) return markup;
+  return `<picture style="display:contents"><source media="(max-width: 760px)" srcset="${escapeHTML(ctx.asset(mobile))}">${markup}</picture>`;
+}
+
+// Photo-only crops from the supplied home design. A CMS replacement remains
+// a single shared value and bypasses the default presentation crops.
+const homeRouteCrops = Object.freeze({
+  'assets/native-home-route-bodrum-v3.webp': ['assets/native-home-route-bodrum-gokova-web-source128.webp', 'assets/native-home-route-bodrum-gokova-mobile-source128.webp'],
+  'assets/native-home-route-marmaris-v3.webp': ['assets/native-home-route-marmaris-datca-web-source128.webp', ''],
+  'assets/native-home-route-kekova-v3.webp': ['assets/native-home-route-kemer-kekova-web-source128.webp', ''],
+  'assets/native-home-route-gocek-v3.webp': ['assets/native-home-route-gocek-fethiye-web-source128.webp', ''],
+});
+export function homeRouteArtwork(ctx, value, markup) {
+  const crops = homeRouteCrops[value];
+  if (!crops) return markup;
+  const sources = `<source media="(min-width: 761px)" srcset="${escapeHTML(ctx.asset(crops[0]))}">`
+    + (crops[1] ? `<source media="(max-width: 760px)" srcset="${escapeHTML(ctx.asset(crops[1]))}">` : '');
+  return `<picture style="display:contents">${sources}${markup}</picture>`;
 }
 
 export function media(ctx, binding, key = 'hero', className = '', alt = '') {
-  const fallback = PHOTO[key] || key || PHOTO.hero;
+  const fallback = key === '' ? '' : PHOTO[key] || key || PHOTO.hero;
   const value = binding ? ctx.get(binding, fallback) : fallback;
-  const src = ctx.asset(value || fallback);
+  if (value === '') return `<span hidden class="${escapeHTML(className)}"${binding ? ` data-cms-binding="${escapeHTML(binding)}"` : ''} aria-hidden="true"></span>`;
+  const src = ctx.asset(value ?? fallback);
   return `<img class="${escapeHTML(className)}"${binding ? ` data-cms-binding="${escapeHTML(binding)}"` : ''} src="${escapeHTML(src)}" alt="${escapeHTML(alt)}" loading="lazy" decoding="async">`;
 }

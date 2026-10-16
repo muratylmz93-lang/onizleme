@@ -1,4 +1,4 @@
-import { escapeHTML } from './site-assets.js?v=20261015-110';
+import { escapeHTML } from './site-assets.js?v=20261016-130';
 
 const esc = escapeHTML;
 const sprite = 'assets/icons/fora-icons.svg';
@@ -27,7 +27,7 @@ function normalizeStops(stops) {
 }
 
 /** Render a small native route diagram; labels remain real HTML text. */
-export function renderRouteMap(ctx = {}, { id, stops, duration = 1600, showBoat = false } = {}) {
+export function renderRouteMap(ctx = {}, { id, stops, duration = 1600, showBoat = false, variant = '', background = '' } = {}) {
   const cleanStops = normalizeStops(stops);
   if (!cleanStops.length) return '';
 
@@ -37,6 +37,10 @@ export function renderRouteMap(ctx = {}, { id, stops, duration = 1600, showBoat 
   const pathId = `route-path-${mapId}`;
   const durationMs = Math.max(1, Number(duration) || 1600);
   const assetUrl = (path) => esc(typeof ctx?.asset === 'function' ? ctx.asset(path) : path);
+  const mapVariant = variant === 'detail' ? 'detail' : 'default';
+  const backgroundStyle = mapVariant === 'detail' && background
+    ? ` style="--route-map-background:url(&quot;${assetUrl(background)}&quot;)"`
+    : '';
   const pins = cleanStops.map((stop, index) => {
     const point = layout.points[Math.min(index, layout.points.length - 1)];
     const x = (point.x / view.width) * 100;
@@ -45,7 +49,7 @@ export function renderRouteMap(ctx = {}, { id, stops, duration = 1600, showBoat 
   }).join('');
   const boat = showBoat ? `<g class="fora-route-map__boat" aria-hidden="true"><animateMotion class="fora-route-map__boat-motion" begin="indefinite" dur="1800ms" fill="freeze" rotate="auto"><mpath href="#${pathId}"></mpath></animateMotion><use href="${assetUrl(sprite)}#fora-sailboat" x="-12" y="-12" width="24" height="24"></use></g>` : '';
 
-  return `<div class="fora-route-map" data-route-map data-route-map-id="${esc(mapId)}" data-motion-duration="${durationMs}" data-show-boat="${showBoat ? 'true' : 'false'}" role="group" aria-label="Rota: ${esc(cleanStops.map((stop) => stop.label).join(' → '))}"><svg class="fora-route-map__drawing" viewBox="0 0 ${view.width} ${view.height}" preserveAspectRatio="none" aria-hidden="true"><path class="fora-route-map__track" d="${routePath}"></path><path id="${pathId}" class="fora-route-map__path" d="${routePath}"></path>${boat}</svg><ol class="fora-route-map__stops">${pins}</ol></div>`;
+  return `<div class="fora-route-map" data-route-map data-route-map-variant="${mapVariant}"${backgroundStyle} data-route-map-id="${esc(mapId)}" data-motion-duration="${durationMs}" data-show-boat="${showBoat ? 'true' : 'false'}" role="group" aria-label="Rota: ${esc(cleanStops.map((stop) => stop.label).join(' → '))}"><svg class="fora-route-map__drawing" viewBox="0 0 ${view.width} ${view.height}" preserveAspectRatio="none" aria-hidden="true"><path class="fora-route-map__track" d="${routePath}"></path><path id="${pathId}" class="fora-route-map__path" d="${routePath}"></path>${boat}</svg><ol class="fora-route-map__stops">${pins}</ol></div>`;
 }
 
 /** Animate each route once when at least 20% of it enters the viewport. */

@@ -11,6 +11,27 @@
   color: var(--route-map-ink);
 }
 
+/* The route detail uses an independent, clean coastline photo beneath the
+   live SVG/HTML route. Home maps keep their original transparent treatment. */
+#site-app .fora-detail--route .detail-stops > .detail-stops-background {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+#site-app .fora-detail--route .detail-stops {
+  background-image: none;
+  background-color: var(--detail-navy);
+}
+#site-app .fora-detail--route .detail-stops::before {
+  z-index: 1;
+  background: linear-gradient(100deg, rgba(1, 28, 45, .36), rgba(1, 28, 45, .14));
+}
+#site-app .fora-detail--route .detail-stops > .container { position: relative; z-index: 2; }
+
 .fora-route-map__drawing,
 .fora-route-map__stops {
   position: absolute;

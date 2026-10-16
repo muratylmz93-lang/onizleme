@@ -1,4 +1,4 @@
-import { PHOTO, media, escapeHTML, fleetArtwork } from './site-assets.js?v=20261015-110';
+import { PHOTO, media, escapeHTML, fleetArtwork, routeArtwork } from './site-assets.js?v=20261016-130';
 
 const esc = escapeHTML;
 const get = (ctx, key, fallback = '') => {
@@ -11,11 +11,21 @@ const href = (ctx, path) => {
 };
 const attr = (key) => key ? ` data-cms-binding="${esc(key)}"` : '';
 const section = (id, name, html) => `<section class="catalog-section ${esc(name)}" data-section-id="${esc(id)}">${html}</section>`;
-const fieldText = (ctx, key, fallback, tag = 'p', cls = '') => `<${tag}${attr(key)}${cls ? ` class="${esc(cls)}"` : ''}>${sourceLines(get(ctx, key, fallback))}</${tag}>`;
+const fieldText = (ctx, key, fallback, tag = 'p', cls = '') => `<${tag}${attr(key)}${cls ? ` class="${esc(cls)}"` : ''}>${/^h[1-6]$/.test(tag) ? sourceLines(get(ctx, key, fallback)) : esc(get(ctx, key, fallback)).replace(/\r?\n/g, '<br>')}</${tag}>`;
 const link = (ctx, path, label, cls = 'btn btn-gold', key = '', labelKey = '') => `<a class="${esc(cls)}"${key ? ` data-cms-href-binding="${esc(key)}"` : ''} href="${esc(href(ctx, path))}"><span${attr(labelKey)}>${esc(label)}</span></a>`;
 const cta = (ctx, path, label = 'Teklif Alın', key = '', labelKey = '') => link(ctx, path, label, 'btn btn-gold', key, labelKey);
 const rows = (ctx, key) => Array.isArray(ctx?.collections?.[key]) ? ctx.collections[key] : [];
-const sourceLines = value => esc(value).replace(/\n/g, '<br>').replace('Maviye Açılan Rotalar', 'Maviye<br>Açılan Rotalar').replace(/^Her rota,\s*/, 'Her rota,<br>').replace('Denizdeki Evinizi Keşfedin', 'Denizdeki<br>Evinizi Keşfedin').replace('Bir Tatilden Daha Fazlası', 'Bir Tatilden<br>Daha Fazlası').replace('Keşfet. Hisset. Yaşa.', 'Keşfet.<br>Hisset.<br>Yaşa.').replace('Size Uygun Guleti Birlikte Seçelim', 'Size Uygun<br>Guleti Birlikte Seçelim');
+const sourceLines = value => {
+  const defaults = {
+    'Maviye Açılan Rotalar': 'Maviye\nAçılan Rotalar',
+    'Her rota, başka bir hikâye.': 'Her rota,\nbaşka bir hikâye.',
+    'Denizdeki Evinizi Keşfedin': 'Denizdeki\nEvinizi Keşfedin',
+    'Bir Tatilden Daha Fazlası': 'Bir Tatilden\nDaha Fazlası',
+    'Keşfet. Hisset. Yaşa.': 'Keşfet.\nHisset.\nYaşa.',
+    'Size Uygun Guleti Birlikte Seçelim': 'Size Uygun\nGuleti Birlikte Seçelim',
+  };
+  return esc(defaults[value] ?? value).replace(/\r?\n/g, '<br>');
+};
 
 function hero(ctx, prefix, title, description, photo, oneButton = false) {
   const offerBinding = `${prefix}.hero.offerUrl`;
@@ -30,9 +40,9 @@ function card(ctx, type, item, i, fallbackPhoto, fallbackPath, kicker = '') {
   const description = item.description || item.shortDescription || '';
   const catalogPath = type === 'routes' ? '/rotalar/' : type === 'gulets' ? '/filo/' : '';
   const destination = (item.path && item.path !== catalogPath ? item.path : item.inquiryUrl) || fallbackPath;
-  const image = item.image || fallbackPhoto;
+  const image = item.image ?? fallbackPhoto;
   const rawImg = media(ctx, '', image, 'catalog-card__image', name).replace('<img ', '<img data-cms-property="image" ');
-  const img = type === 'gulets' ? fleetArtwork(ctx, image, rawImg) : rawImg;
+  const img = type === 'gulets' ? fleetArtwork(ctx, image, rawImg, { mobile: true }) : type === 'routes' ? routeArtwork(ctx, image, rawImg) : rawImg;
   return `<article class="catalog-card" data-reveal data-cms-collection="${esc(type)}" data-entity-id="${esc(item.id || '')}"><a class="catalog-card__link" href="${esc(href(ctx, destination))}"><div class="catalog-card__photo">${img}</div><div class="catalog-card__copy">${kicker ? `<span class="catalog-card__kicker">${esc(kicker)}</span>` : ''}<h3 data-cms-property="${type === 'experiences' ? 'title' : 'name'}">${esc(name)}</h3>${description ? `<p data-cms-property="description">${esc(description)}</p>` : ''}${type === 'gulets' ? `<span class="catalog-card__details" data-cms-binding="filo.cards.detailsLabel">${esc(get(ctx, 'filo.cards.detailsLabel', 'Detayları İncele'))}</span>` : ''}<span class="catalog-card__arrow" aria-label="Detayları incele">↗</span></div></a></article>`;
 }
 function routeFallbacks() { return [

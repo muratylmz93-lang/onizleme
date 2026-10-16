@@ -1,0 +1,106 @@
+/* Page geometry measured against the supplied web and corrected mobile boards. */
+#site-app .fora-detail--about .detail-intro,#site-app .fora-detail--about .detail-together,#site-app .fora-detail--contact .detail-contact-section{background-image:url('native-paper-foliage-v1.webp')}
+#site-app .fora-detail--about .detail-hand-note,#site-app .fora-detail--contact .detail-hand-note{font-weight:400}
+#site-app .fora-detail--about .detail-hero,#site-app .fora-detail--contact .detail-hero{mask-image:url('about-contact-hero-mask113.svg')}
+#site-app .fora-detail--about .detail-values>.container>.detail-eyebrow{display:none}
+#site-app .fora-detail--about .detail-hand-note--values{position:absolute}
+#site-app .fora-detail--about .detail-hand-note--together{bottom:auto;height:auto;color:#173e56;line-height:1.05;font-weight:400}
+#site-app .fora-detail--about .detail-intro-art .detail-compass-stamp{opacity:.65}
+#site-app .fora-detail--about .detail-actions .btn-whatsapp,#site-app .fora-detail--contact .detail-contact-aside-copy .btn-whatsapp{background:transparent;border:1px solid #fff;font-weight:400}
+#site-app .fora-detail--about .detail-actions .btn-whatsapp:hover,#site-app .fora-detail--contact .detail-contact-aside-copy .btn-whatsapp:hover{background:#006875}
+#site-app .fora-detail--about .detail-actions .btn-whatsapp .icon,#site-app .fora-detail--contact .detail-contact-aside-copy .btn-whatsapp .icon{color:#58d57e}
+#site-app .fora-detail--about .detail-values-list .detail-value-icon{display:block;filter:brightness(0) invert(1);object-fit:contain}
+#site-app .fora-detail--about .detail-values-list .detail-value-icon{width:5.4cqw;height:5.4cqw}
+#site-app .fora-detail--about .detail-values-lead{max-width:59cqw;font-size:1.2cqw;line-height:1.35}
+#site-app .fora-detail--about .detail-hand-note--hero{top:auto;bottom:8cqw;right:3.5cqw;width:16cqw;max-width:16cqw;font-size:3cqw;font-weight:400}
+#site-app .fora-detail--contact .detail-hand-note--hero{top:auto;bottom:5cqw;right:3cqw;width:13cqw;max-width:13cqw;font-size:3.4cqw;font-weight:400}
+#site-app .fora-detail--contact .detail-contact-aside-copy>.detail-eyebrow{display:none}
+#site-app .fora-detail--contact .detail-date-label{position:relative}
+#site-app .fora-detail--contact .detail-date-label[data-empty="true"] input{color:transparent}
+#site-app .fora-detail--contact .detail-date-label[data-empty="true"] .detail-form-label-text{position:absolute;z-index:1;left:4.4cqw;top:50%;transform:translateY(-50%);width:auto;height:auto;margin:0;clip:auto;overflow:visible;font-size:1.05cqw;line-height:1;pointer-events:none}
+@media(max-width:760px){#site-app .fora-detail--contact .detail-date-label[data-empty="true"] .detail-form-label-text{left:7cqw;font-size:2.5cqw}}
+@media(min-width:761px){
+  #site-app .fora-detail--about .detail-hero-copy{padding-top:9.8cqw}
+  #site-app .fora-detail--about .detail-intro-grid{grid-template-columns:44% 1fr;gap:2.5cqw}
+  #site-app .fora-detail--about .detail-intro{padding-bottom:0}
+  #site-app .fora-detail--about .detail-intro-art .detail-hand-note--photo{left:3cqw;right:auto;bottom:4cqw;width:12cqw;max-width:12cqw;font-size:3cqw;line-height:.9;transform:rotate(-8deg)}
+  #site-app .fora-detail--contact .detail-hero-copy h1{font-size:7cqw;line-height:.9}
+  #site-app .fora-detail--about .detail-hero-description{max-width:40cqw;font-size:1.6cqw;line-height:1.3}
+  #site-app .fora-detail--about .detail-hero-copy h1{font-size:6.7cqw;line-height:.9;max-width:57cqw}
+  #site-app .fora-detail--about .detail-actions{margin-top:1.8cqw}
+  #site-app .fora-detail--about .detail-intro-copy{max-width:40cqw}
+  #site-app .fora-detail--about .detail-intro-copy>p:not(.detail-eyebrow){font-size:1.45cqw;line-height:1.35}
+  #site-app .fora-detail--about .detail-values{min-height:32cqw;padding-top:2.5cqw}
+  #site-app .fora-detail--about .detail-values .detail-hand-note--values{right:4cqw;top:6cqw;bottom:auto;font-size:2.7cqw;width:21cqw}
+  #site-app .fora-detail--about .detail-values-list{margin-top:1.8cqw}
+  #site-app .fora-detail--about .detail-values-list li{grid-template-columns:6cqw 1fr;gap:1.5cqw}
+  #site-app .fora-detail--about .detail-together-grid{grid-template-columns:55% 1fr;align-items:start}
+  #site-app .fora-detail--about .detail-together-grid>div:last-child{width:27cqw;max-width:27cqw;margin:2cqw 0 0}
+  #site-app .fora-detail--about .detail-together-grid>div:last-child h2{font-size:3.6cqw;line-height:.98}
+  #site-app .fora-detail--about .detail-together-grid>div:last-child>p:not(.detail-eyebrow){font-size:1.2cqw;line-height:1.3}
+  #site-app .fora-detail--about .detail-together-photo{transform:rotate(-3deg);height:27cqw}
+  #site-app .fora-detail--about .detail-together .detail-hand-note--together{left:28cqw;right:auto;top:3cqw;width:25cqw;max-width:25cqw;font-size:2.8cqw}
+  #site-app .fora-detail--about .detail-together-inset{left:auto;right:-.5cqw;top:24%;width:13cqw;height:20cqw;transform:rotate(8deg)}
+  #site-app .fora-detail--contact .detail-hero-description{max-width:32cqw;font-size:1.7cqw;line-height:1.3}
+  #site-app .fora-detail--contact .detail-contact-aside{align-self:start;margin-top:4cqw;padding:4cqw 0 0 7cqw;min-height:43cqw}
+  #site-app .fora-detail--contact .detail-contact-aside-copy{width:21cqw;max-width:21cqw}
+  #site-app .fora-detail--contact .detail-contact-aside-copy h2{font-size:4.3cqw;line-height:.94}
+  #site-app .fora-detail--contact .detail-contact-aside-copy>p:not(.detail-eyebrow){font-size:1.55cqw;line-height:1.35}
+  #site-app .fora-detail--contact .detail-contact-aside-copy .btn{font-size:1.35cqw;min-height:4cqw;padding:.7cqw 1.4cqw}
+  #site-app .fora-detail--contact .detail-contact-photo{top:30cqw;left:-1cqw;right:auto;width:28cqw;height:26cqw;transform:rotate(8deg)}
+  #site-app .fora-detail--contact .detail-hand-note--aside{right:-1cqw;bottom:-12cqw;width:12cqw;max-width:12cqw;font-size:2.9cqw;color:var(--text)}
+  #site-app .fora-detail--contact .detail-contact-cta h2{font-size:6cqw;line-height:.94}
+  #site-app .fora-detail--contact .detail-hand-note--cta{left:65cqw;right:auto;bottom:5cqw;width:24cqw;max-width:24cqw;font-size:3cqw;line-height:1}
+}
+@media(max-width:760px){
+  #site-app .fora-detail--about .detail-hero-image,#site-app .fora-detail--contact .detail-hero-image{object-fit:fill}
+  #site-app .fora-detail--contact .detail-hero-copy{padding-bottom:0}
+  #site-app .fora-detail--contact .detail-contact-form-wrap{padding-bottom:2cqw}
+  #site-app .fora-detail--contact .detail-contact-section{padding-bottom:8.3cqw}
+  #site-app .fora-detail--about .detail-hero-description{max-width:53cqw;font-size:2.45cqw;line-height:1.22}
+  #site-app .fora-detail--about .detail-actions{margin-top:2cqw;gap:1.4cqw}
+  #site-app .fora-detail--about .detail-actions .btn{min-height:5.6cqw;font-size:2.3cqw}
+  #site-app .fora-detail--about .detail-hand-note--hero{bottom:5cqw;right:4cqw;width:17cqw;max-width:17cqw;font-size:3.8cqw}
+  #site-app .fora-detail--about .detail-intro-art .detail-photo-main{height:29cqw}
+  #site-app .fora-detail--about .detail-intro-art .detail-hand-note--photo{left:21cqw;right:auto;bottom:-3cqw;width:15cqw;max-width:15cqw;font-size:4.6cqw;line-height:.9;transform:rotate(-8deg)}
+  #site-app .fora-detail--about .detail-intro-art .detail-photo-inset{top:-12cqw;right:1cqw;width:30cqw;height:27cqw;transform:rotate(-10deg)}
+  #site-app .fora-detail--about .detail-intro-art .detail-hand-note--inset{right:0;top:15cqw;width:15cqw;max-width:15cqw;font-size:3.8cqw}
+  #site-app .fora-detail--about .detail-values .detail-hand-note--values{top:auto;right:1cqw;bottom:1.6cqw;width:18cqw;max-width:18cqw;font-size:2.3cqw;line-height:1;font-weight:400}
+  #site-app .fora-detail--about .detail-values{padding-top:8.2cqw;padding-bottom:.6cqw}
+  #site-app .fora-detail--about .detail-values::after{height:8cqw}
+  #site-app .fora-detail--about .detail-together::before{content:'';position:absolute;z-index:2;top:-1px;left:0;right:0;height:7cqw;background:var(--navy);mask:url('wave-edge-mask.svg') 0 0/100% 100% no-repeat;pointer-events:none}
+  #site-app .fora-detail--about .detail-values-lead{max-width:88cqw;font-size:2.45cqw;line-height:1.2}
+  #site-app .fora-detail--about .detail-values-list{gap:0}
+  #site-app .fora-detail--about .detail-values-list li{display:grid;grid-template-columns:14cqw 1fr;gap:2.5cqw;min-height:14cqw;padding:.7cqw 0}
+  #site-app .fora-detail--about .detail-values-list li:last-child{min-height:12cqw;padding:0}
+  #site-app .fora-detail--about .detail-values-list .detail-value-icon{width:12cqw;height:12cqw}
+  #site-app .fora-detail--about .detail-values-list h3{font-size:3.4cqw;line-height:1.1}
+  #site-app .fora-detail--about .detail-values-list p{max-width:64cqw;font-size:2.2cqw;line-height:1.2}
+  #site-app .fora-detail--about .detail-together{padding-bottom:1cqw}
+  #site-app .fora-detail--about .detail-together-grid{width:100%;gap:.5cqw;grid-template-rows:34cqw auto}
+  #site-app .fora-detail--about .detail-together-photo{width:100%;height:34cqw}
+  #site-app .fora-detail--about .detail-together-grid>div:last-child{width:59cqw;max-width:59cqw;margin-left:7cqw;padding:0}
+  #site-app .fora-detail--about .detail-together .detail-hand-note--together{left:55cqw;right:auto;top:4cqw;width:30cqw;max-width:30cqw;font-size:3.6cqw}
+  #site-app .fora-detail--about .detail-together-grid>div:last-child>p:not(.detail-eyebrow){max-width:59cqw;font-size:2.3cqw;line-height:1.18}
+  #site-app .fora-detail--about .detail-together-grid>div:last-child .btn{width:34cqw;min-height:5.7cqw;font-size:2.4cqw;padding:.6cqw 2cqw}
+  #site-app .fora-detail--about .detail-together-inset{top:36cqw;left:64cqw;right:auto;width:26cqw;height:31cqw;transform:rotate(8deg)}
+  #site-app .fora-detail--about .detail-together-inset{border-bottom-width:8cqw}
+  #site-app .fora-detail--about .detail-together .detail-hand-note--inset{top:auto;bottom:5cqw;right:9cqw;width:22cqw;max-width:22cqw;font-size:2.8cqw;line-height:1;transform:rotate(8deg)}
+  #site-app .fora-detail--contact .detail-hero-description{max-width:51cqw;font-size:2.7cqw;line-height:1.2}
+  #site-app .fora-detail--contact .detail-hand-note--hero{bottom:5cqw;right:3cqw;width:14cqw;max-width:14cqw;font-size:3.8cqw}
+  #site-app .fora-detail--contact .detail-contact-form-wrap>p:not(.detail-eyebrow){font-size:2.65cqw;line-height:1.25;margin-bottom:2.5cqw}
+  #site-app .fora-detail--contact .detail-contact-form{gap:1.9cqw;margin-top:1cqw}
+  #site-app .fora-detail--contact .detail-contact-form .detail-form-row{gap:1.9cqw}
+  #site-app .fora-detail--contact .detail-contact-form input,#site-app .fora-detail--contact .detail-contact-form select{height:6.2cqw;min-height:6.2cqw;padding-block:.5cqw}
+  #site-app .fora-detail--contact .detail-contact-form textarea{height:12cqw;min-height:12cqw;padding-block:1cqw;line-height:1.2}
+  #site-app .fora-detail--contact .detail-contact-aside{min-height:42cqw}
+  #site-app .fora-detail--contact .detail-contact-aside-copy>p:not(.detail-eyebrow){max-width:35cqw;font-size:2.65cqw;line-height:1.3}
+  #site-app .fora-detail--contact .detail-contact-aside-copy .btn{background:transparent;border:1px solid #fff}
+  #site-app .fora-detail--contact .detail-contact-photo{top:12cqw;right:10cqw;width:47cqw;height:40cqw;transform:rotate(7deg)}
+  #site-app .fora-detail--contact .detail-hand-note--aside{right:2cqw;bottom:-8cqw;width:13cqw;max-width:13cqw;font-size:3.7cqw;color:var(--text)}
+  #site-app .fora-detail--contact .detail-contact-cta h2{font-size:6.9cqw}
+  #site-app[data-page="contact"] .footer-nav{width:88cqw;justify-content:space-between;gap:1cqw}
+  #site-app[data-page="contact"] .footer-nav a{font-size:1.9cqw}
+  #site-app[data-page="contact"] .footer-socials .icon{width:3.4cqw;height:3.4cqw}
+  #site-app[data-page="contact"] .footer-bottom{font-size:1.35cqw}
+}

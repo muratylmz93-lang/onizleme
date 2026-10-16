@@ -1,7 +1,7 @@
-import { renderHome, initHome } from './site-home.js?v=20261015-110';
-import { subscribeContent, createContentContext, setupSEO, submitInquiry, trackEvent } from './site-content-runtime.js?v=20261015-110';
-import { PHOTO, escapeHTML as esc } from './site-assets.js?v=20261015-110';
-import { detailContent } from './site-detail-context.js?v=20261015-110';
+import { renderHome, initHome } from './site-home.js?v=20261016-130';
+import { subscribeContent, createContentContext, setupSEO, submitInquiry, trackEvent } from './site-content-runtime.js?v=20261016-130';
+import { PHOTO, escapeHTML as esc } from './site-assets.js?v=20261016-130';
+import { detailContent } from './site-detail-context.js?v=20261016-130';
 
 const PAGES = {
   home: { id:'ana-sayfa', path:'/', prefix:'home' },
@@ -313,6 +313,16 @@ function initForms(ctx) {
       const value=params.get(query);const input=form.elements.namedItem(name);
       if(renderCount===1 && value && input)input.value=value;
     }
+    const dateLabels = [...form.querySelectorAll('.detail-date-label')];
+    const syncDateLabels = () => dateLabels.forEach(label => {
+      label.dataset.empty = String(!label.querySelector('input[type="date"]')?.value);
+    });
+    for (const label of dateLabels) {
+      label.addEventListener('input', syncDateLabels);
+      label.addEventListener('change', syncDateLabels);
+    }
+    form.addEventListener('reset', () => queueMicrotask(syncDateLabels));
+    syncDateLabels();
     form.addEventListener('submit',async event=>{
       event.preventDefault();
       if(!form.reportValidity()) return;
@@ -400,7 +410,7 @@ function initPreviewSelection(ctx) {
 async function render(context,meta) {
   const sequence=++renderSequence;
   let ctx=context;
-  const defaults=await import('./site-native-content.js?v=20261015-110');
+  const defaults=await import('./site-native-content.js?v=20261016-130');
   const normalized=defaults.normalizeNativeContent(context.content);
   baselinePromise ||= fetch(`${config}assets/cms-public.json`,{cache:'no-cache'}).then(response=>response.json()).then(data=>defaults.normalizeNativeContent(data.content||data)).catch(()=>normalized);
   const currentPath=document.querySelector('meta[name="fora-cms-page-path"]')?.content||(preview?pageInfo.path:`/${location.pathname.slice(config.length)}`);
@@ -408,7 +418,7 @@ async function render(context,meta) {
   ctx=createContentContext(detail.content,{basePath:config,includeDraft:params.get('cmsPreview')==='1'});
   ctx.detailEntity=detail.entity;ctx.detailCollection=detail.family;
   if(preview){const originalUrl=ctx.url;ctx.url=route=>previewRoute(ctx.basePath,route)||originalUrl(route);}
-  const templates=pageKey==='home'?null:await import('./site-pages.js?v=20261015-110');
+  const templates=pageKey==='home'?null:await import('./site-pages.js?v=20261016-130');
   const markup=pageKey==='home'?renderHome(ctx):await templates.renderPage(pageKey,ctx);
   if(sequence!==renderSequence)return;
   const y=scrollY;

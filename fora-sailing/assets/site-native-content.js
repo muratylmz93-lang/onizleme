@@ -1,4 +1,4 @@
-import { PHOTO } from './site-assets.js?v=20261015-110';
+import { PHOTO } from './site-assets.js?v=20261016-130';
 
 const FIELD_PHOTOS = Object.freeze({
   'home.hero.image': { photo: 'hero' },
@@ -12,15 +12,16 @@ const FIELD_PHOTOS = Object.freeze({
   'deneyimler.video.image': { photo: 'fleetQuote' },
   'deneyimler.plan.image': { photo: 'boat' },
   'rotalar.hero.image': { photo: 'heroRoutes' },
-  'rotalar.planning.image': { photo: 'aboutTogether' },
+  'rotalar.planning.image': { photo: 'sunset' },
   'rota-gocek-fethiye.hero.image': { photo: 'heroRoutes' },
   'rota-gocek-fethiye.content.image': { photo: 'routeStory' },
+  'rota-gocek-fethiye.stops.mapImage': { photo: 'routeSea' },
   'filo.hero.image': { photo: 'heroFleet' },
   'filo.content.image': { photo: 'saloon' },
   'filo.quote.image': { photo: 'fleetQuote' },
   'eylul.hero.image': { photo: 'heroFleet' },
   'eylul.content.image': { photo: 'guletDeck' },
-  'hakkimizda.hero.image': { photo: 'heroFleet' },
+  'hakkimizda.hero.image': { photo: 'heroAbout' },
   'hakkimizda.content.image': { photo: 'routeStory' },
   'hakkimizda.content.sideImage': { photo: 'aboutSide' },
   'hakkimizda.values.image': { photo: 'routeSea' },
@@ -32,7 +33,7 @@ const FIELD_PHOTOS = Object.freeze({
   'eylul.content.insetImage': { photo: 'routeCove' },
   'eylul.content.sideImage': { photo: 'cabin' },
   'eylul.gallery.mainImage': { photo: 'saloon' },
-  'iletisim.hero.image': { photo: 'heroFleet' },
+  'iletisim.hero.image': { photo: 'heroContact' },
   'iletisim.content.image': { photo: 'contactSunset' },
   'iletisim.cta.image': { photo: 'contactCta' },
 });
@@ -67,8 +68,16 @@ const EXPERIENCE_DESCRIPTIONS = Object.freeze({
   'guvertede-gun-batimi': 'Denizin üzerinde, gün batımının eşsiz renklerine tanıklık edin.',
   'koylarda-yuzme': 'Turkuaz sularda yüzün, bakir doğayla buluşun.',
 });
-const NATIVE_CONTENT_VERSION = 80;
+const LEGACY_EXPERIENCE_TITLES = Object.freeze({
+  'ailece-mavi-yolculuk': { previous: 'Ailece mavi yolculuk', current: 'Ailece Mavi Yolculuk' },
+  'size-ozel-gulet-tatili': { previous: 'Size özel gulet tatili', current: 'Size Özel Gulet Tatili' },
+  'guvertede-gun-batimi': { previous: 'Guvertede gün batımı', current: 'Güvertede Gün Batımı' },
+  'koylarda-yuzme': { previous: 'Koylarda yüzme', current: 'Koylarda Yüzme Molası' },
+});const NATIVE_CONTENT_VERSION = 80;
 const LEGACY_TEXT_DEFAULTS = Object.freeze({
+  'hakkimizda.hero.description': { previous: 'Ege ve Akdeniz’in eşsiz koylarında, denizle, doğayla ve insanla kurulan derin bir bağın peşindeyiz.', current: 'Ege ve Akdeniz’in eşsiz koylarında, denizle, doğayla ve insanla kurulan derin bir bağın peşindeyiz. Fora Sailing, mavi yolculuğu bir tatilden çok, bir yaşam tarzı olarak görür.' },
+  'hakkimizda.together.description': { previous: 'Yeni yerler keşfetmek, farklı kültürlerle tanışmak, doğayla yeniden bağ kurmak ve sevdiklerinizle kaliteli zaman geçirmek…', current: 'Yeni yerler keşfetmek, farklı kültürlerle tanışmak, doğayla yeniden bağ kurmak ve sevdiklerinizle kaliteli zaman geçirmek… Fora Sailing ile her yolculuk, bu değerleri bir araya getirir.' },
+  'iletisim.content.description': { previous: 'Hayalinizdeki mavi yolculuğu birlikte planlayabilmemiz için aşağıdaki formu doldurun.', current: 'Hayalinizdeki mavi yolculuğu birlikte planlayabilmemiz için aşağıdaki formu doldurun. Ekibimiz en kısa sürede sizinle iletişime geçsin.' },
   'eylul.content.note': { previous: 'Mavi sonsuzlukta sizi bekliyor…', current: 'Keşfet.\nHisset.\nYaşa…' },
   'filo.hero.eyebrow': { previous: 'MAVİ YOLCULUK • FORA SAILING', current: 'EGE VE AKDENİZ’İN EN GÜZEL KOYLARINDA' },
   'hakkimizda.hero.eyebrow': { previous: ['MAVİ YOLCULUK • FORA SAILING','MAVİ YOLCULUKTA'], current: 'FORA SAILING HAKKIMIZDA' },
@@ -84,6 +93,9 @@ const LEGACY_TEXT_DEFAULTS = Object.freeze({
 // Native template fallbacks that have no field in older CMS snapshots. These
 // are presentation defaults only; existing CMS values always win.
 const DEFAULT_FIELD_ROWS = Object.freeze([
+  { pagePath: '/hakkimizda/', sectionId: 'hero', binding: 'hakkimizda.hero.description', type: 'textarea', label: 'Kapak açıklaması', value: 'Ege ve Akdeniz’in eşsiz koylarında, denizle, doğayla ve insanla kurulan derin bir bağın peşindeyiz. Fora Sailing, mavi yolculuğu bir tatilden çok, bir yaşam tarzı olarak görür.' },
+  { pagePath: '/hakkimizda/', sectionId: 'together', binding: 'hakkimizda.together.description', type: 'textarea', label: 'Birlikte yolculuk açıklaması', value: 'Yeni yerler keşfetmek, farklı kültürlerle tanışmak, doğayla yeniden bağ kurmak ve sevdiklerinizle kaliteli zaman geçirmek… Fora Sailing ile her yolculuk, bu değerleri bir araya getirir.' },
+  { pagePath: '/iletisim/', sectionId: 'content', binding: 'iletisim.content.description', type: 'textarea', label: 'Form açıklaması', value: 'Hayalinizdeki mavi yolculuğu birlikte planlayabilmemiz için aşağıdaki formu doldurun. Ekibimiz en kısa sürede sizinle iletişime geçsin.' },
   { pagePath: '/', sectionId: 'offer', binding: 'home.offer.note', type: 'textarea', label: 'Kampanya fotoğrafı notu', value: 'Mavi, insana\nhep iyi gelir.' },
   { pagePath: '/filo/eylul/', sectionId: 'content', binding: 'eylul.content.insetNote', type: 'textarea', label: 'Koy fotoğrafı notu', value: 'Mavi sonsuzlukta\nsizi bekliyor…' },
   { pagePath: '/filo/eylul/', sectionId: 'content', binding: 'eylul.content.sideImage', type: 'image', label: 'Kamara görünümü', value: '' },
@@ -246,6 +258,7 @@ const DEFAULT_FIELD_ROWS = Object.freeze([
   { pagePath: '/rotalar/gocek-fethiye-gocek/', sectionId: 'highlights', binding: 'rota-gocek-fethiye.highlights.sunsetDescription', type: 'textarea', label: 'Gün batımı açıklaması', value: 'Günün sonunda guletinizin güvertesinde Akdeniz’in eşsiz gün batımını izleyin.' },
   { pagePath: '/rotalar/gocek-fethiye-gocek/', sectionId: 'highlights', binding: 'rota-gocek-fethiye.highlights.sunsetLinkLabel', type: 'text', label: 'Gün batımı bağlantı metni', value: 'Deneyimleri Keşfet' },
   { pagePath: '/rotalar/gocek-fethiye-gocek/', sectionId: 'quote', binding: 'rota-gocek-fethiye.quote.dateLabel', type: 'text', label: 'Tarih alanı etiketi', value: 'Tarih Aralığı' },
+  { pagePath: '/rotalar/gocek-fethiye-gocek/', sectionId: 'stops', binding: 'rota-gocek-fethiye.stops.mapImage', type: 'image', label: 'Rota çizgisi altındaki koy fotoğrafı', value: '' },
   { pagePath: '/rotalar/gocek-fethiye-gocek/', sectionId: 'quote', binding: 'rota-gocek-fethiye.quote.guestsLabel', type: 'text', label: 'Misafir alanı etiketi', value: 'Misafir Sayısı' },
   { pagePath: '/rotalar/gocek-fethiye-gocek/', sectionId: 'quote', binding: 'rota-gocek-fethiye.quote.title', type: 'text', label: 'Teklif başlığı', value: 'Bu Rota İçin Teklif Alın' },
   { pagePath: '/rotalar/gocek-fethiye-gocek/', sectionId: 'quote', binding: 'rota-gocek-fethiye.quote.note', type: 'text', label: 'Teklif notu', value: 'Mavi, size çok yakışacak…' },
@@ -276,6 +289,7 @@ const DEFAULT_FIELD_ROWS = Object.freeze([
   {"pagePath": "/deneyimler/", "sectionId": "content", "binding": "deneyimler.content.sideNote", "type": "textarea", "label": "El yazısı notu", "value": "Her rota, başka bir masal…"},
   {"pagePath": "/deneyimler/", "sectionId": "plan", "binding": "deneyimler.plan.note", "type": "textarea", "label": "El yazısı notu", "value": "Güzel anılar hep ileride…"},
   {"pagePath": "/hakkimizda/", "sectionId": "hero", "binding": "hakkimizda.hero.note", "type": "textarea", "label": "El yazısı notu", "value": "Aynı deniz, daha güzel bir gün…"},
+  {"pagePath": "/hakkimizda/", "sectionId": "content", "binding": "hakkimizda.content.insetNote", "type": "textarea", "label": "Küçük fotoğraf yanı notu", "value": "Mavi\nSonsuzlukta\nSizi Bekliyor…"},
   {"pagePath": "/hakkimizda/", "sectionId": "content", "binding": "hakkimizda.content.note", "type": "textarea", "label": "El yazısı notu", "value": "Keşfet. Hisset. Yaşa…"},
   {"pagePath": "/hakkimizda/", "sectionId": "values", "binding": "hakkimizda.values.note", "type": "textarea", "label": "El yazısı notu", "value": "Her rota, başka bir masal…"},
   {"pagePath": "/hakkimizda/", "sectionId": "together", "binding": "hakkimizda.together.note", "type": "textarea", "label": "El yazısı notu", "value": "Daha fazla mavi, daha fazla siz…"},
@@ -390,6 +404,8 @@ export function normalizeNativeContent(content, options = {}) {
     }
   }
   for (const item of normalized.experiences || []) {
+    const titleMigration = LEGACY_EXPERIENCE_TITLES[String(item.id)];
+    if (titleMigration && item._canonicalEdits?.title !== true && item.title === titleMigration.previous) item.title = titleMigration.current;
     const fallbackDescription = EXPERIENCE_DESCRIPTIONS[String(item.id)];
     if (!fallbackDescription) continue;
     if (item.description == null || (legacyCopyMigration && item.description === '')) item.description = fallbackDescription;

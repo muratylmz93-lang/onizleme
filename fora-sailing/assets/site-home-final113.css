@@ -1,0 +1,147 @@
+/* Source-tuned native homepage refinements. Imported after site-home.css and edges110. */
+@media (min-width: 761px) {
+  #site-app .fora-home .home-hero-actions .home-button-gold { padding-inline: 3.8cqw; }
+  #site-app .fora-home .home-hero-actions .home-button:not(.home-button-gold) { padding-inline: 1.7cqw; }
+
+  #site-app .fora-home .home-story-photos { top: 2.2cqw; right: 6.8cqw; width: 47cqw; height: 33cqw; }
+  #site-app .fora-home .home-story-main { top: 0; left: 2.5cqw; width: 74%; height: 94%; transform: rotate(8deg); }
+  #site-app .fora-home .home-story-side { top: 18%; right: 0; width: 30%; height: 48%; transform: rotate(3deg); }
+
+  #site-app .fora-home .home-phone { top: -3.4cqw; right: 1.2cqw; width: 18.5cqw; height: 47cqw; padding: .65cqw; }
+  #site-app .fora-home .home-phone-hero { padding: 5.4cqw 1.3cqw 1.1cqw; }
+  #site-app .fora-home .home-phone-hero h3 { margin-top: 4.8cqw; font-size: 1.9cqw; }
+  #site-app .fora-home .home-phone-story img { height: 5.5cqw; }
+
+  #site-app .fora-home .home-fleet { min-height: 28.8cqw; }
+  #site-app .fora-home .home-fleet .home-section-heading > p:not(.home-eyebrow) { max-width: 20cqw; }
+  #site-app .fora-home .home-fleet-rail { top: 7.8cqw; right: 0; left: 20.8cqw; gap: .2cqw; padding-right: 0; }
+  #site-app .fora-home .home-fleet-card { flex-basis: 16%; }
+  #site-app .fora-home .home-fleet-card:nth-child(2) { flex-basis: 20.5%; }
+  #site-app .fora-home .home-fleet-card:nth-child(3) { flex-basis: 24%; }
+  #site-app .fora-home .home-fleet-card:nth-child(4) { flex-basis: 21.5%; transform: translateY(.5cqw) rotate(.8deg); }
+  #site-app .fora-home .home-fleet-card:nth-child(5) { flex-basis: 17%; transform: translateY(3cqw) rotate(1.4deg); }
+  #site-app .fora-home .home-fleet-photo { height: 11cqw; }
+
+  #site-app .fora-home .home-offer { height: 23cqw; min-height: 23cqw; }
+  #site-app .fora-home .home-offer-photo { clip-path: polygon(0 0,97% 0,83% 100%,0 100%); }
+  #site-app .fora-home .home-offer-copy > p:not(.home-eyebrow) { max-width: 32cqw; }
+
+  #site-app .fora-home .home-benefits { min-height: 14.3cqw; }
+  #site-app .fora-home .home-benefit-photo { width: 32%; clip-path: polygon(24% 0,100% 0,100% 100%,0 100%); }
+  #site-app .fora-home .home-benefits::after { width: 33%; }
+  #site-app .fora-home .home-benefit-list { width: 64%; }
+
+  #site-app .fora-home .home-reviews { min-height: 21.1cqw; grid-template-columns: 26% 30% 1fr; padding-right: 3cqw; }
+  #site-app .fora-home .home-review-avatar { width: 5.2cqw; height: 5.2cqw; }
+  #site-app .fora-home .home-review-photos { gap: .55cqw; }
+  #site-app .fora-home .home-review-photos img { flex-basis: 32%; width: 32%; height: 12.4cqw; }
+}
+
+@media (max-width: 760px) {
+  #site-app .fora-home .home-story-photos { top: 26cqw; right: 2cqw; }
+  #site-app .fora-home .home-story-main { width: 69%; height: 70%; }
+  #site-app .fora-home .home-story-side { top: 0; right: 7cqw; }
+  #site-app .fora-home .home-story-play { top: 38%; }
+}
+
+/* 114: normalize source-scale geometry and the few source-order differences. */
+#site-app .fora-home .home-hero-description,
+#site-app .fora-home .home-story-copy > p:not(.home-eyebrow),
+#site-app .fora-home .home-section-heading > p:not(.home-eyebrow),
+#site-app .fora-home .home-offer-copy > p:not(.home-eyebrow),
+#site-app .fora-home .home-card-copy > span,
+#site-app .fora-home .home-benefit-list span,
+#site-app .fora-home .home-review-quote blockquote { font-weight: 300; }
+
+#site-app .fora-home .home-routes > .home-section-heading > .home-eyebrow { display: none; }
+
+@media (min-width: 761px) {
+  #site-app .fora-home .home-hero-actions .home-button-gold { padding-inline: 2.95cqw; }
+
+  #site-app .fora-home .home-story-photos { top: 2.3cqw; }
+  #site-app .fora-home .home-story-main { left: 1.8cqw; width: 77%; height: 80%; }
+  #site-app .fora-home .home-story-side { top: 5%; width: 28%; height: 58%; }
+
+  #site-app .fora-home .home-phone {
+    top: -4cqw;
+    right: 2.1cqw;
+    box-sizing: border-box;
+    width: 16.3cqw;
+    height: 46cqw;
+  }
+
+  #site-app .fora-home .home-routes > .home-section-heading { transform: translateY(-2.6cqw); }
+  #site-app .fora-home .home-route-rail { bottom: 3.8cqw; }
+
+  #site-app .fora-home .home-offer-badge { right: 4cqw; width: 9.8cqw; }
+  #site-app .fora-home .home-benefit-photo { width: 29%; clip-path: polygon(14% 0, 100% 0, 100% 100%, 0 100%); }
+  #site-app .fora-home .home-benefits::after { width: 31%; }
+  #site-app .fora-home .home-benefits-note { right: 4.5cqw; width: 18cqw; }
+
+  #site-app .fora-home .home-reviews { grid-template-columns: 26% 29.3% 1fr; }
+  #site-app .fora-home .home-review-quote { padding-block: 1.05cqw; transform: translateY(.6cqw); }
+  #site-app .fora-home .home-review-avatar { width: 4.8cqw; height: 4.8cqw; }
+  #site-app .fora-home .home-review-rating { font-size: 1.2cqw; }
+  #site-app .fora-home .home-review-quote blockquote { font-size: 1.25cqw; line-height: 1.28; }
+  #site-app .fora-home .home-review-quote figcaption { margin-top: .5cqw; }
+  #site-app .fora-home .home-review-photos { transform: translate(-.6cqw, -.4cqw); }
+  #site-app .fora-home .home-review-photos img { flex-basis: 31%; width: 31%; height: 11.8cqw; }
+
+  #site-app .fora-home .home-fleet-card .home-card-copy { padding-inline: .6cqw; }
+  #site-app .fora-home .home-fleet-card .home-card-copy > span { font-size: 1cqw; white-space: nowrap; }
+
+  #site-app .fora-home .home-reviews-copy h2 {
+    max-width: 24cqw;
+    font-size: 3.7cqw;
+    hyphens: none;
+    overflow-wrap: normal;
+  }
+}
+
+/* 114: final source alignment for the story print and native section labels. */
+#site-app .fora-home .home-fleet > .home-section-heading > .home-eyebrow { display: none; }
+#site-app .fora-home .home-reviews-copy > .home-eyebrow {
+  font-size: 1.2cqw;
+  font-weight: 300;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+@media (max-width: 760px) {
+  #site-app .fora-home .home-routes > .home-section-heading { transform: translateY(2.5cqw); }
+  #site-app .fora-home .home-routes > .home-section-heading h2 {
+    max-width: 55cqw;
+    font-size: 4.9cqw;
+  }
+  #site-app .fora-home .home-routes > .home-section-heading > p:not(.home-eyebrow) { max-width: 50cqw; }
+  #site-app .fora-home .home-reviews-copy > .home-eyebrow { font-size: 2cqw; }
+
+  /* Keep the original overlapping campaign photo while preserving clickable fleet cards. */
+  #site-app .fora-home .home-fleet .home-section-heading { position: relative; z-index: 2; }
+  #site-app .fora-home .home-fleet-rail { z-index: 2; }
+  #site-app .fora-home .home-offer {
+    z-index: 1;
+    height: 29cqw;
+    min-height: 29cqw;
+    overflow: visible;
+  }
+  #site-app .fora-home .home-offer-photo {
+    position: relative;
+    z-index: 1;
+    justify-self: start;
+    width: 58cqw;
+    height: calc(100% + 23cqw);
+    min-height: 0;
+    /* Preserve the full source photo; contain leaves the upper sky transparent over the pale fleet area. */
+    object-fit: contain;
+    object-position: left bottom;
+    clip-path: none;
+    transform: translateY(-22cqw);
+  }
+  #site-app .fora-home .home-offer-copy { position: relative; z-index: 2; padding-left: 6cqw; }
+
+  /* The source review panel is shorter; preserve its text and controls inside the band. */
+  #site-app .fora-home .home-benefits { height: 16cqw; min-height: 16cqw; }
+  #site-app .fora-home .home-reviews { height: 18cqw; min-height: 18cqw; }
+  #site-app .fora-home .home-review-quote { min-height: 15cqw; padding: .8cqw 1cqw; }
+}
